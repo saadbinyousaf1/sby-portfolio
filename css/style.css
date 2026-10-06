@@ -1,0 +1,789 @@
+/* © https://saadbinyousaf.dev/ © */
+
+/* © https://saadbinyousaf.dev/ © */
+:root {
+  --ink: #0B0C0A;
+  --panel: #141610;
+  --panel-2: #1A1D15;
+  --line: #262922;
+  --lime: #aac86b;
+  --lime-bright: #D6F077;
+  --bone: #F2F1EA;
+  --dim: #8A8D80;
+  --serif: 'Instrument Serif', serif;
+  --grotesk: 'Space Grotesk', sans-serif;
+  --mono: 'JetBrains Mono', monospace;
+  --ease: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+html.lenis { scroll-behavior: auto; }
+
+body {
+  background: var(--ink);
+  color: var(--bone);
+  font-family: var(--grotesk);
+  font-weight: 400;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection { background: var(--lime); color: var(--ink); }
+
+/* Grain overlay */
+body::after {
+  content: '';
+  position: fixed; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9000;
+}
+
+/* © https://saadbinyousaf.dev/ © */
+#preloader {
+  position: fixed; inset: 0; z-index: 10000;
+  background: var(--ink);
+  display: flex; align-items: center; justify-content: center;
+}
+#preloader .pre-inner { text-align: center; }
+#preloader .pre-count {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(4rem, 12vw, 9rem);
+  color: var(--lime);
+  line-height: 1;
+}
+#preloader .pre-label {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--dim);
+  margin-top: 1rem;
+}
+
+/* © https://saadbinyousaf.dev/ © */
+.cursor-dot {
+  position: fixed; top: 0; left: 0;
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--lime-bright);
+  pointer-events: none; z-index: 9999;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: difference;
+}
+.cursor-ring {
+  position: fixed; top: 0; left: 0;
+  width: 34px; height: 34px; border-radius: 50%;
+  border: 1px solid rgba(170, 200, 107, 0.45);
+  pointer-events: none; z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: width 0.25s var(--ease), height 0.25s var(--ease), border-color 0.25s;
+}
+.cursor-ring.is-hover { width: 56px; height: 56px; border-color: var(--lime-bright); }
+@media (hover: none) { .cursor-dot, .cursor-ring { display: none; } }
+
+/* © https://saadbinyousaf.dev/ © */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 900;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.4rem 3rem;
+  transition: background 0.4s, backdrop-filter 0.4s, border-color 0.4s;
+  border-bottom: 1px solid transparent;
+}
+nav.scrolled {
+  background: rgba(11, 12, 10, 0.72);
+  backdrop-filter: blur(18px);
+  border-bottom-color: var(--line);
+}
+.nav-logo {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--bone);
+  text-decoration: none;
+}
+.nav-logo span { color: var(--lime); }
+.nav-links { display: flex; gap: 2.4rem; list-style: none; }
+.nav-links a {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--dim);
+  text-decoration: none;
+  position: relative;
+  transition: color 0.25s;
+}
+.nav-links a::after {
+  content: ''; position: absolute; left: 0; bottom: -5px;
+  width: 0; height: 1px; background: var(--lime);
+  transition: width 0.3s var(--ease);
+}
+.nav-links a:hover { color: var(--bone); }
+.nav-links a:hover::after { width: 100%; }
+.nav-cta {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink);
+  background: var(--lime);
+  padding: 0.65rem 1.4rem;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: background 0.25s, transform 0.25s;
+}
+.nav-cta:hover { background: var(--lime-bright); transform: translateY(-2px); }
+
+/* © https://saadbinyousaf.dev/ © */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  align-items: center;
+  gap: 3rem;
+  padding: 8rem 3rem 4rem;
+  position: relative;
+  overflow: hidden;
+}
+.hero-bg-grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(170,200,107,0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(170,200,107,0.045) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: radial-gradient(ellipse 80% 70% at 30% 40%, black, transparent);
+  pointer-events: none;
+}
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--lime);
+  border: 1px solid rgba(170,200,107,0.35);
+  padding: 0.5rem 1.1rem;
+  border-radius: 999px;
+  margin-bottom: 2.2rem;
+}
+.hero-eyebrow .pulse {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--lime-bright);
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.25} }
+
+.hero h1 {
+  font-family: var(--grotesk);
+  font-weight: 700;
+  font-size: clamp(2.6rem, 5.6vw, 5rem);
+  line-height: 1.04;
+  letter-spacing: -0.035em;
+  margin-bottom: 1.8rem;
+}
+.hero h1 .hl { color: var(--lime); }
+.hero h1 .rev {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--lime);
+  font-size: 1.12em;
+  position: relative;
+  display: inline-block;
+  padding-right: 0.05em;
+}
+.hero h1 .rev svg {
+  position: absolute; left: 0; bottom: -0.12em;
+  width: 100%; height: 0.22em;
+  overflow: visible;
+}
+.hero h1 .rev svg path {
+  fill: none;
+  stroke: var(--lime-bright);
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+.hero .line { display: block; }
+.hero .line > span { display: inline-block; will-change: transform; }
+
+.hero-sub {
+  font-size: 1.02rem;
+  line-height: 1.75;
+  color: var(--dim);
+  max-width: 46ch;
+  margin-bottom: 2.6rem;
+}
+.hero-cta-row { display: flex; align-items: center; gap: 1.4rem; flex-wrap: wrap; }
+.btn {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 999px;
+  padding: 1rem 2.1rem;
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  transition: transform 0.3s var(--ease-out), background 0.25s, color 0.25s;
+  will-change: transform;
+  border: none; cursor: pointer;
+}
+.btn-solid { background: var(--lime); color: var(--ink); font-weight: 700; }
+.btn-solid:hover { background: var(--lime-bright); }
+.btn-ghost { color: var(--bone); border: 1px solid var(--line); background: transparent; }
+.btn-ghost:hover { border-color: var(--lime); color: var(--lime); }
+
+/* Hero right — portal collage */
+.hero-collage { position: relative; height: 480px; perspective: 1400px; }
+.collage-scroll, .collage-stage { position: absolute; inset: 0; transform-style: preserve-3d; }
+.collage-card {
+  position: absolute;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  box-shadow: 0 30px 80px rgba(0,0,0,0.55);
+  background: var(--panel);
+  will-change: transform;
+}
+.collage-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.collage-card .chrome {
+  height: 26px; background: #1A1C16;
+  display: flex; align-items: center; gap: 4px;
+  padding: 0 10px;
+  border-bottom: 1px solid var(--line);
+}
+.collage-card .chrome i { width: 7px; height: 7px; border-radius: 50%; display: block; }
+.collage-card .chrome i:nth-child(1){background:#FF5F57}
+.collage-card .chrome i:nth-child(2){background:#FEBC2E}
+.collage-card .chrome i:nth-child(3){background:#28C840}
+.cc-1 { width: 74%; top: 4%; right: 0; z-index: 3; aspect-ratio: 16 / 8.2; }
+.cc-2 { width: 62%; top: 38%; left: 0; z-index: 2; aspect-ratio: 16 / 8.2; }
+.cc-3 { width: 56%; bottom: 0; right: 6%; z-index: 1; aspect-ratio: 16 / 8.2; }
+
+/* © https://saadbinyousaf.dev/ © */
+.ticker {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  overflow: hidden;
+  padding: 1.1rem 0;
+  background: var(--panel);
+}
+.ticker-track { display: flex; width: max-content; will-change: transform; }
+.ticker-item {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--dim);
+  white-space: nowrap;
+  padding: 0 1.6rem;
+  display: flex; align-items: center; gap: 1.6rem;
+}
+.ticker-item::after { content: '✦'; color: var(--lime); font-size: 0.7rem; }
+
+/* © https://saadbinyousaf.dev/ © */
+section { padding: 8rem 3rem; position: relative; }
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--lime);
+  display: flex; align-items: center; gap: 0.8rem;
+  margin-bottom: 1.2rem;
+}
+.eyebrow::before { content: ''; width: 2rem; height: 1px; background: var(--lime); }
+.sec-title {
+  font-family: var(--grotesk);
+  font-weight: 700;
+  font-size: clamp(2.2rem, 4.4vw, 3.8rem);
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  margin-bottom: 1rem;
+}
+.sec-title em {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--lime);
+  font-size: 1.08em;
+}
+.sec-sub { color: var(--dim); font-size: 0.98rem; line-height: 1.7; max-width: 56ch; }
+
+/* © https://saadbinyousaf.dev/ © */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 5rem;
+  align-items: start;
+  border-top: 1px solid var(--line);
+}
+.about-copy p {
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: rgba(242,241,234,0.72);
+}
+.about-copy p + p { margin-top: 1.3rem; }
+.about-copy strong { color: var(--bone); font-weight: 700; }
+.stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+  margin-top: 3.4rem;
+}
+.stat {
+  background: var(--panel);
+  padding: 2rem 1.6rem;
+  transition: background 0.3s;
+}
+.stat:hover { background: var(--panel-2); }
+.stat .num {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 2.9rem;
+  color: var(--lime);
+  line-height: 1;
+}
+.stat .lbl {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--dim);
+  margin-top: 0.6rem;
+}
+
+/* © https://saadbinyousaf.dev/ © */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.4rem;
+  margin-top: 3.6rem;
+}
+.svc {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 2.2rem;
+  transition: border-color 0.3s;
+}
+.svc:hover { border-color: rgba(170,200,107,0.5); }
+.svc .svc-glyph {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 2rem;
+  color: var(--lime);
+  margin-bottom: 1.4rem;
+}
+.svc h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  margin-bottom: 0.9rem;
+}
+.svc p { font-size: 0.9rem; line-height: 1.75; color: var(--dim); margin-bottom: 1.4rem; }
+.svc ul { list-style: none; }
+.svc li {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  color: rgba(242,241,234,0.65);
+  padding: 0.5rem 0;
+  border-top: 1px solid var(--line);
+  display: flex; align-items: center; gap: 0.6rem;
+}
+.svc li::before { content: '→'; color: var(--lime); }
+
+/* © https://saadbinyousaf.dev/ © */
+.portals-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.4rem;
+  margin-top: 3.6rem;
+}
+.portal {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  transition: border-color 0.3s, box-shadow 0.35s;
+  cursor: pointer;
+}
+.portal:hover {
+  border-color: rgba(170,200,107,0.5);
+  box-shadow: 0 28px 65px rgba(0,0,0,0.5);
+}
+.portal-shot { position: relative; aspect-ratio: 16 / 8.5; overflow: hidden; border-radius: 15px 15px 0 0; }
+.portal-shot img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.7s var(--ease-out);
+}
+.portal:hover .portal-shot img { transform: scale(1.05); }
+.portal-shot .view-pill {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(11,12,10,0.35);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.portal:hover .view-pill { opacity: 1; }
+.view-pill span {
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink);
+  background: var(--lime);
+  padding: 0.6rem 1.3rem;
+  border-radius: 999px;
+  font-weight: 700;
+}
+.portal-body { padding: 1.5rem 1.6rem 1.7rem; }
+.portal-tags { display: flex; gap: 0.45rem; flex-wrap: wrap; margin-bottom: 0.9rem; }
+.ptag {
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--dim);
+  border: 1px solid var(--line);
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+}
+.ptag.hl { color: var(--lime); border-color: rgba(170,200,107,0.35); }
+.portal h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem; letter-spacing: -0.01em; }
+.portal p { font-size: 0.85rem; line-height: 1.7; color: var(--dim); }
+
+/* © https://saadbinyousaf.dev/ © */
+.sites-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.4rem;
+  margin-top: 3.6rem;
+}
+.site {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  display: flex; flex-direction: column;
+  transition: border-color 0.3s, box-shadow 0.35s;
+}
+.site:hover {
+  border-color: rgba(170,200,107,0.5);
+  box-shadow: 0 28px 65px rgba(0,0,0,0.5);
+}
+.site-chrome {
+  border-radius: 15px 15px 0 0;
+  background: #1A1C16;
+  border-bottom: 1px solid var(--line);
+  padding: 0.55rem 0.9rem;
+  display: flex; align-items: center; gap: 0.6rem;
+}
+.site-chrome .dots { display: flex; gap: 4px; }
+.site-chrome .dots i { width: 8px; height: 8px; border-radius: 50%; display: block; }
+.site-chrome .dots i:nth-child(1){background:#FF5F57}
+.site-chrome .dots i:nth-child(2){background:#FEBC2E}
+.site-chrome .dots i:nth-child(3){background:#28C840}
+.site-chrome .url {
+  flex: 1;
+  background: #0E0F0C;
+  border-radius: 5px;
+  padding: 0.2rem 0.7rem;
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  color: var(--dim);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.site-viewport {
+  height: 250px;
+  overflow: hidden;
+  position: relative;
+  background: #060705;
+}
+.site-viewport img {
+  width: 100%;
+  display: block;
+  transform: translateY(0);
+  transition: transform 7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform;
+}
+.site:hover .site-viewport img { transform: translateY(calc(-100% + 250px)); }
+.scroll-hint {
+  position: absolute; bottom: 10px; left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--mono);
+  font-size: 0.56rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--dim);
+  background: rgba(11,12,10,0.8);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--line);
+  padding: 0.28rem 0.75rem;
+  border-radius: 999px;
+  transition: opacity 0.35s;
+  pointer-events: none;
+  white-space: nowrap;
+}
+.site:hover .scroll-hint { opacity: 0; }
+.site-body {
+  padding: 1.1rem 1.3rem;
+  display: flex; justify-content: space-between; align-items: flex-start; gap: 0.8rem;
+  border-top: 1px solid var(--line);
+}
+.site-body h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.25rem; }
+.site-body .meta {
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.06em;
+  color: var(--dim);
+}
+
+/* © https://saadbinyousaf.dev/ © */
+.cta {
+  border-top: 1px solid var(--line);
+  text-align: center;
+}
+.cta .big {
+  font-family: var(--grotesk);
+  font-weight: 700;
+  font-size: clamp(2.6rem, 6vw, 5.4rem);
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+  margin-bottom: 1.6rem;
+}
+.cta .big em {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--lime);
+  font-size: 1.1em;
+}
+.cta p { color: var(--dim); max-width: 50ch; margin: 0 auto 2.6rem; line-height: 1.75; }
+.cta-links {
+  display: flex; justify-content: center; gap: 1.2rem; flex-wrap: wrap;
+  margin-top: 2.6rem;
+}
+.cta-link {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  color: var(--dim);
+  text-decoration: none;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.7rem 1.4rem;
+  transition: color 0.25s, border-color 0.25s;
+}
+.cta-link:hover { color: var(--lime); border-color: rgba(170,200,107,0.5); }
+
+/* © https://saadbinyousaf.dev/ © */
+footer {
+  border-top: 1px solid var(--line);
+  padding: 2rem 3rem;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 1rem;
+}
+footer .copy, footer .status {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  color: var(--dim);
+}
+footer .status { display: flex; align-items: center; gap: 0.5rem; }
+footer .status i {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--lime-bright);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* © https://saadbinyousaf.dev/ © */
+.lightbox {
+  position: fixed; inset: 0; z-index: 9500;
+  background: rgba(6,7,5,0.92);
+  backdrop-filter: blur(16px);
+  display: flex; align-items: center; justify-content: center;
+  padding: 2.5rem;
+  opacity: 0; visibility: hidden;
+  transition: opacity 0.35s var(--ease), visibility 0.35s;
+}
+.lightbox.open { opacity: 1; visibility: visible; }
+.lb-box {
+  max-width: 1080px; width: 100%; max-height: 92vh;
+  display: flex; flex-direction: column; gap: 1.2rem;
+  transform: translateY(18px) scale(0.98);
+  transition: transform 0.45s var(--ease-out);
+}
+.lightbox.open .lb-box { transform: none; }
+.lb-head { display: flex; justify-content: space-between; align-items: flex-end; }
+.lb-eyebrow {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--lime);
+  margin-bottom: 0.4rem;
+}
+.lb-title {
+  font-family: var(--grotesk);
+  font-weight: 700;
+  font-size: 1.6rem;
+  letter-spacing: -0.02em;
+}
+.lb-close {
+  width: 40px; height: 40px; border-radius: 50%;
+  background: var(--panel); border: 1px solid var(--line);
+  color: var(--dim); font-size: 1rem;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  transition: color 0.25s, border-color 0.25s, transform 0.3s;
+}
+.lb-close:hover { color: var(--bone); border-color: var(--lime); transform: rotate(90deg); }
+.lb-frame {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+  flex: 1; min-height: 0;
+  display: flex; flex-direction: column;
+  box-shadow: 0 32px 90px rgba(0,0,0,0.6);
+}
+.lb-chrome {
+  background: #1A1C16;
+  border-bottom: 1px solid var(--line);
+  padding: 0.6rem 1rem;
+  display: flex; align-items: center; gap: 0.6rem;
+  flex-shrink: 0;
+}
+.lb-chrome .dots { display: flex; gap: 5px; }
+.lb-chrome .dots i { width: 10px; height: 10px; border-radius: 50%; display: block; }
+.lb-chrome .dots i:nth-child(1){background:#FF5F57}
+.lb-chrome .dots i:nth-child(2){background:#FEBC2E}
+.lb-chrome .dots i:nth-child(3){background:#28C840}
+.lb-url {
+  flex: 1; text-align: center;
+  background: #0E0F0C;
+  border-radius: 5px;
+  padding: 0.28rem 0.8rem;
+  font-family: var(--mono);
+  font-size: 0.64rem;
+  color: var(--dim);
+}
+.lb-scroll { overflow: auto; flex: 1; min-height: 0; background: #060705; }
+.lb-scroll::-webkit-scrollbar { width: 10px; height: 10px; }
+.lb-scroll::-webkit-scrollbar-track { background: #0E0F0C; }
+.lb-scroll::-webkit-scrollbar-thumb { background: var(--line); border-radius: 5px; }
+.lb-img { width: 100%; display: block; cursor: zoom-in; }
+.lb-img.zoomed { width: auto; max-width: none; cursor: zoom-out; }
+.lb-foot {
+  display: flex; justify-content: space-between; align-items: flex-end;
+  gap: 2rem; flex-wrap: wrap;
+}
+.lb-desc { font-size: 0.88rem; line-height: 1.7; color: var(--dim); max-width: 640px; }
+.lb-tags { display: flex; gap: 0.45rem; flex-wrap: wrap; margin-bottom: 0.8rem; }
+
+/* © https://saadbinyousaf.dev/ © */
+.reveal { opacity: 0; }
+.js-anim #heroTitle, .js-anim .collage-card { opacity: 0; }
+
+/* © https://saadbinyousaf.dev/ © */
+@media (max-width: 1024px) {
+  .services-grid, .portals-grid, .sites-grid { grid-template-columns: repeat(2, 1fr); }
+  .hero { grid-template-columns: 1fr; }
+  .hero-collage { height: 380px; max-width: 560px; }
+}
+@media (max-width: 720px) {
+  nav { padding: 1.1rem 1.4rem; }
+  .nav-links { display: none; }
+  section { padding: 5rem 1.4rem; }
+  .hero { padding: 7rem 1.4rem 3rem; }
+  .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .services-grid, .portals-grid, .sites-grid { grid-template-columns: 1fr; }
+  .hero-collage { height: 300px; }
+  footer { padding: 1.6rem 1.4rem; flex-direction: column; text-align: center; }
+  .lightbox { padding: 1rem; }
+}
+
+/* © https://saadbinyousaf.dev/ © */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+/* © https://saadbinyousaf.dev/ © */
+.sky { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+.par { position: absolute; inset: -60px; will-change: transform; }
+.star-layer { position: absolute; inset: 0; will-change: transform; }
+.star-layer i { position: absolute; top: 0; left: 0; display: block; border-radius: 50%; background: transparent; }
+.nebula {
+  position: absolute; left: 62%; top: 34%;
+  width: 70vmax; height: 70vmax;
+  translate: -50% -50%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(170,200,107,0.11), rgba(170,200,107,0.03) 35%, transparent 62%);
+  filter: blur(20px);
+  will-change: transform;
+}
+.cursor-stars { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 8000; pointer-events: none; }
+.cursor-glow {
+  position: fixed; left: 0; top: 0;
+  width: 440px; height: 440px; margin: -220px 0 0 -220px;
+  border-radius: 50%; z-index: 0; pointer-events: none;
+  background: radial-gradient(circle, rgba(170,200,107,0.12), transparent 65%);
+  opacity: 0; will-change: transform;
+}
+header, section, footer, .ticker, .ad-slot { position: relative; z-index: 1; }
+.hero-bg-grid { z-index: 0; }
+
+/* © https://saadbinyousaf.dev/ © */
+#heroTitle { will-change: transform; }
+.hero-left { transform-style: preserve-3d; }
+.collage-card { box-shadow: 0 40px 90px rgba(0,0,0,0.6), 0 0 0 1px rgba(170,200,107,0.08); }
+.collage-card::after {
+  content: ''; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+  background: linear-gradient(135deg, rgba(255,255,255,0.10), transparent 40%);
+}
+
+/* © https://saadbinyousaf.dev/ © */
+.tilt { position: relative; transform-style: preserve-3d; will-change: transform; }
+.tilt > *:not(.glare) { transform: translateZ(24px); }
+.glare {
+  position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+  opacity: 0; transition: opacity 0.35s; z-index: 3;
+  transform: translateZ(40px);
+  background: radial-gradient(380px circle at var(--mx, 50%) var(--my, 50%), rgba(214,240,119,0.16), transparent 45%);
+  mix-blend-mode: screen;
+}
+.tilt:hover .glare { opacity: 1; }
+
+/* © https://saadbinyousaf.dev/ © */
+.ad-slot { max-width: 1000px; margin: 0 auto; padding: 2.5rem 3rem; }
+.ad-label {
+  font-family: var(--mono); font-size: 0.56rem; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--dim); text-align: center; margin-bottom: 0.6rem; opacity: 0.7;
+}
+.ad-box { min-height: 90px; }
+.ad-slot.is-hidden { display: none; }
+.ad-slot.is-placeholder .ad-box {
+  height: 110px; border: 1px dashed var(--line); border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--dim);
+  background: rgba(20,22,16,0.6);
+}
+.ad-slot.is-placeholder .ad-box::before { content: 'Ad space · responsive'; }
+footer .privacy { color: var(--dim); text-decoration: none; margin-left: 1rem; }
+footer .privacy:hover { color: var(--lime); }
+
+@media (hover: none), (pointer: coarse) { .cursor-stars, .cursor-glow { display: none; } }
+@media (max-width: 720px) { .ad-slot { padding: 1.5rem 1.4rem; } }
+@media (prefers-reduced-motion: reduce) {
+  .cursor-stars, .cursor-glow, .nebula { display: none; }
+  .js-anim #heroTitle, .js-anim .collage-card { opacity: 1; }
+}
