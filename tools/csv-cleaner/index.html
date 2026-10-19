@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- © https://saadbinyousaf.dev/ © -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact CSV Cleaner for HighLevel Imports — Phones, Names &amp; Duplicates</title>
+<meta name="description" content="Free CSV cleaner for HighLevel contact imports. Format phone numbers to E.164, fix names and email typos, merge duplicates and download an import-ready file. Runs entirely in your browser.">
+<link rel="canonical" href="https://saadbinyousaf.dev/tools/csv-cleaner/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Saad Bin Yousaf — HighLevel Tools">
+<meta property="og:title" content="Contact CSV Cleaner for HighLevel Imports — Phones, Names &amp; Duplicates">
+<meta property="og:description" content="Free CSV cleaner for HighLevel contact imports. Format phone numbers to E.164, fix names and email typos, merge duplicates and download an import-ready file. Runs entirely in your browser.">
+<meta property="og:url" content="https://saadbinyousaf.dev/tools/csv-cleaner/">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#0B0C0A">
+<meta name="google-adsense-account" content="ca-pub-6774293162106493">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230B0C0A'/%3E%3Ctext x='50%25' y='56%25' text-anchor='middle' dominant-baseline='middle' font-family='Arial' font-weight='700' font-size='34' fill='%23aac86b'%3ES%3C/text%3E%3C/svg%3E">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6774293162106493" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/tools/assets/tools.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Contact CSV Cleaner", "url": "https://saadbinyousaf.dev/tools/csv-cleaner/", "description": "Free CSV cleaner for HighLevel contact imports. Format phone numbers to E.164, fix names and email typos, merge duplicates and download an import-ready file. Runs entirely in your browser.", "applicationCategory": "BusinessApplication", "operatingSystem": "Any (web browser)", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "author": {"@type": "Person", "name": "Saad Bin Yousaf", "url": "https://saadbinyousaf.dev/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://saadbinyousaf.dev/"}, {"@type": "ListItem", "position": 2, "name": "Free tools", "item": "https://saadbinyousaf.dev/tools/"}, {"@type": "ListItem", "position": 3, "name": "Contact CSV Cleaner", "item": "https://saadbinyousaf.dev/tools/csv-cleaner/"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is my contact list uploaded anywhere?", "acceptedAnswer": {"@type": "Answer", "text": "No. The file is read and processed entirely in your browser using JavaScript. Nothing is sent to a server, and the data is gone when you close the page."}}, {"@type": "Question", "name": "What phone number format does HighLevel need?", "acceptedAnswer": {"@type": "Answer", "text": "International E.164 format works best: a plus sign, the country code and the number with no spaces, such as +15552014455. The cleaner converts local formats into this using the default country you choose."}}, {"@type": "Question", "name": "How does duplicate merging work?", "acceptedAnswer": {"@type": "Answer", "text": "Rows that share an email address or phone number are treated as the same person. The first row is kept, and any empty fields in it are filled from the duplicate. Every merged row is listed in the removed and flagged file."}}, {"@type": "Question", "name": "Can I open an Excel file?", "acceptedAnswer": {"@type": "Answer", "text": "Not directly. In Excel or Google Sheets, export the sheet as CSV first, then load that file. This keeps the tool fast and private."}}, {"@type": "Question", "name": "Why do some phone numbers stay red?", "acceptedAnswer": {"@type": "Answer", "text": "They don't match the length expected for your default country and don't start with an international code, so the cleaner can't safely guess. They are kept as they were so you can fix them by hand."}}, {"@type": "Question", "name": "Will my custom columns be kept?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, when “Keep other columns” is on. Columns that don't match a standard field are passed through unchanged, so you can map them to custom fields during the import."}}, {"@type": "Question", "name": "Why does Excel remove the + from phone numbers?", "acceptedAnswer": {"@type": "Answer", "text": "Excel treats phone numbers as numbers and drops the plus sign when it saves. Upload the downloaded CSV straight to HighLevel without opening and re-saving it in Excel."}}]}</script>
+</head>
+<body>
+<nav class="t-nav" aria-label="Main">
+  <a href="/" class="t-logo">SBY<span>.DEV</span></a>
+  <ul class="t-links" id="navLinks">
+    <li><a href="/tools/" aria-current="page">Free tools</a></li>
+    <li><a href="/#work">Work</a></li>
+    <li><a href="/#services">Services</a></li>
+    <li><a href="/#about">About</a></li>
+  </ul>
+  <button class="t-menu" aria-controls="navLinks" aria-expanded="false">Menu</button>
+  <a href="/#contact" class="t-cta">Hire me</a>
+</nav>
+<main>
+  <header class="wrap t-hero">
+    <div class="crumbs"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/tools/">Free tools</a><span aria-hidden="true">/</span><span>Contact CSV Cleaner</span></div>
+    <h1>Contact CSV <em>cleaner</em></h1>
+    <p class="t-lead">Clean a contact list before you import it into HighLevel: convert phone numbers to international format, fix ALL-CAPS names, repair email typos, merge duplicates and rename columns so they map on the first try. Your file never leaves your browser.</p>
+    <div class="chips"><span class="chip">Free</span><span class="chip">Private — nothing uploaded</span><span class="chip">Import-ready</span></div>
+  </header>
+
+  <section class="wrap" aria-label="Contact CSV Cleaner">
+    <div class="workspace">
+      <div class="panel">
+        <div class="panel-head"><span class="panel-title"><span class="n">1</span> Load your contacts</span><span class="badge ok">Stays on your device</span></div>
+        <label class="drop" id="drop" for="file">
+          <input type="file" id="file" accept=".csv,.tsv,.txt,text/csv" hidden>
+          <span class="drop-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 16V4m0 0-4 4m4-4 4 4"/><path d="M4 16v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg></span>
+          <strong>Drop a CSV file here</strong>
+          <span>or click to choose one. Export Excel or Google Sheets as CSV first.</span>
+        </label>
+        <div class="field" style="margin-top:1rem;">
+          <label for="paste">Or paste CSV text</label>
+          <textarea id="paste" class="mono" rows="4" placeholder="first name,last name,email,phone&#10;JOHN,SMITH,John@Gmial.com,(555) 555-0101"></textarea>
+        </div>
+        <div class="btn-row">
+          <button type="button" class="btn btn-ghost btn-sm" id="loadPaste">Use pasted text</button>
+          <button type="button" class="btn btn-ghost btn-sm" id="loadSample">Try a messy sample</button>
+        </div>
+        <div id="loadInfo"></div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head"><span class="panel-title"><span class="n">2</span> Cleaning rules</span></div>
+        <div class="field">
+          <label for="country">Default country for phone numbers</label>
+          <select id="country"></select>
+        </div>
+        <label class="check"><input type="checkbox" id="optNames" checked> <span>Fix name capitalization <small>Only changes names typed in ALL CAPS or all lowercase.</small></span></label>
+        <label class="check"><input type="checkbox" id="optSplit" checked> <span>Split full names <small>Fills First and Last Name from a single “Name” column.</small></span></label>
+        <label class="check"><input type="checkbox" id="optEmail" checked> <span>Fix email typos <small>Lowercases emails and repairs gmial.com, hotmial.com and similar.</small></span></label>
+        <label class="check"><input type="checkbox" id="optBadEmail" checked> <span>Clear invalid emails <small>Keeps the contact if it still has a phone number.</small></span></label>
+        <label class="check"><input type="checkbox" id="optEmpty" checked> <span>Remove rows with no email and no phone <small>HighLevel needs at least one to create a contact.</small></span></label>
+        <div class="grid-2">
+          <div class="field">
+            <label for="dedupe">Merge duplicates by</label>
+            <select id="dedupe">
+              <option value="both">Email or phone</option>
+              <option value="email">Email only</option>
+              <option value="phone">Phone only</option>
+              <option value="off">Don't merge</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="addTag">Add tag to every row</label>
+            <input type="text" id="addTag" placeholder="e.g. imported-oct-2026">
+          </div>
+        </div>
+        <label class="check"><input type="checkbox" id="optExtra" checked> <span>Keep other columns <small>Unmapped columns stay in the file so you can map them to custom fields.</small></span></label>
+      </div>
+    </div>
+
+    <div class="panel" id="mapPanel" style="margin-top:1.2rem;" hidden>
+      <div class="panel-head"><span class="panel-title"><span class="n">3</span> Match your columns</span><span class="panel-note" id="mapNote"></span></div>
+      <div class="map-grid" id="mapGrid"></div>
+    </div>
+
+    <div class="panel" id="resultPanel" style="margin-top:1.2rem;" hidden>
+      <div class="panel-head">
+        <span class="panel-title"><span class="n">4</span> Clean result</span>
+        <div class="btn-row">
+          <button type="button" class="btn btn-solid btn-sm" id="dlClean">Download clean CSV</button>
+          <button type="button" class="btn btn-ghost btn-sm" id="dlIssues">Download removed &amp; flagged rows</button>
+        </div>
+      </div>
+      <div class="stats" id="stats"></div>
+      <div class="legend"><span><i class="fixed"></i>Fixed</span><span><i class="flag"></i>Needs a look</span><span><i class="err"></i>Invalid, kept as-is</span></div>
+      <div class="table-wrap"><table class="data" id="preview"></table></div>
+      <p class="panel-note" id="previewNote" style="margin-top:0.8rem;"></p>
+    </div>
+    <style>
+      .drop { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.4rem; text-align: center; border: 1.5px dashed var(--line-2); border-radius: 14px; padding: 2rem 1rem; cursor: pointer; background: var(--ink-2); transition: border-color 0.2s, background 0.2s; }
+      .drop:hover, .drop.over { border-color: var(--lime); background: rgba(170,200,107,0.05); }
+      .drop strong { font-size: 1rem; }
+      .drop span { color: var(--dim); font-size: 0.84rem; }
+      .drop-icon { width: 46px; height: 46px; border-radius: 13px; background: var(--lime-soft); border: 1px solid rgba(170,200,107,0.3); display: flex; align-items: center; justify-content: center; color: var(--lime); margin-bottom: 0.4rem; }
+      .drop-icon svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+      .map-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 0.8rem 1rem; }
+      .map-grid .field { margin: 0; }
+      .map-grid select.matched { border-color: rgba(170,200,107,0.45); }
+      .legend { display: flex; gap: 1.2rem; flex-wrap: wrap; margin: 1.1rem 0 0.7rem; font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--dim); }
+      .legend i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 0.4rem; vertical-align: -1px; }
+      .legend i.fixed { background: var(--lime-bright); } .legend i.flag { background: var(--warn); } .legend i.err { background: var(--bad); }
+    </style>
+
+  </section>
+
+<div class="ad-slot" data-ad="toolTop">
+  <div class="ad-label">Advertisement</div>
+  <div class="ad-box"></div>
+</div>
+
+  <div class="wrap guide-wrap">
+    <aside class="toc" aria-label="On this page">
+      <div class="label">On this page</div>
+      <ol><li><a href="#why-clean">Why clean a list before importing it</a></li><li><a href="#what-it-fixes">What the cleaner fixes</a></li><li><a href="#phone-format">Phone numbers: why international format matters</a></li><li><a href="#import-steps">How to import the clean file into HighLevel</a></li><li><a href="#consent">Importing is not permission to text</a></li><li><a href="#tips">Tips for very large files</a></li><li><a href="#faq">Frequently asked questions</a></li></ol>
+    </aside>
+    <article class="guide">
+      <p class="eyebrow">Guide</p>
+      <h2 id="why-clean">Why clean a list before importing it</h2>
+      <p>An import is the moment bad data gets locked in. Once a messy list is inside HighLevel, every problem multiplies: texts fail because phone numbers are missing a country code, greetings read “Hi JOHN,” or “Hi ,”, the same person gets two copies of every campaign, and reports count one customer as three.</p>
+      <p>Fixing those things one contact at a time inside the CRM is slow. Fixing them in the file before you upload takes a minute. That is the job of this cleaner: take the export you have, whether from an old CRM, a spreadsheet, a trade show scanner or a booking app, and turn it into a file HighLevel can import cleanly on the first try.</p>
+      <p>It runs entirely in your browser. The file is read on your own device and is never uploaded, which matters when the list contains customer data.</p>
+
+      <h2 id="what-it-fixes">What the cleaner fixes</h2>
+      <ul>
+        <li><strong>Phone numbers</strong> — converts <code>(555) 201-4455</code>, <code>555.201.4455</code> and <code>0300 1234567</code> into international format, removes extensions, and flags numbers that can't be valid.</li>
+        <li><strong>Names</strong> — fixes names typed in ALL CAPS or all lowercase, including <em>McDonald</em> and <em>O'Brien</em>, and splits a single “Name” column into first and last name. Names that already have mixed case are left alone.</li>
+        <li><strong>Emails</strong> — lowercases them, removes stray spaces and trailing punctuation, repairs common domain typos like <code>gmial.com</code> and <code>yahoo.co</code>, and clears addresses that can't be valid.</li>
+        <li><strong>Duplicates</strong> — merges rows that share an email or phone number, filling empty fields in the first row from the duplicate instead of throwing information away.</li>
+        <li><strong>Columns</strong> — renames them to the field names HighLevel uses, such as <em>First Name</em>, <em>Phone</em> and <em>Company Name</em>, so they map on the first try.</li>
+        <li><strong>Tags</strong> — merges existing tags and adds one of your own to every row, so you can find this import later.</li>
+      </ul>
+      <p>Anything removed or uncertain goes into a second file, <em>removed &amp; flagged rows</em>, with the reason for each. Nothing disappears without a record.</p>
+
+<div class="ad-slot" data-ad="toolArticle">
+  <div class="ad-label">Advertisement</div>
+  <div class="ad-box"></div>
+</div>
+
+      <h2 id="phone-format">Phone numbers: why international format matters</h2>
+      <p>HighLevel, like most phone systems, stores numbers in <strong>E.164</strong> format: a plus sign, the country code, then the number with no spaces or punctuation. For example, <code>+15552014455</code> for a US number or <code>+447911123456</code> for a UK mobile.</p>
+      <p>When a list contains numbers without a country code, the system has to guess. Usually it assumes your account's country, which is right for most of the list and wrong for the rest. Numbers written with a leading zero, like UK or Pakistani numbers, also need the zero removed before the country code is added. Getting this wrong means texts that never send and calls that fail.</p>
+      <p>Set <strong>Default country</strong> to the country most of your contacts are in. Numbers that already start with <code>+</code> or <code>00</code> are kept with their own country code, so an international list is handled correctly. Numbers that don't fit the expected length are kept unchanged and highlighted in red for you to check.</p>
+
+      <h2 id="import-steps">How to import the clean file into HighLevel</h2>
+      <ol class="steps">
+        <li><strong>Download the clean CSV</strong> using the button above.</li>
+        <li>In your sub-account, open <strong>Contacts</strong> and choose the option to <strong>import</strong> contacts from a file.</li>
+        <li><strong>Upload the CSV.</strong> Because the columns already use HighLevel's field names, most of them map automatically.</li>
+        <li><strong>Map any extra columns</strong> you kept to custom fields, or create the custom fields first if they don't exist yet.</li>
+        <li><strong>Choose how to handle existing contacts</strong>. HighLevel can update contacts it already has, matched by email or phone, instead of creating duplicates.</li>
+        <li><strong>Add the import to a tag or list</strong> if offered, then start the import and review a few contacts once it finishes.</li>
+      </ol>
+      <p>Menu names in HighLevel change from time to time, but the import flow follows these same steps.</p>
+
+      <h2 id="consent">Importing is not permission to text</h2>
+      <p>A clean list is easy to message. That doesn't mean you should. In the US, and in many other countries, you need the contact's consent before sending marketing texts, and carriers check that your messages match the opt-in you described during A2P 10DLC registration.</p>
+      <ul>
+        <li>Only import contacts who gave you their details and agreed to hear from you.</li>
+        <li>Never import purchased or scraped lists into a texting workflow.</li>
+        <li>Tag imports by source, so you can always show where a contact came from.</li>
+        <li>If you're not sure whether a group opted in to texts, email them first or ask for consent before texting.</li>
+      </ul>
+      <p>This is general guidance, not legal advice, but following it protects both your phone number's reputation and your business.</p>
+
+      <h2 id="tips">Tips for very large files</h2>
+      <ul>
+        <li>The cleaner handles tens of thousands of rows in a modern browser. For very large exports, split the file by region or year and clean each part.</li>
+        <li>Open the downloaded file in a text editor rather than Excel if you need to check it. Excel can strip the <code>+</code> from phone numbers when it saves.</li>
+        <li>Keep your original export. The clean file is a new copy, and the flagged-rows file tells you exactly what changed.</li>
+      </ul>
+
+      <h2 id="faq">Frequently asked questions</h2>
+      <div class="faq"><details><summary>Is my contact list uploaded anywhere?</summary><div class="a">No. The file is read and processed entirely in your browser using JavaScript. Nothing is sent to a server, and the data is gone when you close the page.</div></details><details><summary>What phone number format does HighLevel need?</summary><div class="a">International E.164 format works best: a plus sign, the country code and the number with no spaces, such as +15552014455. The cleaner converts local formats into this using the default country you choose.</div></details><details><summary>How does duplicate merging work?</summary><div class="a">Rows that share an email address or phone number are treated as the same person. The first row is kept, and any empty fields in it are filled from the duplicate. Every merged row is listed in the removed and flagged file.</div></details><details><summary>Can I open an Excel file?</summary><div class="a">Not directly. In Excel or Google Sheets, export the sheet as CSV first, then load that file. This keeps the tool fast and private.</div></details><details><summary>Why do some phone numbers stay red?</summary><div class="a">They don't match the length expected for your default country and don't start with an international code, so the cleaner can't safely guess. They are kept as they were so you can fix them by hand.</div></details><details><summary>Will my custom columns be kept?</summary><div class="a">Yes, when “Keep other columns” is on. Columns that don't match a standard field are passed through unchanged, so you can map them to custom fields during the import.</div></details><details><summary>Why does Excel remove the + from phone numbers?</summary><div class="a">Excel treats phone numbers as numbers and drops the plus sign when it saves. Upload the downloaded CSV straight to HighLevel without opening and re-saving it in Excel.</div></details></div>
+    </article>
+  </div>
+
+  <section class="wrap related" aria-label="More tools">
+    <p class="eyebrow">More free tools</p>
+    <h2 style="font-size:clamp(1.6rem,3vw,2.2rem);letter-spacing:-0.025em;">Keep building your <span class="h-serif">system.</span></h2>
+    <div class="tool-grid"><a class="tool-card reveal-up" href="/tools/utm-builder/" data-cat="Marketing">
+  <div class="tool-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div>
+  <div class="cat">Marketing</div>
+  <h3>UTM Link Builder</h3>
+  <p>Build clean, consistent tracking links for ads, emails, texts and QR codes so HighLevel attribution tells the truth.</p>
+  <span class="go">Open tool</span>
+</a><a class="tool-card reveal-up" href="/tools/sms-segment-calculator/" data-cat="Messaging">
+  <div class="tool-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 9h8M8 13h5"/></svg></div>
+  <div class="cat">Messaging</div>
+  <h3>SMS Segment Calculator</h3>
+  <p>See how many segments a text uses, spot characters that double the cost, and estimate campaign spend before you hit send.</p>
+  <span class="go">Open tool</span>
+</a><a class="tool-card reveal-up" href="/tools/a2p-10dlc-generator/" data-cat="Messaging">
+  <div class="tool-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></div>
+  <div class="cat">Messaging</div>
+  <h3>A2P 10DLC Registration Kit</h3>
+  <p>Generate the campaign description, sample messages, opt-in wording and privacy clause carriers expect — written for your business.</p>
+  <span class="go">Open tool</span>
+</a></div>
+  </section>
+</main>
+<footer class="t-footer">
+  <span class="copy">© <span data-year>2026</span> Saad Bin Yousaf — Contractor Automations</span>
+  <nav aria-label="Footer">
+    <a href="/tools/">Free tools</a>
+    <a href="/">Portfolio</a>
+    <a href="/privacy.html">Privacy</a>
+    <a href="mailto:saadbinyousaf.dev@gmail.com">Contact</a>
+  </nav>
+  <p class="disclaimer">Independent tools built by Saad Bin Yousaf. Not affiliated with, endorsed by, or sponsored by HighLevel Inc. HighLevel and GoHighLevel are trademarks of their respective owner. Tool output is guidance, not legal advice — always review it for your business.</p>
+</footer>
+<script src="/tools/assets/tools.js"></script>
+<script src="/tools/csv-cleaner/app.js"></script>
+<script src="/js/ads.js"></script>
+</body>
+</html>

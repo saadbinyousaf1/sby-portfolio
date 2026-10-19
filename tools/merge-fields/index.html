@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- © https://saadbinyousaf.dev/ © -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HighLevel Merge Fields Cheat Sheet &amp; Message Previewer</title>
+<meta name="description" content="Searchable list of HighLevel (GoHighLevel) merge fields for contacts, appointments, users and your business, with a live message preview that catches typos and empty-field mistakes.">
+<link rel="canonical" href="https://saadbinyousaf.dev/tools/merge-fields/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Saad Bin Yousaf — HighLevel Tools">
+<meta property="og:title" content="HighLevel Merge Fields Cheat Sheet &amp; Message Previewer">
+<meta property="og:description" content="Searchable list of HighLevel (GoHighLevel) merge fields for contacts, appointments, users and your business, with a live message preview that catches typos and empty-field mistakes.">
+<meta property="og:url" content="https://saadbinyousaf.dev/tools/merge-fields/">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#0B0C0A">
+<meta name="google-adsense-account" content="ca-pub-6774293162106493">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230B0C0A'/%3E%3Ctext x='50%25' y='56%25' text-anchor='middle' dominant-baseline='middle' font-family='Arial' font-weight='700' font-size='34' fill='%23aac86b'%3ES%3C/text%3E%3C/svg%3E">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6774293162106493" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/tools/assets/tools.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Merge Field Previewer", "url": "https://saadbinyousaf.dev/tools/merge-fields/", "description": "Searchable list of HighLevel (GoHighLevel) merge fields for contacts, appointments, users and your business, with a live message preview that catches typos and empty-field mistakes.", "applicationCategory": "BusinessApplication", "operatingSystem": "Any (web browser)", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "author": {"@type": "Person", "name": "Saad Bin Yousaf", "url": "https://saadbinyousaf.dev/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://saadbinyousaf.dev/"}, {"@type": "ListItem", "position": 2, "name": "Free tools", "item": "https://saadbinyousaf.dev/tools/"}, {"@type": "ListItem", "position": 3, "name": "Merge Field Previewer", "item": "https://saadbinyousaf.dev/tools/merge-fields/"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is the merge field for first name in HighLevel?", "acceptedAnswer": {"@type": "Answer", "text": "Use {{contact.first_name}}. For the full name use {{contact.name}}, and for the last name {{contact.last_name}}."}}, {"@type": "Question", "name": "Why is my merge field showing up as text instead of the contact's data?", "acceptedAnswer": {"@type": "Answer", "text": "Usually the key is mistyped: wrong capitalization, a missing underscore, a single brace instead of double braces, or a custom field key that doesn't exist. Paste the message into the previewer and it will highlight the field that isn't recognized."}}, {"@type": "Question", "name": "How do I add a custom field to a message?", "acceptedAnswer": {"@type": "Answer", "text": "Use {{contact.your_field_key}}, replacing your_field_key with the key HighLevel created for that field. You can find it in the custom field settings or by picking the field from the merge field menu in any message editor."}}, {"@type": "Question", "name": "What is the difference between a custom field and a custom value?", "acceptedAnswer": {"@type": "Answer", "text": "A custom field stores data about each contact, such as their policy type. A custom value is one value for the whole sub-account, such as your booking link, that you can reuse in every template and update in one place."}}, {"@type": "Question", "name": "Can I set a default value if a field is empty?", "acceptedAnswer": {"@type": "Answer", "text": "The most reliable approach is a workflow If/Else step that checks whether the field is empty and sends a different version of the message. You can also write copy that reads naturally with or without the field."}}, {"@type": "Question", "name": "Why are my appointment merge fields blank?", "acceptedAnswer": {"@type": "Answer", "text": "Appointment fields only have values when the message relates to a specific appointment, such as a calendar reminder or a workflow started by an appointment trigger. In a general bulk message there is no appointment to pull from."}}, {"@type": "Question", "name": "Is this list of fields complete?", "acceptedAnswer": {"@type": "Answer", "text": "It covers the standard fields most businesses use. HighLevel adds fields over time, and your custom fields and custom values are specific to your account, so the merge field picker inside HighLevel is always the final reference."}}]}</script>
+</head>
+<body>
+<nav class="t-nav" aria-label="Main">
+  <a href="/" class="t-logo">SBY<span>.DEV</span></a>
+  <ul class="t-links" id="navLinks">
+    <li><a href="/tools/" aria-current="page">Free tools</a></li>
+    <li><a href="/#work">Work</a></li>
+    <li><a href="/#services">Services</a></li>
+    <li><a href="/#about">About</a></li>
+  </ul>
+  <button class="t-menu" aria-controls="navLinks" aria-expanded="false">Menu</button>
+  <a href="/#contact" class="t-cta">Hire me</a>
+</nav>
+<main>
+  <header class="wrap t-hero">
+    <div class="crumbs"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/tools/">Free tools</a><span aria-hidden="true">/</span><span>Merge Field Previewer</span></div>
+    <h1>Merge field <em>previewer</em></h1>
+    <p class="t-lead">Find the right HighLevel merge field, insert it into your message, and preview exactly what a contact will receive. The checker flags single braces, typos and greetings that break when a field is empty.</p>
+    <div class="chips"><span class="chip">Free</span><span class="chip">50+ fields</span><span class="chip">Live preview</span></div>
+  </header>
+
+  <section class="wrap" aria-label="Merge Field Previewer">
+    <div class="workspace mf-grid">
+      <div class="panel mf-list-panel">
+        <div class="panel-head">
+          <span class="panel-title"><span class="n">1</span> Find a field</span>
+          <span class="badge ok" id="fieldCount">0 fields</span>
+        </div>
+        <div class="field">
+          <label for="q" class="sr-only">Search merge fields</label>
+          <input type="search" id="q" placeholder="Search: name, phone, reschedule, address…" autocomplete="off">
+        </div>
+        <div class="seg" id="groups" style="margin-bottom:1rem;"></div>
+        <div id="fieldList" class="mf-list"></div>
+        <p class="panel-note" style="margin-top:1rem;">Keys follow HighLevel's standard naming. Your account's <code>{{ }}</code> picker is the source of truth, especially for custom fields.</p>
+      </div>
+
+      <div class="stack">
+        <div class="panel">
+          <div class="panel-head">
+            <span class="panel-title"><span class="n">2</span> Write your message</span>
+            <div class="seg" id="channel">
+              <button type="button" data-ch="sms" aria-pressed="true">SMS</button>
+              <button type="button" data-ch="email" aria-pressed="false">Email</button>
+            </div>
+          </div>
+          <div class="field">
+            <label for="compose">Message <span class="hint">click a field on the left to insert it at the cursor</span></label>
+            <textarea id="compose" rows="7">Hi {{contact.first_name}}, this is {{user.first_name}} from {{location.name}}. Your {{appointment.title}} is on {{appointment.only_start_date}} at {{appointment.only_start_time}}. Need a new time? {{appointment.reschedule_link}}</textarea>
+          </div>
+          <div class="btn-row">
+            <button type="button" class="copy-btn" data-copy="#compose">Copy message</button>
+            <button type="button" class="pill-btn" id="clearBtn">Clear</button>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-head">
+            <span class="panel-title"><span class="n">3</span> Preview as a contact</span>
+            <span class="badge ok" id="segBadge">1 segment</span>
+          </div>
+          <div class="grid-2">
+            <div class="field"><label for="sFirst">First name</label><input type="text" id="sFirst" value="Sarah" data-sample></div>
+            <div class="field"><label for="sLast">Last name</label><input type="text" id="sLast" value="Mitchell" data-sample></div>
+            <div class="field"><label for="sCompany">Company</label><input type="text" id="sCompany" value="Mitchell Interiors" data-sample></div>
+            <div class="field"><label for="sBiz">Your business</label><input type="text" id="sBiz" value="Bright Smile Dental" data-sample></div>
+            <div class="field"><label for="sUser">Assigned user</label><input type="text" id="sUser" value="Jordan Lee" data-sample></div>
+            <div class="field"><label for="sWhen">Appointment</label><input type="datetime-local" id="sWhen" value="2026-03-10T10:00" data-sample></div>
+          </div>
+          <div class="out-block" style="margin-top:0.4rem;">
+            <div class="out-head"><span class="label">What the contact receives</span><button type="button" class="copy-btn" data-copy="#preview">Copy</button></div>
+            <div class="out-body" id="preview"></div>
+          </div>
+          <div id="lint"></div>
+        </div>
+      </div>
+    </div>
+    <style>
+      .mf-grid { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); }
+      .mf-list-panel { position: sticky; top: 84px; }
+      .mf-list { max-height: 560px; overflow-y: auto; margin-right: -0.4rem; padding-right: 0.4rem; scrollbar-width: thin; }
+      .mf-group { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--lime); margin: 1.1rem 0 0.5rem; }
+      .mf-group:first-child { margin-top: 0; }
+      .mf-row { display: flex; align-items: center; gap: 0.6rem; padding: 0.55rem 0.7rem; border: 1px solid var(--line); border-radius: 10px; background: var(--ink-2); margin-bottom: 0.4rem; cursor: pointer; transition: border-color 0.2s, background 0.2s; }
+      .mf-row:hover { border-color: rgba(170,200,107,0.45); background: rgba(170,200,107,0.05); }
+      .mf-row .t { flex: 1; min-width: 0; }
+      .mf-row .t b { display: block; font-weight: 500; font-size: 0.86rem; color: var(--bone); }
+      .mf-row .t code { display: inline-block; margin-top: 0.2rem; font-size: 0.72rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
+      .mf-row .ins { font-family: var(--mono); font-size: 0.56rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--dim); }
+      .mf-row:hover .ins { color: var(--lime); }
+      .mf-empty { color: var(--dim); font-size: 0.88rem; padding: 1rem 0; }
+      #preview mark { background: var(--bad-soft); color: var(--bad); border-radius: 4px; padding: 0 0.2em; }
+      #preview mark.custom { background: var(--warn-soft); color: var(--warn); }
+      @media (max-width: 980px) { .mf-grid { grid-template-columns: minmax(0, 1fr); } .mf-list-panel { position: static; } .mf-list { max-height: 360px; } }
+    </style>
+
+  </section>
+
+<div class="ad-slot" data-ad="toolTop">
+  <div class="ad-label">Advertisement</div>
+  <div class="ad-box"></div>
+</div>
+
+  <div class="wrap guide-wrap">
+    <aside class="toc" aria-label="On this page">
+      <div class="label">On this page</div>
+      <ol><li><a href="#what-are-merge-fields">What merge fields are</a></li><li><a href="#custom-fields-vs-values">Custom fields vs custom values</a></li><li><a href="#empty-fields">Handling empty fields</a></li><li><a href="#where-to-use">Where you can use merge fields in HighLevel</a></li><li><a href="#testing">Test before you publish</a></li><li><a href="#faq">Frequently asked questions</a></li></ol>
+    </aside>
+    <article class="guide">
+      <p class="eyebrow">Guide</p>
+      <h2 id="what-are-merge-fields">What merge fields are</h2>
+      <p>Merge fields are placeholders that HighLevel swaps for real data at the moment a message is sent. Type <code>{{contact.first_name}}</code> in a text, email, workflow action or document, and each contact receives their own first name in its place.</p>
+      <p>They are what makes one template feel personal at scale. A single appointment reminder can greet every patient by name, show their own date and time, and give them their own reschedule link, all from one workflow action.</p>
+      <p>Every merge field follows the same pattern: two curly braces on each side, an <strong>object</strong> (who or what the data belongs to), a dot, and a <strong>key</strong> (which piece of data):</p>
+      <ul>
+        <li><code>contact.</code> — the person receiving the message.</li>
+        <li><code>location.</code> — your business, meaning the sub-account's business profile.</li>
+        <li><code>user.</code> — the team member assigned to the contact, or the user sending the message.</li>
+        <li><code>appointment.</code> and <code>calendar.</code> — the booking that triggered the message.</li>
+        <li><code>custom_values.</code> — account-wide snippets you define yourself.</li>
+      </ul>
+      <p>Keys are lowercase with underscores. <code>{{contact.firstName}}</code> or <code>{{Contact.First_Name}}</code> will not be replaced. The previewer flags these and suggests the correct version.</p>
+
+      <h2 id="custom-fields-vs-values">Custom fields vs custom values</h2>
+      <p>These two sound alike but solve different problems, and mixing them up is one of the most common mistakes in HighLevel setups.</p>
+      <table class="compare">
+        <thead><tr><th></th><th>Custom field</th><th>Custom value</th></tr></thead>
+        <tbody>
+          <tr><td>Belongs to</td><td>Each contact (or opportunity)</td><td>The whole sub-account</td></tr>
+          <tr><td>Example</td><td><code>{{contact.policy_type}}</code></td><td><code>{{custom_values.booking_link}}</code></td></tr>
+          <tr><td>Changes</td><td>Per person, from forms, imports or workflows</td><td>Once, in settings, and updates everywhere</td></tr>
+          <tr><td>Use it for</td><td>Data you collect about people</td><td>Links, prices, hours and phrases you reuse</td></tr>
+        </tbody>
+      </table>
+      <p><strong>Custom values are a big time-saver.</strong> Put your booking link, review link, office hours and current offer into custom values, then reference them in every template. When the offer changes, you update one value instead of hunting through twenty workflows. Agencies that sell snapshots rely on this: the snapshot ships with custom values, and each client fills in their own.</p>
+      <p>To find the exact key of a custom field, open it in your settings or use the merge field picker in any message editor. HighLevel generates the key from the field name when you create it, so <em>Policy Type</em> usually becomes <code>contact.policy_type</code>, but renamed or older fields can differ.</p>
+
+<div class="ad-slot" data-ad="toolArticle">
+  <div class="ad-label">Advertisement</div>
+  <div class="ad-box"></div>
+</div>
+
+      <h2 id="empty-fields">Handling empty fields</h2>
+      <p>A merge field with no data is replaced with nothing. That is fine in the middle of a sentence, but it breaks greetings: <em>“Hi {{contact.first_name}},”</em> becomes <em>“Hi ,”</em> for every contact without a first name, which is common for leads from ads, imported lists and missed calls.</p>
+      <p>There are three reliable ways to handle it:</p>
+      <ol class="steps">
+        <li><strong>Branch in the workflow.</strong> Add an If/Else step that checks whether First Name is empty, and send a version of the message without the name on that branch. This is the cleanest option for important messages.</li>
+        <li><strong>Write copy that survives a blank.</strong> “Thanks for reaching out to {{location.name}}!” reads fine whether or not you know the name.</li>
+        <li><strong>Fill the gaps at the source.</strong> Make first name required on your forms, and clean imported lists before upload. The <a href="/tools/csv-cleaner/">Contact CSV Cleaner</a> splits full names into first and last name so the field is populated.</li>
+      </ol>
+      <p>Use the preview above to test both cases: clear the sample first name and see how the message reads.</p>
+
+      <h2 id="where-to-use">Where you can use merge fields in HighLevel</h2>
+      <ul>
+        <li><strong>SMS and email</strong> — in conversations, templates, bulk actions and workflow actions.</li>
+        <li><strong>Workflows</strong> — in message actions, internal notifications, task titles and webhook payloads.</li>
+        <li><strong>Funnels and websites</strong> — on pages a contact reaches after submitting a form, where HighLevel knows who they are.</li>
+        <li><strong>Documents and contracts</strong> — to prefill names, addresses and amounts.</li>
+        <li><strong>Calendar notifications</strong> — confirmations and reminders, where the appointment fields are available.</li>
+      </ul>
+      <p>Appointment fields only have values when the message is tied to an appointment, for example in a calendar reminder or a workflow started by an appointment trigger. Used in a general bulk SMS, they come out blank.</p>
+
+      <h2 id="testing">Test before you publish</h2>
+      <p>The previewer shows the structure of your message with realistic sample data, but real formatting depends on your account settings, especially for dates, times and time zones. Before you publish a workflow:</p>
+      <ol class="steps">
+        <li>Create a test contact with your own phone number and email, with every field you reference filled in.</li>
+        <li>Create a second test contact with the first name left empty.</li>
+        <li>Run both through the workflow, or send the template to both manually, and read what arrives on your phone.</li>
+      </ol>
+      <p>It takes five minutes and catches the problems that otherwise go out to hundreds of contacts.</p>
+
+      <h2 id="faq">Frequently asked questions</h2>
+      <div class="faq"><details><summary>What is the merge field for first name in HighLevel?</summary><div class="a">Use <code>{{contact.first_name}}</code>. For the full name use <code>{{contact.name}}</code>, and for the last name <code>{{contact.last_name}}</code>.</div></details><details><summary>Why is my merge field showing up as text instead of the contact&#x27;s data?</summary><div class="a">Usually the key is mistyped: wrong capitalization, a missing underscore, a single brace instead of double braces, or a custom field key that doesn't exist. Paste the message into the previewer and it will highlight the field that isn't recognized.</div></details><details><summary>How do I add a custom field to a message?</summary><div class="a">Use <code>{{contact.your_field_key}}</code>, replacing your_field_key with the key HighLevel created for that field. You can find it in the custom field settings or by picking the field from the merge field menu in any message editor.</div></details><details><summary>What is the difference between a custom field and a custom value?</summary><div class="a">A custom field stores data about each contact, such as their policy type. A custom value is one value for the whole sub-account, such as your booking link, that you can reuse in every template and update in one place.</div></details><details><summary>Can I set a default value if a field is empty?</summary><div class="a">The most reliable approach is a workflow If/Else step that checks whether the field is empty and sends a different version of the message. You can also write copy that reads naturally with or without the field.</div></details><details><summary>Why are my appointment merge fields blank?</summary><div class="a">Appointment fields only have values when the message relates to a specific appointment, such as a calendar reminder or a workflow started by an appointment trigger. In a general bulk message there is no appointment to pull from.</div></details><details><summary>Is this list of fields complete?</summary><div class="a">It covers the standard fields most businesses use. HighLevel adds fields over time, and your custom fields and custom values are specific to your account, so the merge field picker inside HighLevel is always the final reference.</div></details></div>
+    </article>
+  </div>
+
+  <section class="wrap related" aria-label="More tools">
+    <p class="eyebrow">More free tools</p>
+    <h2 style="font-size:clamp(1.6rem,3vw,2.2rem);letter-spacing:-0.025em;">Keep building your <span class="h-serif">system.</span></h2>
+    <div class="tool-grid"><a class="tool-card reveal-up" href="/tools/missed-call-calculator/" data-cat="Sales">
+  <div class="tool-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/><path d="M16 2l6 6M22 2l-6 6"/></svg></div>
+  <div class="cat">Sales</div>
+  <h3>Missed Call Revenue Calculator</h3>
+  <p>Put a number on the revenue lost to unanswered calls, and how much an instant text-back could win back.</p>
+  <span class="go">Open tool</span>
+</a><a class="tool-card reveal-up" href="/tools/review-link-generator/" data-cat="Reputation">
+  <div class="tool-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+  <div class="cat">Reputation</div>
+  <h3>Google Review Link & QR Generator</h3>
+  <p>Turn your Place ID into a one-tap review link, a print-ready QR card, and SMS and email request templates.</p>
+  <span class="go">Open tool</span>
+</a><a class="tool-card reveal-up" href="/tools/csv-cleaner/" data-cat="Data">
+  <div class="tool-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18"/></svg></div>
+  <div class="cat">Data</div>
+  <h3>Contact CSV Cleaner</h3>
+  <p>Fix phone formats, names, emails and duplicates before importing contacts into HighLevel — without uploading your list anywhere.</p>
+  <span class="go">Open tool</span>
+</a></div>
+  </section>
+</main>
+<footer class="t-footer">
+  <span class="copy">© <span data-year>2026</span> Saad Bin Yousaf — Contractor Automations</span>
+  <nav aria-label="Footer">
+    <a href="/tools/">Free tools</a>
+    <a href="/">Portfolio</a>
+    <a href="/privacy.html">Privacy</a>
+    <a href="mailto:saadbinyousaf.dev@gmail.com">Contact</a>
+  </nav>
+  <p class="disclaimer">Independent tools built by Saad Bin Yousaf. Not affiliated with, endorsed by, or sponsored by HighLevel Inc. HighLevel and GoHighLevel are trademarks of their respective owner. Tool output is guidance, not legal advice — always review it for your business.</p>
+</footer>
+<script src="/tools/assets/tools.js"></script>
+<script src="/tools/merge-fields/app.js"></script>
+<script src="/js/ads.js"></script>
+</body>
+</html>

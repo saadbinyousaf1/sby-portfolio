@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- © https://saadbinyousaf.dev/ © -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Missed Call Revenue Calculator — What Unanswered Calls Cost You</title>
+<meta name="description" content="Calculate the revenue lost to missed calls and what a HighLevel missed-call text-back could recover. Industry starting points, editable assumptions and ready-to-use text-back templates.">
+<link rel="canonical" href="https://saadbinyousaf.dev/tools/missed-call-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Saad Bin Yousaf — HighLevel Tools">
+<meta property="og:title" content="Missed Call Revenue Calculator — What Unanswered Calls Cost You">
+<meta property="og:description" content="Calculate the revenue lost to missed calls and what a HighLevel missed-call text-back could recover. Industry starting points, editable assumptions and ready-to-use text-back templates.">
+<meta property="og:url" content="https://saadbinyousaf.dev/tools/missed-call-calculator/">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#0B0C0A">
+<meta name="google-adsense-account" content="ca-pub-6774293162106493">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230B0C0A'/%3E%3Ctext x='50%25' y='56%25' text-anchor='middle' dominant-baseline='middle' font-family='Arial' font-weight='700' font-size='34' fill='%23aac86b'%3ES%3C/text%3E%3C/svg%3E">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6774293162106493" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/tools/assets/tools.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Missed Call Revenue Calculator", "url": "https://saadbinyousaf.dev/tools/missed-call-calculator/", "description": "Calculate the revenue lost to missed calls and what a HighLevel missed-call text-back could recover. Industry starting points, editable assumptions and ready-to-use text-back templates.", "applicationCategory": "BusinessApplication", "operatingSystem": "Any (web browser)", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "author": {"@type": "Person", "name": "Saad Bin Yousaf", "url": "https://saadbinyousaf.dev/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://saadbinyousaf.dev/"}, {"@type": "ListItem", "position": 2, "name": "Free tools", "item": "https://saadbinyousaf.dev/tools/"}, {"@type": "ListItem", "position": 3, "name": "Missed Call Revenue Calculator", "item": "https://saadbinyousaf.dev/tools/missed-call-calculator/"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How do I calculate the cost of missed calls?", "acceptedAnswer": {"@type": "Answer", "text": "Multiply your missed calls by the share that are new leads, then by your close rate and your average customer value. That gives lost revenue per month. Multiply by 12 for the year. The calculator does this for you and shows each step."}}, {"@type": "Question", "name": "What percentage of calls do small businesses miss?", "acceptedAnswer": {"@type": "Answer", "text": "It varies widely with staffing, opening hours and call volume. Rather than relying on a general figure, check your own call log for a typical month. The presets use example values only so the tool works out of the box."}}, {"@type": "Question", "name": "Does a missed-call text-back really work?", "acceptedAnswer": {"@type": "Answer", "text": "It gives callers an easy way to continue the conversation, which many prefer to leaving a voicemail. Results depend on how fast it is sent, how it is worded and how quickly your team responds to replies. Track your own reply rate and adjust the recovery assumption."}}, {"@type": "Question", "name": "Can I set up missed-call text-back in HighLevel?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The common approach is a workflow with a call trigger filtered to missed calls and a Send SMS action, plus a notification so your team follows up on replies. Your number needs an approved A2P 10DLC campaign for texts to deliver reliably."}}, {"@type": "Question", "name": "Should I use first-job value or lifetime value?", "acceptedAnswer": {"@type": "Answer", "text": "Use first-job value for a conservative estimate. If customers usually come back, such as for dental cleanings or recurring service, lifetime value is a fairer measure of what a lost customer costs. Try both to see the range."}}, {"@type": "Question", "name": "Are my numbers saved anywhere?", "acceptedAnswer": {"@type": "Answer", "text": "No. Everything is calculated in your browser. Your last inputs are remembered only in your browser's local storage for convenience."}}]}</script>
+</head>
+<body>
+<nav class="t-nav" aria-label="Main">
+  <a href="/" class="t-logo">SBY<span>.DEV</span></a>
+  <ul class="t-links" id="navLinks">
+    <li><a href="/tools/" aria-current="page">Free tools</a></li>
+    <li><a href="/#work">Work</a></li>
+    <li><a href="/#services">Services</a></li>
+    <li><a href="/#about">About</a></li>
+  </ul>
+  <button class="t-menu" aria-controls="navLinks" aria-expanded="false">Menu</button>
+  <a href="/#contact" class="t-cta">Hire me</a>
+</nav>
+<main>
+  <header class="wrap t-hero">
+    <div class="crumbs"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/tools/">Free tools</a><span aria-hidden="true">/</span><span>Missed Call Revenue Calculator</span></div>
+    <h1>Missed call <em>revenue</em> calculator</h1>
+    <p class="t-lead">Estimate how much revenue unanswered calls cost your business each month, and how much of it an automatic missed-call text-back in HighLevel could recover. Change any number to match your business.</p>
+    <div class="chips"><span class="chip">Free</span><span class="chip">10 industry presets</span><span class="chip">Any currency</span></div>
+  </header>
+
+  <section class="wrap" aria-label="Missed Call Revenue Calculator">
+    <div class="workspace">
+      <div class="panel">
+        <div class="panel-head">
+          <span class="panel-title"><span class="n">1</span> Your numbers</span>
+          <select id="currency" aria-label="Currency" style="width:auto;padding:0.45rem 2rem 0.45rem 0.8rem;font-size:0.8rem;">
+            <option value="$">USD $</option>
+            <option value="£">GBP £</option>
+            <option value="€">EUR €</option>
+            <option value="C$">CAD C$</option>
+            <option value="A$">AUD A$</option>
+            <option value="AED ">AED</option>
+            <option value="₹">INR ₹</option>
+            <option value="Rs ">PKR Rs</option>
+          </select>
+        </div>
+        <div class="field">
+          <span class="label">Start from an industry <span class="hint">example values — replace with yours</span></span>
+          <div class="seg" id="presets"></div>
+        </div>
+
+        <div class="slider-field">
+          <div class="sf-top"><label for="calls">Inbound calls per month</label><input type="number" id="callsN" min="0" max="20000" aria-label="Inbound calls per month"></div>
+          <input type="range" id="calls" min="0" max="3000" step="10">
+        </div>
+        <div class="slider-field">
+          <div class="sf-top"><label for="missed">Calls that go unanswered</label><span class="sf-val"><input type="number" id="missedN" min="0" max="100" aria-label="Percent unanswered">%</span></div>
+          <input type="range" id="missed" min="0" max="80" step="1">
+        </div>
+        <div class="slider-field">
+          <div class="sf-top"><label for="lead">Missed callers who are new leads</label><span class="sf-val"><input type="number" id="leadN" min="0" max="100" aria-label="Percent new leads">%</span></div>
+          <input type="range" id="lead" min="0" max="100" step="1">
+        </div>
+        <div class="slider-field">
+          <div class="sf-top"><label for="close">Leads you normally close</label><span class="sf-val"><input type="number" id="closeN" min="0" max="100" aria-label="Close rate percent">%</span></div>
+          <input type="range" id="close" min="0" max="100" step="1">
+        </div>
+        <div class="field" style="margin-top:0.4rem;">
+          <label for="value">Average value of a new customer <span class="hint">first job, or lifetime value</span></label>
+          <input type="number" id="value" min="0" step="10">
+        </div>
+        <div class="slider-field">
+          <div class="sf-top"><label for="recover">Missed leads a text-back wins back <span class="hint">your assumption</span></label><span class="sf-val"><input type="number" id="recoverN" min="0" max="100" aria-label="Recovery percent">%</span></div>
+          <input type="range" id="recover" min="0" max="100" step="1">
+        </div>
+        <div class="field">
+          <label for="cost">Monthly cost of your solution <span class="hint">optional</span></label>
+          <input type="number" id="cost" min="0" step="1" value="0">
+        </div>
+      </div>
+
+      <div class="stack">
+        <div class="panel result-hero">
+          <div class="panel-head"><span class="panel-title">Revenue lost to missed calls</span><span class="badge bad">Per year</span></div>
+          <div class="big-num" id="bigLost">$0</div>
+          <p class="panel-note" id="bigNote"></p>
+          <div class="stats" style="margin-top:1.2rem;grid-template-columns:repeat(2,1fr);">
+            <div class="stat"><div class="v plain" id="rMissed">0</div><div class="k">Missed calls / month</div></div>
+            <div class="stat"><div class="v plain" id="rLeads">0</div><div class="k">Missed new leads / month</div></div>
+            <div class="stat"><div class="v bad" id="rCust">0</div><div class="k">Customers lost / month</div></div>
+            <div class="stat"><div class="v bad" id="rMonth">$0</div><div class="k">Lost revenue / month</div></div>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="panel-head"><span class="panel-title">With an instant text-back</span><span class="badge ok" id="roiBadge">—</span></div>
+          <div class="bars">
+            <div class="bar-row"><span>Lost today</span><div class="bar"><i id="barLost" class="lost"></i></div><b id="barLostV">$0</b></div>
+            <div class="bar-row"><span>Recovered</span><div class="bar"><i id="barRec"></i></div><b id="barRecV">$0</b></div>
+          </div>
+          <div class="stats" style="margin-top:1.2rem;">
+            <div class="stat"><div class="v" id="rRecM">$0</div><div class="k">Recovered / month</div></div>
+            <div class="stat"><div class="v" id="rRecY">$0</div><div class="k">Recovered / year</div></div>
+            <div class="stat"><div class="v" id="rNet">$0</div><div class="k">Net after cost / year</div></div>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="panel-head"><span class="panel-title">Text-back templates</span></div>
+          <div id="templates"></div>
+        </div>
+      </div>
+    </div>
+    <style>
+      .slider-field { margin-bottom: 1.15rem; }
+      .sf-top { display: flex; justify-content: space-between; align-items: center; gap: 1rem; margin-bottom: 0.5rem; }
+      .sf-top label { font-family: var(--mono); font-size: 0.64rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--dim); }
+      .sf-top label .hint { text-transform: none; letter-spacing: 0.02em; color: #6B6E62; }
+      .sf-top input[type="number"] { width: 92px; padding: 0.4rem 0.6rem; text-align: right; font-family: var(--mono); font-size: 0.85rem; }
+      .sf-val { display: inline-flex; align-items: center; gap: 0.35rem; font-family: var(--mono); color: var(--dim); }
+      .sf-val input[type="number"] { width: 72px; }
+      .big-num { font-family: var(--serif); font-style: italic; font-size: clamp(3.2rem, 7vw, 5.4rem); line-height: 1; color: var(--bad); letter-spacing: -0.01em; }
+      .bars { display: grid; gap: 0.8rem; }
+      .bar-row { display: grid; grid-template-columns: 90px 1fr 110px; gap: 0.8rem; align-items: center; font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--dim); }
+      .bar-row b { font-weight: 400; color: var(--bone); text-align: right; font-size: 0.8rem; }
+      .bar { height: 14px; background: var(--ink-2); border: 1px solid var(--line); border-radius: 999px; overflow: hidden; }
+      .bar i { display: block; height: 100%; width: 0; border-radius: 999px; background: linear-gradient(90deg, var(--lime), var(--lime-bright)); transition: width 0.6s var(--ease-out); }
+      .bar i.lost { background: linear-gradient(90deg, #c4493f, var(--bad)); }
+      @media (max-width: 520px) { .bar-row { grid-template-columns: 70px 1fr 80px; } }
+    </style>
+
+  </section>
+
+<div class="ad-slot" data-ad="toolTop">
+  <div class="ad-label">Advertisement</div>
+  <div class="ad-box"></div>
+</div>
+
+  <div class="wrap guide-wrap">
+    <aside class="toc" aria-label="On this page">
+      <div class="label">On this page</div>
+      <ol><li><a href="#why-it-matters">Why missed calls cost more than they look</a></li><li><a href="#how-it-works">How the calculation works</a></li><li><a href="#text-back">What a missed-call text-back does</a></li><li><a href="#setup-highlevel">How to set up a missed-call text-back in HighLevel</a></li><li><a href="#best-practices">Text-back best practices</a></li><li><a href="#for-agencies">Using this calculator in a sales call</a></li><li><a href="#faq">Frequently asked questions</a></li></ol>
+    </aside>
+    <article class="guide">
+      <p class="eyebrow">Guide</p>
+      <h2 id="why-it-matters">Why missed calls cost more than they look</h2>
+      <p>For most service businesses, a phone call is the highest-intent lead there is. Someone who calls has already decided they need the service and is ready to talk now. When that call goes unanswered, many callers don't leave a voicemail. They hang up and call the next business on the list.</p>
+      <p>The problem is that the loss is invisible. Nobody records the customer they never had. A missed call shows up as a line in the call log, not as lost revenue, so it rarely gets the attention a bad review or a lost deal would.</p>
+      <p>This calculator puts a number on it, using your own call volume, close rate and customer value. The result is an estimate, not a forecast, but it is usually enough to show whether fixing missed calls deserves an hour of your time this week.</p>
+
+      <h2 id="how-it-works">How the calculation works</h2>
+      <p>The math is deliberately simple, so you can check it and change any assumption:</p>
+      <ol class="steps">
+        <li><strong>Missed calls</strong> = inbound calls × the share that go unanswered.</li>
+        <li><strong>Missed new leads</strong> = missed calls × the share that are new potential customers. The rest are existing customers, suppliers, wrong numbers and spam, who usually call back.</li>
+        <li><strong>Customers lost</strong> = missed new leads × your normal close rate. We only count the ones you would have won if you had answered.</li>
+        <li><strong>Lost revenue</strong> = customers lost × average customer value, then × 12 for the year.</li>
+        <li><strong>Recovered</strong> = lost revenue × the share an instant text-back wins back.</li>
+      </ol>
+      <p>The industry presets are only starting points to make the tool usable straight away. They are not benchmarks. Replace every number with figures from your own call reports and sales records for an answer that means something.</p>
+      <h3>Where to find your real numbers</h3>
+      <ul>
+        <li><strong>Calls and missed calls:</strong> your phone system's call log. In HighLevel, the call reporting and conversation history show answered, missed and voicemail calls for numbers on the account.</li>
+        <li><strong>New-lead share:</strong> sample 30 missed calls and check how many numbers were not already contacts.</li>
+        <li><strong>Close rate and value:</strong> your pipeline reports, or a rough count of quotes sent against jobs won last quarter.</li>
+      </ul>
+
+<div class="ad-slot" data-ad="toolArticle">
+  <div class="ad-label">Advertisement</div>
+  <div class="ad-box"></div>
+</div>
+
+      <h2 id="text-back">What a missed-call text-back does</h2>
+      <p>A missed-call text-back sends an automatic SMS to anyone whose call you couldn't answer, usually within a minute. Instead of hearing nothing, the caller gets a message from your business asking how you can help.</p>
+      <p>It works because it catches people at the moment they are still looking. Many callers who would never leave a voicemail will happily reply to a text, and a reply opens a conversation your team can pick up as soon as they are free. The 30% recovery default is a conservative assumption, not a promise. Track your own reply rate for a month and update it.</p>
+
+      <h2 id="setup-highlevel">How to set up a missed-call text-back in HighLevel</h2>
+      <p>The usual way is a workflow. Menu names can shift between HighLevel updates, but the structure stays the same:</p>
+      <ol class="steps">
+        <li><strong>Create a workflow</strong> and add a call trigger, such as <em>Call Status</em>, filtered to missed or unanswered inbound calls. Some accounts also offer a built-in missed-call text-back setting in the phone number options.</li>
+        <li><strong>Add a Send SMS action</strong> with one of the templates above. Keep it short, name your business, and ask an open question.</li>
+        <li><strong>Notify your team</strong> with an internal notification or a task, so a person follows up when the caller replies.</li>
+        <li><strong>Optional: add a booking link</strong> as a custom value, like <code>{{custom_values.booking_link}}</code>, so callers can book without waiting for a reply.</li>
+        <li><strong>Test it</strong> by calling the number from your own phone and letting it ring out.</li>
+      </ol>
+      <p>Your phone number needs an approved A2P 10DLC campaign that covers this kind of message before texts will deliver reliably. The <a href="/tools/a2p-10dlc-generator/">A2P 10DLC kit</a> writes the registration copy for you.</p>
+
+      <h2 id="best-practices">Text-back best practices</h2>
+      <ul>
+        <li><strong>Speed matters most.</strong> Send it immediately. A text that arrives an hour later is just a callback by text.</li>
+        <li><strong>Sound human.</strong> “Sorry we missed your call! How can we help?” gets more replies than a formal notice.</li>
+        <li><strong>Name the business</strong> so the caller knows who is texting.</li>
+        <li><strong>Don't send it to everyone.</strong> Exclude existing customers with open jobs, or use a different message for them, if your workflow can tell them apart.</li>
+        <li><strong>Close the loop.</strong> A reply that sits unanswered is worse than no text at all. Route replies to someone who will respond the same day.</li>
+      </ul>
+
+      <h2 id="for-agencies">Using this calculator in a sales call</h2>
+      <p>If you set up HighLevel for clients, this is one of the easiest ways to show value in the first meeting. Ask the prospect three questions: how many calls they get, roughly how many they miss, and what a new customer is worth. Fill it in live, and let them adjust the numbers they disagree with.</p>
+      <p>Then set the monthly cost to your fee and the return badge shows the multiple. Because the prospect chose the inputs, the result is theirs, not your pitch.</p>
+
+      <h2 id="faq">Frequently asked questions</h2>
+      <div class="faq"><details><summary>How do I calculate the cost of missed calls?</summary><div class="a">Multiply your missed calls by the share that are new leads, then by your close rate and your average customer value. That gives lost revenue per month. Multiply by 12 for the year. The calculator does this for you and shows each step.</div></details><details><summary>What percentage of calls do small businesses miss?</summary><div class="a">It varies widely with staffing, opening hours and call volume. Rather than relying on a general figure, check your own call log for a typical month. The presets use example values only so the tool works out of the box.</div></details><details><summary>Does a missed-call text-back really work?</summary><div class="a">It gives callers an easy way to continue the conversation, which many prefer to leaving a voicemail. Results depend on how fast it is sent, how it is worded and how quickly your team responds to replies. Track your own reply rate and adjust the recovery assumption.</div></details><details><summary>Can I set up missed-call text-back in HighLevel?</summary><div class="a">Yes. The common approach is a workflow with a call trigger filtered to missed calls and a Send SMS action, plus a notification so your team follows up on replies. Your number needs an approved A2P 10DLC campaign for texts to deliver reliably.</div></details><details><summary>Should I use first-job value or lifetime value?</summary><div class="a">Use first-job value for a conservative estimate. If customers usually come back, such as for dental cleanings or recurring service, lifetime value is a fairer measure of what a lost customer costs. Try both to see the range.</div></details><details><summary>Are my numbers saved anywhere?</summary><div class="a">No. Everything is calculated in your browser. Your last inputs are remembered only in your browser's local storage for convenience.</div></details></div>
+    </article>
+  </div>
+
+  <section class="wrap related" aria-label="More tools">
+    <p class="eyebrow">More free tools</p>
+    <h2 style="font-size:clamp(1.6rem,3vw,2.2rem);letter-spacing:-0.025em;">Keep building your <span class="h-serif">system.</span></h2>
+    <div class="tool-grid"><a class="tool-card reveal-up" href="/tools/review-link-generator/" data-cat="Reputation">
+  <div class="tool-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+  <div class="cat">Reputation</div>
+  <h3>Google Review Link & QR Generator</h3>
+  <p>Turn your Place ID into a one-tap review link, a print-ready QR card, and SMS and email request templates.</p>
+  <span class="go">Open tool</span>
+</a><a class="tool-card reveal-up" href="/tools/csv-cleaner/" data-cat="Data">
+  <div class="tool-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18"/></svg></div>
+  <div class="cat">Data</div>
+  <h3>Contact CSV Cleaner</h3>
+  <p>Fix phone formats, names, emails and duplicates before importing contacts into HighLevel — without uploading your list anywhere.</p>
+  <span class="go">Open tool</span>
+</a><a class="tool-card reveal-up" href="/tools/utm-builder/" data-cat="Marketing">
+  <div class="tool-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div>
+  <div class="cat">Marketing</div>
+  <h3>UTM Link Builder</h3>
+  <p>Build clean, consistent tracking links for ads, emails, texts and QR codes so HighLevel attribution tells the truth.</p>
+  <span class="go">Open tool</span>
+</a></div>
+  </section>
+</main>
+<footer class="t-footer">
+  <span class="copy">© <span data-year>2026</span> Saad Bin Yousaf — Contractor Automations</span>
+  <nav aria-label="Footer">
+    <a href="/tools/">Free tools</a>
+    <a href="/">Portfolio</a>
+    <a href="/privacy.html">Privacy</a>
+    <a href="mailto:saadbinyousaf.dev@gmail.com">Contact</a>
+  </nav>
+  <p class="disclaimer">Independent tools built by Saad Bin Yousaf. Not affiliated with, endorsed by, or sponsored by HighLevel Inc. HighLevel and GoHighLevel are trademarks of their respective owner. Tool output is guidance, not legal advice — always review it for your business.</p>
+</footer>
+<script src="/tools/assets/tools.js"></script>
+<script src="/tools/missed-call-calculator/app.js"></script>
+<script src="/js/ads.js"></script>
+</body>
+</html>

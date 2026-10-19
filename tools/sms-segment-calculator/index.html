@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- © https://saadbinyousaf.dev/ © -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SMS Segment Calculator &amp; Cost Estimator for HighLevel</title>
+<meta name="description" content="Free SMS segment calculator. Count GSM-7 and Unicode characters, find emojis and smart quotes that double your cost, and estimate HighLevel LC Phone campaign spend.">
+<link rel="canonical" href="https://saadbinyousaf.dev/tools/sms-segment-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Saad Bin Yousaf — HighLevel Tools">
+<meta property="og:title" content="SMS Segment Calculator &amp; Cost Estimator for HighLevel">
+<meta property="og:description" content="Free SMS segment calculator. Count GSM-7 and Unicode characters, find emojis and smart quotes that double your cost, and estimate HighLevel LC Phone campaign spend.">
+<meta property="og:url" content="https://saadbinyousaf.dev/tools/sms-segment-calculator/">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#0B0C0A">
+<meta name="google-adsense-account" content="ca-pub-6774293162106493">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230B0C0A'/%3E%3Ctext x='50%25' y='56%25' text-anchor='middle' dominant-baseline='middle' font-family='Arial' font-weight='700' font-size='34' fill='%23aac86b'%3ES%3C/text%3E%3C/svg%3E">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6774293162106493" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/tools/assets/tools.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "SMS Segment Calculator", "url": "https://saadbinyousaf.dev/tools/sms-segment-calculator/", "description": "Free SMS segment calculator. Count GSM-7 and Unicode characters, find emojis and smart quotes that double your cost, and estimate HighLevel LC Phone campaign spend.", "applicationCategory": "BusinessApplication", "operatingSystem": "Any (web browser)", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "author": {"@type": "Person", "name": "Saad Bin Yousaf", "url": "https://saadbinyousaf.dev/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://saadbinyousaf.dev/"}, {"@type": "ListItem", "position": 2, "name": "Free tools", "item": "https://saadbinyousaf.dev/tools/"}, {"@type": "ListItem", "position": 3, "name": "SMS Segment Calculator", "item": "https://saadbinyousaf.dev/tools/sms-segment-calculator/"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How many characters are in one SMS segment?", "acceptedAnswer": {"@type": "Answer", "text": "160 characters if every character is in the GSM-7 set, or 70 if the message contains any Unicode character such as an emoji or curly quote. When a message is longer than that, each part holds 153 GSM-7 characters or 67 Unicode characters."}}, {"@type": "Question", "name": "Do emojis really double the cost of a text?", "acceptedAnswer": {"@type": "Answer", "text": "Often more than double. One emoji switches the whole message to Unicode, which drops the limit from 160 to 70 characters. A 150-character text that was one segment becomes three segments, so it costs three times as much."}}, {"@type": "Question", "name": "Why does a long message split at 153 characters instead of 160?", "acceptedAnswer": {"@type": "Answer", "text": "Each part of a multi-part message carries a small header that tells the phone how to put the pieces back together. That header uses the space of 7 GSM-7 characters, leaving 153 for your text in each part."}}, {"@type": "Question", "name": "Does HighLevel charge per message or per segment?", "acceptedAnswer": {"@type": "Answer", "text": "Outbound SMS is billed per segment by HighLevel's phone system and by Twilio. Check the messaging rates shown in your account's billing or phone settings, and enter that per-segment rate in the calculator to estimate a campaign."}}, {"@type": "Question", "name": "Do line breaks and spaces count as characters?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. A space is one character and a line break is one character in GSM-7. They are free to use for readability, but they still count toward the 160."}}, {"@type": "Question", "name": "Are picture messages (MMS) billed by segment?", "acceptedAnswer": {"@type": "Answer", "text": "No. MMS messages, the ones with an image or GIF attached, are billed per message at a separate, higher MMS rate. This calculator is for plain text SMS."}}, {"@type": "Question", "name": "Is the message I type saved or sent anywhere?", "acceptedAnswer": {"@type": "Answer", "text": "No. The calculation runs entirely in your browser. Your last message and settings are remembered only in your own browser's local storage so they are still there when you come back."}}]}</script>
+</head>
+<body>
+<nav class="t-nav" aria-label="Main">
+  <a href="/" class="t-logo">SBY<span>.DEV</span></a>
+  <ul class="t-links" id="navLinks">
+    <li><a href="/tools/" aria-current="page">Free tools</a></li>
+    <li><a href="/#work">Work</a></li>
+    <li><a href="/#services">Services</a></li>
+    <li><a href="/#about">About</a></li>
+  </ul>
+  <button class="t-menu" aria-controls="navLinks" aria-expanded="false">Menu</button>
+  <a href="/#contact" class="t-cta">Hire me</a>
+</nav>
+<main>
+  <header class="wrap t-hero">
+    <div class="crumbs"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/tools/">Free tools</a><span aria-hidden="true">/</span><span>SMS Segment Calculator</span></div>
+    <h1>SMS segment <em>calculator</em></h1>
+    <p class="t-lead">Paste any text message to see how many SMS segments it will bill as, which characters force expensive Unicode encoding, and what a bulk send will cost on your HighLevel phone number.</p>
+    <div class="chips"><span class="chip">Free</span><span class="chip">No signup</span><span class="chip">Runs in your browser</span></div>
+  </header>
+
+  <section class="wrap" aria-label="SMS Segment Calculator">
+    <div class="workspace wide-left">
+      <div class="stack">
+        <div class="panel">
+          <div class="panel-head">
+            <span class="panel-title"><span class="n">1</span> Your message</span>
+            <button class="copy-btn" data-copy="#msg">Copy text</button>
+          </div>
+          <div class="field">
+            <label for="msg">Message text <span class="hint" id="rawCount">0 characters</span></label>
+            <textarea id="msg" rows="7" spellcheck="true">Hi {{contact.first_name}}, your appointment with Bright Smile Dental is tomorrow at 10:00 AM. Reply C to confirm or R to reschedule.</textarea>
+          </div>
+          <div class="field">
+            <span class="label">Load an example</span>
+            <div class="seg" id="examples">
+              <button type="button" data-ex="reminder">Appointment reminder</button>
+              <button type="button" data-ex="promo">Promo with emoji</button>
+              <button type="button" data-ex="review">Review request</button>
+              <button type="button" data-ex="docs">Pasted from Google Docs</button>
+            </div>
+          </div>
+          <label class="check"><input type="checkbox" id="footer" checked> <span>Add opt-out line <small>Appends “Reply STOP to opt out” on a new line, like most compliant bulk texts.</small></span></label>
+          <div class="grid-2">
+            <div class="field">
+              <label for="mergeLen">Merge field length <span class="hint">chars each</span></label>
+              <input type="number" id="mergeLen" min="0" max="200" value="10">
+            </div>
+            <div class="field">
+              <span class="label">Merge fields found</span>
+              <div class="badge ok" id="mergeFound" style="justify-self:start;margin-top:0.35rem;">None</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-head">
+            <span class="panel-title"><span class="n">2</span> How carriers split it</span>
+            <span class="badge ok" id="encBadge">GSM-7</span>
+          </div>
+          <div id="viz" class="seg-viz" aria-live="polite"></div>
+          <div id="culprits"></div>
+        </div>
+      </div>
+
+      <div class="stack">
+        <div class="panel">
+          <div class="panel-head"><span class="panel-title">Result</span></div>
+          <div class="stats">
+            <div class="stat"><div class="v" id="sSegments">1</div><div class="k">Segments billed</div></div>
+            <div class="stat"><div class="v plain" id="sChars">0</div><div class="k">Characters counted</div></div>
+            <div class="stat"><div class="v plain" id="sLeft">0</div><div class="k">Left in this segment</div></div>
+            <div class="stat"><div class="v plain" id="sPer">160</div><div class="k">Per-segment limit</div></div>
+          </div>
+          <div style="margin-top:1.1rem;">
+            <div class="meter"><i id="meter" style="width:0%"></i></div>
+          </div>
+          <p class="panel-note" id="explain" style="margin-top:0.9rem;"></p>
+        </div>
+
+        <div class="panel">
+          <div class="panel-head"><span class="panel-title">Campaign cost estimate</span></div>
+          <div class="field">
+            <label for="recips">Recipients</label>
+            <input type="number" id="recips" min="0" value="1000">
+          </div>
+          <div class="grid-2">
+            <div class="field">
+              <label for="rate">Rate / segment <span class="hint">USD</span></label>
+              <input type="number" id="rate" min="0" step="0.0001" value="0.0079">
+            </div>
+            <div class="field">
+              <label for="fee">Carrier fee / seg <span class="hint">USD</span></label>
+              <input type="number" id="fee" min="0" step="0.0001" value="0">
+            </div>
+          </div>
+          <div class="stats" style="margin-top:0.4rem;">
+            <div class="stat"><div class="v" id="cPer">$0.0079</div><div class="k">Per message</div></div>
+            <div class="stat"><div class="v" id="cTotal">$0</div><div class="k">Whole campaign</div></div>
+          </div>
+          <p class="panel-note" style="margin-top:0.9rem;">Prices are examples. Use the per-segment rate shown in your HighLevel phone billing, plus any carrier pass-through fees.</p>
+        </div>
+      </div>
+    </div>
+    <style>
+      .seg-viz { font-family: var(--mono); font-size: 0.82rem; line-height: 1.9; color: var(--bone); background: var(--ink-2); border: 1px solid var(--line); border-radius: 12px; padding: 1rem; white-space: pre-wrap; word-break: break-word; min-height: 90px; }
+      .seg-viz .part { border-radius: 4px; padding: 0.1em 0; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+      .seg-viz .p0 { background: rgba(170,200,107,0.16); }
+      .seg-viz .p1 { background: rgba(120,180,255,0.16); }
+      .seg-viz .p2 { background: rgba(242,193,78,0.16); }
+      .seg-viz .p3 { background: rgba(255,107,94,0.16); }
+      .seg-viz .tag { font-size: 0.56rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); background: var(--lime); border-radius: 4px; padding: 0.05em 0.35em; margin-right: 0.35em; vertical-align: 0.15em; }
+      .seg-viz .bad { outline: 1px solid var(--bad); background: var(--bad-soft); border-radius: 3px; }
+      .seg-viz .empty { color: var(--dim); }
+      .cul { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.6rem 0 0.8rem; }
+      .cul span { font-family: var(--mono); font-size: 0.72rem; border: 1px solid rgba(255,107,94,0.4); background: var(--bad-soft); color: var(--bone); border-radius: 8px; padding: 0.3rem 0.55rem; }
+      .cul span b { color: var(--bad); font-weight: 400; margin-left: 0.3rem; }
+    </style>
+
+  </section>
+
+<div class="ad-slot" data-ad="toolTop">
+  <div class="ad-label">Advertisement</div>
+  <div class="ad-box"></div>
+</div>
+
+  <div class="wrap guide-wrap">
+    <aside class="toc" aria-label="On this page">
+      <div class="label">On this page</div>
+      <ol><li><a href="#what-is-a-segment">What an SMS segment is, and why it decides your bill</a></li><li><a href="#gsm-vs-unicode">GSM-7 vs Unicode: why one emoji can double the cost</a></li><li><a href="#hidden-characters">Characters that switch your message to Unicode without you noticing</a></li><li><a href="#highlevel">How this affects your HighLevel phone bill</a></li><li><a href="#merge-fields">Merge fields and links change the real count</a></li><li><a href="#tips">Seven ways to keep a text to one segment</a></li><li><a href="#faq">Frequently asked questions</a></li></ol>
+    </aside>
+    <article class="guide">
+      <p class="eyebrow">Guide</p>
+      <h2 id="what-is-a-segment">What an SMS segment is, and why it decides your bill</h2>
+      <p>Text messages travel through carrier networks in small fixed-size packets called <strong>segments</strong>. A message that fits in one packet is sent as one segment. Anything longer is cut into several segments, sent separately, and stitched back together on the recipient's phone so it still looks like a single text.</p>
+      <p>The part most people miss: <strong>you pay per segment, not per message.</strong> HighLevel's phone system and the carriers behind it count every segment as a billable unit. A message that looks like one text in your workflow can quietly cost two, three or four times as much once it is split.</p>
+      <p>For a single reminder that difference is a fraction of a cent. Across a 5,000-contact bulk send, or a workflow that fires hundreds of times a day, it becomes real money. That is why it is worth checking a template once before you put it into an automation that runs for months.</p>
+
+      <h2 id="gsm-vs-unicode">GSM-7 vs Unicode: why one emoji can double the cost</h2>
+      <p>Every message is encoded one of two ways, and the encoding sets how many characters fit in a segment:</p>
+      <table class="compare">
+        <thead><tr><th>Encoding</th><th>Single message</th><th>Each part of a long message</th></tr></thead>
+        <tbody>
+          <tr><td>GSM-7 (standard)</td><td>160 characters</td><td>153 characters</td></tr>
+          <tr><td>Unicode (UCS-2)</td><td>70 characters</td><td>67 characters</td></tr>
+        </tbody>
+      </table>
+      <p><strong>GSM-7</strong> covers the English alphabet, numbers, common punctuation and a handful of accented letters. As long as every character in your message is in that set, you get the full 160 characters.</p>
+      <p>The moment a single character outside the set appears, the <strong>entire message</strong> switches to Unicode. It does not matter if it is one emoji at the end of a 150-character text: the limit drops from 160 to 70, and the message that was one segment becomes three.</p>
+      <p>Long messages also lose a little room in each part. When a text is split, each segment carries a small header that tells the phone how to reassemble the pieces. That header takes the space of 7 GSM characters (or 3 Unicode characters), which is why the per-part limits are 153 and 67 instead of 160 and 70.</p>
+      <div class="callout"><strong>Quick rule:</strong> under 160 plain characters is one segment. Add one emoji or curly quote and the same message may need three.</div>
+
+      <h2 id="hidden-characters">Characters that switch your message to Unicode without you noticing</h2>
+      <p>Emojis are the obvious culprit, but most surprise Unicode messages come from characters that look identical to plain ones. They usually sneak in when copy is written in Google Docs, Word, Notion or on an iPhone, then pasted into HighLevel:</p>
+      <ul>
+        <li><strong>Curly quotes and apostrophes</strong> — <code>’</code> <code>“</code> <code>”</code> instead of <code>'</code> and <code>"</code>. Word processors convert them automatically.</li>
+        <li><strong>Long dashes</strong> — the en dash <code>–</code> and em dash <code>—</code>. Use a normal hyphen.</li>
+        <li><strong>The ellipsis character</strong> <code>…</code>, which is one character but not a GSM one. Three full stops are fine.</li>
+        <li><strong>Invisible spaces</strong> — non-breaking and zero-width spaces copied from web pages and emails. You cannot see them, but they force Unicode.</li>
+        <li><strong>Bullets and symbols</strong> such as <code>•</code>, <code>✓</code>, <code>→</code> and <code>™</code>.</li>
+        <li><strong>Some accented letters</strong>. Characters like <code>é</code>, <code>ü</code> and <code>ñ</code> are in GSM-7, but <code>á</code>, <code>í</code>, <code>ó</code> and <code>ç</code> are not.</li>
+      </ul>
+      <p>The calculator above highlights every one of these in red and offers to replace the smart punctuation with plain equivalents in one click. Try the <em>“Pasted from Google Docs”</em> example to see how a message that looks normal turns out to be Unicode.</p>
+      <p>A few GSM-7 characters are also <strong>“extended”</strong> and count as two: <code>{ } [ ] ~ \ | ^ €</code>. They keep you in GSM-7 but eat into the 160 faster.</p>
+
+<div class="ad-slot" data-ad="toolArticle">
+  <div class="ad-label">Advertisement</div>
+  <div class="ad-box"></div>
+</div>
+
+      <h2 id="highlevel">How this affects your HighLevel phone bill</h2>
+      <p>HighLevel bills outbound text messages by segment, using the rate set for your account's phone system (LC Phone or a connected Twilio account). Agencies that rebill messaging to sub-accounts pass the same segment count through to their clients, often with a markup, so segment count shows up on every invoice down the chain.</p>
+      <p>Here is how quickly it adds up. Say a home services company sends a seasonal promotion to 3,000 contacts:</p>
+      <ul>
+        <li>A 150-character plain message: <strong>3,000 segments</strong>.</li>
+        <li>The same message with a 🎉 emoji added: Unicode, 151 characters, <strong>3 segments each = 9,000 segments</strong>.</li>
+        <li>The same message with a link and a merge field that pushes it to 170 plain characters: <strong>2 segments each = 6,000 segments</strong>.</li>
+      </ul>
+      <p>One emoji tripled the cost of the campaign. Enter your own rate in the cost estimator to see the numbers for your account.</p>
+      <h3>Workflows multiply the effect</h3>
+      <p>A one-off bulk send happens once. A workflow message, such as an appointment reminder, a missed-call text-back or a review request, is sent every time the trigger fires, for as long as the workflow is published. Shaving one segment off a reminder that fires 40 times a day saves around 14,000 segments a year. Check your always-on templates first.</p>
+
+      <h2 id="merge-fields">Merge fields and links change the real count</h2>
+      <p>The text you type into HighLevel is not the text that gets sent. Merge fields like <code>{{contact.first_name}}</code> are replaced with each contact's details before sending, so the final length depends on the person:</p>
+      <ul>
+        <li><code>{{contact.first_name}}</code> might be “Al” or “Christopher”.</li>
+        <li><code>{{contact.company_name}}</code> can easily run to 30 or 40 characters.</li>
+        <li><code>{{appointment.start_time}}</code> usually expands to a full date and time.</li>
+      </ul>
+      <p>The calculator replaces each merge field with a placeholder of the length you choose, so you can test the worst case. If a message sits right at the edge of a segment, a longer-than-average name tips it over. Leave yourself 15–20 characters of headroom on any message that uses merge fields.</p>
+      <p>A contact's name can also contain non-GSM letters. A message to “José” stays in GSM-7, but a message to “Zoë” or “Ángel” switches to Unicode for that contact only.</p>
+      <p>Links count character by character too. A full booking URL can take 60 or more characters on its own. Use a short path on your own domain, such as <code>yourbusiness.com/book</code>, rather than a long funnel URL.</p>
+
+      <h2 id="tips">Seven ways to keep a text to one segment</h2>
+      <ol class="steps">
+        <li><strong>Write the text in HighLevel, not in a document.</strong> Typing straight into the message box avoids smart quotes and invisible spaces.</li>
+        <li><strong>Drop decorative emojis in bulk messages.</strong> Save them for one-to-one conversations where the cost is negligible.</li>
+        <li><strong>Lead with the point.</strong> “Your cleaning is Tue 10 AM” beats “We just wanted to send you a quick friendly reminder that…”.</li>
+        <li><strong>Shorten links</strong> with a clean path on your own domain. Avoid public shorteners like bit.ly, which carriers often filter as spam.</li>
+        <li><strong>Use the business name once</strong>, ideally at the start, where it identifies you and satisfies carrier rules.</li>
+        <li><strong>Keep the opt-out short.</strong> “Reply STOP to opt out” is 21 characters and widely accepted.</li>
+        <li><strong>Leave room for merge fields</strong>, as explained above.</li>
+      </ol>
+      <p>Sometimes two segments is the right call. A clear reminder that prevents a no-show is worth more than a fraction of a cent. The point is to choose the length on purpose, not discover it on the invoice.</p>
+
+      <h2 id="faq">Frequently asked questions</h2>
+      <div class="faq"><details><summary>How many characters are in one SMS segment?</summary><div class="a">160 characters if every character is in the GSM-7 set, or 70 if the message contains any Unicode character such as an emoji or curly quote. When a message is longer than that, each part holds 153 GSM-7 characters or 67 Unicode characters.</div></details><details><summary>Do emojis really double the cost of a text?</summary><div class="a">Often more than double. One emoji switches the whole message to Unicode, which drops the limit from 160 to 70 characters. A 150-character text that was one segment becomes three segments, so it costs three times as much.</div></details><details><summary>Why does a long message split at 153 characters instead of 160?</summary><div class="a">Each part of a multi-part message carries a small header that tells the phone how to put the pieces back together. That header uses the space of 7 GSM-7 characters, leaving 153 for your text in each part.</div></details><details><summary>Does HighLevel charge per message or per segment?</summary><div class="a">Outbound SMS is billed per segment by HighLevel's phone system and by Twilio. Check the messaging rates shown in your account's billing or phone settings, and enter that per-segment rate in the calculator to estimate a campaign.</div></details><details><summary>Do line breaks and spaces count as characters?</summary><div class="a">Yes. A space is one character and a line break is one character in GSM-7. They are free to use for readability, but they still count toward the 160.</div></details><details><summary>Are picture messages (MMS) billed by segment?</summary><div class="a">No. MMS messages, the ones with an image or GIF attached, are billed per message at a separate, higher MMS rate. This calculator is for plain text SMS.</div></details><details><summary>Is the message I type saved or sent anywhere?</summary><div class="a">No. The calculation runs entirely in your browser. Your last message and settings are remembered only in your own browser's local storage so they are still there when you come back.</div></details></div>
+    </article>
+  </div>
+
+  <section class="wrap related" aria-label="More tools">
+    <p class="eyebrow">More free tools</p>
+    <h2 style="font-size:clamp(1.6rem,3vw,2.2rem);letter-spacing:-0.025em;">Keep building your <span class="h-serif">system.</span></h2>
+    <div class="tool-grid"><a class="tool-card reveal-up" href="/tools/a2p-10dlc-generator/" data-cat="Messaging">
+  <div class="tool-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></div>
+  <div class="cat">Messaging</div>
+  <h3>A2P 10DLC Registration Kit</h3>
+  <p>Generate the campaign description, sample messages, opt-in wording and privacy clause carriers expect — written for your business.</p>
+  <span class="go">Open tool</span>
+</a><a class="tool-card reveal-up" href="/tools/merge-fields/" data-cat="Messaging">
+  <div class="tool-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3H7a2 2 0 0 0-2 2v5a2 2 0 0 1-2 2 2 2 0 0 1 2 2v5a2 2 0 0 0 2 2h1"/><path d="M16 21h1a2 2 0 0 0 2-2v-5a2 2 0 0 1 2-2 2 2 0 0 1-2-2V5a2 2 0 0 0-2-2h-1"/></svg></div>
+  <div class="cat">Messaging</div>
+  <h3>Merge Field Previewer</h3>
+  <p>Searchable cheat sheet of HighLevel merge fields with a live preview that catches typos and blank-name mistakes.</p>
+  <span class="go">Open tool</span>
+</a><a class="tool-card reveal-up" href="/tools/missed-call-calculator/" data-cat="Sales">
+  <div class="tool-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/><path d="M16 2l6 6M22 2l-6 6"/></svg></div>
+  <div class="cat">Sales</div>
+  <h3>Missed Call Revenue Calculator</h3>
+  <p>Put a number on the revenue lost to unanswered calls, and how much an instant text-back could win back.</p>
+  <span class="go">Open tool</span>
+</a></div>
+  </section>
+</main>
+<footer class="t-footer">
+  <span class="copy">© <span data-year>2026</span> Saad Bin Yousaf — Contractor Automations</span>
+  <nav aria-label="Footer">
+    <a href="/tools/">Free tools</a>
+    <a href="/">Portfolio</a>
+    <a href="/privacy.html">Privacy</a>
+    <a href="mailto:saadbinyousaf.dev@gmail.com">Contact</a>
+  </nav>
+  <p class="disclaimer">Independent tools built by Saad Bin Yousaf. Not affiliated with, endorsed by, or sponsored by HighLevel Inc. HighLevel and GoHighLevel are trademarks of their respective owner. Tool output is guidance, not legal advice — always review it for your business.</p>
+</footer>
+<script src="/tools/assets/tools.js"></script>
+<script src="/tools/sms-segment-calculator/app.js"></script>
+<script src="/js/ads.js"></script>
+</body>
+</html>
