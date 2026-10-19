@@ -2,8 +2,12 @@
   "trailingSlash": true,
   "headers": [
     {
-      "source": "/(.*)\\.(jpg|png|svg|css|js)",
+      "source": "/(.*)\\.(jpg|png|svg)",
       "headers": [{ "key": "Cache-Control", "value": "public, max-age=86400" }]
+    },
+    {
+      "source": "/(.*)\\.(css|js)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }]
     }
   ]
 }
