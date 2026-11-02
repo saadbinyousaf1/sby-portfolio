@@ -983,3 +983,56 @@ footer .privacy:hover { color: var(--lime); }
   .drs-combo, .drs-row, .drs-send { transition: none; }
   .drs-cursor::before, .drs-caret { animation: none; }
 }
+
+/* © https://saadbinyousaf.dev/ © */
+.wid-cards { display: grid; grid-template-columns: 1fr; gap: 24px; margin-top: 3.6rem; }
+.wid-card {
+  display: flex; flex-direction: column; justify-content: space-between; align-items: center; gap: 30px;
+  padding: 30px 24px; overflow: hidden;
+  background: var(--card); border: 1px solid var(--card-border); border-radius: 16px;
+  box-shadow: var(--card-shine);
+}
+.wid-graphic { width: 140%; max-width: 417px; }
+.wid-svg { display: block; width: 100%; height: auto; }
+.wid-g2 { align-self: flex-start; max-width: none; width: auto; }
+.wid-g2 .wid-svg { width: 1246px; height: 230px; }
+.wid-g3 {
+  align-self: flex-start; max-width: none; width: auto; padding: 16px 0 0 24px;
+  -webkit-mask-image: radial-gradient(circle at -80%, #fff 50%, transparent 100%); mask-image: radial-gradient(circle at -80%, #fff 50%, transparent 100%);
+}
+.wid-dots { display: grid; grid-template-columns: repeat(8, 10px); grid-auto-rows: 10px; gap: 40px 48px; }
+.wid-dots i { width: 10px; height: 10px; border-radius: 50%; border: 1px solid #56c2ff50; background: transparent; }
+.wid-dots i.on { animation: widDot 6s var(--d) infinite; }
+@keyframes widDot { 0%, 18% { background: transparent; } 20%, 80% { background: #56c2ff; border-color: #56c2ff; box-shadow: 0 0 10px #56c2ff80; } 82%, 100% { background: transparent; } }
+.wid-pulse { stroke-dasharray: 40 600; stroke-dashoffset: 640; animation: widPulse 3.2s linear infinite; }
+@keyframes widPulse { to { stroke-dashoffset: 0; } }
+.wid-cell { animation: widCell 4.8s var(--d) ease-in-out infinite; }
+@keyframes widCell { 0%, 100% { opacity: 1; } 45% { opacity: .55; } }
+.wid-hot { animation: widHot 3.5s ease-in-out infinite; }
+@keyframes widHot { 50% { opacity: .45; } }
+.wid-text { display: flex; flex-direction: column; align-items: flex-start; width: 100%; }
+.wid-title { margin-bottom: 24px; }
+.wid-title h3, .wid-title p { display: inline; font-family: var(--grotesk); font-size: 20px; font-weight: 500; letter-spacing: .2px; line-height: normal; }
+.wid-title h3 { color: #fff; }
+.wid-title p { color: var(--dim); }
+.wid-tag {
+  display: inline-flex; align-items: center; gap: 8px; height: 26px; padding: 0 6px;
+  border-radius: 6px; background: #1d1e21; box-shadow: inset 0 1px #ffffff0d;
+  color: #fff; font-size: 14px; font-weight: 500; letter-spacing: .2px; white-space: nowrap;
+}
+.wid-tagIc { width: 16px; height: 16px; border-radius: 4px; display: inline-flex; align-items: center; justify-content: center; box-shadow: inset 0 1px 0 rgba(255,255,255,.35); }
+.wid-tagIc svg { width: 11px; height: 11px; }
+@media (min-width: 640px) {
+  .wid-cards { grid-template-columns: repeat(2, 1fr); }
+  .wid-cards .wid-card:first-child { grid-column: span 2; flex-direction: row-reverse; }
+  .wid-g2 { -webkit-mask-image: radial-gradient(circle at -80%, #fff 50%, transparent 100%); mask-image: radial-gradient(circle at -80%, #fff 50%, transparent 100%); }
+}
+@media (min-width: 1064px) {
+  .wid-cards { grid-template-columns: repeat(3, 1fr); }
+  .wid-cards .wid-card:first-child { grid-column: span 1; flex-direction: column; }
+  .wid-card { padding: 30px 32px; gap: 46px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .wid-dots i.on, .wid-pulse, .wid-cell, .wid-hot { animation: none; }
+  .wid-dots i.on { background: #56c2ff; }
+}
