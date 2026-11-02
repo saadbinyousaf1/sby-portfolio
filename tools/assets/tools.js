@@ -225,16 +225,30 @@
   };
 
   // © https://saadbinyousaf.dev/ © //
-  function initChrome() {
-    var btn = document.querySelector('.t-menu');
-    var links = document.querySelector('.t-links');
-    if (btn && links) {
-      btn.addEventListener('click', function () {
-        var open = links.classList.toggle('open');
-        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-      });
+  function initHeader() {
+    var sh = document.querySelector('.sh');
+    if (!sh) return;
+    var bar = sh.querySelector('.sh-bar');
+    var toggle = sh.querySelector('.sh-toggle');
+    function setOpen(open) {
+      sh.classList.toggle('open', open);
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      bar.style.height = open ? bar.scrollHeight + 'px' : '';
+      document.documentElement.style.overflow = open ? 'hidden' : '';
     }
+    toggle.addEventListener('click', function () { setOpen(!sh.classList.contains('open')); });
+    sh.querySelectorAll('.sh-links a, .sh-sec a').forEach(function (a) {
+      a.addEventListener('click', function () { if (sh.classList.contains('open')) setOpen(false); });
+    });
+    addEventListener('resize', function () { if (innerWidth >= 720 && sh.classList.contains('open')) setOpen(false); });
+    addEventListener('keydown', function (e) { if (e.key === 'Escape' && sh.classList.contains('open')) setOpen(false); });
+    addEventListener('scroll', function () { sh.classList.toggle('scrolled', scrollY > 40); }, { passive: true });
+  }
 
+  // © https://saadbinyousaf.dev/ © //
+  function initChrome() {
+    initHeader();
     document.querySelectorAll('[data-year]').forEach(function (el) { el.textContent = new Date().getFullYear(); });
 
     document.addEventListener('click', function (e) {

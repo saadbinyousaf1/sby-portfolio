@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=20261019">
+<link rel="stylesheet" href="css/style.css?v=20261102">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6774293162106493"
      crossorigin="anonymous"></script>
 <script>setTimeout(function(){if(!window.gsap){document.documentElement.classList.remove("js-anim");var p=document.getElementById("preloader");if(p)p.style.display="none";document.querySelectorAll(".reveal,.tilt").forEach(function(e){e.style.opacity=1})}},3000);</script>
@@ -48,17 +48,24 @@
 <div class="cursor-ring" id="cursorRing"></div>
 
 <!-- ===== Nav ===== -->
-<nav id="nav">
-  <a href="#top" class="nav-logo">SBY<span>.DEV</span></a>
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#services">Services</a></li>
-    <li><a href="#portals">Portals</a></li>
-    <li><a href="#work">Work</a></li>
-    <li><a href="/tools/">Free tools</a></li>
-  </ul>
-  <a href="#contact" class="nav-cta">Contact Me</a>
-</nav>
+<div class="sh" id="nav">
+  <nav class="sh-bar" aria-label="Main">
+    <div class="sh-logoC">
+      <a href="#top" class="sh-logo" aria-label="SBY.DEV home"><span class="sh-mark" aria-hidden="true">S</span><span class="sh-word">SBY<span>.DEV</span></span></a>
+      <button class="sh-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="shMenu"><i></i><i></i><i></i></button>
+    </div>
+    <div class="sh-links" id="shMenu">
+      <a class="sh-link" href="#about">About</a>
+      <a class="sh-link" href="#services">Services</a>
+      <a class="sh-link" href="#portals">Portals</a>
+      <a class="sh-link" href="#work">Work</a>
+      <a class="sh-link" href="/tools/">Free tools</a>
+    </div>
+    <div class="sh-sec">
+      <a href="#contact" class="sh-btn"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="1.75" y="3.25" width="12.5" height="9.5" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="m2.5 4.5 5.5 4 5.5-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Contact me</a>
+    </div>
+  </nav>
+</div>
 
 <!-- ===== Hero ===== -->
 <header class="hero" id="top">
@@ -396,7 +403,7 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script src="js/main.js?v=20261019"></script>
-<script src="js/ads.js?v=20261019"></script>
+<script src="js/main.js?v=20261102"></script>
+<script src="js/ads.js?v=20261102"></script>
 </body>
 </html>

@@ -35,6 +35,8 @@
   var finePointer = matchMedia('(hover: hover) and (pointer: fine)').matches;
   var introDone = false;
 
+  initHeader();
+
   if (!window.gsap) {
     root.classList.remove('js-anim');
     var pl = document.getElementById('preloader');
@@ -354,12 +356,29 @@
   }
 
   // © https://saadbinyousaf.dev/ © //
-  function initChrome() {
-    var nav = document.getElementById('nav');
-    addEventListener('scroll', function () {
-      nav.classList.toggle('scrolled', scrollY > 40);
-    }, { passive: true });
+  function initHeader() {
+    var sh = document.querySelector('.sh');
+    if (!sh) return;
+    var bar = sh.querySelector('.sh-bar');
+    var toggle = sh.querySelector('.sh-toggle');
+    function setOpen(open) {
+      sh.classList.toggle('open', open);
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      bar.style.height = open ? bar.scrollHeight + 'px' : '';
+      document.documentElement.style.overflow = open ? 'hidden' : '';
+    }
+    toggle.addEventListener('click', function () { setOpen(!sh.classList.contains('open')); });
+    sh.querySelectorAll('.sh-links a, .sh-sec a').forEach(function (a) {
+      a.addEventListener('click', function () { if (sh.classList.contains('open')) setOpen(false); });
+    });
+    addEventListener('resize', function () { if (innerWidth >= 720 && sh.classList.contains('open')) setOpen(false); });
+    addEventListener('keydown', function (e) { if (e.key === 'Escape' && sh.classList.contains('open')) setOpen(false); });
+    addEventListener('scroll', function () { sh.classList.toggle('scrolled', scrollY > 40); }, { passive: true });
+  }
 
+  // © https://saadbinyousaf.dev/ © //
+  function initChrome() {
     var track = document.getElementById('tickerTrack');
     if (track) {
       track.innerHTML += track.innerHTML;

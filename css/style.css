@@ -85,58 +85,101 @@ body::after {
 @media (hover: none) { .cursor-dot, .cursor-ring { display: none; } }
 
 /* © https://saadbinyousaf.dev/ © */
-nav {
+.sh {
   position: fixed; top: 0; left: 0; right: 0; z-index: 900;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 1.4rem 3rem;
-  transition: background 0.4s, backdrop-filter 0.4s, border-color 0.4s;
-  border-bottom: 1px solid transparent;
+  display: flex; justify-content: center;
+  padding: 16px 16px 0;
+  overscroll-behavior: contain;
+  pointer-events: none;
 }
-nav.scrolled {
-  background: rgba(11, 12, 10, 0.72);
-  backdrop-filter: blur(18px);
-  border-bottom-color: var(--line);
+.sh.open { min-height: 100vh; max-height: 100vh; padding-bottom: 24px; overflow-y: auto; pointer-events: auto; }
+.sh-bar {
+  pointer-events: auto;
+  width: 100%; max-width: 1200px; height: 58px;
+  padding: 16px;
+  display: grid; grid-template-columns: 1fr; grid-template-rows: 24px auto;
+  overflow: hidden;
+  background: linear-gradient(137deg, #111214bf 4.87%, #0c0d0fe6 75.88%);
+  border: 1px solid #ffffff0f;
+  border-radius: 16px;
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  box-shadow: inset 0 1px 1px #ffffff26;
+  will-change: height, transform;
+  transition: height .3s, transform .3s, backdrop-filter .3s;
 }
-.nav-logo {
-  font-family: var(--mono);
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  color: var(--bone);
-  text-decoration: none;
+.sh.scrolled .sh-bar { -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); }
+.sh-logoC { display: flex; justify-content: space-between; align-items: center; width: 100%; }
+.sh-logo {
+  display: inline-flex; align-items: center; gap: 10px; height: 24px;
+  color: var(--bone); text-decoration: none;
+  font-family: var(--mono); font-size: .8rem; font-weight: 700; letter-spacing: .18em;
+  transition: transform .2s;
 }
-.nav-logo span { color: var(--lime); }
-.nav-links { display: flex; gap: 2.4rem; list-style: none; }
-.nav-links a {
-  font-family: var(--mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--dim);
-  text-decoration: none;
-  position: relative;
-  transition: color 0.25s;
+.sh-logo:hover, .sh-logo:focus-visible { transform: scale(1.05); }
+.sh-mark {
+  width: 24px; height: 24px; flex: none; border-radius: 7px;
+  display: grid; place-items: center;
+  background: var(--lime); color: var(--ink);
+  font-family: var(--grotesk); font-size: 15px; font-weight: 700; letter-spacing: 0;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.35), 0 0 18px rgba(170,200,107,.25);
 }
-.nav-links a::after {
-  content: ''; position: absolute; left: 0; bottom: -5px;
-  width: 0; height: 1px; background: var(--lime);
-  transition: width 0.3s var(--ease);
+.sh-word span { color: var(--lime); }
+.sh-toggle {
+  position: relative; width: 24px; height: 16px; padding: 0;
+  background: none; border: 0; cursor: pointer;
+  will-change: transform; transition: transform .5s, opacity .3s;
 }
-.nav-links a:hover { color: var(--bone); }
-.nav-links a:hover::after { width: 100%; }
-.nav-cta {
-  font-family: var(--mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--ink);
-  background: var(--lime);
-  padding: 0.65rem 1.4rem;
-  border-radius: 999px;
-  text-decoration: none;
-  transition: background 0.25s, transform 0.25s;
+.sh-toggle i {
+  position: absolute; left: 50%; width: 100%; height: 1px;
+  background: #ffffffe6;
+  transform: translate(-50%, -50%);
+  transition: transform .5s, opacity .25s, top .5s;
 }
-.nav-cta:hover { background: var(--lime-bright); transform: translateY(-2px); }
+.sh-toggle i:nth-child(1) { top: 10%; }
+.sh-toggle i:nth-child(2) { top: 50%; }
+.sh-toggle i:nth-child(3) { top: 90%; }
+.sh.open .sh-toggle { transform: rotate(180deg); }
+.sh.open .sh-toggle i:nth-child(1) { top: 50%; transform: translate(-50%) rotate(-45deg); }
+.sh.open .sh-toggle i:nth-child(2) { top: 50%; opacity: 0; }
+.sh.open .sh-toggle i:nth-child(3) { top: 50%; transform: translate(-50%) rotate(45deg); }
+.sh-links { display: flex; flex-direction: column; gap: 4px; padding: 48px 0 32px; }
+.sh-link {
+  padding: 12px 8px; border-radius: 6px;
+  color: #cfd0c8; text-decoration: none; white-space: nowrap;
+  font-family: var(--grotesk); font-size: 14px; font-weight: 500; letter-spacing: .2px; line-height: normal;
+  transition: all .2s ease-in-out;
+}
+.sh-link:focus-visible { background: #ffffff0d; outline: none; }
+.sh-link:hover, .sh-link[aria-current="page"] { color: #fff; }
+.sh-sec { display: flex; padding-top: 32px; border-top: 1px solid #ffffff1a; }
+.sh-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  height: 36px; padding: 0 14px; border-radius: 8px;
+  background: var(--bone); color: var(--ink); text-decoration: none;
+  font-family: var(--grotesk); font-size: 14px; font-weight: 500; letter-spacing: .2px; white-space: nowrap;
+  box-shadow: inset 0 -1px 0 rgba(0,0,0,.18), 0 1px 2px rgba(0,0,0,.45);
+  transition: background .2s, transform .2s;
+}
+.sh-btn svg { width: 16px; height: 16px; }
+.sh-btn:hover { background: var(--lime-bright); }
+.sh-btn:focus-visible { outline: 2px solid var(--lime); outline-offset: 2px; }
+.sh-sec .sh-btn { width: 100%; height: 44px; }
+@media (min-width: 720px) {
+  .sh.open { min-height: 0; max-height: none; padding-bottom: 0; overflow: visible; pointer-events: none; }
+  .sh-bar { position: relative; height: 76px; padding: 16px 32px; display: flex; justify-content: center; align-items: center; overflow: visible; }
+  .sh-logoC { position: absolute; left: 32px; top: 50%; width: auto; transform: translateY(-50%); }
+  .sh-word, .sh-toggle { display: none; }
+  .sh-links { flex-direction: row; align-items: center; gap: 16px; padding: 0; }
+  .sh-sec { position: absolute; right: 32px; top: 50%; height: 100%; align-items: center; padding: 0; border-top: 0; transform: translateY(-50%); }
+  .sh-sec .sh-btn { width: auto; height: 36px; }
+}
+@media (min-width: 1064px) {
+  .sh-word { display: inline; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sh-bar, .sh-toggle, .sh-toggle i, .sh-link, .sh-logo { transition: none; }
+}
 
 /* © https://saadbinyousaf.dev/ © */
 .hero {
@@ -701,8 +744,6 @@ footer .status i {
   .hero-collage { height: 380px; max-width: 560px; }
 }
 @media (max-width: 720px) {
-  nav { padding: 1.1rem 1.4rem; }
-  .nav-links { display: none; }
   section { padding: 5rem 1.4rem; }
   .hero { padding: 7rem 1.4rem 3rem; }
   .about-grid { grid-template-columns: 1fr; gap: 3rem; }
