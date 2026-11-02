@@ -36,6 +36,7 @@
   var introDone = false;
 
   initHeader();
+  initAutomation();
 
   if (!window.gsap) {
     root.classList.remove('js-anim');
@@ -353,6 +354,104 @@
         gsap.to(btn, { x: 0, y: 0, duration: 0.7, ease: 'elastic.out(1, 0.4)' });
       });
     });
+  }
+
+  // © https://saadbinyousaf.dev/ © //
+  function initAutomation() {
+    var sec = document.getElementById('automation');
+    if (!sec) return;
+    var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // © https://saadbinyousaf.dev/ © //
+    var msg = document.getElementById('drsMsg');
+    var typeEl = document.getElementById('drsType');
+    var restart = document.getElementById('drsRestart');
+    var reply = 'book.apexroofing.com/inspection';
+    var typeTimer = null, loopTimer = null;
+    function typeReply() {
+      clearTimeout(typeTimer); clearTimeout(loopTimer);
+      msg.classList.remove('done', 'sent');
+      if (still) { typeEl.textContent = reply; msg.classList.add('done'); return; }
+      var i = 0;
+      typeEl.textContent = '';
+      (function step() {
+        typeEl.textContent = reply.slice(0, ++i);
+        if (i < reply.length) { typeTimer = setTimeout(step, 34 + Math.random() * 40); return; }
+        msg.classList.add('done');
+        typeTimer = setTimeout(function () { msg.classList.add('sent'); }, 700);
+        loopTimer = setTimeout(typeReply, 5200);
+      })();
+    }
+    restart.addEventListener('click', typeReply);
+
+    // © https://saadbinyousaf.dev/ © //
+    var query = document.getElementById('drsQuery');
+    var rows = sec.querySelectorAll('.drs-row');
+    var word = 'missed', rowIdx = 0, rowTimer = null;
+    function typeQuery() {
+      if (still) { query.textContent = word; return; }
+      var i = 0;
+      query.textContent = '';
+      (function step() {
+        query.textContent = word.slice(0, ++i);
+        if (i < word.length) setTimeout(step, 110);
+        else rowTimer = setInterval(function () {
+          rows[rowIdx].classList.remove('on');
+          rowIdx = (rowIdx + 1) % rows.length;
+          rows[rowIdx].classList.add('on');
+        }, 1600);
+      })();
+    }
+
+    // © https://saadbinyousaf.dev/ © //
+    var combo = document.getElementById('drsCombo');
+    var ico = {
+      shift: '<svg viewBox="0 0 24 24" fill="none"><path d="M12 4 3.5 12.5H8V20h8v-7.5h4.5z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>',
+      cmd: '<svg viewBox="0 0 24 24" fill="none"><path d="M9 9V6.5A2.5 2.5 0 1 0 6.5 9H9zm0 0h6m-6 0v6m6-6V6.5A2.5 2.5 0 1 1 17.5 9H15zm0 0v6m0 0h2.5a2.5 2.5 0 1 1-2.5 2.5V15zm0 0H9m0 0v2.5A2.5 2.5 0 1 1 6.5 15H9z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>',
+      opt: '<svg viewBox="0 0 24 24" fill="none"><path d="M3 6h5l7 12h6M14 6h7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+      ctrl: '<svg viewBox="0 0 24 24" fill="none"><path d="m6 13 6-6 6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+    };
+    var keys = {
+      shift: '<div class="drs-key wide"><div class="pri">' + ico.shift + '</div></div>',
+      cmd: '<div class="drs-key wide"><div class="alt">' + ico.cmd + '</div><div class="pri">command</div></div>',
+      opt: '<div class="drs-key wide"><div class="alt">' + ico.opt + '</div><div class="pri">option</div></div>',
+      ctrl: '<div class="drs-key wide"><div class="alt">' + ico.ctrl + '</div><div class="pri">control</div></div>'
+    };
+    var letter = function (l) { return '<div class="drs-key"><div class="stretch">' + l + '</div></div>'; };
+    var plus = '<span class="drs-plus">+</span>';
+    var combos = [['shift', 'cmd', 'S'], ['opt', 'cmd', 'K'], ['ctrl', 'shift', 'L']];
+    var ci = 0;
+    function renderCombo() {
+      var c = combos[ci];
+      combo.innerHTML = keys[c[0]] + plus + keys[c[1]] + plus + letter(c[2]);
+    }
+    function nextCombo() {
+      combo.classList.add('exit');
+      setTimeout(function () {
+        ci = (ci + 1) % combos.length;
+        renderCombo();
+        combo.classList.remove('exit');
+        combo.classList.add('enter');
+        void combo.offsetWidth;
+        combo.classList.remove('enter');
+      }, 300);
+    }
+    renderCombo();
+
+    // © https://saadbinyousaf.dev/ © //
+    var started = false;
+    function start() {
+      if (started) return;
+      started = true;
+      typeReply();
+      typeQuery();
+      if (!still) setInterval(nextCombo, 2600);
+    }
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (entries, obs) {
+        if (entries[0].isIntersecting) { start(); obs.disconnect(); }
+      }, { threshold: 0.25 }).observe(sec);
+    } else start();
   }
 
   // © https://saadbinyousaf.dev/ © //

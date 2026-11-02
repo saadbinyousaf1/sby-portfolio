@@ -1,17 +1,20 @@
 /* © https://saadbinyousaf.dev/ © */
 :root {
-  --ink: #0B0C0A;
-  --ink-2: #0E0F0C;
-  --panel: #141610;
-  --panel-2: #1A1D15;
-  --line: #262922;
-  --line-2: #33372D;
+  --ink: #07080a;
+  --ink-2: #0c0d0f;
+  --panel: #101113;
+  --panel-2: #16171a;
+  --line: #1c1d20;
+  --line-2: #2a2b2f;
   --lime: #aac86b;
   --lime-bright: #D6F077;
   --lime-soft: rgba(170, 200, 107, 0.12);
-  --bone: #F2F1EA;
-  --text: rgba(242, 241, 234, 0.78);
-  --dim: #8A8D80;
+  --bone: #f4f4f5;
+  --text: rgba(255, 255, 255, 0.72);
+  --dim: #9c9c9d;
+  --card: linear-gradient(137deg, #111214 4.87%, #0c0d0f 75.88%);
+  --card-border: #ffffff0f;
+  --card-shine: inset 0 1px #ffffff1a;
   --warn: #F2C14E;
   --warn-soft: rgba(242, 193, 78, 0.12);
   --bad: #FF6B5E;
@@ -37,10 +40,10 @@ body::before {
   content: '';
   position: fixed; inset: 0; z-index: -1; pointer-events: none;
   background:
-    radial-gradient(60vmax 60vmax at 85% -10%, rgba(170,200,107,0.10), transparent 60%),
-    radial-gradient(40vmax 40vmax at -10% 30%, rgba(170,200,107,0.05), transparent 60%),
-    linear-gradient(rgba(170,200,107,0.035) 1px, transparent 1px) 0 0 / 72px 72px,
-    linear-gradient(90deg, rgba(170,200,107,0.035) 1px, transparent 1px) 0 0 / 72px 72px;
+    radial-gradient(60vmax 60vmax at 85% -10%, rgba(154,170,255,0.06), transparent 60%),
+    radial-gradient(40vmax 40vmax at -10% 30%, rgba(154,170,255,0.03), transparent 60%),
+    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px) 0 0 / 72px 72px,
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px) 0 0 / 72px 72px;
   -webkit-mask-image: linear-gradient(to bottom, black, black 40%, transparent 85%);
   mask-image: linear-gradient(to bottom, black, black 40%, transparent 85%);
 }
@@ -117,7 +120,7 @@ a { color: var(--lime); }
 .sh-links { display: flex; flex-direction: column; gap: 4px; padding: 48px 0 32px; }
 .sh-link {
   padding: 12px 8px; border-radius: 6px;
-  color: #cfd0c8; text-decoration: none; white-space: nowrap;
+  color: #cdcecf; text-decoration: none; white-space: nowrap;
   font-family: var(--grotesk); font-size: 14px; font-weight: 500; letter-spacing: .2px; line-height: normal;
   transition: all .2s ease-in-out;
 }
@@ -186,7 +189,7 @@ a { color: var(--lime); }
 .workspace.wide-left { grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr); }
 .workspace.single { grid-template-columns: minmax(0, 1fr); }
 .panel {
-  background: linear-gradient(180deg, rgba(26,29,21,0.9), rgba(20,22,16,0.9));
+  background: linear-gradient(180deg, rgba(22,23,26,0.9), rgba(17,18,20,0.9));
   border: 1px solid var(--line);
   border-radius: var(--radius);
   padding: clamp(1.2rem, 2.4vw, 1.8rem);
@@ -218,7 +221,7 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator, input[type="dat
   font-family: var(--mono); font-size: 0.64rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--dim);
   display: flex; justify-content: space-between; gap: 0.6rem;
 }
-.label .hint { text-transform: none; letter-spacing: 0.02em; color: #6B6E62; }
+.label .hint { text-transform: none; letter-spacing: 0.02em; color: #6a6b6e; }
 .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0 1rem; align-items: end; }
 .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0 1rem; }
 input[type="text"], input[type="url"], input[type="email"], input[type="number"], input[type="tel"], input[type="search"], input[type="datetime-local"], input[type="date"], select, textarea {
@@ -241,7 +244,7 @@ select {
 }
 input:hover, select:hover, textarea:hover { border-color: var(--line-2); }
 input:focus, select:focus, textarea:focus { outline: none; border-color: var(--lime); box-shadow: 0 0 0 3px rgba(170,200,107,0.15); }
-input::placeholder, textarea::placeholder { color: #575A50; }
+input::placeholder, textarea::placeholder { color: #55565a; }
 input[type="color"] {
   width: 100%; height: 46px; border-radius: 11px; border: 1px solid var(--line); background: var(--ink-2); padding: 4px; cursor: pointer;
 }
@@ -291,7 +294,7 @@ input[type="range"] { width: 100%; accent-color: var(--lime); cursor: pointer; }
 .out-block:last-child { margin-bottom: 0; }
 .out-head {
   display: flex; justify-content: space-between; align-items: center; gap: 0.8rem;
-  padding: 0.65rem 0.9rem; border-bottom: 1px solid var(--line); background: rgba(26,29,21,0.6);
+  padding: 0.65rem 0.9rem; border-bottom: 1px solid var(--line); background: rgba(22,23,26,0.6);
 }
 .out-head .label { margin: 0; color: var(--bone); }
 .out-body {
@@ -355,7 +358,7 @@ table.data td.fixed { color: var(--lime-bright); }
   height: 110px; border: 1px dashed var(--line); border-radius: 12px;
   display: flex; align-items: center; justify-content: center;
   font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--dim);
-  background: rgba(20,22,16,0.6);
+  background: rgba(17,18,20,0.6);
 }
 .ad-slot.is-placeholder .ad-box::before { content: 'Ad space · responsive'; }
 
@@ -436,7 +439,7 @@ code {
 }
 .tool-card::before {
   content: ''; position: absolute; inset: 0; opacity: 0; transition: opacity 0.35s; pointer-events: none;
-  background: radial-gradient(420px circle at var(--mx, 80%) var(--my, 0%), rgba(214,240,119,0.12), transparent 50%);
+  background: radial-gradient(420px circle at var(--mx, 80%) var(--my, 0%), rgba(255,255,255,0.07), transparent 50%);
 }
 .tool-card:hover { transform: translateY(-5px); border-color: rgba(170,200,107,0.5); box-shadow: 0 26px 60px rgba(0,0,0,0.45); }
 .tool-card:hover::before { opacity: 1; }
@@ -492,3 +495,7 @@ code {
   .reveal-up { opacity: 1; transform: none; }
 }
 /* © https://saadbinyousaf.dev/ © */
+
+/* © https://saadbinyousaf.dev/ © */
+.panel, .tool-card { background: var(--card); border-color: var(--card-border); box-shadow: var(--card-shine), 0 30px 70px rgba(0,0,0,0.35); }
+.tool-card:hover { border-color: #ffffff24; box-shadow: var(--card-shine), 0 0 24px 8px #ffffff0d, 0 26px 60px rgba(0,0,0,0.45); }
