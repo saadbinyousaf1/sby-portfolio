@@ -1,0 +1,114 @@
+/* © https://saadbinyousaf.dev/ © */
+.lg-hero {
+  position: relative; display: flex; flex-direction: column; align-items: center; gap: 32px;
+  padding: clamp(72px, 10vw, 120px) 24px 0; overflow: hidden; text-align: center; isolation: isolate;
+}
+.lg-heroBg { position: absolute; inset: 0; z-index: -1; pointer-events: none; }
+.lg-heroBg::before {
+  content: ""; position: absolute; left: 50%; top: -10%; width: 1400px; height: 900px; transform: translateX(-50%);
+  background: radial-gradient(40% 45% at 50% 30%, rgba(86,194,255,.22), transparent 70%), radial-gradient(30% 35% at 30% 55%, rgba(162,223,253,.10), transparent 70%), radial-gradient(30% 35% at 72% 55%, rgba(170,200,107,.08), transparent 70%);
+}
+.lg-beam {
+  position: absolute; top: -20%; left: 50%; width: 220px; height: 120%; transform-origin: 50% 0;
+  background: linear-gradient(180deg, rgba(162,223,253,.28), rgba(162,223,253,0) 70%);
+  filter: blur(24px); opacity: .7; mix-blend-mode: screen;
+}
+.lg-beam.b1 { transform: translateX(-50%) rotate(-24deg); animation: lgSway 9s ease-in-out infinite; }
+.lg-beam.b2 { transform: translateX(-50%) rotate(0deg); width: 300px; opacity: .55; animation: lgPulse 7s ease-in-out infinite; }
+.lg-beam.b3 { transform: translateX(-50%) rotate(24deg); animation: lgSway 9s ease-in-out -4.5s infinite reverse; }
+@keyframes lgSway { 50% { opacity: .35; } }
+@keyframes lgPulse { 50% { opacity: .8; } }
+.lg-floor { position: absolute; left: 0; right: 0; bottom: 0; height: 55%; background-image: linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px); background-size: 56px 56px; -webkit-mask-image: radial-gradient(60% 80% at 50% 100%, #000, transparent 75%); mask-image: radial-gradient(60% 80% at 50% 100%, #000, transparent 75%); }
+
+.lg-text { display: flex; flex-direction: column; align-items: center; max-width: 720px; }
+.lg-crumbs { justify-content: center; margin-bottom: 28px; }
+.lg-badge {
+  display: inline-flex; align-items: center; gap: 8px; margin-bottom: 20px; padding: 6px 14px 6px 8px; border-radius: 999px;
+  background: linear-gradient(180deg, rgba(162,223,253,.12), rgba(162,223,253,.04)); box-shadow: inset 0 1px #ffffff1f, 0 0 0 1px rgba(162,223,253,.22), 0 0 24px rgba(99,204,255,.18);
+  color: #a2dffd; font-family: var(--grotesk); font-size: 14px; font-weight: 500; letter-spacing: .2px;
+}
+.lg-badge svg { width: 23px; height: 23px; filter: drop-shadow(0 0 6px rgba(99,204,255,.7)); }
+.lg-text h1 {
+  margin-bottom: 16px; font-family: var(--grotesk); font-size: clamp(40px, 6.4vw, 72px); font-weight: 600; letter-spacing: -.03em; line-height: 1.05; text-wrap: balance;
+  background: linear-gradient(180deg, #fff 30%, rgba(255,255,255,.6)); -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.lg-text p { max-width: 580px; color: #9c9c9d; font-size: 18px; font-weight: 500; letter-spacing: .2px; line-height: 1.6; text-wrap: balance; }
+.lg-cta { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.lg-cta span { color: #9c9c9d; font-family: var(--mono); font-size: 12px; letter-spacing: .2px; }
+.lg-btn {
+  display: inline-flex; align-items: center; height: 44px; padding: 0 20px; border-radius: 10px; text-decoration: none;
+  background: var(--bone); color: var(--ink); font-family: var(--grotesk); font-size: 15px; font-weight: 500; letter-spacing: .2px;
+  box-shadow: inset 0 -1px 0 rgba(0,0,0,.18), 0 1px 2px rgba(0,0,0,.45), 0 0 32px rgba(162,223,253,.18); transition: background .2s, transform .2s;
+}
+.lg-btn:hover { background: #fff; transform: translateY(-1px); }
+
+/* © https://saadbinyousaf.dev/ © */
+.lg-sbs { display: flex; justify-content: center; align-items: flex-end; gap: 20px; width: 100%; max-width: 860px; margin-top: 24px; height: 250px; -webkit-mask-image: linear-gradient(#000 45%, transparent); mask-image: linear-gradient(#000 45%, transparent); }
+.lg-sb { width: 230px; height: 300px; flex: none; padding: 16px 14px; border-radius: 16px 16px 0 0; background: linear-gradient(180deg, #16181c, #0e0f12); box-shadow: inset 0 1px #ffffff1a, 0 0 0 1px #ffffff0f, 0 -20px 60px rgba(0,0,0,.5); text-align: left; }
+.lg-sb.s1 { transform: translateY(40px) rotate(-3deg); }
+.lg-sb.s2 { transform: translateY(0); box-shadow: inset 0 1px #ffffff26, 0 0 0 1px rgba(162,223,253,.25), 0 0 40px rgba(99,204,255,.2); }
+.lg-sb.s3 { transform: translateY(40px) rotate(3deg); }
+.lg-sbLogo { display: flex; align-items: center; gap: 10px; height: 56px; padding: 0 10px; margin-bottom: 14px; border-radius: 10px; background: #ffffff08; }
+.lg-mark { width: 30px; height: 30px; flex: none; border-radius: 8px; display: grid; place-items: center; color: #fff; font-family: var(--grotesk); font-size: 15px; font-weight: 700; box-shadow: inset 0 1px 0 rgba(255,255,255,.35); }
+.lg-sbLogo b { color: #fff; font-family: var(--grotesk); font-size: 14px; font-weight: 600; letter-spacing: -.01em; line-height: 1.2; }
+.lg-sb i { display: block; height: 10px; margin: 13px 6px; border-radius: 5px; background: #ffffff12; }
+.lg-sb i:nth-of-type(2) { width: 70%; } .lg-sb i:nth-of-type(3) { width: 82%; } .lg-sb i:nth-of-type(4) { width: 58%; } .lg-sb i:nth-of-type(5) { width: 75%; }
+.lg-sb i:first-of-type { background: #ffffff1f; }
+
+/* © https://saadbinyousaf.dev/ © */
+.lg-tool { position: relative; padding-top: 24px; scroll-margin-top: 110px; }
+.lg-tool .panel { background: linear-gradient(137deg, #111214 4.87%, #0c0d0f 75.88%); border-color: #ffffff0f; box-shadow: inset 0 1px #ffffff1a; }
+.lg-tool .stack { display: grid; gap: 1.2rem; }
+.lg-help { margin-top: .45rem; color: var(--dim); font-size: .82rem; line-height: 1.5; }
+.lg-help kbd, .lg-steps kbd { font-family: var(--mono); font-size: .75rem; padding: 1px 6px; border-radius: 5px; background: #ffffff0f; box-shadow: inset 0 1px #ffffff14; color: #fff; }
+.lg-msg { display: none; margin-top: .55rem; padding: .5rem .7rem; border-radius: 8px; font-size: .82rem; }
+.lg-msg.show { display: block; }
+.lg-msg.ok { background: var(--lime-soft); color: var(--lime); }
+.lg-msg.warn { background: var(--warn-soft); color: var(--warn); }
+.lg-msg.bad { background: var(--bad-soft); color: var(--bad); }
+.lg-range { display: flex; align-items: center; gap: .8rem; }
+.lg-range input[type="range"] { flex: 1; accent-color: #a2dffd; }
+.lg-range input[type="number"] { width: 90px; flex: none; }
+
+.lg-preview { display: flex; flex-wrap: wrap; gap: 1.2rem; align-items: stretch; }
+.lg-mock { width: 220px; max-width: 100%; flex: none; padding: 14px 12px 18px; border-radius: 12px; background: linear-gradient(180deg, #16181c, #0e0f12); box-shadow: inset 0 1px #ffffff1a, 0 0 0 1px #ffffff0f; }
+.lg-mockLogo {
+  height: 80px; margin-bottom: 14px; padding: 0 8px; border-radius: 8px; display: flex; align-items: center; justify-content: center; text-align: center;
+  background-color: #ffffff08; background-size: contain; background-repeat: no-repeat; background-position: center;
+  color: #6a6b6e; font-size: 12px; border: 1px dashed #ffffff1a; transition: height .2s;
+}
+.lg-mockLogo.has-img { background-color: transparent; border-color: transparent; }
+.lg-mockNav i { display: block; height: 10px; margin: 12px 4px; border-radius: 5px; background: #ffffff12; }
+.lg-mockNav i.on { background: rgba(162,223,253,.35); }
+.lg-mockNav i:nth-child(2) { width: 70%; } .lg-mockNav i:nth-child(3) { width: 85%; } .lg-mockNav i:nth-child(4) { width: 60%; } .lg-mockNav i:nth-child(5) { width: 78%; }
+.lg-meta { flex: 1; min-width: 180px; display: flex; flex-direction: column; justify-content: center; gap: .3rem; color: var(--dim); font-size: .88rem; line-height: 1.5; }
+.lg-meta strong { color: #fff; font-weight: 500; }
+
+.lg-code {
+  margin: 0; min-height: 140px; padding: 16px 18px; overflow-x: auto; white-space: pre;
+  border-radius: 10px; background: #08090b; box-shadow: inset 0 0 0 1px #ffffff0f;
+  color: #d4d6db; font-family: var(--mono); font-size: 12.5px; line-height: 1.7;
+}
+.lg-code.empty { display: flex; align-items: center; white-space: normal; color: var(--dim); font-family: var(--grotesk); font-size: .9rem; }
+.lg-code .c { color: #6a6b6e; }
+.lg-code .k { color: #ff8f8f; }
+.lg-code .s { color: #a2dffd; }
+.lg-code .p { color: #c9b6ff; }
+.lg-copy:disabled { opacity: .4; cursor: not-allowed; }
+
+.lg-steps { list-style: none; counter-reset: s; display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 1rem; margin: 1rem 0 2rem; padding: 0; }
+.lg-steps li { counter-increment: s; position: relative; padding: 1rem 1rem 1rem 3.2rem; border-radius: 12px; background: linear-gradient(137deg, #111214 4.87%, #0c0d0f 75.88%); box-shadow: inset 0 1px #ffffff1a, 0 0 0 1px #ffffff0f; font-size: .9rem; }
+.lg-steps li::before { content: counter(s); position: absolute; left: 1rem; top: 1rem; width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; background: rgba(162,223,253,.12); color: #a2dffd; font-weight: 700; font-size: .8rem; }
+.lg-steps strong { display: block; margin-bottom: .2rem; color: #fff; font-weight: 500; }
+.lg-steps span { color: var(--dim); }
+
+@media (max-width: 860px) {
+  .lg-tool .workspace { grid-template-columns: minmax(0, 1fr); }
+  .lg-sbs { gap: 12px; height: 200px; }
+  .lg-sb { width: 200px; }
+  .lg-sb.s1, .lg-sb.s3 { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { .lg-beam { animation: none; } }
+.lg-sbs { align-items: flex-start; height: 270px; padding-top: 4px; }
+.lg-tool .stack { grid-template-columns: minmax(0, 1fr); min-width: 0; }
+.lg-tool .panel { min-width: 0; }
