@@ -37,6 +37,7 @@
 
   initHeader();
   initAutomation();
+  initAIEmployee();
 
   if (!window.gsap) {
     root.classList.remove('js-anim');
@@ -451,6 +452,52 @@
       new IntersectionObserver(function (entries, obs) {
         if (entries[0].isIntersecting) { start(); obs.disconnect(); }
       }, { threshold: 0.25 }).observe(sec);
+    } else start();
+  }
+
+  // © https://saadbinyousaf.dev/ © //
+  function initAIEmployee() {
+    var sec = document.getElementById('ai');
+    if (!sec) return;
+    var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var tools = sec.querySelectorAll('.aie-tool');
+    var answer = sec.querySelector('.aie-answer');
+    var lines = sec.querySelectorAll('#aieTranscript li');
+    var timers = [];
+    function later(fn, ms) { timers.push(setTimeout(fn, ms)); }
+
+    // © https://saadbinyousaf.dev/ © //
+    function runChat() {
+      tools.forEach(function (t) { t.classList.remove('show', 'load'); });
+      answer.classList.remove('show');
+      tools.forEach(function (t, i) {
+        later(function () { t.classList.add('show', 'load'); }, 500 + i * 1100);
+        later(function () { t.classList.remove('load'); }, 1400 + i * 1100);
+      });
+      later(function () { answer.classList.add('show'); }, 700 + tools.length * 1100);
+      later(runChat, 11000);
+    }
+
+    // © https://saadbinyousaf.dev/ © //
+    function runCall() {
+      lines.forEach(function (l) { l.classList.remove('show'); });
+      lines.forEach(function (l, i) { later(function () { l.classList.add('show'); }, 400 + i * 1300); });
+      later(runCall, 400 + lines.length * 1300 + 3500);
+    }
+
+    // © https://saadbinyousaf.dev/ © //
+    if (still) {
+      tools.forEach(function (t) { t.classList.add('show'); });
+      answer.classList.add('show');
+      lines.forEach(function (l) { l.classList.add('show'); });
+      return;
+    }
+    var started = false;
+    function start() { if (started) return; started = true; runChat(); runCall(); }
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (entries, obs) {
+        if (entries[0].isIntersecting) { start(); obs.disconnect(); }
+      }, { threshold: 0.2 }).observe(sec);
     } else start();
   }
 
