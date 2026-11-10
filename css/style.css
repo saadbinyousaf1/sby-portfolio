@@ -1139,3 +1139,5 @@ footer .privacy:hover { color: var(--lime); }
 }
 .aie-callTxt { white-space: nowrap; }
 @media (max-width: 1100px) { .aie-hint { display: none; } }
+@media (min-width: 720px) and (max-width: 1000px) { .sh-links { gap: 2px; } .sh-link { padding: 12px 6px; font-size: 13px; } }
+@media (min-width: 720px) and (max-width: 900px) { .sh-sec .sh-btn { font-size: 0; gap: 0; width: 36px; padding: 0; } }

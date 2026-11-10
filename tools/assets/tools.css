@@ -499,3 +499,5 @@ code {
 /* © https://saadbinyousaf.dev/ © */
 .panel, .tool-card { background: var(--card); border-color: var(--card-border); box-shadow: var(--card-shine), 0 30px 70px rgba(0,0,0,0.35); }
 .tool-card:hover { border-color: #ffffff24; box-shadow: var(--card-shine), 0 0 24px 8px #ffffff0d, 0 26px 60px rgba(0,0,0,0.45); }
+@media (min-width: 720px) and (max-width: 1000px) { .sh-links { gap: 2px; } .sh-link { padding: 12px 6px; font-size: 13px; } }
+@media (min-width: 720px) and (max-width: 900px) { .sh-sec .sh-btn { font-size: 0; gap: 0; width: 36px; padding: 0; } }
