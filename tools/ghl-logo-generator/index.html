@@ -61,7 +61,7 @@
   ]
 }
 </script>
-<link rel="stylesheet" href="/tools/ghl-logo-generator/logo.css?v=20261111b">
+<link rel="stylesheet" href="/tools/ghl-logo-generator/logo.css?v=20261111c">
 </head>
 <body>
 <div class="sh" id="nav">
@@ -91,60 +91,59 @@
       <div class="crumbs lg-crumbs"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/tools/">Free tools</a><span aria-hidden="true">/</span><span>Logo CSS Generator</span></div>
       <span class="lg-badge"><svg viewBox="0 0 54 54" fill="none" aria-hidden="true"><path fill="currentColor" fill-rule="evenodd" d="m33.121 12.082-1.648-1.764a6.125 6.125 0 0 0-8.95 0l-1.648 1.764a.13.13 0 0 1-.095.04l-2.413-.082a6.125 6.125 0 0 0-6.328 6.328l.082 2.412a.13.13 0 0 1-.04.096l-1.763 1.648a6.125 6.125 0 0 0 0 8.95l1.763 1.648c.026.025.04.06.04.095l-.082 2.413a6.125 6.125 0 0 0 6.328 6.328l2.413-.081a.13.13 0 0 1 .095.04l1.648 1.762a6.125 6.125 0 0 0 8.95 0l1.648-1.763a.13.13 0 0 1 .096-.04l2.412.082a6.125 6.125 0 0 0 6.328-6.328l-.081-2.413a.13.13 0 0 1 .04-.095l1.763-1.648a6.125 6.125 0 0 0 0-8.95l-1.764-1.648a.13.13 0 0 1-.04-.096l.082-2.412a6.125 6.125 0 0 0-6.328-6.328l-2.412.081a.13.13 0 0 1-.096-.04m-8.406.285a3.125 3.125 0 0 1 4.566 0l1.648 1.763a3.13 3.13 0 0 0 2.389.99l2.412-.082a3.125 3.125 0 0 1 3.23 3.229l-.083 2.412c-.03.902.33 1.773.99 2.389l1.763 1.648a3.125 3.125 0 0 1 0 4.566l-1.763 1.648a3.13 3.13 0 0 0-.99 2.389l.082 2.412a3.125 3.125 0 0 1-3.229 3.229l-2.412-.082a3.13 3.13 0 0 0-2.389.99l-1.648 1.763a3.125 3.125 0 0 1-4.566 0l-1.648-1.763a3.13 3.13 0 0 0-2.389-.99l-2.412.082a3.125 3.125 0 0 1-3.229-3.229l.082-2.412a3.13 3.13 0 0 0-.99-2.389l-1.763-1.648a3.125 3.125 0 0 1 0-4.566l1.763-1.648a3.13 3.13 0 0 0 .99-2.389l-.082-2.412a3.125 3.125 0 0 1 3.229-3.229l2.412.082c.902.03 1.773-.33 2.389-.99zm5.558 9.24a1.5 1.5 0 0 1 2.204 2.036l-.042.047-.14.158c-.124.14-.306.348-.53.615a40 40 0 0 0-1.723 2.205c-1.339 1.845-2.788 4.188-3.484 6.406a1.5 1.5 0 0 1-2.492.611l-3.75-3.75a1.5 1.5 0 1 1 2.121-2.12l2.135 2.134c.88-1.884 2.033-3.652 3.043-5.043a43 43 0 0 1 2.433-3.046l.163-.183.058-.064z" clip-rule="evenodd"/></svg>Free HighLevel tool</span>
       <h1>Every Sub-Account, Its Own Logo</h1>
-      <p>Give each client their own sidebar logo in HighLevel. Paste a location ID and a logo link, and get clean CSS that hides the agency logo on every sidebar layout.</p>
-    </div>
-    <div class="lg-cta">
-      <a class="lg-btn" href="#generator">Generate CSS</a>
-      <span>Free · No signup · Runs in your browser</span>
-    </div>
-    <div class="lg-sbs" aria-hidden="true">
-      <div class="lg-sb s1"><div class="lg-sbLogo"><span class="lg-mark" style="background:linear-gradient(135deg,#ff8a3d,#e8590c)">S</span><b>Summit Roofing</b></div><i></i><i></i><i></i><i></i><i></i></div>
-      <div class="lg-sb s2"><div class="lg-sbLogo"><span class="lg-mark" style="background:linear-gradient(135deg,#56c2ff,#1a7fd6)">B</span><b>Bright Smile Dental</b></div><i></i><i></i><i></i><i></i><i></i></div>
-      <div class="lg-sb s3"><div class="lg-sbLogo"><span class="lg-mark" style="background:linear-gradient(135deg,#a78bfa,#6d28d9)">A</span><b>Apex HVAC</b></div><i></i><i></i><i></i><i></i><i></i></div>
+      <p>Paste a location ID and a logo link. Get clean CSS that swaps the sidebar logo for that one client, on every layout.</p>
     </div>
   </section>
 
-  <section class="wrap lg-tool" id="generator" aria-label="Sub-account logo CSS generator">
-    <div class="workspace">
-      <div class="panel">
-        <div class="panel-head"><span class="panel-title"><span class="n">1</span> Sub-account details</span></div>
-        <div class="field">
-          <label for="name">Sub-account name</label>
-          <input type="text" id="name" placeholder="e.g. Summit Roofing" autocomplete="off">
-          <p class="lg-help">Used as a label so the block is easy to find later.</p>
-        </div>
-        <div class="field">
-          <label for="lid">Location ID</label>
-          <input type="text" id="lid" class="mono" placeholder="Paste the ID or the whole page link" autocomplete="off" spellcheck="false">
-          <p class="lg-help">Open the sub-account. The ID is the part after <kbd>/location/</kbd> in the address bar. Pasting the full link works too.</p>
-          <div class="lg-msg" id="lid-msg" role="status"></div>
-        </div>
-        <div class="field">
-          <label for="url">Logo link</label>
-          <input type="url" id="url" class="mono" placeholder="https://…" autocomplete="off" spellcheck="false">
-          <p class="lg-help">Upload the logo to the sub-account's Media Library and copy its link. A wide, transparent PNG or WebP looks best.</p>
-          <div class="lg-msg" id="url-msg" role="status"></div>
-        </div>
-        <div class="field">
-          <label for="height">Logo height <span class="hint">40 to 200 px</span></label>
-          <div class="lg-range"><input type="range" id="heightRange" min="40" max="200" step="5" value="100" aria-label="Logo height slider"><input type="number" id="height" value="100" min="40" max="200" step="5"></div>
-        </div>
-      </div>
+  <section class="lg-tool" id="generator" aria-label="Sub-account logo CSS generator">
+    <div class="lg-app">
+      <div class="lg-appBar"><span class="lg-dots"><i></i><i></i><i></i></span><span class="lg-appTitle">Logo CSS Generator</span><button type="button" class="lg-reset" id="reset">Reset</button></div>
+      <div class="lg-appBody">
+        <form class="lg-form" id="form" autocomplete="off" onsubmit="return false">
+          <div class="lg-step"><span class="lg-n">1</span><div class="lg-stepBody">
+            <label for="name">Client name</label>
+            <input type="text" id="name" placeholder="Summit Roofing">
+            <p class="lg-help">Labels the CSS block so it's easy to find later.</p>
+          </div></div>
+          <div class="lg-step"><span class="lg-n">2</span><div class="lg-stepBody">
+            <label for="lid">Location ID <span class="lg-count" id="lidCount"></span></label>
+            <input type="text" id="lid" class="mono" placeholder="Paste the ID or the full sub-account URL" spellcheck="false">
+            <p class="lg-help">It's the part after <kbd>/location/</kbd> in the address bar. Paste the whole URL and I'll pull it out.</p>
+            <div class="lg-msg" id="lid-msg" role="status"></div>
+          </div></div>
+          <div class="lg-step"><span class="lg-n">3</span><div class="lg-stepBody">
+            <label for="url">Logo link</label>
+            <input type="url" id="url" class="mono" placeholder="https://assets.cdn.filesafe.space/…/logo.png" spellcheck="false">
+            <p class="lg-help">Upload to the sub-account's Media Library and copy the file link. Wide, transparent PNG or WebP works best.</p>
+            <div class="lg-msg" id="url-msg" role="status"></div>
+          </div></div>
+          <div class="lg-step"><span class="lg-n">4</span><div class="lg-stepBody">
+            <label for="height">Logo height <span class="lg-count"><b id="hVal">100</b> px</span></label>
+            <div class="lg-range"><input type="range" id="heightRange" min="40" max="200" step="5" value="100" aria-label="Logo height"><input type="number" id="height" value="100" min="40" max="200" step="5" aria-label="Logo height in pixels"></div>
+            <div class="lg-presets" role="group" aria-label="Height presets"><button type="button" data-h="60">Compact</button><button type="button" data-h="100">Standard</button><button type="button" data-h="140">Large</button></div>
+          </div></div>
+        </form>
 
-      <div class="stack">
-        <div class="panel">
-          <div class="panel-head"><span class="panel-title"><span class="n">2</span> Preview</span><span class="badge" id="statusBadge">Waiting</span></div>
-          <div class="lg-preview">
-            <div class="lg-mock" aria-label="Sidebar preview">
-              <div class="lg-mockLogo" id="sb-logo">Logo appears here</div>
-              <div class="lg-mockNav"><i class="on"></i><i></i><i></i><i></i><i></i><i></i></div>
-            </div>
-            <div class="lg-meta" id="preview-meta"><span>This is roughly how the logo will sit at the top of the sidebar.</span></div>
+        <div class="lg-out">
+          <div class="lg-outHead">
+            <span class="lg-label">Live preview</span>
+            <div class="lg-toggle" role="group" aria-label="Preview mode"><button type="button" class="on" data-view="after">With your logo</button><button type="button" data-view="before">Before</button></div>
           </div>
-        </div>
-        <div class="panel">
-          <div class="panel-head"><span class="panel-title"><span class="n">3</span> Code to paste</span><button type="button" class="copy-btn lg-copy" id="copy" disabled>Copy code</button></div>
-          <pre class="lg-code empty" id="code">Fill in the name, location ID and logo link to get your code.</pre>
+          <div class="lg-frame" id="frame">
+            <div class="lg-fSide">
+              <div class="lg-mockLogo" id="sb-logo"><span class="lg-agency">YOUR AGENCY</span><span class="lg-initial" id="initial">?</span></div>
+              <div class="lg-fNav"><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+            </div>
+            <div class="lg-fMain"><div class="lg-fTop"></div><div class="lg-fCards"><i></i><i></i><i></i></div><div class="lg-fRows"><i></i><i></i><i></i></div></div>
+          </div>
+          <div class="lg-meta" id="preview-meta"><span>Fill in the details and the preview updates as you type.</span></div>
+
+          <div class="lg-outHead lg-codeHead">
+            <span class="lg-label">Code to paste <span class="badge" id="statusBadge">Waiting</span></span>
+            <button type="button" class="lg-copyBtn" id="copy" disabled><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="5.25" y="5.25" width="9" height="9" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M10.75 5.25v-1.5a2 2 0 0 0-2-2h-5a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h1.5" stroke="currentColor" stroke-width="1.5"/></svg><span>Copy code</span></button>
+          </div>
+          <pre class="lg-code empty" id="code">Still needed: name, location ID, logo link.</pre>
+          <a class="lg-next" href="#how-to-add">Where do I paste this? <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5.75 3.75 10.25 8l-4.5 4.25"/></svg></a>
         </div>
       </div>
     </div>
@@ -216,7 +215,7 @@
   <p class="disclaimer">Independent tools built by Saad Bin Yousaf. Not affiliated with, endorsed by, or sponsored by HighLevel Inc. HighLevel and GoHighLevel are trademarks of their respective owner. Tool output is guidance, not legal advice — always review it for your business.</p>
 </footer>
 <script src="/tools/assets/tools.js?v=20261111b"></script>
-<script src="/tools/ghl-logo-generator/app.js?v=20261111b"></script>
+<script src="/tools/ghl-logo-generator/app.js?v=20261111c"></script>
 <script src="/js/ads.js?v=20261111b"></script>
 </body>
 </html>
