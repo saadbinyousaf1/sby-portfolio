@@ -45,27 +45,6 @@ body::after {
 }
 
 /* © https://saadbinyousaf.dev/ © */
-#preloader {
-  position: fixed; inset: 0; z-index: 10000;
-  background: var(--ink);
-  display: flex; align-items: center; justify-content: center;
-}
-#preloader .pre-inner { text-align: center; }
-#preloader .pre-count {
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: clamp(4rem, 12vw, 9rem);
-  color: var(--lime);
-  line-height: 1;
-}
-#preloader .pre-label {
-  font-family: var(--mono);
-  font-size: 0.65rem;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: var(--dim);
-  margin-top: 1rem;
-}
 
 /* © https://saadbinyousaf.dev/ © */
 .cursor-dot {
