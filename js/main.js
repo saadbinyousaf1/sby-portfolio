@@ -177,6 +177,7 @@
     var nebX = gsap.quickTo('.nebula', 'x', { duration: 2 });
     var nebY = gsap.quickTo('.nebula', 'y', { duration: 2 });
     var glow = document.querySelector('.cursor-glow');
+    var glowIdle;
     var gx = gsap.quickTo(glow, 'x', { duration: 0.6 });
     var gy = gsap.quickTo(glow, 'y', { duration: 0.6 });
     var tX = gsap.quickTo(title, 'rotationX', { duration: 0.8 });
@@ -192,6 +193,8 @@
       nebX(nx * 60); nebY(ny * 60);
       gx(e.clientX); gy(e.clientY);
       gsap.to(glow, { autoAlpha: 1, duration: 0.4, overwrite: 'auto' });
+      clearTimeout(glowIdle);
+      glowIdle = setTimeout(function () { gsap.to(glow, { autoAlpha: 0, duration: 1.2 }); }, 1600);
       if (!introDone) return;
       var r = hero.getBoundingClientRect();
       if (e.clientY < r.bottom) {
@@ -254,25 +257,32 @@
 
   // © https://saadbinyousaf.dev/ © //
   function initCursor() {
-    var dot = document.getElementById('cursorDot');
     var ring = document.getElementById('cursorRing');
-    if (!finePointer) return;
-    var mx = 0, my = 0, rx = 0, ry = 0;
+    if (!finePointer || !ring) return;
+    var mx = 0, my = 0, rx = 0, ry = 0, started = false, idle;
+    function wake() {
+      ring.classList.add('on');
+      clearTimeout(idle);
+      idle = setTimeout(function () { ring.classList.remove('on'); }, 1800);
+    }
     addEventListener('pointermove', function (e) {
       mx = e.clientX; my = e.clientY;
-      dot.style.left = mx + 'px';
-      dot.style.top = my + 'px';
-    });
+      if (!started) { rx = mx; ry = my; started = true; }
+      wake();
+    }, { passive: true });
+    document.addEventListener('pointerleave', function () { ring.classList.remove('on'); });
+    addEventListener('pointerdown', function () { ring.classList.add('is-down'); });
+    addEventListener('pointerup', function () { ring.classList.remove('is-down'); });
     (function loop() {
-      rx += (mx - rx) * 0.14;
-      ry += (my - ry) * 0.14;
-      ring.style.left = rx + 'px';
-      ring.style.top = ry + 'px';
+      rx += (mx - rx) * 0.22;
+      ry += (my - ry) * 0.22;
+      ring.style.transform = 'translate3d(' + rx + 'px,' + ry + 'px,0) translate(-50%,-50%)';
       requestAnimationFrame(loop);
     })();
-    document.querySelectorAll('a, button, .portal, .site').forEach(function (el) {
-      el.addEventListener('mouseenter', function () { ring.classList.add('is-hover'); });
-      el.addEventListener('mouseleave', function () { ring.classList.remove('is-hover'); });
+    document.addEventListener('pointerover', function (e) {
+      var t = e.target;
+      ring.classList.toggle('is-text', !!t.closest('input, textarea, select, [contenteditable="true"]'));
+      ring.classList.toggle('is-hover', !!t.closest('a, button, .portal, .site, [role="button"], summary, label'));
     });
   }
 

@@ -47,23 +47,21 @@ body::after {
 /* © https://saadbinyousaf.dev/ © */
 
 /* © https://saadbinyousaf.dev/ © */
-.cursor-dot {
-  position: fixed; top: 0; left: 0;
-  width: 8px; height: 8px; border-radius: 50%;
-  background: var(--lime-bright);
-  pointer-events: none; z-index: 9999;
-  transform: translate(-50%, -50%);
-  mix-blend-mode: difference;
-}
+.cursor-dot { display: none; }
 .cursor-ring {
   position: fixed; top: 0; left: 0;
-  width: 34px; height: 34px; border-radius: 50%;
-  border: 1px solid rgba(170, 200, 107, 0.45);
+  width: 26px; height: 26px; border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0);
   pointer-events: none; z-index: 9998;
   transform: translate(-50%, -50%);
-  transition: width 0.25s var(--ease), height 0.25s var(--ease), border-color 0.25s;
+  opacity: 0;
+  transition: width .3s var(--ease), height .3s var(--ease), border-color .3s, background-color .3s, opacity .35s;
 }
-.cursor-ring.is-hover { width: 56px; height: 56px; border-color: var(--lime-bright); }
+.cursor-ring.on { opacity: 1; }
+.cursor-ring.is-hover { width: 44px; height: 44px; border-color: rgba(255, 255, 255, 0.6); background: rgba(255, 255, 255, 0.06); }
+.cursor-ring.is-text, .cursor-ring.is-down { width: 18px; height: 18px; }
+.cursor-ring.is-text { opacity: 0; }
 @media (hover: none) { .cursor-dot, .cursor-ring { display: none; } }
 
 /* © https://saadbinyousaf.dev/ © */
@@ -757,9 +755,9 @@ footer .status i {
 .cursor-stars { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 8000; pointer-events: none; }
 .cursor-glow {
   position: fixed; left: 0; top: 0;
-  width: 440px; height: 440px; margin: -220px 0 0 -220px;
+  width: 220px; height: 220px; margin: -110px 0 0 -110px;
   border-radius: 50%; z-index: 0; pointer-events: none;
-  background: radial-gradient(circle, rgba(154,170,255,0.07), transparent 65%);
+  background: radial-gradient(circle, rgba(154,170,255,0.06) 0%, rgba(154,170,255,0.025) 40%, transparent 70%);
   opacity: 0; will-change: transform;
 }
 header, section, footer, .ticker, .ad-slot { position: relative; z-index: 1; }
