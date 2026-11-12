@@ -37,6 +37,7 @@
 
   initOffscreen();
   initSiteScroll();
+  initCardHover();
   initHeader();
   initAutomation();
   initAIEmployee();
@@ -280,6 +281,18 @@
       btn.addEventListener('pointerleave', function () {
         gsap.to(btn, { x: 0, y: 0, duration: 0.7, ease: 'elastic.out(1, 0.4)' });
       });
+    });
+  }
+
+  // © https://saadbinyousaf.dev/ © //
+  function initCardHover() {
+    if (!matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+    document.querySelectorAll('.svc, .portal, .site, .htool').forEach(function (el) {
+      el.addEventListener('pointermove', function (e) {
+        var r = el.getBoundingClientRect();
+        el.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+        el.style.setProperty('--my', (e.clientY - r.top) + 'px');
+      }, { passive: true });
     });
   }
 

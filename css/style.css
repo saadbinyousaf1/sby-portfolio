@@ -829,10 +829,21 @@ footer .privacy:hover { color: var(--lime); }
 
 /* © https://saadbinyousaf.dev/ © */
 .svc, .portal, .site, .htool { background: var(--card); border-color: var(--card-border); box-shadow: var(--card-shine); }
-.svc:hover, .portal:hover, .site:hover, .htool:hover {
-  border-color: #ffffff24;
-  box-shadow: var(--card-shine), 0 0 24px 8px #ffffff0d, 0 28px 65px rgba(0,0,0,0.5);
+.svc, .portal, .site, .htool {
+  position: relative;
+  transition: border-color .25s ease, background .25s ease, translate .4s cubic-bezier(.16, 1, .3, 1);
 }
+.svc:hover, .portal:hover, .site:hover, .htool:hover {
+  translate: 0 -1px;
+  border-color: rgb(82, 82, 91);
+  box-shadow: var(--card-shine);
+}
+.svc::after, .portal::after, .site::after, .htool::after {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; z-index: 2;
+  background: radial-gradient(260px circle at var(--mx, 50%) var(--my, 50%), rgba(255, 255, 255, .055), transparent 70%);
+  opacity: 0; transition: opacity .3s ease;
+}
+.svc:hover::after, .portal:hover::after, .site:hover::after, .htool:hover::after { opacity: 1; }
 .stats, .ticker { border-color: var(--card-border); }
 
 /* © https://saadbinyousaf.dev/ © */
