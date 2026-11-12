@@ -1,3 +1,9 @@
+@font-face { font-family: 'Satoshi'; src: url('/assets/fonts/satoshi-400.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Satoshi'; src: url('/assets/fonts/satoshi-500.woff2') format('woff2'); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Satoshi'; src: url('/assets/fonts/satoshi-700.woff2') format('woff2'); font-weight: 600 700; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Satoshi'; src: url('/assets/fonts/satoshi-900.woff2') format('woff2'); font-weight: 800 900; font-style: normal; font-display: swap; }
+@font-face { font-family: 'JetBrains Mono'; src: url('/assets/fonts/jetbrains-mono-400.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'JetBrains Mono'; src: url('/assets/fonts/jetbrains-mono-700.woff2') format('woff2'); font-weight: 700; font-style: normal; font-display: swap; }
 /* © https://saadbinyousaf.dev/ © */
 
 /* © https://saadbinyousaf.dev/ © */
@@ -13,8 +19,8 @@
   --card: linear-gradient(137deg, #111214 4.87%, #0c0d0f 75.88%);
   --card-border: #ffffff0f;
   --card-shine: inset 0 1px #ffffff1a;
-  --serif: 'Instrument Serif', serif;
-  --grotesk: 'Space Grotesk', sans-serif;
+  --serif: 'Satoshi', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --grotesk: 'Satoshi', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
   --mono: 'JetBrains Mono', monospace;
   --ease: cubic-bezier(0.65, 0, 0.35, 1);
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
@@ -183,7 +189,7 @@ body::after {
 }
 .hero-eyebrow {
   display: inline-flex; align-items: center; gap: 0.6rem;
-  font-family: var(--mono);
+  font-family: var(--grotesk);
   font-size: 0.68rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -210,7 +216,7 @@ body::after {
 }
 .hero h1 .hl { color: var(--lime); }
 .hero h1 .rev {
-  font-family: var(--serif);
+  font-family: var(--grotesk);
   font-style: italic;
   font-weight: 400;
   color: var(--lime);
@@ -242,7 +248,7 @@ body::after {
 }
 .hero-cta-row { display: flex; align-items: center; gap: 1.4rem; flex-wrap: wrap; }
 .btn {
-  font-family: var(--mono);
+  font-family: var(--grotesk);
   font-size: 0.72rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -296,7 +302,7 @@ body::after {
 }
 .ticker-track { display: flex; width: max-content; will-change: transform; }
 .ticker-item {
-  font-family: var(--mono);
+  font-family: var(--grotesk);
   font-size: 0.8rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -310,7 +316,7 @@ body::after {
 /* © https://saadbinyousaf.dev/ © */
 section { padding: 8rem 3rem; position: relative; }
 .eyebrow {
-  font-family: var(--mono);
+  font-family: var(--grotesk);
   font-size: 0.66rem;
   letter-spacing: 0.26em;
   text-transform: uppercase;
@@ -328,7 +334,7 @@ section { padding: 8rem 3rem; position: relative; }
   margin-bottom: 1rem;
 }
 .sec-title em {
-  font-family: var(--serif);
+  font-family: var(--grotesk);
   font-style: italic;
   font-weight: 400;
   color: var(--lime);
@@ -368,14 +374,14 @@ section { padding: 8rem 3rem; position: relative; }
 }
 .stat:hover { background: var(--panel-2); }
 .stat .num {
-  font-family: var(--serif);
+  font-family: var(--grotesk);
   font-style: italic;
   font-size: 2.9rem;
   color: var(--lime);
   line-height: 1;
 }
 .stat .lbl {
-  font-family: var(--mono);
+  font-family: var(--grotesk);
   font-size: 0.62rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -399,7 +405,7 @@ section { padding: 8rem 3rem; position: relative; }
 }
 .svc:hover { border-color: rgba(170,200,107,0.5); }
 .svc .svc-glyph {
-  font-family: var(--serif);
+  font-family: var(--grotesk);
   font-style: italic;
   font-size: 2rem;
   color: var(--lime);
@@ -414,7 +420,7 @@ section { padding: 8rem 3rem; position: relative; }
 .svc p { font-size: 0.9rem; line-height: 1.75; color: var(--dim); margin-bottom: 1.4rem; }
 .svc ul { list-style: none; }
 .svc li {
-  font-family: var(--mono);
+  font-family: var(--grotesk);
   font-size: 0.72rem;
   letter-spacing: 0.06em;
   color: rgba(255,255,255,0.65);
@@ -459,7 +465,7 @@ section { padding: 8rem 3rem; position: relative; }
 }
 .portal:hover .view-pill { opacity: 1; }
 .view-pill span {
-  font-family: var(--mono);
+  font-family: var(--grotesk);
   font-size: 0.66rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -472,7 +478,7 @@ section { padding: 8rem 3rem; position: relative; }
 .portal-body { padding: 1.5rem 1.6rem 1.7rem; }
 .portal-tags { display: flex; gap: 0.45rem; flex-wrap: wrap; margin-bottom: 0.9rem; }
 .ptag {
-  font-family: var(--mono);
+  font-family: var(--grotesk);
   font-size: 0.58rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -542,7 +548,7 @@ section { padding: 8rem 3rem; position: relative; }
 .scroll-hint {
   position: absolute; bottom: 10px; left: 50%;
   transform: translateX(-50%);
-  font-family: var(--mono);
+  font-family: var(--grotesk);
   font-size: 0.56rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -564,7 +570,7 @@ section { padding: 8rem 3rem; position: relative; }
 }
 .site-body h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.25rem; }
 .site-body .meta {
-  font-family: var(--mono);
+  font-family: var(--grotesk);
   font-size: 0.58rem;
   letter-spacing: 0.06em;
   color: var(--dim);
@@ -584,7 +590,7 @@ section { padding: 8rem 3rem; position: relative; }
   margin-bottom: 1.6rem;
 }
 .cta .big em {
-  font-family: var(--serif);
+  font-family: var(--grotesk);
   font-style: italic;
   font-weight: 400;
   color: var(--lime);
@@ -596,7 +602,7 @@ section { padding: 8rem 3rem; position: relative; }
   margin-top: 2.6rem;
 }
 .cta-link {
-  font-family: var(--mono);
+  font-family: var(--grotesk);
   font-size: 0.68rem;
   letter-spacing: 0.1em;
   color: var(--dim);
@@ -616,7 +622,7 @@ footer {
   flex-wrap: wrap; gap: 1rem;
 }
 footer .copy, footer .status {
-  font-family: var(--mono);
+  font-family: var(--grotesk);
   font-size: 0.62rem;
   letter-spacing: 0.1em;
   color: var(--dim);
@@ -648,7 +654,7 @@ footer .status i {
 .lightbox.open .lb-box { transform: none; }
 .lb-head { display: flex; justify-content: space-between; align-items: flex-end; }
 .lb-eyebrow {
-  font-family: var(--mono);
+  font-family: var(--grotesk);
   font-size: 0.62rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -714,7 +720,7 @@ footer .status i {
 .lb-tags { display: flex; gap: 0.45rem; flex-wrap: wrap; margin-bottom: 0.8rem; }
 
 /* © https://saadbinyousaf.dev/ © */
-.reveal { opacity: 0; }
+.js-anim .reveal:not(.hero .reveal) { opacity: 0; }
 .js-anim #heroTitle, .js-anim .collage-card { opacity: 0; }
 
 /* © https://saadbinyousaf.dev/ © */
@@ -748,11 +754,9 @@ footer .status i {
   width: 70vmax; height: 70vmax;
   translate: -50% -50%;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(154,170,255,0.07), rgba(154,170,255,0.02) 35%, transparent 62%);
-  filter: blur(20px);
+  background: radial-gradient(circle, rgba(154,170,255,0.07), rgba(154,170,255,0.035) 25%, rgba(154,170,255,0.012) 45%, transparent 66%);
   will-change: transform;
 }
-.cursor-stars { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 8000; pointer-events: none; }
 .cursor-glow {
   position: fixed; left: 0; top: 0;
   width: 220px; height: 220px; margin: -110px 0 0 -110px;
@@ -787,7 +791,7 @@ header, section, footer, .ticker, .ad-slot { position: relative; z-index: 1; }
 /* © https://saadbinyousaf.dev/ © */
 .ad-slot { max-width: 1000px; margin: 0 auto; padding: 2.5rem 3rem; }
 .ad-label {
-  font-family: var(--mono); font-size: 0.56rem; letter-spacing: 0.22em;
+  font-family: var(--grotesk); font-size: 0.56rem; letter-spacing: 0.22em;
   text-transform: uppercase; color: var(--dim); text-align: center; margin-bottom: 0.6rem; opacity: 0.7;
 }
 .ad-box { min-height: 90px; }
@@ -795,7 +799,7 @@ header, section, footer, .ticker, .ad-slot { position: relative; z-index: 1; }
 .ad-slot.is-placeholder .ad-box {
   height: 110px; border: 1px dashed var(--line); border-radius: 12px;
   display: flex; align-items: center; justify-content: center;
-  font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--dim);
+  font-family: var(--grotesk); font-size: 0.62rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--dim);
   background: rgba(17,18,20,0.6);
 }
 .ad-slot.is-placeholder .ad-box::before { content: 'Ad space · responsive'; }
@@ -823,10 +827,10 @@ footer .privacy:hover { color: var(--lime); }
   background: rgba(170,200,107,0.12); border: 1px solid rgba(170,200,107,0.3); color: var(--lime);
 }
 .htool-icon svg { width: 21px; height: 21px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
-.htool-cat { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--dim); margin-top: 0.4rem; }
+.htool-cat { font-family: var(--grotesk); font-size: 0.58rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--dim); margin-top: 0.4rem; }
 .htool h3 { font-size: 1.05rem; font-weight: 700; letter-spacing: -0.01em; line-height: 1.3; }
 .htool p { font-size: 0.84rem; line-height: 1.65; color: var(--dim); flex: 1; }
-.htool-go { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--lime); }
+.htool-go { font-family: var(--grotesk); font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--lime); }
 @media (max-width: 1100px) { .htools-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 720px) { .htools-grid { grid-template-columns: 1fr; } }
 
@@ -1018,7 +1022,7 @@ footer .privacy:hover { color: var(--lime); }
 .aie { border-top: 1px solid var(--line); overflow-x: hidden; }
 .aie-wrap { max-width: 1204px; margin: 0 auto; }
 .aie-head { display: flex; flex-direction: column; align-items: center; text-align: center; margin-bottom: 56px; }
-.aie-eyebrow { margin-bottom: 12px; color: var(--dim); font-family: var(--mono); font-size: 14px; font-weight: 500; letter-spacing: .2px; text-transform: uppercase; }
+.aie-eyebrow { margin-bottom: 12px; color: var(--dim); font-family: var(--grotesk); font-size: 14px; font-weight: 500; letter-spacing: .2px; text-transform: uppercase; }
 .aie-head h2 { margin-bottom: 12px; color: #fff; font-family: var(--grotesk); font-size: clamp(32px, 4vw, 48px); font-weight: 600; letter-spacing: .2px; line-height: 1.3; text-wrap: balance; }
 .aie-head p { max-width: 560px; color: var(--dim); font-size: 18px; line-height: 1.6; letter-spacing: .2px; text-wrap: balance; }
 .aie-bento { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
@@ -1079,14 +1083,14 @@ footer .privacy:hover { color: var(--lime); }
 .aie-transcript li.show { opacity: 1; transform: none; }
 .aie-transcript .c { align-self: flex-start; background: #ffffff0d; color: #ffffffcc; }
 .aie-transcript .a { align-self: flex-end; background: #59d4991a; color: #c8f3dc; }
-.aie-transcript .s { align-self: center; background: none; padding: 4px; color: #59d499; font-family: var(--mono); font-size: 12px; }
+.aie-transcript .s { align-self: center; background: none; padding: 4px; color: #59d499; font-family: var(--grotesk); font-size: 12px; }
 
 .aie-panel { height: 100%; margin: -14px -14px 0; padding: 20px; display: flex; flex-direction: column; gap: 12px; background: #ffffff05; border: 1px solid #ffffff24; border-radius: 20px; -webkit-mask-image: linear-gradient(#000 10%, transparent); mask-image: linear-gradient(#000 55%, transparent); }
 .aie-msg { display: flex; gap: 12px; padding: 12px; border-radius: 12px; background: #ffffff08; box-shadow: inset 0 1px #ffffff0d; }
-.aie-ch { flex: none; width: 36px; height: 22px; border-radius: 6px; display: grid; place-items: center; background: color-mix(in srgb, var(--c) 18%, transparent); color: var(--c); font-family: var(--mono); font-size: 10px; font-weight: 600; }
+.aie-ch { flex: none; width: 36px; height: 22px; border-radius: 6px; display: grid; place-items: center; background: color-mix(in srgb, var(--c) 18%, transparent); color: var(--c); font-family: var(--grotesk); font-size: 10px; font-weight: 600; }
 .aie-msg b { color: #fff; font-size: 13.5px; font-weight: 500; }
 .aie-msg p { color: #ffffff8c; font-size: 13.5px; line-height: 1.5; }
-.aie-ai { display: inline-flex; align-items: center; gap: 4px; margin-top: 6px; padding: 1px 8px; border-radius: 6px; background: #cf8eff1f; color: #cf8eff; font-family: var(--mono); font-size: 11px; font-style: normal; }
+.aie-ai { display: inline-flex; align-items: center; gap: 4px; margin-top: 6px; padding: 1px 8px; border-radius: 6px; background: #cf8eff1f; color: #cf8eff; font-family: var(--grotesk); font-size: 11px; font-style: normal; }
 .aie-ai.typing span { width: 4px; height: 4px; border-radius: 50%; background: #cf8eff; animation: aieDot 1.2s infinite; }
 .aie-ai.typing span:nth-child(2) { animation-delay: .15s; } .aie-ai.typing span:nth-child(3) { animation-delay: .3s; }
 @keyframes aieDot { 0%, 60%, 100% { opacity: .3; transform: none; } 30% { opacity: 1; transform: translateY(-2px); } }
@@ -1144,3 +1148,13 @@ footer .privacy:hover { color: var(--lime); }
   .sh-bar { max-width: calc(var(--nav-w, 1200px) + (min(1440px, 100vw - 32px) - var(--nav-w, 1200px)) * var(--nav-p, 0)); }
 }
 @media (prefers-reduced-motion: reduce) { .sh-bar { transition: none; } }
+
+/* © https://saadbinyousaf.dev/ © */
+.hero-eyebrow, .btn, .ticker-item, .eyebrow, .stat .lbl, .svc li, .view-pill span, .ptag, .scroll-hint, .site-body .meta, .cta-link, footer .copy, footer .status, .lb-eyebrow, .ad-label, .ad-slot.is-placeholder .ad-box, .htool-cat, .htool-go, .aie-eyebrow, .aie-transcript .s, .aie-ch, .aie-ai { text-transform: none; letter-spacing: 0; }
+.hero-eyebrow, .eyebrow, .stat .lbl, .ptag, .site-body .meta, footer .copy, footer .status, .lb-eyebrow, .ad-label, .htool-cat, .aie-eyebrow, .aie-ch, .aie-ai { font-size: 12.5px; font-weight: 500; }
+.hero h1 .rev, .sec-title em, .stat .num, .svc .svc-glyph, .cta .big em { font-style: normal; font-weight: 700; letter-spacing: -0.02em; }
+.is-off, .is-off * { animation-play-state: paused !important; }
+.btn { font-size: 14px; font-weight: 600; }
+.htool-go, .cta-link, .view-pill span { font-size: 13px; font-weight: 500; }
+.scroll-hint { font-size: 11.5px; font-weight: 500; }
+.ticker-item { font-size: 14px; font-weight: 500; }

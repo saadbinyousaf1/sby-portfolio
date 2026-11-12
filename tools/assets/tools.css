@@ -1,3 +1,9 @@
+@font-face { font-family: 'Satoshi'; src: url('/assets/fonts/satoshi-400.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Satoshi'; src: url('/assets/fonts/satoshi-500.woff2') format('woff2'); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Satoshi'; src: url('/assets/fonts/satoshi-700.woff2') format('woff2'); font-weight: 600 700; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Satoshi'; src: url('/assets/fonts/satoshi-900.woff2') format('woff2'); font-weight: 800 900; font-style: normal; font-display: swap; }
+@font-face { font-family: 'JetBrains Mono'; src: url('/assets/fonts/jetbrains-mono-400.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'JetBrains Mono'; src: url('/assets/fonts/jetbrains-mono-700.woff2') format('woff2'); font-weight: 700; font-style: normal; font-display: swap; }
 /* © https://saadbinyousaf.dev/ © */
 :root {
   --ink: #07080a;
@@ -19,8 +25,8 @@
   --warn-soft: rgba(242, 193, 78, 0.12);
   --bad: #FF6B5E;
   --bad-soft: rgba(255, 107, 94, 0.12);
-  --serif: 'Instrument Serif', serif;
-  --grotesk: 'Space Grotesk', sans-serif;
+  --serif: 'Satoshi', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --grotesk: 'Satoshi', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
   --mono: 'JetBrains Mono', monospace;
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --radius: 18px;
@@ -162,7 +168,7 @@ a { color: var(--lime); }
 .t-hero { padding-top: clamp(3rem, 7vw, 5.5rem); padding-bottom: 2.5rem; }
 .crumbs {
   display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center;
-  font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--dim);
+  font-family: var(--grotesk); font-size: 0.66rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--dim);
   margin-bottom: 1.6rem;
 }
 .crumbs a { color: var(--dim); text-decoration: none; }
@@ -173,12 +179,12 @@ a { color: var(--lime); }
   max-width: 18ch; margin-bottom: 1.2rem;
 }
 .t-hero h1 em, .h-serif {
-  font-family: var(--serif); font-style: italic; font-weight: 400; color: var(--lime); font-size: 1.08em;
+  font-family: var(--grotesk); font-style: italic; font-weight: 400; color: var(--lime); font-size: 1.08em;
 }
 .t-lead { font-size: 1.08rem; line-height: 1.75; color: var(--text); max-width: 62ch; }
 .chips { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.6rem; }
 .chip {
-  font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase;
+  font-family: var(--grotesk); font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase;
   color: var(--lime); border: 1px solid rgba(170,200,107,0.3); background: var(--lime-soft);
   padding: 0.42rem 0.85rem; border-radius: 999px; display: inline-flex; align-items: center; gap: 0.45rem;
 }
@@ -203,7 +209,7 @@ a { color: var(--lime); }
   margin-bottom: 1.2rem; padding-bottom: 0.9rem; border-bottom: 1px solid var(--line);
 }
 .panel-title {
-  font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--lime);
+  font-family: var(--grotesk); font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--lime);
   display: flex; align-items: center; gap: 0.55rem;
 }
 .panel-title .n {
@@ -218,7 +224,7 @@ a { color: var(--lime); }
 .grid-2 > .field, .grid-3 > .field { margin-bottom: 1rem; }
 input[type="datetime-local"]::-webkit-calendar-picker-indicator, input[type="date"]::-webkit-calendar-picker-indicator { filter: invert(0.8) sepia(1) hue-rotate(40deg); cursor: pointer; }
 .field > label:not(.check), .label {
-  font-family: var(--mono); font-size: 0.64rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--dim);
+  font-family: var(--grotesk); font-size: 0.64rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--dim);
   display: flex; justify-content: space-between; gap: 0.6rem;
 }
 .label .hint { text-transform: none; letter-spacing: 0.02em; color: #6a6b6e; }
@@ -259,14 +265,14 @@ input[type="range"] { width: 100%; accent-color: var(--lime); cursor: pointer; }
 /* © https://saadbinyousaf.dev/ © */
 .seg { display: flex; flex-wrap: wrap; gap: 0.4rem; }
 .seg button, .pill-btn {
-  font-family: var(--mono); font-size: 0.64rem; letter-spacing: 0.08em;
+  font-family: var(--grotesk); font-size: 0.64rem; letter-spacing: 0.08em;
   background: var(--ink-2); color: var(--dim); border: 1px solid var(--line);
   padding: 0.5rem 0.85rem; border-radius: 999px; cursor: pointer; transition: all 0.2s;
 }
 .seg button:hover, .pill-btn:hover { color: var(--bone); border-color: var(--line-2); }
 .seg button[aria-pressed="true"] { background: var(--lime-soft); color: var(--lime); border-color: rgba(170,200,107,0.5); }
 .btn {
-  font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700;
+  font-family: var(--grotesk); font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700;
   border-radius: 999px; padding: 0.85rem 1.5rem; border: 1px solid transparent; cursor: pointer;
   display: inline-flex; align-items: center; justify-content: center; gap: 0.55rem; text-decoration: none;
   transition: transform 0.25s var(--ease-out), background 0.2s, color 0.2s, border-color 0.2s;
@@ -280,7 +286,7 @@ input[type="range"] { width: 100%; accent-color: var(--lime); cursor: pointer; }
 .btn[disabled] { opacity: 0.4; pointer-events: none; }
 .btn-row { display: flex; flex-wrap: wrap; gap: 0.6rem; }
 .copy-btn {
-  font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase;
+  font-family: var(--grotesk); font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase;
   background: var(--panel-2); color: var(--lime); border: 1px solid rgba(170,200,107,0.3);
   padding: 0.4rem 0.75rem; border-radius: 999px; cursor: pointer; transition: all 0.2s; white-space: nowrap;
 }
@@ -302,19 +308,19 @@ input[type="range"] { width: 100%; accent-color: var(--lime); cursor: pointer; }
   white-space: pre-wrap; word-break: break-word;
 }
 .out-body.mono { font-family: var(--mono); font-size: 0.8rem; color: var(--bone); }
-.out-meta { padding: 0 1rem 0.8rem; font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.08em; color: var(--dim); }
+.out-meta { padding: 0 1rem 0.8rem; font-family: var(--grotesk); font-size: 0.6rem; letter-spacing: 0.08em; color: var(--dim); }
 
 .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
 .stat { background: var(--ink-2); padding: 1.1rem 1rem; }
-.stat .v { font-family: var(--serif); font-style: italic; font-size: 2.2rem; line-height: 1; color: var(--lime); }
+.stat .v { font-family: var(--grotesk); font-style: italic; font-size: 2.2rem; line-height: 1; color: var(--lime); }
 .stat .v.bad { color: var(--bad); }
 .stat .v.warn { color: var(--warn); }
 .stat .v.plain { color: var(--bone); }
-.stat .k { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--dim); margin-top: 0.5rem; }
+.stat .k { font-family: var(--grotesk); font-size: 0.58rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--dim); margin-top: 0.5rem; }
 
 .badge {
   display: inline-flex; align-items: center; gap: 0.4rem;
-  font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase;
+  font-family: var(--grotesk); font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase;
   padding: 0.35rem 0.7rem; border-radius: 999px; border: 1px solid;
 }
 .badge.ok { color: var(--lime); border-color: rgba(170,200,107,0.4); background: var(--lime-soft); }
@@ -340,7 +346,7 @@ input[type="range"] { width: 100%; accent-color: var(--lime); cursor: pointer; }
 table.data { width: 100%; border-collapse: collapse; font-size: 0.8rem; }
 table.data th {
   position: sticky; top: 0; background: var(--panel-2); text-align: left;
-  font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--lime);
+  font-family: var(--grotesk); font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--lime);
   padding: 0.65rem 0.8rem; border-bottom: 1px solid var(--line); white-space: nowrap;
 }
 table.data td { padding: 0.55rem 0.8rem; border-bottom: 1px solid var(--line); color: var(--text); white-space: nowrap; max-width: 260px; overflow: hidden; text-overflow: ellipsis; }
@@ -351,13 +357,13 @@ table.data td.fixed { color: var(--lime-bright); }
 
 /* © https://saadbinyousaf.dev/ © */
 .ad-slot { max-width: 970px; margin: 3rem auto; padding: 0 clamp(1.2rem, 4vw, 3rem); }
-.ad-label { font-family: var(--mono); font-size: 0.56rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--dim); text-align: center; margin-bottom: 0.6rem; opacity: 0.7; }
+.ad-label { font-family: var(--grotesk); font-size: 0.56rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--dim); text-align: center; margin-bottom: 0.6rem; opacity: 0.7; }
 .ad-box { min-height: 90px; }
 .ad-slot.is-hidden { display: none; }
 .ad-slot.is-placeholder .ad-box {
   height: 110px; border: 1px dashed var(--line); border-radius: 12px;
   display: flex; align-items: center; justify-content: center;
-  font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--dim);
+  font-family: var(--grotesk); font-size: 0.62rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--dim);
   background: rgba(17,18,20,0.6);
 }
 .ad-slot.is-placeholder .ad-box::before { content: 'Ad space · responsive'; }
@@ -375,7 +381,7 @@ table.data td.fixed { color: var(--lime-bright); }
 .toc a:hover, .toc a.active { color: var(--bone); border-left-color: var(--lime); }
 .guide { max-width: 760px; }
 .guide .eyebrow, .eyebrow {
-  font-family: var(--mono); font-size: 0.64rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--lime);
+  font-family: var(--grotesk); font-size: 0.64rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--lime);
   display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1rem;
 }
 .eyebrow::before { content: ''; width: 2rem; height: 1px; background: var(--lime); }
@@ -404,12 +410,12 @@ code {
 .steps li::before {
   content: counter(step); position: absolute; left: 0; top: 0.2rem;
   width: 1.7rem; height: 1.7rem; border-radius: 50%; border: 1px solid rgba(170,200,107,0.45);
-  font-family: var(--mono); font-size: 0.7rem; color: var(--lime);
+  font-family: var(--grotesk); font-size: 0.7rem; color: var(--lime);
   display: flex; align-items: center; justify-content: center;
 }
 .compare { width: 100%; border-collapse: collapse; margin: 1.4rem 0; font-size: 0.9rem; }
 .compare th, .compare td { text-align: left; padding: 0.75rem 0.9rem; border-bottom: 1px solid var(--line); }
-.compare th { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--lime); }
+.compare th { font-family: var(--grotesk); font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--lime); }
 .compare td { color: var(--text); }
 
 /* © https://saadbinyousaf.dev/ © */
@@ -423,7 +429,7 @@ code {
   display: flex; justify-content: space-between; gap: 1rem; align-items: center;
 }
 .faq summary::-webkit-details-marker { display: none; }
-.faq summary::after { content: '+'; font-family: var(--mono); color: var(--lime); font-size: 1.2rem; transition: transform 0.25s; }
+.faq summary::after { content: '+'; font-family: var(--grotesk); color: var(--lime); font-size: 1.2rem; transition: transform 0.25s; }
 .faq details[open] summary::after { transform: rotate(45deg); }
 .faq .a { padding: 0 1.3rem 1.2rem; font-size: 0.95rem; line-height: 1.8; color: var(--text); }
 
@@ -448,22 +454,22 @@ code {
   background: var(--lime-soft); border: 1px solid rgba(170,200,107,0.3); color: var(--lime);
 }
 .tool-icon svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
-.tool-card .cat { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--dim); }
+.tool-card .cat { font-family: var(--grotesk); font-size: 0.58rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--dim); }
 .tool-card h3 { font-size: 1.12rem; letter-spacing: -0.01em; line-height: 1.25; }
 .tool-card p { font-size: 0.86rem; line-height: 1.65; color: var(--dim); flex: 1; }
-.tool-card .go { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--lime); display: flex; align-items: center; gap: 0.4rem; }
+.tool-card .go { font-family: var(--grotesk); font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--lime); display: flex; align-items: center; gap: 0.4rem; }
 .tool-card .go::after { content: '→'; transition: transform 0.25s; }
 .tool-card:hover .go::after { transform: translateX(4px); }
-.tool-card .ext { position: absolute; top: 1.3rem; right: 1.3rem; font-family: var(--mono); font-size: 0.56rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--dim); border: 1px solid var(--line); border-radius: 999px; padding: 0.25rem 0.55rem; }
+.tool-card .ext { position: absolute; top: 1.3rem; right: 1.3rem; font-family: var(--grotesk); font-size: 0.56rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--dim); border: 1px solid var(--line); border-radius: 999px; padding: 0.25rem 0.55rem; }
 
 /* © https://saadbinyousaf.dev/ © */
 .t-footer {
   border-top: 1px solid var(--line); padding: 2.4rem clamp(1.2rem, 4vw, 3rem);
   display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1.2rem; align-items: center;
 }
-.t-footer .copy { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.1em; color: var(--dim); }
+.t-footer .copy { font-family: var(--grotesk); font-size: 0.62rem; letter-spacing: 0.1em; color: var(--dim); }
 .t-footer nav { display: flex; flex-wrap: wrap; gap: 1.4rem; }
-.t-footer nav a { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--dim); text-decoration: none; }
+.t-footer nav a { font-family: var(--grotesk); font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--dim); text-decoration: none; }
 .t-footer nav a:hover { color: var(--lime); }
 .t-footer .disclaimer { flex-basis: 100%; font-size: 0.75rem; color: #5E6156; line-height: 1.6; }
 
@@ -472,7 +478,7 @@ code {
   position: fixed; left: 50%; bottom: 1.6rem; z-index: 100;
   transform: translate(-50%, 20px); opacity: 0; pointer-events: none;
   background: var(--lime); color: var(--ink);
-  font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700;
+  font-family: var(--grotesk); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700;
   padding: 0.75rem 1.3rem; border-radius: 999px; box-shadow: 0 16px 40px rgba(0,0,0,0.5);
   transition: opacity 0.25s, transform 0.35s var(--ease-out);
 }
@@ -536,7 +542,7 @@ code {
 }
 .tx-hero h1 em { font: inherit; font-style: normal; color: inherit; }
 .tx-hero .t-lead { max-width: 580px; margin: 0 auto; color: #9c9c9d; font-size: 17px; font-weight: 500; line-height: 1.6; text-wrap: balance; }
-.tx-meta { margin-top: 14px; color: #6a6b6e; font-family: var(--mono); font-size: 12px; letter-spacing: .2px; }
+.tx-meta { margin-top: 14px; color: #6a6b6e; font-family: var(--grotesk); font-size: 12px; letter-spacing: .2px; }
 
 /* © https://saadbinyousaf.dev/ © */
 .tx-tool { position: relative; scroll-margin-top: 100px; padding-bottom: 24px; }
@@ -610,3 +616,12 @@ code {
 .tx-main ::selection { background: var(--acc); color: #0b0c0e; }
 .tx-main .badge.ok, .tx-main .seg button[aria-pressed="true"] { border-color: rgba(var(--acc-rgb), .4); }
 .tx-main .tag, .tx-main .chip, .tx-main code { border-color: rgba(var(--acc-rgb), .28); }
+
+/* © https://saadbinyousaf.dev/ © */
+.chip, .panel-title, .field > label:not(.check), .label, .seg button, .pill-btn, .btn, .copy-btn, .out-meta, .stat .k, .badge, table.data th, .ad-label, .guide .eyebrow, .eyebrow, .compare th, .tool-card .cat, .tool-card .go, .t-footer .copy, .t-footer nav a, .toast, .tx-meta { text-transform: none; letter-spacing: 0; }
+.chip, .field > label:not(.check), .label, .out-meta, .stat .k, .badge, table.data th, .ad-label, .guide .eyebrow, .eyebrow, .compare th, .tool-card .cat, .t-footer .copy, .t-footer nav a, .tx-meta { font-size: 12.5px; font-weight: 500; }
+.t-hero h1 em, .h-serif, .stat .v { font-style: normal; font-weight: 700; letter-spacing: -0.02em; }
+.btn { font-size: 14px; font-weight: 600; }
+.btn-sm { font-size: 13px; }
+.copy-btn, .seg button, .pill-btn, .tool-card .go { font-size: 12.5px; font-weight: 600; }
+.panel-title { font-size: 13.5px; font-weight: 600; letter-spacing: 0; text-transform: none; }

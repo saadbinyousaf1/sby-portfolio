@@ -35,6 +35,7 @@
   var finePointer = matchMedia('(hover: hover) and (pointer: fine)').matches;
   var introDone = false;
 
+  initOffscreen();
   initHeader();
   initAutomation();
   initAIEmployee();
@@ -111,7 +112,7 @@
   }
 
   function runIntro() {
-    if (reduceMotion) {
+    if (reduceMotion || !root.classList.contains('js-anim')) {
       gsap.set([title, cards, heroBits], { autoAlpha: 1, y: 0 });
       var s = document.getElementById('revStroke');
       if (s) s.style.strokeDashoffset = 0;
@@ -119,6 +120,7 @@
       return;
     }
 
+    window.__intro = true;
     gsap.set(title, { autoAlpha: 0, y: 30, scale: 0.92, rotationX: 35, filter: 'blur(14px)' });
     gsap.set(heroBits, { autoAlpha: 0, y: 24 });
     gsap.set(cards, { autoAlpha: 0 });
@@ -287,56 +289,6 @@
   }
 
   // © https://saadbinyousaf.dev/ © //
-  function initTrail() {
-    if (!finePointer || reduceMotion) return;
-    var c = document.querySelector('.cursor-stars');
-    var ctx = c.getContext('2d');
-    var dpr = Math.min(devicePixelRatio || 1, 2);
-    var parts = [];
-    var lx = null, ly = null;
-    function size() {
-      c.width = innerWidth * dpr;
-      c.height = innerHeight * dpr;
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    }
-    size();
-    addEventListener('resize', size);
-    addEventListener('pointermove', function (e) {
-      if (lx !== null) {
-        var dist = Math.hypot(e.clientX - lx, e.clientY - ly);
-        var n = Math.min(3, Math.floor(dist / 14));
-        for (var i = 0; i < n; i++) {
-          var t = Math.random();
-          parts.push({
-            x: lx + (e.clientX - lx) * t + (Math.random() - 0.5) * 10,
-            y: ly + (e.clientY - ly) * t + (Math.random() - 0.5) * 10,
-            vx: (Math.random() - 0.5) * 0.5,
-            vy: (Math.random() - 0.5) * 0.5 - 0.15,
-            s: 0.6 + Math.random() * 1.4,
-            life: 1
-          });
-        }
-      }
-      lx = e.clientX; ly = e.clientY;
-    });
-    (function loop() {
-      ctx.clearRect(0, 0, innerWidth, innerHeight);
-      for (var i = parts.length - 1; i >= 0; i--) {
-        var p = parts[i];
-        p.x += p.vx; p.y += p.vy; p.life -= 0.018;
-        if (p.life <= 0) { parts.splice(i, 1); continue; }
-        ctx.globalAlpha = p.life;
-        ctx.fillStyle = '#D6F077';
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.s * p.life + 0.3, 0, Math.PI * 2);
-        ctx.fill();
-      }
-      ctx.globalAlpha = 1;
-      requestAnimationFrame(loop);
-    })();
-  }
-
-  // © https://saadbinyousaf.dev/ © //
   function initMagnetic() {
     if (!finePointer || reduceMotion) return;
     document.querySelectorAll('.magnetic').forEach(function (btn) {
@@ -354,6 +306,15 @@
   }
 
   // © https://saadbinyousaf.dev/ © //
+  function initOffscreen() {
+    if (!('IntersectionObserver' in window)) return;
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { e.target.classList.toggle('is-off', !e.isIntersecting); });
+    }, { rootMargin: '150px 0px' });
+    document.querySelectorAll('section, header.hero, footer, .ticker').forEach(function (el) { io.observe(el); });
+  }
+
+  // © https://saadbinyousaf.dev/ © //
   function initAutomation() {
     var sec = document.getElementById('automation');
     if (!sec) return;
@@ -367,6 +328,7 @@
     var typeTimer = null, loopTimer = null;
     function typeReply() {
       clearTimeout(typeTimer); clearTimeout(loopTimer);
+      if (sec.classList.contains('is-off')) { loopTimer = setTimeout(typeReply, 1500); return; }
       msg.classList.remove('done', 'sent');
       if (still) { typeEl.textContent = reply; msg.classList.add('done'); return; }
       var i = 0;
@@ -393,6 +355,7 @@
         query.textContent = word.slice(0, ++i);
         if (i < word.length) setTimeout(step, 110);
         else rowTimer = setInterval(function () {
+          if (sec.classList.contains('is-off')) return;
           rows[rowIdx].classList.remove('on');
           rowIdx = (rowIdx + 1) % rows.length;
           rows[rowIdx].classList.add('on');
@@ -423,6 +386,7 @@
       combo.innerHTML = keys[c[0]] + plus + keys[c[1]] + plus + letter(c[2]);
     }
     function nextCombo() {
+      if (sec.classList.contains('is-off')) return;
       combo.classList.add('exit');
       setTimeout(function () {
         ci = (ci + 1) % combos.length;
@@ -621,7 +585,6 @@
   initTilt();
   initReveals();
   initCursor();
-  initTrail();
   initMagnetic();
   initChrome();
   initLightbox();
