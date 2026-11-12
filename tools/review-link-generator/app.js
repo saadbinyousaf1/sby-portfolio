@@ -87,9 +87,9 @@
 
     ctx.textAlign = 'center';
     ctx.textBaseline = 'alphabetic';
-    ctx.font = '700 64px "Space Grotesk", sans-serif';
+    ctx.font = '700 64px "Satoshi", sans-serif';
     var head = wrap(ctx, $('#caption').value.trim() || 'Leave us a review', 860).slice(0, 3);
-    ctx.font = '700 46px "Space Grotesk", sans-serif';
+    ctx.font = '700 46px "Satoshi", sans-serif';
     var biz = wrap(ctx, $('#biz').value.trim() || 'Your business', 900).slice(0, 2);
     var sub = $('#sub').value.trim();
 
@@ -105,7 +105,7 @@
     y += 60 + 70 + 52;
 
     ctx.fillStyle = c.fg;
-    ctx.font = '700 64px "Space Grotesk", sans-serif';
+    ctx.font = '700 64px "Satoshi", sans-serif';
     head.forEach(function (l) { ctx.fillText(l, W / 2, y); y += 76; });
     y += 30 - 52;
 
@@ -121,11 +121,11 @@
     y += 80;
 
     ctx.fillStyle = c.fg;
-    ctx.font = '700 46px "Space Grotesk", sans-serif';
+    ctx.font = '700 46px "Satoshi", sans-serif';
     biz.forEach(function (l) { ctx.fillText(l, W / 2, y); y += 56; });
     if (sub) {
       ctx.fillStyle = c.sub;
-      ctx.font = '400 30px "Space Grotesk", sans-serif';
+      ctx.font = '400 30px "Satoshi", sans-serif';
       ctx.fillText(sub, W / 2, y + 8);
     }
   }

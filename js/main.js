@@ -35,7 +35,10 @@
   var finePointer = matchMedia('(hover: hover) and (pointer: fine)').matches;
   var introDone = false;
 
+  initOffscreen();
   initHeader();
+  initAutomation();
+  initAIEmployee();
 
   if (!window.gsap) {
     root.classList.remove('js-anim');
@@ -109,7 +112,7 @@
   }
 
   function runIntro() {
-    if (reduceMotion) {
+    if (reduceMotion || !root.classList.contains('js-anim')) {
       gsap.set([title, cards, heroBits], { autoAlpha: 1, y: 0 });
       var s = document.getElementById('revStroke');
       if (s) s.style.strokeDashoffset = 0;
@@ -117,6 +120,7 @@
       return;
     }
 
+    window.__intro = true;
     gsap.set(title, { autoAlpha: 0, y: 30, scale: 0.92, rotationX: 35, filter: 'blur(14px)' });
     gsap.set(heroBits, { autoAlpha: 0, y: 24 });
     gsap.set(cards, { autoAlpha: 0 });
@@ -175,6 +179,7 @@
     var nebX = gsap.quickTo('.nebula', 'x', { duration: 2 });
     var nebY = gsap.quickTo('.nebula', 'y', { duration: 2 });
     var glow = document.querySelector('.cursor-glow');
+    var glowIdle;
     var gx = gsap.quickTo(glow, 'x', { duration: 0.6 });
     var gy = gsap.quickTo(glow, 'y', { duration: 0.6 });
     var tX = gsap.quickTo(title, 'rotationX', { duration: 0.8 });
@@ -190,6 +195,8 @@
       nebX(nx * 60); nebY(ny * 60);
       gx(e.clientX); gy(e.clientY);
       gsap.to(glow, { autoAlpha: 1, duration: 0.4, overwrite: 'auto' });
+      clearTimeout(glowIdle);
+      glowIdle = setTimeout(function () { gsap.to(glow, { autoAlpha: 0, duration: 1.2 }); }, 1600);
       if (!introDone) return;
       var r = hero.getBoundingClientRect();
       if (e.clientY < r.bottom) {
@@ -252,76 +259,33 @@
 
   // © https://saadbinyousaf.dev/ © //
   function initCursor() {
-    var dot = document.getElementById('cursorDot');
     var ring = document.getElementById('cursorRing');
-    if (!finePointer) return;
-    var mx = 0, my = 0, rx = 0, ry = 0;
+    if (!finePointer || !ring) return;
+    var mx = 0, my = 0, rx = 0, ry = 0, started = false, idle;
+    function wake() {
+      ring.classList.add('on');
+      clearTimeout(idle);
+      idle = setTimeout(function () { ring.classList.remove('on'); }, 1800);
+    }
     addEventListener('pointermove', function (e) {
       mx = e.clientX; my = e.clientY;
-      dot.style.left = mx + 'px';
-      dot.style.top = my + 'px';
-    });
+      if (!started) { rx = mx; ry = my; started = true; }
+      wake();
+    }, { passive: true });
+    document.addEventListener('pointerleave', function () { ring.classList.remove('on'); });
+    addEventListener('pointerdown', function () { ring.classList.add('is-down'); });
+    addEventListener('pointerup', function () { ring.classList.remove('is-down'); });
     (function loop() {
-      rx += (mx - rx) * 0.14;
-      ry += (my - ry) * 0.14;
-      ring.style.left = rx + 'px';
-      ring.style.top = ry + 'px';
+      rx += (mx - rx) * 0.22;
+      ry += (my - ry) * 0.22;
+      ring.style.transform = 'translate3d(' + rx + 'px,' + ry + 'px,0) translate(-50%,-50%)';
       requestAnimationFrame(loop);
     })();
-    document.querySelectorAll('a, button, .portal, .site').forEach(function (el) {
-      el.addEventListener('mouseenter', function () { ring.classList.add('is-hover'); });
-      el.addEventListener('mouseleave', function () { ring.classList.remove('is-hover'); });
+    document.addEventListener('pointerover', function (e) {
+      var t = e.target;
+      ring.classList.toggle('is-text', !!t.closest('input, textarea, select, [contenteditable="true"]'));
+      ring.classList.toggle('is-hover', !!t.closest('a, button, .portal, .site, [role="button"], summary, label'));
     });
-  }
-
-  // © https://saadbinyousaf.dev/ © //
-  function initTrail() {
-    if (!finePointer || reduceMotion) return;
-    var c = document.querySelector('.cursor-stars');
-    var ctx = c.getContext('2d');
-    var dpr = Math.min(devicePixelRatio || 1, 2);
-    var parts = [];
-    var lx = null, ly = null;
-    function size() {
-      c.width = innerWidth * dpr;
-      c.height = innerHeight * dpr;
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    }
-    size();
-    addEventListener('resize', size);
-    addEventListener('pointermove', function (e) {
-      if (lx !== null) {
-        var dist = Math.hypot(e.clientX - lx, e.clientY - ly);
-        var n = Math.min(3, Math.floor(dist / 14));
-        for (var i = 0; i < n; i++) {
-          var t = Math.random();
-          parts.push({
-            x: lx + (e.clientX - lx) * t + (Math.random() - 0.5) * 10,
-            y: ly + (e.clientY - ly) * t + (Math.random() - 0.5) * 10,
-            vx: (Math.random() - 0.5) * 0.5,
-            vy: (Math.random() - 0.5) * 0.5 - 0.15,
-            s: 0.6 + Math.random() * 1.4,
-            life: 1
-          });
-        }
-      }
-      lx = e.clientX; ly = e.clientY;
-    });
-    (function loop() {
-      ctx.clearRect(0, 0, innerWidth, innerHeight);
-      for (var i = parts.length - 1; i >= 0; i--) {
-        var p = parts[i];
-        p.x += p.vx; p.y += p.vy; p.life -= 0.018;
-        if (p.life <= 0) { parts.splice(i, 1); continue; }
-        ctx.globalAlpha = p.life;
-        ctx.fillStyle = '#D6F077';
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.s * p.life + 0.3, 0, Math.PI * 2);
-        ctx.fill();
-      }
-      ctx.globalAlpha = 1;
-      requestAnimationFrame(loop);
-    })();
   }
 
   // © https://saadbinyousaf.dev/ © //
@@ -339,6 +303,162 @@
         gsap.to(btn, { x: 0, y: 0, duration: 0.7, ease: 'elastic.out(1, 0.4)' });
       });
     });
+  }
+
+  // © https://saadbinyousaf.dev/ © //
+  function initOffscreen() {
+    if (!('IntersectionObserver' in window)) return;
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { e.target.classList.toggle('is-off', !e.isIntersecting); });
+    }, { rootMargin: '150px 0px' });
+    document.querySelectorAll('section, header.hero, footer, .ticker').forEach(function (el) { io.observe(el); });
+  }
+
+  // © https://saadbinyousaf.dev/ © //
+  function initAutomation() {
+    var sec = document.getElementById('automation');
+    if (!sec) return;
+    var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // © https://saadbinyousaf.dev/ © //
+    var msg = document.getElementById('drsMsg');
+    var typeEl = document.getElementById('drsType');
+    var restart = document.getElementById('drsRestart');
+    var reply = 'book.apexroofing.com/inspection';
+    var typeTimer = null, loopTimer = null;
+    function typeReply() {
+      clearTimeout(typeTimer); clearTimeout(loopTimer);
+      if (sec.classList.contains('is-off')) { loopTimer = setTimeout(typeReply, 1500); return; }
+      msg.classList.remove('done', 'sent');
+      if (still) { typeEl.textContent = reply; msg.classList.add('done'); return; }
+      var i = 0;
+      typeEl.textContent = '';
+      (function step() {
+        typeEl.textContent = reply.slice(0, ++i);
+        if (i < reply.length) { typeTimer = setTimeout(step, 34 + Math.random() * 40); return; }
+        msg.classList.add('done');
+        typeTimer = setTimeout(function () { msg.classList.add('sent'); }, 700);
+        loopTimer = setTimeout(typeReply, 5200);
+      })();
+    }
+    restart.addEventListener('click', typeReply);
+
+    // © https://saadbinyousaf.dev/ © //
+    var query = document.getElementById('drsQuery');
+    var rows = sec.querySelectorAll('.drs-row');
+    var word = 'missed', rowIdx = 0, rowTimer = null;
+    function typeQuery() {
+      if (still) { query.textContent = word; return; }
+      var i = 0;
+      query.textContent = '';
+      (function step() {
+        query.textContent = word.slice(0, ++i);
+        if (i < word.length) setTimeout(step, 110);
+        else rowTimer = setInterval(function () {
+          if (sec.classList.contains('is-off')) return;
+          rows[rowIdx].classList.remove('on');
+          rowIdx = (rowIdx + 1) % rows.length;
+          rows[rowIdx].classList.add('on');
+        }, 1600);
+      })();
+    }
+
+    // © https://saadbinyousaf.dev/ © //
+    var combo = document.getElementById('drsCombo');
+    var ico = {
+      shift: '<svg viewBox="0 0 24 24" fill="none"><path d="M12 4 3.5 12.5H8V20h8v-7.5h4.5z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>',
+      cmd: '<svg viewBox="0 0 24 24" fill="none"><path d="M9 9V6.5A2.5 2.5 0 1 0 6.5 9H9zm0 0h6m-6 0v6m6-6V6.5A2.5 2.5 0 1 1 17.5 9H15zm0 0v6m0 0h2.5a2.5 2.5 0 1 1-2.5 2.5V15zm0 0H9m0 0v2.5A2.5 2.5 0 1 1 6.5 15H9z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>',
+      opt: '<svg viewBox="0 0 24 24" fill="none"><path d="M3 6h5l7 12h6M14 6h7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+      ctrl: '<svg viewBox="0 0 24 24" fill="none"><path d="m6 13 6-6 6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+    };
+    var keys = {
+      shift: '<div class="drs-key wide"><div class="pri">' + ico.shift + '</div></div>',
+      cmd: '<div class="drs-key wide"><div class="alt">' + ico.cmd + '</div><div class="pri">command</div></div>',
+      opt: '<div class="drs-key wide"><div class="alt">' + ico.opt + '</div><div class="pri">option</div></div>',
+      ctrl: '<div class="drs-key wide"><div class="alt">' + ico.ctrl + '</div><div class="pri">control</div></div>'
+    };
+    var letter = function (l) { return '<div class="drs-key"><div class="stretch">' + l + '</div></div>'; };
+    var plus = '<span class="drs-plus">+</span>';
+    var combos = [['shift', 'cmd', 'S'], ['opt', 'cmd', 'K'], ['ctrl', 'shift', 'L']];
+    var ci = 0;
+    function renderCombo() {
+      var c = combos[ci];
+      combo.innerHTML = keys[c[0]] + plus + keys[c[1]] + plus + letter(c[2]);
+    }
+    function nextCombo() {
+      if (sec.classList.contains('is-off')) return;
+      combo.classList.add('exit');
+      setTimeout(function () {
+        ci = (ci + 1) % combos.length;
+        renderCombo();
+        combo.classList.remove('exit');
+        combo.classList.add('enter');
+        void combo.offsetWidth;
+        combo.classList.remove('enter');
+      }, 300);
+    }
+    renderCombo();
+
+    // © https://saadbinyousaf.dev/ © //
+    var started = false;
+    function start() {
+      if (started) return;
+      started = true;
+      typeReply();
+      typeQuery();
+      if (!still) setInterval(nextCombo, 2600);
+    }
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (entries, obs) {
+        if (entries[0].isIntersecting) { start(); obs.disconnect(); }
+      }, { threshold: 0.25 }).observe(sec);
+    } else start();
+  }
+
+  // © https://saadbinyousaf.dev/ © //
+  function initAIEmployee() {
+    var sec = document.getElementById('ai');
+    if (!sec) return;
+    var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var tools = sec.querySelectorAll('.aie-tool');
+    var answer = sec.querySelector('.aie-answer');
+    var lines = sec.querySelectorAll('#aieTranscript li');
+    var timers = [];
+    function later(fn, ms) { timers.push(setTimeout(fn, ms)); }
+
+    // © https://saadbinyousaf.dev/ © //
+    function runChat() {
+      tools.forEach(function (t) { t.classList.remove('show', 'load'); });
+      answer.classList.remove('show');
+      tools.forEach(function (t, i) {
+        later(function () { t.classList.add('show', 'load'); }, 500 + i * 1100);
+        later(function () { t.classList.remove('load'); }, 1400 + i * 1100);
+      });
+      later(function () { answer.classList.add('show'); }, 700 + tools.length * 1100);
+      later(runChat, 11000);
+    }
+
+    // © https://saadbinyousaf.dev/ © //
+    function runCall() {
+      lines.forEach(function (l) { l.classList.remove('show'); });
+      lines.forEach(function (l, i) { later(function () { l.classList.add('show'); }, 400 + i * 1300); });
+      later(runCall, 400 + lines.length * 1300 + 3500);
+    }
+
+    // © https://saadbinyousaf.dev/ © //
+    if (still) {
+      tools.forEach(function (t) { t.classList.add('show'); });
+      answer.classList.add('show');
+      lines.forEach(function (l) { l.classList.add('show'); });
+      return;
+    }
+    var started = false;
+    function start() { if (started) return; started = true; runChat(); runCall(); }
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (entries, obs) {
+        if (entries[0].isIntersecting) { start(); obs.disconnect(); }
+      }, { threshold: 0.2 }).observe(sec);
+    } else start();
   }
 
   // © https://saadbinyousaf.dev/ © //
@@ -360,7 +480,22 @@
     });
     addEventListener('resize', function () { if (innerWidth >= 720 && sh.classList.contains('open')) setOpen(false); });
     addEventListener('keydown', function (e) { if (e.key === 'Escape' && sh.classList.contains('open')) setOpen(false); });
-    addEventListener('scroll', function () { sh.classList.toggle('scrolled', scrollY > 40); }, { passive: true });
+    var bar = sh.querySelector('.sh-bar'), lastY = scrollY, target = 0, cur = 0, raf = 0;
+    function step() {
+      cur += (target - cur) * 0.18;
+      if (Math.abs(target - cur) < 0.002) cur = target;
+      bar.style.setProperty('--nav-p', cur.toFixed(4));
+      raf = cur !== target ? requestAnimationFrame(step) : 0;
+    }
+    function onScroll() {
+      var y = scrollY, d = y - lastY;
+      lastY = y;
+      sh.classList.toggle('scrolled', y > 40);
+      target = y < 40 ? 0 : Math.min(1, Math.max(0, target + d / 360));
+      if (!raf) raf = requestAnimationFrame(step);
+    }
+    addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
   }
 
   // © https://saadbinyousaf.dev/ © //
@@ -450,7 +585,6 @@
   initTilt();
   initReveals();
   initCursor();
-  initTrail();
   initMagnetic();
   initChrome();
   initLightbox();

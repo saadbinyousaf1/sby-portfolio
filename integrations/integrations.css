@@ -1,0 +1,169 @@
+/* © https://saadbinyousaf.dev/ © */
+.ig { --g200: #cdcecf; --g300: #9c9c9d; overflow-x: clip; }
+.ig-wrap { max-width: 1252px; margin: 0 auto; padding: 0 24px; }
+
+/* © https://saadbinyousaf.dev/ © */
+.ig-hero { position: relative; padding: 72px 0 24px; }
+.ig-hero::before {
+  content: ""; position: absolute; inset: -120px 0 auto; height: 720px; pointer-events: none;
+  background: radial-gradient(45% 50% at 70% 45%, rgba(154,170,255,.10), transparent 70%), radial-gradient(30% 35% at 25% 40%, rgba(170,200,107,.06), transparent 70%);
+}
+.ig-heroGrid { position: relative; display: grid; grid-template-columns: minmax(0, 1fr); gap: 32px; align-items: center; }
+.ig-headContent { position: relative; z-index: 2; max-width: 460px; }
+.ig-headContent h1 { margin-bottom: 16px; color: #fff; font-family: var(--grotesk); font-size: clamp(48px, 7vw, 72px); font-weight: 600; letter-spacing: -.02em; line-height: 1.05; }
+.ig-headContent p { margin-bottom: 32px; color: var(--g300); font-size: 18px; font-weight: 500; letter-spacing: .2px; line-height: 1.6; }
+.ig-search {
+  position: relative; display: flex; align-items: center; gap: 10px; height: 48px; padding: 0 12px 0 16px;
+  background: linear-gradient(137deg, #111214 4.87%, #0c0d0f 75.88%);
+  border: 1px solid #ffffff0f; border-bottom: 0; border-radius: 12px; box-shadow: inset 0 1px #ffffff1a;
+  color: var(--g300); cursor: text; transition: box-shadow .2s;
+}
+.ig-search:focus-within { box-shadow: inset 0 1px #ffffff1a, 0 0 0 2px #ffffff26; }
+.ig-search > svg { width: 16px; height: 16px; flex: none; }
+.ig-search input { flex: 1; min-width: 0; height: 100%; background: none; border: 0; outline: none; color: #fff; font: inherit; font-size: 15px; font-weight: 500; letter-spacing: .2px; }
+.ig-search input::placeholder { color: var(--g300); }
+.ig-search input::-webkit-search-cancel-button { display: none; }
+.ig-keys { display: flex; gap: 4px; }
+.ig-keys kbd {
+  min-width: 24px; height: 24px; padding: 0 6px; display: grid; place-items: center; border-radius: 6px;
+  background: #ffffff0f; box-shadow: inset 0 1px #ffffff14, 0 1px 0 #000; color: var(--g200); font-family: var(--grotesk); font-size: 12px; font-weight: 500;
+}
+
+/* © https://saadbinyousaf.dev/ © */
+.ig-headImg { position: relative; height: 380px; perspective: 1400px; -webkit-mask-image: radial-gradient(50% 50% at 50% 50%, #000 35%, transparent 92%); mask-image: radial-gradient(50% 50% at 50% 50%, #000 35%, transparent 92%); }
+.ig-scene { position: absolute; left: 50%; top: 50%; width: 0; height: 0; transform-style: preserve-3d; transform: rotateX(55deg) rotateZ(-38deg); }
+.ig-plane { position: absolute; left: -420px; top: -210px; width: 840px; height: 420px; transform-style: preserve-3d; }
+.ig-planeBg { transform: translateZ(-40px); opacity: .28; filter: blur(1.5px) saturate(.6); }
+.ig-hcell { position: absolute; left: calc(var(--c) * 104px); top: calc(var(--r) * 104px + 100px); transform-style: preserve-3d; }
+.ig-planeFg .ig-hcell { animation: igFloat 5s ease-in-out var(--d) infinite; }
+.ig-planeFg .ig-hcell .ig-tile { box-shadow: 0 1px 0 #ffffff40 inset, 0 0 0 1px #ffffff1f inset, -14px 18px 26px #000000a6; }
+@keyframes igFloat { 0%, 100% { transform: translateZ(0); } 50% { transform: translateZ(16px); } }
+
+.ig-tile {
+  width: var(--s); height: var(--s); flex: none; display: grid; place-items: center;
+  border-radius: calc(var(--s) * .26);
+  box-shadow: inset 0 1px 0 #ffffff40, inset 0 0 0 1px #ffffff14, 0 1px 3px #00000080;
+}
+.ig-tile svg { width: 56%; height: 56%; }
+.ig-tile b { color: #fff; font-family: var(--grotesk); font-size: calc(var(--s) * .38); font-weight: 700; letter-spacing: -.02em; line-height: 1; }
+
+/* © https://saadbinyousaf.dev/ © */
+.ig-body { padding: 48px 0 120px; }
+.ig-exploreHeader { margin-bottom: 8px; color: #fff; font-family: var(--grotesk); font-size: 32px; font-weight: 600; letter-spacing: .2px; }
+.ig-exploreSub { margin-bottom: 56px; color: var(--g300); font-size: 18px; font-weight: 500; letter-spacing: .2px; }
+.ig-sectionHeader { margin-bottom: 4px; color: #fff; font-family: var(--grotesk); font-size: 20px; font-weight: 500; letter-spacing: .2px; }
+.ig-sectionSub { margin-bottom: 24px; color: var(--g300); font-size: 16px; font-weight: 500; letter-spacing: .2px; }
+
+.ig-featured { display: grid; grid-template-columns: 1fr; gap: 24px; margin-bottom: 72px; }
+.ig-fcard {
+  position: relative; display: flex; flex-direction: column; padding: 32px; overflow: hidden;
+  background: radial-gradient(70% 55% at 50% 0%, rgba(var(--tint), .16), transparent 70%), linear-gradient(137deg, #111214 4.87%, #0c0d0f 75.88%);
+  border: 1px solid #ffffff0f; border-radius: 16px; box-shadow: inset 0 1px #ffffff1a; transition: box-shadow .3s;
+}
+.ig-fcard:hover { box-shadow: inset 0 1px #ffffff1a, 0 0 24px 8px #ffffff0a; }
+.ig-fIcon { position: relative; width: 64px; height: 64px; margin-bottom: 24px; }
+.ig-fIcon::before { content: ""; position: absolute; inset: -18px; border-radius: 50%; background: radial-gradient(closest-side, rgba(var(--tint), .45), transparent); filter: blur(10px); }
+.ig-fIcon .ig-tile { position: relative; }
+.ig-fcard h3 { margin-bottom: 8px; color: #fff; font-family: var(--grotesk); font-size: 20px; font-weight: 500; letter-spacing: .2px; text-wrap: balance; }
+.ig-fcard p { flex: 1; margin-bottom: 24px; color: var(--g300); font-size: 15px; line-height: 1.6; }
+.ig-fMeta, .ig-cMeta { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+.ig-fMeta { margin-bottom: 20px; }
+.ig-fBtns { display: flex; gap: 8px; }
+.ig-meta, .ig-cat { display: inline-flex; align-items: center; gap: 6px; color: var(--g300); font-size: 13px; font-weight: 500; letter-spacing: .2px; }
+.ig-meta svg { width: 16px; height: 16px; }
+.ig-cat { padding: 2px 8px; border-radius: 6px; background: #ffffff0a; }
+
+.ig-btn {
+  display: inline-flex; align-items: center; justify-content: center; height: 32px; padding: 0 12px;
+  border-radius: 8px; border: 0; cursor: pointer; text-decoration: none; white-space: nowrap;
+  background: linear-gradient(#ffffff08, #ffffff12); box-shadow: inset 0 1px #ffffff14, 0 0 0 1px #ffffff1f;
+  color: #fff; font-family: var(--grotesk); font-size: 14px; font-weight: 500; letter-spacing: .2px; transition: background .2s, box-shadow .2s;
+}
+.ig-btn:hover { background: linear-gradient(#ffffff12, #ffffff1f); box-shadow: inset 0 1px #ffffff1a, 0 0 0 1px #ffffff40; }
+.ig-btnLight { height: 40px; padding: 0 16px; background: var(--bone); color: var(--ink); box-shadow: inset 0 -1px 0 rgba(0,0,0,.18), 0 1px 2px rgba(0,0,0,.45); }
+.ig-btnLight:hover { background: var(--lime-bright); box-shadow: inset 0 -1px 0 rgba(0,0,0,.18), 0 1px 2px rgba(0,0,0,.45); }
+
+/* © https://saadbinyousaf.dev/ © */
+.ig-nav { display: flex; flex-direction: column; gap: 16px; margin-bottom: 48px; padding-top: 24px; scroll-margin-top: 110px; border-top: 1px solid #ffffff0f; }
+.ig-controls { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.ig-pills { display: flex; gap: 4px; padding: 4px; border-radius: 12px; background: linear-gradient(137deg, #111214 4.87%, #0c0d0f 75.88%); border: 1px solid #ffffff0f; border-bottom: 0; box-shadow: inset 0 1px #ffffff1a; }
+.ig-pill { height: 34px; padding: 0 12px; border: 0; border-radius: 8px; background: none; cursor: pointer; color: var(--g300); font-family: var(--grotesk); font-size: 14px; font-weight: 500; letter-spacing: .2px; white-space: nowrap; transition: color .2s, background .2s; }
+.ig-pill:hover { color: #fff; }
+.ig-pill.on { color: #fff; background: radial-gradient(51.07% 92.4% at 51% 7.61%, #3a3a3a 0%, #1a1a1a 100%); box-shadow: inset 0 1px #ffffff1f; }
+.ig-pill .f { display: none; }
+.ig-select { position: relative; display: inline-flex; align-items: center; }
+.ig-select select {
+  appearance: none; -webkit-appearance: none; height: 44px; padding: 0 40px 0 14px; border-radius: 12px; cursor: pointer;
+  background: linear-gradient(137deg, #111214 4.87%, #0c0d0f 75.88%); border: 1px solid #ffffff0f; border-bottom: 0; box-shadow: inset 0 1px #ffffff1a;
+  color: #fff; font-family: var(--grotesk); font-size: 14px; font-weight: 500; letter-spacing: .2px; outline: none;
+}
+.ig-select select:focus-visible { box-shadow: inset 0 1px #ffffff1a, 0 0 0 2px #ffffff26; }
+.ig-select option { background: #111214; }
+.ig-select svg { position: absolute; right: 12px; width: 16px; height: 16px; color: var(--g300); pointer-events: none; }
+.ig-listSearch { height: 44px; }
+
+/* © https://saadbinyousaf.dev/ © */
+.ig-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+.ig-card {
+  position: relative; display: flex; flex-direction: column; min-height: 196px; padding: 20px; scroll-margin-top: 120px;
+  background: linear-gradient(137deg, #111214 4.87%, #0c0d0f 75.88%); border: 1px solid #ffffff0f; border-radius: 12px;
+  box-shadow: inset 0 1px #ffffff1a; transition: box-shadow .3s, border-color .3s;
+}
+.ig-card:hover { box-shadow: inset 0 1px #ffffff1a, 0 0 24px 8px #ffffff08; border-color: #ffffff1a; }
+.ig-card.flash { animation: igFlash 1.8s ease-out; }
+@keyframes igFlash { 0%, 40% { box-shadow: inset 0 1px #ffffff1a, 0 0 0 2px var(--lime); } 100% { box-shadow: inset 0 1px #ffffff1a; } }
+.ig-cHead { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; padding-right: 120px; }
+.ig-cTitle { color: #fff; font-family: var(--grotesk); font-size: 16px; font-weight: 500; letter-spacing: .2px; }
+.ig-cDesc { flex: 1; margin-bottom: 16px; color: var(--g300); font-size: 14px; line-height: 1.6; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.ig-cBtns { position: absolute; top: 20px; right: 20px; display: flex; gap: 6px; opacity: .85; transition: opacity .2s; }
+.ig-card:hover .ig-cBtns, .ig-card:focus-within .ig-cBtns { opacity: 1; }
+.ig-share { width: 32px; height: 32px; display: grid; place-items: center; border: 0; border-radius: 8px; cursor: pointer; background: linear-gradient(#ffffff08, #ffffff12); box-shadow: inset 0 1px #ffffff14, 0 0 0 1px #ffffff1f; color: #fff; transition: box-shadow .2s; }
+.ig-share:hover { box-shadow: inset 0 1px #ffffff1a, 0 0 0 1px #ffffff40; }
+.ig-share svg { width: 16px; height: 16px; }
+.ig-empty { grid-column: 1 / -1; padding: 48px 24px; text-align: center; color: var(--g300); border: 1px dashed #ffffff1a; border-radius: 12px; }
+.ig-empty a { color: #fff; }
+
+.ig-pagination { display: flex; justify-content: center; gap: 8px; margin-top: 40px; }
+.ig-page { min-width: 40px; height: 40px; padding: 0 12px; display: grid; place-items: center; border: 0; border-radius: 10px; cursor: pointer; background: transparent; color: var(--g300); font-family: var(--grotesk); font-size: 14px; font-weight: 500; transition: color .2s, background .2s; }
+.ig-page:hover { color: #fff; background: #ffffff0a; }
+.ig-page.on { color: #fff; background: linear-gradient(137deg, #1a1b1e, #111214); box-shadow: inset 0 1px #ffffff1a, 0 0 0 1px #ffffff0f; }
+.ig-next svg { width: 16px; height: 16px; transform: rotate(-90deg); }
+
+.ig-cta {
+  display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px; margin-top: 72px; padding: 32px;
+  background: radial-gradient(60% 120% at 0% 0%, rgba(170,200,107,.08), transparent 60%), linear-gradient(137deg, #111214 4.87%, #0c0d0f 75.88%);
+  border: 1px solid #ffffff0f; border-radius: 16px; box-shadow: inset 0 1px #ffffff1a;
+}
+.ig-cta h3 { margin-bottom: 4px; color: #fff; font-family: var(--grotesk); font-size: 20px; font-weight: 500; }
+.ig-cta p { color: var(--g300); font-size: 15px; }
+
+.ig-toast { position: fixed; left: 50%; bottom: 28px; z-index: 950; padding: 10px 16px; border-radius: 10px; transform: translate(-50%, 12px); opacity: 0; pointer-events: none; background: #1d1e21; box-shadow: inset 0 1px #ffffff1a, 0 10px 30px #00000080; color: #fff; font-size: 14px; font-weight: 500; transition: opacity .25s, transform .25s; }
+.ig-toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+/* © https://saadbinyousaf.dev/ © */
+@media (min-width: 720px) {
+  .ig-featured { grid-template-columns: repeat(3, 1fr); }
+  .ig-grid { grid-template-columns: repeat(2, 1fr); }
+  .ig-nav { flex-direction: row; justify-content: space-between; align-items: center; }
+  .ig-listSearch { width: 280px; }
+  .ig-pill .s { display: none; }
+  .ig-pill .f { display: inline; }
+}
+@media (min-width: 1064px) {
+  .ig-hero { padding: 96px 0 40px; }
+  .ig-heroGrid { grid-template-columns: 420px minmax(0, 1fr); }
+  .ig-headImg { height: 520px; margin-right: -80px; }
+  .ig-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 719px) {
+  .ig-headImg { height: 300px; margin: 0 -24px; }
+  .ig-scene { transform: rotateX(55deg) rotateZ(-38deg) scale(.7); }
+  .ig-cHead { padding-right: 0; }
+  .ig-cBtns { position: static; margin-top: 4px; opacity: 1; }
+  .ig-controls { width: 100%; }
+  .ig-select, .ig-select select { width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ig-planeFg .ig-hcell { animation: none; }
+}
+.ig-search input, .ig-search input:focus, .ig-search input:focus-visible { outline: none; border: 0; box-shadow: none; background: none; padding: 0; }

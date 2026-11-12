@@ -243,12 +243,47 @@
     });
     addEventListener('resize', function () { if (innerWidth >= 720 && sh.classList.contains('open')) setOpen(false); });
     addEventListener('keydown', function (e) { if (e.key === 'Escape' && sh.classList.contains('open')) setOpen(false); });
-    addEventListener('scroll', function () { sh.classList.toggle('scrolled', scrollY > 40); }, { passive: true });
+    var bar = sh.querySelector('.sh-bar'), lastY = scrollY, target = 0, cur = 0, raf = 0;
+    function step() {
+      cur += (target - cur) * 0.18;
+      if (Math.abs(target - cur) < 0.002) cur = target;
+      bar.style.setProperty('--nav-p', cur.toFixed(4));
+      raf = cur !== target ? requestAnimationFrame(step) : 0;
+    }
+    function onScroll() {
+      var y = scrollY, d = y - lastY;
+      lastY = y;
+      sh.classList.toggle('scrolled', y > 40);
+      target = y < 40 ? 0 : Math.min(1, Math.max(0, target + d / 360));
+      if (!raf) raf = requestAnimationFrame(step);
+    }
+    addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+
+  // © https://saadbinyousaf.dev/ © //
+  function initToolReset() {
+    var btn = document.querySelector('.tx-reset');
+    var body = document.querySelector('.tx-body');
+    if (!btn || !body) return;
+    btn.addEventListener('click', function () {
+      body.querySelectorAll('input, textarea, select').forEach(function (el) {
+        if (el.type === 'checkbox' || el.type === 'radio') el.checked = el.defaultChecked;
+        else if (el.tagName === 'SELECT') Array.prototype.forEach.call(el.options, function (o) { o.selected = o.defaultSelected; });
+        else if (el.type !== 'file') el.value = el.defaultValue;
+        else el.value = '';
+        el.dispatchEvent(new Event('input', { bubbles: true }));
+        el.dispatchEvent(new Event('change', { bubbles: true }));
+      });
+      var first = body.querySelector('input:not([type=hidden]), textarea');
+      if (first) first.focus({ preventScroll: true });
+    });
   }
 
   // © https://saadbinyousaf.dev/ © //
   function initChrome() {
     initHeader();
+    initToolReset();
     document.querySelectorAll('[data-year]').forEach(function (el) { el.textContent = new Date().getFullYear(); });
 
     document.addEventListener('click', function (e) {
