@@ -2,6 +2,7 @@
 @font-face { font-family: 'Satoshi'; src: url('/assets/fonts/satoshi-500.woff2') format('woff2'); font-weight: 500; font-style: normal; font-display: swap; }
 @font-face { font-family: 'Satoshi'; src: url('/assets/fonts/satoshi-700.woff2') format('woff2'); font-weight: 600 700; font-style: normal; font-display: swap; }
 @font-face { font-family: 'Satoshi'; src: url('/assets/fonts/satoshi-900.woff2') format('woff2'); font-weight: 800 900; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Satoshi Fallback'; src: local('Arial'), local('Helvetica Neue'), local('Helvetica'), local('Liberation Sans'); size-adjust: 101.8%; ascent-override: 99.2%; descent-override: 23.6%; line-gap-override: 9.8%; }
 @font-face { font-family: 'JetBrains Mono'; src: url('/assets/fonts/jetbrains-mono-400.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
 @font-face { font-family: 'JetBrains Mono'; src: url('/assets/fonts/jetbrains-mono-700.woff2') format('woff2'); font-weight: 700; font-style: normal; font-display: swap; }
 /* © https://saadbinyousaf.dev/ © */
@@ -19,8 +20,8 @@
   --card: linear-gradient(137deg, #111214 4.87%, #0c0d0f 75.88%);
   --card-border: #ffffff0f;
   --card-shine: inset 0 1px #ffffff1a;
-  --serif: 'Satoshi', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --grotesk: 'Satoshi', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --serif: 'Satoshi', 'Satoshi Fallback', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --grotesk: 'Satoshi', 'Satoshi Fallback', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
   --mono: 'JetBrains Mono', monospace;
   --ease: cubic-bezier(0.65, 0, 0.35, 1);
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
@@ -541,10 +542,11 @@ section { padding: 8rem 3rem; position: relative; }
   width: 100%;
   display: block;
   transform: translateY(0);
-  transition: transform 7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
   will-change: transform;
+  backface-visibility: hidden;
 }
-.site:hover .site-viewport img { transform: translateY(calc(-100% + 250px)); }
+.site:hover .site-viewport img { transform: translateY(calc(-100% + 250px)); transition: transform var(--scroll-dur, 14s) cubic-bezier(0.37, 0, 0.63, 1); }
 .scroll-hint {
   position: absolute; bottom: 10px; left: 50%;
   transform: translateX(-50%);
@@ -777,16 +779,7 @@ header, section, footer, .ticker, .ad-slot { position: relative; z-index: 1; }
 }
 
 /* © https://saadbinyousaf.dev/ © */
-.tilt { position: relative; transform-style: preserve-3d; will-change: transform; }
-.tilt > *:not(.glare) { transform: translateZ(24px); }
-.glare {
-  position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
-  opacity: 0; transition: opacity 0.35s; z-index: 3;
-  transform: translateZ(40px);
-  background: radial-gradient(380px circle at var(--mx, 50%) var(--my, 50%), rgba(255,255,255,0.09), transparent 45%);
-  mix-blend-mode: screen;
-}
-.tilt:hover .glare { opacity: 1; }
+.lift { position: relative; }
 
 /* © https://saadbinyousaf.dev/ © */
 .ad-slot { max-width: 1000px; margin: 0 auto; padding: 2.5rem 3rem; }

@@ -36,6 +36,7 @@
   var introDone = false;
 
   initOffscreen();
+  initSiteScroll();
   initHeader();
   initAutomation();
   initAIEmployee();
@@ -212,29 +213,6 @@
   }
 
   // © https://saadbinyousaf.dev/ © //
-  function initTilt() {
-    document.querySelectorAll('.tilt').forEach(function (el) {
-      var g = document.createElement('span');
-      g.className = 'glare';
-      el.prepend(g);
-      if (!finePointer || reduceMotion) return;
-      gsap.set(el, { transformPerspective: 900 });
-      var rx = gsap.quickTo(el, 'rotationX', { duration: 0.5 });
-      var ry = gsap.quickTo(el, 'rotationY', { duration: 0.5 });
-      var ty = gsap.quickTo(el, 'y', { duration: 0.5 });
-      el.addEventListener('pointermove', function (e) {
-        var r = el.getBoundingClientRect();
-        var px = (e.clientX - r.left) / r.width - 0.5;
-        var py = (e.clientY - r.top) / r.height - 0.5;
-        el.style.setProperty('--mx', (e.clientX - r.left) + 'px');
-        el.style.setProperty('--my', (e.clientY - r.top) + 'px');
-        ry(px * 12); rx(-py * 12); ty(-8);
-      });
-      el.addEventListener('pointerleave', function () { rx(0); ry(0); ty(0); });
-    });
-  }
-
-  // © https://saadbinyousaf.dev/ © //
   function initReveals() {
     if (reduceMotion) {
       gsap.set('.reveal', { autoAlpha: 1 });
@@ -247,12 +225,12 @@
         scrollTrigger: { trigger: el, start: 'top 88%', once: true }
       });
     });
-    gsap.set('.tilt', { autoAlpha: 0, y: 50, rotationX: -14, transformPerspective: 900, transformOrigin: '50% 100%' });
-    ScrollTrigger.batch('.tilt', {
+    gsap.set('.lift', { autoAlpha: 0, y: 28 });
+    ScrollTrigger.batch('.lift', {
       start: 'top 90%',
       once: true,
       onEnter: function (els) {
-        gsap.to(els, { autoAlpha: 1, y: 0, rotationX: 0, duration: 1.1, stagger: 0.12, overwrite: true });
+        gsap.to(els, { autoAlpha: 1, y: 0, duration: 0.8, ease: 'power2.out', stagger: 0.08, overwrite: true, clearProps: 'transform' });
       }
     });
   }
@@ -302,6 +280,18 @@
       btn.addEventListener('pointerleave', function () {
         gsap.to(btn, { x: 0, y: 0, duration: 0.7, ease: 'elastic.out(1, 0.4)' });
       });
+    });
+  }
+
+  // © https://saadbinyousaf.dev/ © //
+  function initSiteScroll() {
+    document.querySelectorAll('.site-viewport img').forEach(function (img) {
+      function set() {
+        var travel = img.getBoundingClientRect().height - img.parentNode.clientHeight;
+        if (travel > 0) img.style.setProperty('--scroll-dur', Math.min(40, Math.max(6, travel / 140)).toFixed(1) + 's');
+      }
+      if (img.complete) set(); else img.addEventListener('load', set);
+      addEventListener('resize', set, { passive: true });
     });
   }
 
@@ -582,7 +572,6 @@
   initSkyScroll();
   initCollage();
   initPointer3D();
-  initTilt();
   initReveals();
   initCursor();
   initMagnetic();
