@@ -39,8 +39,6 @@
 
   if (!window.gsap) {
     root.classList.remove('js-anim');
-    var pl = document.getElementById('preloader');
-    if (pl) pl.style.display = 'none';
     document.querySelectorAll('.reveal').forEach(function (el) { el.style.opacity = 1; });
     return;
   }
@@ -87,8 +85,6 @@
   }
 
   // © https://saadbinyousaf.dev/ © //
-  var preloader = document.getElementById('preloader');
-  var preCount = document.getElementById('preCount');
   var title = document.getElementById('heroTitle');
   var stage = document.getElementById('collageStage');
   var cards = gsap.utils.toArray('.collage-card');
@@ -114,7 +110,6 @@
 
   function runIntro() {
     if (reduceMotion) {
-      preloader.style.display = 'none';
       gsap.set([title, cards, heroBits], { autoAlpha: 1, y: 0 });
       var s = document.getElementById('revStroke');
       if (s) s.style.strokeDashoffset = 0;
@@ -126,29 +121,20 @@
     gsap.set(heroBits, { autoAlpha: 0, y: 24 });
     gsap.set(cards, { autoAlpha: 0 });
 
-    var counter = { v: 0 };
     var tl = gsap.timeline({ onComplete: finishIntro });
-    tl.to(counter, {
-      v: 100, duration: 1.3, ease: 'power2.inOut',
-      onUpdate: function () { preCount.textContent = Math.round(counter.v); }
-    })
-      .to(preloader, {
-        yPercent: -100, duration: 0.85, ease: 'power4.inOut',
-        onComplete: function () { preloader.style.display = 'none'; }
-      }, '+=0.1')
-      .fromTo('.nebula', { scale: 0.6, autoAlpha: 0 }, { scale: 1, autoAlpha: 1, duration: 2.4, ease: 'power2.out' }, '-=0.45')
-      .to('#heroEyebrow', { autoAlpha: 1, y: 0, duration: 0.7 }, '<')
+    tl.fromTo('.nebula', { scale: 0.8, autoAlpha: 0 }, { scale: 1, autoAlpha: 1, duration: 1.4, ease: 'power2.out' }, 0)
+      .to('#heroEyebrow', { autoAlpha: 1, y: 0, duration: 0.5 }, 0.05)
       .to(title, {
         autoAlpha: 1, y: 0, scale: 1, rotationX: 0, filter: 'blur(0px)',
-        duration: 1.4, ease: 'expo.out'
-      }, '<0.1')
-      .to('#heroSub', { autoAlpha: 1, y: 0, duration: 0.8 }, '<0.45')
-      .to('#heroCtas', { autoAlpha: 1, y: 0, duration: 0.8 }, '<0.15')
+        duration: 0.9, ease: 'expo.out'
+      }, 0.1)
+      .to('#heroSub', { autoAlpha: 1, y: 0, duration: 0.6 }, 0.3)
+      .to('#heroCtas', { autoAlpha: 1, y: 0, duration: 0.6 }, 0.4)
       .fromTo(cards,
         { autoAlpha: 0, rotationY: 40, yPercent: 30 },
-        { autoAlpha: 1, rotationY: 0, yPercent: 0, duration: 1.5, stagger: 0.14, ease: 'expo.out' },
-        '<-0.7');
-    drawUnderline(tl, '<0.5');
+        { autoAlpha: 1, rotationY: 0, yPercent: 0, duration: 1.1, stagger: 0.1, ease: 'expo.out' },
+        0.25);
+    drawUnderline(tl, 0.5);
   }
 
   // © https://saadbinyousaf.dev/ © //
@@ -469,8 +455,7 @@
   initChrome();
   initLightbox();
 
-  if (document.readyState === 'complete') runIntro();
-  else addEventListener('load', runIntro);
+  runIntro();
 
 })();
 // © https://saadbinyousaf.dev/ © //
