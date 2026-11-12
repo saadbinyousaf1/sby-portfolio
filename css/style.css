@@ -1126,7 +1126,7 @@ footer .privacy:hover { color: var(--lime); }
   -webkit-backdrop-filter: blur(18px) saturate(170%);
   backdrop-filter: blur(18px) saturate(170%);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, .1), inset 0 -1px 0 rgba(0, 0, 0, .25), 0 10px 30px rgba(0, 0, 0, .28);
-  transition: max-width .6s cubic-bezier(.2, .8, .2, 1), height .4s cubic-bezier(.2, .8, .2, 1), background .4s, box-shadow .4s, border-color .4s, transform .3s;
+  transition: background .4s, box-shadow .4s, border-color .4s, transform .3s;
 }
 .sh-bar { position: relative; }
 .sh-bar::before {
@@ -1141,6 +1141,6 @@ footer .privacy:hover { color: var(--lime); }
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, .12), inset 0 -1px 0 rgba(0, 0, 0, .25), 0 14px 40px rgba(0, 0, 0, .45);
 }
 @media (min-width: 720px) {
-  .sh.wide .sh-bar { max-width: min(1440px, calc(100vw - 32px)); height: 64px; }
+  .sh-bar { max-width: calc(var(--nav-w, 1200px) + (min(1440px, 100vw - 32px) - var(--nav-w, 1200px)) * var(--nav-p, 0)); }
 }
 @media (prefers-reduced-motion: reduce) { .sh-bar { transition: none; } }

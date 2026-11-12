@@ -516,17 +516,21 @@
     });
     addEventListener('resize', function () { if (innerWidth >= 720 && sh.classList.contains('open')) setOpen(false); });
     addEventListener('keydown', function (e) { if (e.key === 'Escape' && sh.classList.contains('open')) setOpen(false); });
-    var lastY = scrollY, ticking = false;
+    var bar = sh.querySelector('.sh-bar'), lastY = scrollY, target = 0, cur = 0, raf = 0;
+    function step() {
+      cur += (target - cur) * 0.18;
+      if (Math.abs(target - cur) < 0.002) cur = target;
+      bar.style.setProperty('--nav-p', cur.toFixed(4));
+      raf = cur !== target ? requestAnimationFrame(step) : 0;
+    }
     function onScroll() {
       var y = scrollY, d = y - lastY;
+      lastY = y;
       sh.classList.toggle('scrolled', y > 40);
-      if (y < 80) sh.classList.remove('wide');
-      else if (d > 6) sh.classList.add('wide');
-      else if (d < -6) sh.classList.remove('wide');
-      if (Math.abs(d) > 6 || y < 80) lastY = y;
-      ticking = false;
+      target = y < 40 ? 0 : Math.min(1, Math.max(0, target + d / 360));
+      if (!raf) raf = requestAnimationFrame(step);
     }
-    addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
+    addEventListener('scroll', onScroll, { passive: true });
     onScroll();
   }
 
