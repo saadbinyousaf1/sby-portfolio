@@ -243,12 +243,43 @@
     });
     addEventListener('resize', function () { if (innerWidth >= 720 && sh.classList.contains('open')) setOpen(false); });
     addEventListener('keydown', function (e) { if (e.key === 'Escape' && sh.classList.contains('open')) setOpen(false); });
-    addEventListener('scroll', function () { sh.classList.toggle('scrolled', scrollY > 40); }, { passive: true });
+    var lastY = scrollY, ticking = false;
+    function onScroll() {
+      var y = scrollY, d = y - lastY;
+      sh.classList.toggle('scrolled', y > 40);
+      if (y < 80) sh.classList.remove('wide');
+      else if (d > 6) sh.classList.add('wide');
+      else if (d < -6) sh.classList.remove('wide');
+      if (Math.abs(d) > 6 || y < 80) lastY = y;
+      ticking = false;
+    }
+    addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
+    onScroll();
+  }
+
+  // © https://saadbinyousaf.dev/ © //
+  function initToolReset() {
+    var btn = document.querySelector('.tx-reset');
+    var body = document.querySelector('.tx-body');
+    if (!btn || !body) return;
+    btn.addEventListener('click', function () {
+      body.querySelectorAll('input, textarea, select').forEach(function (el) {
+        if (el.type === 'checkbox' || el.type === 'radio') el.checked = el.defaultChecked;
+        else if (el.tagName === 'SELECT') Array.prototype.forEach.call(el.options, function (o) { o.selected = o.defaultSelected; });
+        else if (el.type !== 'file') el.value = el.defaultValue;
+        else el.value = '';
+        el.dispatchEvent(new Event('input', { bubbles: true }));
+        el.dispatchEvent(new Event('change', { bubbles: true }));
+      });
+      var first = body.querySelector('input:not([type=hidden]), textarea');
+      if (first) first.focus({ preventScroll: true });
+    });
   }
 
   // © https://saadbinyousaf.dev/ © //
   function initChrome() {
     initHeader();
+    initToolReset();
     document.querySelectorAll('[data-year]').forEach(function (el) { el.textContent = new Date().getFullYear(); });
 
     document.addEventListener('click', function (e) {
