@@ -33,3 +33,11 @@ Copy an article file, rename it and edit the JSON block: `slug`, `title`, `seoTi
 ## Events
 
 `blog.js` records `article_view`, `search`, `filter`, `article_nav`, `cta_click`, `widget_open`, `widget_close`, `widget_choice`, `widget_secondary`. Each is pushed to `window.sbyEvents`, fired as an `sby:track` DOM event, and forwarded to `gtag` or `plausible` if either is on the page.
+
+## Share images and SEO fields
+
+`python3 _blog/make-images.py` (needs Playwright and Chrome) renders a 1200×630 share image and a 1000×1500 Pinterest pin for every guide into `_blog/og/` and `_blog/pins/`, and share images for the tools and main pages into `assets/og/`. Run `node _blog/build.js` first so `og-data.json` is current, then the image script, then the build again to copy the images into `blog/assets/`.
+
+Extra front-matter fields: `seoTitle` (60 characters or fewer), `description` (155 or fewer), `takeaways` (three short facts shown as "The short answer"), `tools` (related free tools), `teaser`, `stat`, `stage`, `thumb`, `theme`, `thumbData`.
+
+`blog/feed.xml` is an RSS feed of the guides. Pinterest and other schedulers can publish from it automatically.

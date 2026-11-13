@@ -4,26 +4,30 @@
 <!-- © https://saadbinyousaf.dev/ © -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact CSV Cleaner for HighLevel Imports — Phones, Names &amp; Duplicates</title>
-<meta name="description" content="Free CSV cleaner for HighLevel contact imports. Format phone numbers to E.164, fix names and email typos, merge duplicates and download an import-ready file. Runs entirely in your browser.">
+<title>CSV Cleaner for HighLevel Contact Imports (Free)</title>
+<meta name="description" content="Free CSV cleaner for HighLevel imports. Fix phone formats, names and email typos, merge duplicates and download a clean file. Runs in your browser.">
 <link rel="canonical" href="https://saadbinyousaf.dev/tools/csv-cleaner/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Saad Bin Yousaf — HighLevel Tools">
-<meta property="og:title" content="Contact CSV Cleaner for HighLevel Imports — Phones, Names &amp; Duplicates">
-<meta property="og:description" content="Free CSV cleaner for HighLevel contact imports. Format phone numbers to E.164, fix names and email typos, merge duplicates and download an import-ready file. Runs entirely in your browser.">
+<meta property="og:title" content="CSV Cleaner for HighLevel Contact Imports (Free)">
+<meta property="og:description" content="Free CSV cleaner for HighLevel imports. Fix phone formats, names and email typos, merge duplicates and download a clean file. Runs in your browser.">
 <meta property="og:url" content="https://saadbinyousaf.dev/tools/csv-cleaner/">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://saadbinyousaf.dev/assets/og/tool-csv-cleaner.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://saadbinyousaf.dev/assets/og/tool-csv-cleaner.png">
 <meta name="theme-color" content="#07080a">
 <meta name="google-adsense-account" content="ca-pub-6774293162106493">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2307080a'/%3E%3Ctext x='50%25' y='56%25' text-anchor='middle' dominant-baseline='middle' font-family='Arial' font-weight='700' font-size='34' fill='%23aac86b'%3ES%3C/text%3E%3C/svg%3E">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6774293162106493" crossorigin="anonymous"></script>
 <link rel="preload" href="/assets/fonts/satoshi-500.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/satoshi-700.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/tools/assets/tools.css?v=20261113j">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Contact CSV Cleaner", "url": "https://saadbinyousaf.dev/tools/csv-cleaner/", "description": "Free CSV cleaner for HighLevel contact imports. Format phone numbers to E.164, fix names and email typos, merge duplicates and download an import-ready file. Runs entirely in your browser.", "applicationCategory": "BusinessApplication", "operatingSystem": "Any (web browser)", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "author": {"@type": "Person", "name": "Saad Bin Yousaf", "url": "https://saadbinyousaf.dev/"}}</script>
+<link rel="stylesheet" href="/tools/assets/tools.css?v=20261114a">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Contact CSV Cleaner", "url": "https://saadbinyousaf.dev/tools/csv-cleaner/", "description": "Free CSV cleaner for HighLevel imports. Fix phone formats, names and email typos, merge duplicates and download a clean file. Runs in your browser.", "applicationCategory": "BusinessApplication", "operatingSystem": "Any (web browser)", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "author": {"@type": "Person", "name": "Saad Bin Yousaf", "url": "https://saadbinyousaf.dev/"}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://saadbinyousaf.dev/"}, {"@type": "ListItem", "position": 2, "name": "Free tools", "item": "https://saadbinyousaf.dev/tools/"}, {"@type": "ListItem", "position": 3, "name": "Contact CSV Cleaner", "item": "https://saadbinyousaf.dev/tools/csv-cleaner/"}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is my contact list uploaded anywhere?", "acceptedAnswer": {"@type": "Answer", "text": "No. The file is read and processed entirely in your browser using JavaScript. Nothing is sent to a server, and the data is gone when you close the page."}}, {"@type": "Question", "name": "What phone number format does HighLevel need?", "acceptedAnswer": {"@type": "Answer", "text": "International E.164 format works best: a plus sign, the country code and the number with no spaces, such as +15552014455. The cleaner converts local formats into this using the default country you choose."}}, {"@type": "Question", "name": "How does duplicate merging work?", "acceptedAnswer": {"@type": "Answer", "text": "Rows that share an email address or phone number are treated as the same person. The first row is kept, and any empty fields in it are filled from the duplicate. Every merged row is listed in the removed and flagged file."}}, {"@type": "Question", "name": "Can I open an Excel file?", "acceptedAnswer": {"@type": "Answer", "text": "Not directly. In Excel or Google Sheets, export the sheet as CSV first, then load that file. This keeps the tool fast and private."}}, {"@type": "Question", "name": "Why do some phone numbers stay red?", "acceptedAnswer": {"@type": "Answer", "text": "They don't match the length expected for your default country and don't start with an international code, so the cleaner can't safely guess. They are kept as they were so you can fix them by hand."}}, {"@type": "Question", "name": "Will my custom columns be kept?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, when “Keep other columns” is on. Columns that don't match a standard field are passed through unchanged, so you can map them to custom fields during the import."}}, {"@type": "Question", "name": "Why does Excel remove the + from phone numbers?", "acceptedAnswer": {"@type": "Answer", "text": "Excel treats phone numbers as numbers and drops the plus sign when it saves. Upload the downloaded CSV straight to HighLevel without opening and re-saving it in Excel."}}]}</script>
-<link rel="stylesheet" href="/css/footer.css?v=20261113j">
+<link rel="stylesheet" href="/css/footer.css?v=20261114a">
 </head>
 <body>
 <div class="sh" id="nav">
@@ -217,6 +221,19 @@
     </article>
   </div>
 
+  <section class="wrap t-next" aria-label="Guides and next steps">
+    <div class="t-next-guides">
+      <h2>Guides that go with this tool</h2>
+      <ul><li><a href="/blog/gohighlevel-setup-guide/#step-7-shape-your-crm">Import contacts the right way</a></li><li><a href="/blog/gohighlevel-free-trial/">Free trial: 14 days or 30</a></li><li><a href="/blog/">All HighLevel guides</a></li></ul>
+    </div>
+    <aside class="t-next-cta">
+      <p class="t-next-title">Setting up a new account?</p>
+      <p>HighLevel&#x27;s free live Bootcamp walks new accounts through first setup and comes with a 30-day trial. Usage charges for texts and calls can still apply.</p>
+      <a class="btn btn-solid" href="https://www.gohighlevel.com/highlevel-bootcamp?fp_ref=highlevelminds" target="_blank" rel="sponsored noopener">Get the 30-day trial with Bootcamp</a>
+      <p class="t-next-note">I earn a commission if you sign up through this link. It doesn't change the price you pay. <a href="/disclosure/">Disclosure</a></p>
+    </aside>
+  </section>
+
   <section class="wrap related" aria-label="More tools">
     <p class="eyebrow">More free tools</p>
     <h2 style="font-size:clamp(1.6rem,3vw,2.2rem);letter-spacing:-0.025em;">Keep building your <span class="h-serif">system.</span></h2>
@@ -300,8 +317,8 @@
     </div>
   </div>
 </footer>
-<script src="/tools/assets/tools.js?v=20261113j"></script>
-<script src="/tools/csv-cleaner/app.js?v=20261113j"></script>
-<script src="/js/ads.js?v=20261113j"></script>
+<script src="/tools/assets/tools.js?v=20261114a"></script>
+<script src="/tools/csv-cleaner/app.js?v=20261114a"></script>
+<script src="/js/ads.js?v=20261114a"></script>
 </body>
 </html>

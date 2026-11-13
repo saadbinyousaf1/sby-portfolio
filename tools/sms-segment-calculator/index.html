@@ -5,25 +5,29 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SMS Segment Calculator &amp; Cost Estimator for HighLevel</title>
-<meta name="description" content="Free SMS segment calculator. Count GSM-7 and Unicode characters, find emojis and smart quotes that double your cost, and estimate HighLevel LC Phone campaign spend.">
+<meta name="description" content="Free SMS segment calculator. Count GSM-7 and Unicode characters, spot emojis that double your cost and estimate HighLevel SMS spend.">
 <link rel="canonical" href="https://saadbinyousaf.dev/tools/sms-segment-calculator/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Saad Bin Yousaf — HighLevel Tools">
 <meta property="og:title" content="SMS Segment Calculator &amp; Cost Estimator for HighLevel">
-<meta property="og:description" content="Free SMS segment calculator. Count GSM-7 and Unicode characters, find emojis and smart quotes that double your cost, and estimate HighLevel LC Phone campaign spend.">
+<meta property="og:description" content="Free SMS segment calculator. Count GSM-7 and Unicode characters, spot emojis that double your cost and estimate HighLevel SMS spend.">
 <meta property="og:url" content="https://saadbinyousaf.dev/tools/sms-segment-calculator/">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://saadbinyousaf.dev/assets/og/tool-sms-segment-calculator.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://saadbinyousaf.dev/assets/og/tool-sms-segment-calculator.png">
 <meta name="theme-color" content="#07080a">
 <meta name="google-adsense-account" content="ca-pub-6774293162106493">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2307080a'/%3E%3Ctext x='50%25' y='56%25' text-anchor='middle' dominant-baseline='middle' font-family='Arial' font-weight='700' font-size='34' fill='%23aac86b'%3ES%3C/text%3E%3C/svg%3E">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6774293162106493" crossorigin="anonymous"></script>
 <link rel="preload" href="/assets/fonts/satoshi-500.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/satoshi-700.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/tools/assets/tools.css?v=20261113j">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "SMS Segment Calculator", "url": "https://saadbinyousaf.dev/tools/sms-segment-calculator/", "description": "Free SMS segment calculator. Count GSM-7 and Unicode characters, find emojis and smart quotes that double your cost, and estimate HighLevel LC Phone campaign spend.", "applicationCategory": "BusinessApplication", "operatingSystem": "Any (web browser)", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "author": {"@type": "Person", "name": "Saad Bin Yousaf", "url": "https://saadbinyousaf.dev/"}}</script>
+<link rel="stylesheet" href="/tools/assets/tools.css?v=20261114a">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "SMS Segment Calculator", "url": "https://saadbinyousaf.dev/tools/sms-segment-calculator/", "description": "Free SMS segment calculator. Count GSM-7 and Unicode characters, spot emojis that double your cost and estimate HighLevel SMS spend.", "applicationCategory": "BusinessApplication", "operatingSystem": "Any (web browser)", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "author": {"@type": "Person", "name": "Saad Bin Yousaf", "url": "https://saadbinyousaf.dev/"}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://saadbinyousaf.dev/"}, {"@type": "ListItem", "position": 2, "name": "Free tools", "item": "https://saadbinyousaf.dev/tools/"}, {"@type": "ListItem", "position": 3, "name": "SMS Segment Calculator", "item": "https://saadbinyousaf.dev/tools/sms-segment-calculator/"}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How many characters are in one SMS segment?", "acceptedAnswer": {"@type": "Answer", "text": "160 characters if every character is in the GSM-7 set, or 70 if the message contains any Unicode character such as an emoji or curly quote. When a message is longer than that, each part holds 153 GSM-7 characters or 67 Unicode characters."}}, {"@type": "Question", "name": "Do emojis really double the cost of a text?", "acceptedAnswer": {"@type": "Answer", "text": "Often more than double. One emoji switches the whole message to Unicode, which drops the limit from 160 to 70 characters. A 150-character text that was one segment becomes three segments, so it costs three times as much."}}, {"@type": "Question", "name": "Why does a long message split at 153 characters instead of 160?", "acceptedAnswer": {"@type": "Answer", "text": "Each part of a multi-part message carries a small header that tells the phone how to put the pieces back together. That header uses the space of 7 GSM-7 characters, leaving 153 for your text in each part."}}, {"@type": "Question", "name": "Does HighLevel charge per message or per segment?", "acceptedAnswer": {"@type": "Answer", "text": "Outbound SMS is billed per segment by HighLevel's phone system and by Twilio. Check the messaging rates shown in your account's billing or phone settings, and enter that per-segment rate in the calculator to estimate a campaign."}}, {"@type": "Question", "name": "Do line breaks and spaces count as characters?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. A space is one character and a line break is one character in GSM-7. They are free to use for readability, but they still count toward the 160."}}, {"@type": "Question", "name": "Are picture messages (MMS) billed by segment?", "acceptedAnswer": {"@type": "Answer", "text": "No. MMS messages, the ones with an image or GIF attached, are billed per message at a separate, higher MMS rate. This calculator is for plain text SMS."}}, {"@type": "Question", "name": "Is the message I type saved or sent anywhere?", "acceptedAnswer": {"@type": "Answer", "text": "No. The calculation runs entirely in your browser. Your last message and settings are remembered only in your own browser's local storage so they are still there when you come back."}}]}</script>
-<link rel="stylesheet" href="/css/footer.css?v=20261113j">
+<link rel="stylesheet" href="/css/footer.css?v=20261114a">
 </head>
 <body>
 <div class="sh" id="nav">
@@ -249,6 +253,19 @@
     </article>
   </div>
 
+  <section class="wrap t-next" aria-label="Guides and next steps">
+    <div class="t-next-guides">
+      <h2>Guides that go with this tool</h2>
+      <ul><li><a href="/blog/gohighlevel-pricing-guide/#usage-charges">What HighLevel charges for texts, calls and email</a></li><li><a href="/blog/missed-call-text-back/">Missed call text back: setup and message templates</a></li><li><a href="/blog/">All HighLevel guides</a></li></ul>
+    </div>
+    <aside class="t-next-cta">
+      <p class="t-next-title">New to HighLevel?</p>
+      <p>Try it on your own leads with the standard 14-day trial. Billing starts when the trial ends unless you cancel, and texts and calls are charged by usage.</p>
+      <a class="btn btn-solid" href="https://www.gohighlevel.com/?fp_ref=highlevelminds" target="_blank" rel="sponsored noopener">Start a 14-day HighLevel trial</a>
+      <p class="t-next-note">I earn a commission if you sign up through this link. It doesn't change the price you pay. <a href="/disclosure/">Disclosure</a></p>
+    </aside>
+  </section>
+
   <section class="wrap related" aria-label="More tools">
     <p class="eyebrow">More free tools</p>
     <h2 style="font-size:clamp(1.6rem,3vw,2.2rem);letter-spacing:-0.025em;">Keep building your <span class="h-serif">system.</span></h2>
@@ -332,8 +349,8 @@
     </div>
   </div>
 </footer>
-<script src="/tools/assets/tools.js?v=20261113j"></script>
-<script src="/tools/sms-segment-calculator/app.js?v=20261113j"></script>
-<script src="/js/ads.js?v=20261113j"></script>
+<script src="/tools/assets/tools.js?v=20261114a"></script>
+<script src="/tools/sms-segment-calculator/app.js?v=20261114a"></script>
+<script src="/js/ads.js?v=20261114a"></script>
 </body>
 </html>

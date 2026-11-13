@@ -8,6 +8,7 @@ module.exports = {
     contactEmail: "saadbinyousaf.dev@gmail.com",
     author: "Saad Bin Yousaf",
     authorRole: "HighLevel systems builder",
+    sameAs: ["https://github.com/saadbinyousaf1"],
     locale: "en"
   },
 

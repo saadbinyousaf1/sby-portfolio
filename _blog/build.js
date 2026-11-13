@@ -114,7 +114,7 @@ function thumbnail(a) {
     const line = (p, q, dash) => `<path d="M${p[0]} ${p[1]}L${q[0]} ${q[1]}" stroke="${dash ? t.line : t.hi}" stroke-opacity="${dash ? 1 : 0.55}" stroke-width="1.500"${dash ? ' stroke-dasharray="3 4"' : ""}/>`;
     inner += line(c(wf[0], 104, 34), c(wf[1], 104, 34)) + line(c(wf[1], 104, 34), c(wf[2], 104, 34)) + line(c(wf[1], 104, 34), c(wf[3], 104, 34));
     inner += line(c(as[0], 84, 26), c(wf[0], 104, 34), 1) + line(c(as[1], 84, 26), c(wf[1], 104, 34), 1) + line(c(as[2], 84, 26), c(wf[1], 104, 34), 1);
-    inner += wf.map((w) => `<rect x="${w.x}" y="${w.y}" width="104" height="34" rx="9" fill="${w.hot ? t.soft : t.panel}" stroke="${w.hot ? t.hi : t.line}"/>${T(w.x + 52, w.y + 21.500, w.l, { size: 11.500, weight: 600, anchor: "middle" })}${w.err ? `<circle cx="${w.x + 100}" cy="${w.y + 2}" r="9" fill="#ff7b7b"/>${T(w.x + 100, w.y + 6.500, "!", { size: 12, weight: 700, fill: "#1a0606", anchor: "middle" })}` : ""}`).join("");
+    inner += wf.map((w) => `<rect x="${w.x}" y="${w.y}" width="104" height="34" rx="9" fill="${t.bg}"/><rect x="${w.x}" y="${w.y}" width="104" height="34" rx="9" fill="${w.hot ? t.soft : t.panel}" stroke="${w.hot ? t.hi : t.line}"/>${T(w.x + 52, w.y + 21.500, w.l, { size: 11.500, weight: 600, anchor: "middle" })}${w.err ? `<circle cx="${w.x + 100}" cy="${w.y + 2}" r="9" fill="#ff7b7b"/>${T(w.x + 100, w.y + 6.500, "!", { size: 12, weight: 700, fill: "#1a0606", anchor: "middle" })}` : ""}`).join("");
     inner += as.map((w) => `<rect x="${w.x}" y="${w.y}" width="84" height="26" rx="13" fill="${t.bg}" stroke="${t.line}"/>${T(w.x + 42, w.y + 17, w.l, { size: 10.500, fill: t.hi, anchor: "middle" })}`).join("");
   } else if (a.thumb === "video") {
     inner += `<rect x="50" y="52" width="300" height="168" rx="14" fill="${t.panel}" stroke="${t.line}"/><circle cx="200" cy="128" r="27" fill="${t.soft}" stroke="${t.hi}" stroke-width="1.500"/><path d="M192 115l22 13-22 13z" fill="${t.hi}"/>`;
@@ -359,10 +359,18 @@ function layout(page, parts, version) {
 <meta property="og:title" content="${esc(page.title)}">
 <meta property="og:description" content="${esc(page.description)}">
 <meta property="og:url" content="${canonical}">
-<meta property="og:image" content="${abs("/blog/assets/og.png")}">
+<meta property="og:image" content="${abs(page.ogImage || "/blog/assets/og.png")}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="${esc(page.title)}">
+<meta name="twitter:description" content="${esc(page.description)}">
+<meta name="twitter:image" content="${abs(page.ogImage || "/blog/assets/og.png")}">
+<meta name="author" content="${esc(SITE.author)}">${page.published ? `
+<meta property="article:published_time" content="${page.published}">
+<meta property="article:modified_time" content="${page.updated}">
+<meta property="article:section" content="${esc(page.section)}">` : ""}
+<link rel="alternate" type="application/rss+xml" title="HighLevel guides by ${esc(SITE.author)}" href="${abs("/blog/feed.xml")}">
 <meta name="theme-color" content="#07080a">
 <meta name="google-adsense-account" content="ca-pub-6774293162106493">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2307080a'/%3E%3Ctext x='50%25' y='56%25' text-anchor='middle' dominant-baseline='middle' font-family='Arial' font-weight='700' font-size='34' fill='%23aac86b'%3ES%3C/text%3E%3C/svg%3E">
@@ -392,7 +400,10 @@ ${page.type === "article" || page.type === "library" ? widget() : ""}
 }
 
 // © https://saadbinyousaf.dev/ © //
-const personLd = () => ({ "@type": "Person", name: SITE.author, url: abs("/"), jobTitle: SITE.authorRole });
+const personLd = () => ({ "@type": "Person", name: SITE.author, url: abs("/"), jobTitle: SITE.authorRole, sameAs: SITE.sameAs });
+
+// © https://saadbinyousaf.dev/ © //
+const ogPath = (slug) => (fs.existsSync(path.join(SRC, "og", `${slug}.png`)) ? `/blog/assets/og/${slug}.png` : "/blog/assets/og.png");
 
 // © https://saadbinyousaf.dev/ © //
 function breadcrumbLd(items) {
@@ -470,8 +481,8 @@ function blogPage(articles) {
   return {
     path: "/blog/",
     title: "HighLevel guides: setup, pricing and how it works",
-    seoTitle: "HighLevel (GoHighLevel) Guides: Setup, Pricing & Tutorials | Saad Bin Yousaf",
-    description: "Independent HighLevel (GoHighLevel) guides by a HighLevel systems builder: what it is, what it costs and how to set it up. Checked against official documentation.",
+    seoTitle: "GoHighLevel Guides: Setup, Pricing, AI & Tutorials (2026)",
+    description: "Independent GoHighLevel guides from a HighLevel systems builder: pricing, setup, AI tools, automations and new features. Checked against official docs.",
     type: "library",
     body,
     jsonld: [
@@ -482,6 +493,11 @@ function blogPage(articles) {
         url: abs("/blog/"),
         author: personLd(),
         hasPart: articles.map((a) => ({ "@type": "Article", headline: a.title, url: abs(a.url) }))
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        itemListElement: articles.map((a, i) => ({ "@type": "ListItem", position: i + 1, url: abs(a.url), name: a.title }))
       },
       breadcrumbLd([{ name: "Home", path: "/" }, { name: "Guides", path: "/blog/" }])
     ]
@@ -505,6 +521,9 @@ function articlePage(a, articles) {
         })
         .join("")}</ul></section>`
     : "";
+  const toolsBlock = a.tools && a.tools.length
+    ? `<section class="b-tools-rel" aria-labelledby="tools-${a.slug}"><h2 id="tools-${a.slug}" class="b-sub-title">Free tools that go with this guide</h2><ul>${a.tools.map((t) => `<li><a href="${t.href}"><b>${esc(t.label)}</b><span>${esc(t.note)}</span></a></li>`).join("")}</ul></section>`
+    : "";
   const author = `<aside class="b-author" aria-label="About the author">
         <span class="b-author-mark" aria-hidden="true">S</span>
         <div>
@@ -519,7 +538,11 @@ function articlePage(a, articles) {
     <p class="b-dek">${esc(a.description)}</p>
     <p class="b-meta"><span>By <a href="/#about">${esc(SITE.author)}</a></span><span>${a.minutes} min read</span><span>Published <time datetime="${a.published}">${formatDate(a.published)}</time></span><span>Facts checked ${formatDate(config.factsChecked)}</span></p>
     <p class="b-disclosure"><strong>Disclosure:</strong> ${esc(config.disclosureArticle)} <a href="/disclosure/">How this works</a></p>
-  </header>
+  </header>${a.takeaways && a.takeaways.length ? `
+  <section class="b-takeaways" aria-labelledby="takeaways-${a.slug}">
+    <h2 id="takeaways-${a.slug}">The short answer</h2>
+    <ul>${a.takeaways.map((t) => `<li>${esc(t)}</li>`).join("")}</ul>
+  </section>` : ""}
   <div class="b-article-grid">
     <div class="b-article-main">
       <details class="b-toc-mobile">
@@ -533,6 +556,7 @@ ${a.html}
 ${faq}
 ${sources}
       </div>
+      ${toolsBlock}
       ${author}
       ${next}
     </div>
@@ -562,7 +586,8 @@ ${sources}
       keywords: (a.keywords || []).join(", "),
       wordCount: a.words,
       mainEntityOfPage: abs(a.url),
-      image: abs("/blog/assets/og.png"),
+      image: abs(ogPath(a.slug)),
+      inLanguage: "en",
       author: personLd(),
       publisher: personLd()
     },
@@ -575,7 +600,7 @@ ${sources}
       mainEntity: a.faq.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } }))
     });
   }
-  return { path: a.url, title: a.title, seoTitle: a.seoTitle, description: a.description, type: "article", slug: a.slug, body, jsonld };
+  return { path: a.url, title: a.title, seoTitle: a.seoTitle, description: a.description, type: "article", slug: a.slug, body, jsonld, ogImage: ogPath(a.slug), published: a.published, updated: a.updated || a.published, section: a.category };
 }
 
 // © https://saadbinyousaf.dev/ © //
@@ -626,6 +651,36 @@ function build() {
   write(path.join(ROOT, "blog/assets/blog.js"), js);
   const og = path.join(SRC, "og.png");
   if (fs.existsSync(og)) fs.copyFileSync(og, path.join(ROOT, "blog/assets/og.png"));
+  for (const dir of ["og", "pins"]) {
+    const from = path.join(SRC, dir);
+    if (!fs.existsSync(from)) continue;
+    fs.mkdirSync(path.join(ROOT, "blog/assets", dir), { recursive: true });
+    for (const f of fs.readdirSync(from)) fs.copyFileSync(path.join(from, f), path.join(ROOT, "blog/assets", dir, f));
+  }
+  write(
+    path.join(SRC, "og-data.json"),
+    JSON.stringify(articles.map((a) => ({ slug: a.slug, title: a.title, category: a.category, teaser: a.teaser, stat: a.stat, minutes: a.minutes, svg: thumbnail(a) })), null, 2) + "\n"
+  );
+  const rfc = (d) => new Date(d + "T08:00:00Z").toUTCString();
+  write(
+    path.join(ROOT, "blog/feed.xml"),
+    `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
+<channel>
+<title>HighLevel guides by ${esc(SITE.author)}</title>
+<link>${abs("/blog/")}</link>
+<description>${esc(SITE.description)}</description>
+<language>en</language>
+<atom:link href="${abs("/blog/feed.xml")}" rel="self" type="application/rss+xml"/>
+${articles
+  .slice()
+  .sort((x, y) => (y.updated || y.published).localeCompare(x.updated || x.published) || x.order - y.order)
+  .map((a) => `<item><title>${esc(a.title)}</title><link>${abs(a.url)}</link><guid isPermaLink="true">${abs(a.url)}</guid><pubDate>${rfc(a.published)}</pubDate><category>${esc(a.category)}</category><description>${esc(a.description)}</description><enclosure url="${abs(`/blog/assets/pins/${a.slug}.png`)}" type="image/png" length="0"/></item>`)
+  .join("\n")}
+</channel>
+</rss>
+`
+  );
 
   for (const page of pages) write(path.join(ROOT, page.path, "index.html"), layout(page, parts, version));
 
