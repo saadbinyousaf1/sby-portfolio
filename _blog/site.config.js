@@ -105,6 +105,12 @@ module.exports = {
   },
 
   // © https://saadbinyousaf.dev/ © //
+  stages: ["Exploring", "Choosing a plan", "Setting up", "Growing"],
+
+  // © https://saadbinyousaf.dev/ © //
+  popularTopics: ["Pricing", "Free trial", "Sub-accounts", "Workflows", "A2P 10DLC", "Email setup"],
+
+  // © https://saadbinyousaf.dev/ © //
   categories: [
     "Getting Started",
     "Tutorials",

@@ -84,43 +84,76 @@ function withHeadingIds(html) {
 }
 
 // © https://saadbinyousaf.dev/ © //
-function visual(kind) {
-  const open = `<svg viewBox="0 0 320 180" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">`;
-  const bg = `<rect width="320" height="180" fill="var(--v-bg)"/>`;
-  if (kind === "pipeline") {
-    const cols = [0, 1, 2, 3].map((i) => {
-      const x = 34 + i * 66;
-      const cards = [[0, 1, 2], [0, 1], [0], [0, 1]][i]
-        .map((r) => {
-          const hot = i === 2 && r === 0;
-          return `<rect x="${x}" y="${52 + r * 30}" width="54" height="22" rx="5" fill="${hot ? "var(--v-hi-soft)" : "var(--v-card)"}" stroke="${hot ? "var(--v-hi)" : "var(--v-line)"}"/>`;
-        })
-        .join("");
-      return `<rect x="${x}" y="34" width="54" height="5" rx="2.500" fill="var(--v-hi)" opacity="${0.25 + i * 0.25}"/>${cards}`;
-    });
-    return `${open}${bg}${cols.join("")}</svg>`;
+const THEMES = {
+  hub: { bg: "#0d1220", panel: "#141b2e", line: "#2a3552", hi: "#8fb4ff", soft: "rgba(143,180,255,0.16)" },
+  plans: { bg: "#0e140b", panel: "#151d11", line: "#2c3a22", hi: "#aac86b", soft: "rgba(170,200,107,0.16)" },
+  setup: { bg: "#17120a", panel: "#1f180e", line: "#3d3020", hi: "#f0b35a", soft: "rgba(240,179,90,0.16)" }
+};
+
+// © https://saadbinyousaf.dev/ © //
+function thumbnail(kind) {
+  const t = THEMES[kind] || THEMES.plans;
+  const font = `font-family="Satoshi, system-ui, sans-serif"`;
+  const open = `<svg viewBox="0 0 400 300" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"><rect width="400" height="300" fill="${t.bg}"/><path d="M0 0H400V300H0z" fill="url(#g-${kind})" opacity=".9"/><defs><radialGradient id="g-${kind}" cx="0.500" cy="0.500" r="0.700"><stop offset="0" stop-color="${t.hi}" stop-opacity=".14"/><stop offset="1" stop-color="${t.hi}" stop-opacity="0"/></radialGradient></defs>`;
+  if (kind === "hub") {
+    const tiles = [
+      { x: 26, y: 60, label: "Contacts", icon: "person" },
+      { x: 278, y: 60, label: "Inbox", icon: "chat" },
+      { x: 14, y: 130, label: "Calendars", icon: "cal" },
+      { x: 290, y: 130, label: "Workflows", icon: "flow" },
+      { x: 26, y: 206, label: "Funnels", icon: "funnel" },
+      { x: 278, y: 206, label: "Reviews", icon: "star" }
+    ];
+    const icon = (k, x, y) => {
+      const c = t.hi;
+      if (k === "person") return `<circle cx="${x + 10}" cy="${y + 7}" r="4" fill="${c}"/><path d="M${x + 3} ${y + 18}a7 6 0 0 1 14 0z" fill="${c}"/>`;
+      if (k === "chat") return `<path d="M${x + 2} ${y + 3}h16a2 2 0 0 1 2 2v9a2 2 0 0 1 -2 2h-9l-5 4v-4h-2a2 2 0 0 1 -2 -2v-9a2 2 0 0 1 2 -2z" fill="${c}"/>`;
+      if (k === "cal") return `<rect x="${x + 2}" y="${y + 3}" width="16" height="15" rx="3" fill="none" stroke="${c}" stroke-width="2"/><path d="M${x + 2} ${y + 8}h16" stroke="${c}" stroke-width="2"/><rect x="${x + 6}" y="${y + 11}" width="3" height="3" fill="${c}"/>`;
+      if (k === "flow") return `<circle cx="${x + 4}" cy="${y + 10}" r="3" fill="${c}"/><circle cx="${x + 16}" cy="${y + 4}" r="3" fill="${c}"/><circle cx="${x + 16}" cy="${y + 16}" r="3" fill="${c}"/><path d="M${x + 6} ${y + 9}L${x + 14} ${y + 5}M${x + 6} ${y + 11}L${x + 14} ${y + 15}" stroke="${c}" stroke-width="1.600"/>`;
+      if (k === "funnel") return `<path d="M${x + 1} ${y + 3}h18l-7 8v7l-4 2v-9z" fill="${c}"/>`;
+      return `<path d="M${x + 10} ${y + 1}l2.700 5.600 6.100 .9 -4.400 4.300 1 6.100 -5.400 -2.900 -5.400 2.900 1 -6.100 -4.400 -4.300 6.100 -.9z" fill="${c}"/>`;
+    };
+    const lines = tiles.map((tl) => `<path d="M${tl.x + 48} ${tl.y + 20}L200 150" stroke="${t.line}" stroke-width="1.500" stroke-dasharray="3 4"/>`).join("");
+    const boxes = tiles
+      .map((tl) => `<rect x="${tl.x}" y="${tl.y}" width="96" height="40" rx="10" fill="${t.panel}" stroke="${t.line}"/>${icon(tl.icon, tl.x + 10, tl.y + 10)}<text x="${tl.x + 38}" y="${tl.y + 25}" font-size="12.500" font-weight="600" fill="#e8ebf2" ${font}>${tl.label}</text>`)
+      .join("");
+    return `${open}${lines}${boxes}<rect x="136" y="120" width="128" height="60" rx="16" fill="${t.soft}" stroke="${t.hi}" stroke-width="1.500"/><text x="200" y="147" text-anchor="middle" font-size="16" font-weight="700" fill="#ffffff" ${font}>One login</text><text x="200" y="165" text-anchor="middle" font-size="11" fill="${t.hi}" ${font}>all tools connected</text></svg>`;
   }
-  if (kind === "ladder") {
-    const bars = [{ h: 28, label: "$97" }, { h: 70, label: "$297" }, { h: 112, label: "$497" }]
-      .map((b, i) => {
-        const x = 62 + i * 72;
-        const hot = i === 1;
-        return `<rect x="${x}" y="${150 - b.h}" width="52" height="${b.h}" rx="6" fill="${hot ? "var(--v-hi-soft)" : "var(--v-card)"}" stroke="${hot ? "var(--v-hi)" : "var(--v-line)"}"/><text x="${x + 26}" y="${150 - b.h - 9}" text-anchor="middle" font-size="13" font-weight="700" fill="${hot ? "var(--v-hi)" : "var(--v-fg)"}" font-family="Satoshi, sans-serif">${b.label}</text>`;
+  if (kind === "plans") {
+    const plans = [
+      { x: 22, y: 64, h: 178, name: "Starter", price: "$97", a: "3 accounts", b: "Core tools" },
+      { x: 146, y: 48, h: 206, name: "Unlimited", price: "$297", a: "No account cap", b: "Rebilling", hot: true },
+      { x: 270, y: 64, h: 178, name: "Founder", price: "$497", a: "SaaS mode", b: "Resell" }
+    ];
+    const cards = plans
+      .map((p) => {
+        const cx = p.x + 54;
+        const top = p.y + (p.hot ? 34 : 26);
+        return `<rect x="${p.x}" y="${p.y}" width="108" height="${p.h}" rx="14" fill="${p.hot ? t.soft : t.panel}" stroke="${p.hot ? t.hi : t.line}" stroke-width="${p.hot ? 1.500 : 1}"/>
+<text x="${cx}" y="${top}" text-anchor="middle" font-size="12" font-weight="600" fill="${p.hot ? t.hi : "#a9b3a0"}" ${font}>${p.name}</text>
+<text x="${cx}" y="${top + 40}" text-anchor="middle" font-size="31" font-weight="700" fill="#ffffff" ${font}>${p.price}</text>
+<text x="${cx}" y="${top + 57}" text-anchor="middle" font-size="10.500" fill="#8d9686" ${font}>per month</text>
+<path d="M${p.x + 16} ${top + 72}h76" stroke="${t.line}"/>
+<circle cx="${p.x + 20}" cy="${top + 91}" r="3" fill="${t.hi}"/><text x="${p.x + 30}" y="${top + 95}" font-size="11" fill="#dfe5d8" ${font}>${p.a}</text>
+<circle cx="${p.x + 20}" cy="${top + 113}" r="3" fill="${t.hi}"/><text x="${p.x + 30}" y="${top + 117}" font-size="11" fill="#dfe5d8" ${font}>${p.b}</text>`;
       })
       .join("");
-    return `${open}${bg}${bars}<line x1="44" y1="150.500" x2="276" y2="150.500" stroke="var(--v-line)" stroke-width="1"/></svg>`;
+    return `${open}${cards}<text x="200" y="280" text-anchor="middle" font-size="11.500" fill="#8d9686" ${font}>+ usage for texts, calls, email and AI</text></svg>`;
   }
-  if (kind === "checklist") {
-    const rows = [0, 1, 2, 3]
-      .map((i) => {
-        const y = 40 + i * 30;
-        const done = i < 3;
-        return `<circle cx="78" cy="${y}" r="9" fill="${done ? "var(--v-hi)" : "var(--v-card)"}" stroke="${done ? "var(--v-hi)" : "var(--v-line)"}"/>${done ? `<path d="M73.500 ${y} l3.200 3.400 l6 -6.800" stroke="var(--v-bg)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>` : ""}<rect x="100" y="${y - 5}" width="${[132, 104, 148, 86][i]}" height="10" rx="5" fill="${i === 3 ? "var(--v-hi-soft)" : "var(--v-card)"}" stroke="${i === 3 ? "var(--v-hi)" : "var(--v-line)"}"/>`;
-      })
-      .join("");
-    return `${open}${bg}${rows}</svg>`;
-  }
-  return `${open}${bg}<circle cx="140" cy="90" r="44" fill="var(--v-card)" stroke="var(--v-line)"/><circle cx="184" cy="90" r="44" fill="var(--v-hi-soft)" stroke="var(--v-hi)"/></svg>`;
+  const rows = [
+    ["Business profile", 1],
+    ["Domain connected", 1],
+    ["Email sending verified", 1],
+    ["A2P registration", 1],
+    ["Pipeline and calendar", 0],
+    ["First workflow live", 0]
+  ]
+    .map(([label, done], i) => {
+      const y = 128 + i * 25;
+      return `<circle cx="70" cy="${y}" r="8" fill="${done ? t.hi : "none"}" stroke="${done ? t.hi : "#6e604a"}" stroke-width="1.500"/>${done ? `<path d="M66.500 ${y}l2.500 2.600 4.500 -5.200" stroke="${t.bg}" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>` : ""}<text x="88" y="${y + 4}" font-size="12.500" font-weight="${done ? 500 : 600}" fill="${done ? "#b9ab92" : "#ffffff"}" ${font}>${label}</text>`;
+    })
+    .join("");
+  return `${open}<rect x="40" y="48" width="320" height="236" rx="16" fill="${t.panel}" stroke="${t.line}"/><circle cx="60" cy="66" r="4" fill="${t.line}"/><circle cx="74" cy="66" r="4" fill="${t.line}"/><circle cx="88" cy="66" r="4" fill="${t.line}"/><text x="340" y="70" text-anchor="end" font-size="11" fill="#9c8f78" ${font}>Account setup</text><path d="M40 82h320" stroke="${t.line}"/><text x="60" y="104" font-size="11" fill="${t.hi}" font-weight="600" ${font}>4 of 6 done</text><rect x="150" y="98" width="190" height="6" rx="3" fill="${t.bg}"/><rect x="150" y="98" width="127" height="6" rx="3" fill="${t.hi}"/>${rows}</svg>`;
 }
 
 // © https://saadbinyousaf.dev/ © //
@@ -146,14 +179,24 @@ function loadArticles() {
 }
 
 // © https://saadbinyousaf.dev/ © //
-function card(a, variant) {
-  const search = esc([a.title, a.description, a.category, ...(a.keywords || []), ...a.toc.map((t) => t.text)].join(" ").toLowerCase());
-  return `<article class="b-card${variant ? " b-card-" + variant : ""}" data-card data-category="${esc(a.category)}" data-search="${search}">
-  <a class="b-card-visual" href="${a.url}" tabindex="-1" aria-hidden="true">${visual(a.visual)}</a>
-  <div class="b-card-body">
-    <p class="b-card-meta"><span class="b-tag">${esc(a.category)}</span><span>${a.minutes} min read</span></p>
-    <h3 class="b-card-title"><a href="${a.url}">${esc(a.title)}</a></h3>
-    <p class="b-card-desc">${esc(a.description)}</p>
+const clockIcon = `<svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6.200" fill="none" stroke="currentColor" stroke-width="1.500"/><path d="M8 4.800V8l2.200 1.400" stroke="currentColor" stroke-width="1.500" fill="none" stroke-linecap="round"/></svg>`;
+const listIcon = `<svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><path d="M5.500 4.500h8M5.500 8h8M5.500 11.500h8" stroke="currentColor" stroke-width="1.500" stroke-linecap="round"/><circle cx="2.600" cy="4.500" r="1" fill="currentColor"/><circle cx="2.600" cy="8" r="1" fill="currentColor"/><circle cx="2.600" cy="11.500" r="1" fill="currentColor"/></svg>`;
+
+// © https://saadbinyousaf.dev/ © //
+function card(a) {
+  const search = esc([a.title, a.description, a.teaser, a.category, a.stage, ...(a.keywords || []), ...a.toc.map((t) => t.text)].join(" ").toLowerCase());
+  return `<article class="b-shot" data-card data-category="${esc(a.category)}" data-stage="${esc(a.stage || "")}" data-order="${a.order || 99}" data-published="${a.published}" data-minutes="${a.minutes}" data-search="${search}">
+  <a class="b-shot-media" href="${a.url}" aria-label="${esc(a.title)}">
+    ${thumbnail(a.thumb)}
+    <span class="b-shot-label">${esc(a.category)}</span>
+    <span class="b-shot-over" aria-hidden="true"><span class="b-shot-teaser">${esc(a.teaser || a.description)}</span><span class="b-shot-go">Read the guide</span></span>
+  </a>
+  <div class="b-shot-info">
+    <h3 class="b-shot-title"><a href="${a.url}">${esc(a.title)}</a></h3>
+    <div class="b-shot-meta">
+      <span class="b-shot-by"><span class="b-ava" aria-hidden="true">S</span>${esc(SITE.author)}</span>
+      <span class="b-shot-stats"><span title="Reading time">${clockIcon}${a.minutes} min</span>${a.stat ? `<span>${listIcon}${esc(a.stat)}</span>` : ""}</span>
+    </div>
   </div>
 </article>`;
 }
@@ -274,58 +317,57 @@ function breadcrumbLd(items) {
 
 // © https://saadbinyousaf.dev/ © //
 function blogPage(articles) {
-  const used = config.categories.filter((c) => articles.some((a) => a.category === c));
-  const featured = articles.find((a) => a.featured) || articles[0];
-  const bySlug = Object.fromEntries(articles.map((a) => [a.slug, a]));
-  const paths = [
-    { slug: "what-is-gohighlevel", who: "I keep hearing about HighLevel", what: "What it is, who it suits and where it falls short." },
-    { slug: "gohighlevel-pricing-guide", who: "I'm working out what it would cost", what: "The three plans, the usage charges and the trial options." },
-    { slug: "gohighlevel-setup-guide", who: "I have an account and a blank screen", what: "Domains, messaging, a pipeline and a first workflow, in order." }
-  ].filter((p) => bySlug[p.slug]);
-  const body = `<header class="wrap t-hero b-hero">
-  <div class="crumbs"><a href="/">Home</a><span aria-hidden="true">/</span><span>Guides</span></div>
+  const cats = config.categories.filter((c) => articles.some((a) => a.category === c));
+  const stages = config.stages.filter((st) => articles.some((a) => a.stage === st));
+  const count = (pred) => articles.filter(pred).length;
+  const body = `<header class="wrap b-lib-hero">
   <h1>HighLevel guides from someone who builds on it daily.</h1>
-  <p class="t-lead">Plain-English guides to HighLevel (GoHighLevel): what it does, what it really costs and how to set it up without the usual mistakes. Every guide is checked against HighLevel's own documentation and dated.</p>
-  <p class="b-hero-note">I earn a commission if you sign up for HighLevel through links in these guides. <a href="/disclosure/">How that works</a>.</p>
-</header>
-
-<section class="wrap b-section" aria-labelledby="paths-title">
-  <h2 id="paths-title" class="b-section-title">Start from where you are</h2>
-  <ul class="b-paths">
-    ${paths
-      .map((p) => {
-        const a = bySlug[p.slug];
-        return `<li><a href="${a.url}"><span class="b-path-who">${esc(p.who)}</span><span class="b-path-what">${esc(p.what)}</span><span class="b-path-read">${esc(a.shortTitle || a.title)}, ${a.minutes} min</span></a></li>`;
-      })
-      .join("\n    ")}
-  </ul>
-</section>
-
-<section class="wrap b-section" aria-labelledby="library-title">
-  <h2 id="library-title" class="b-section-title">The library</h2>
-  <form class="b-tools" role="search" data-library>
+  <p class="b-lib-lead">Practical guides to what HighLevel does, what it really costs and how to set it up properly. Each one is checked against HighLevel's own documentation.</p>
+  <form class="b-lib-search" role="search" data-library>
     <label class="b-search">
       <span class="sr-only">Search guides</span>
-      <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true" focusable="false"><circle cx="9" cy="9" r="6" fill="none" stroke="currentColor" stroke-width="2"/><path d="M14 14l4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-      <input type="search" name="q" placeholder="Search guides, for example pricing or workflows" autocomplete="off" data-search-input>
+      <svg viewBox="0 0 20 20" width="20" height="20" aria-hidden="true" focusable="false"><circle cx="9" cy="9" r="6" fill="none" stroke="currentColor" stroke-width="2"/><path d="M14 14l4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <input type="search" name="q" placeholder="What do you want to learn?" autocomplete="off" data-search-input>
     </label>
-    <div class="seg" role="group" aria-label="Filter by category">
-      <button type="button" aria-pressed="true" data-filter="">All</button>
-      ${used.map((c) => `<button type="button" aria-pressed="false" data-filter="${esc(c)}">${esc(c)}</button>`).join("\n      ")}
-    </div>
   </form>
-  <div class="b-featured" data-featured>
-    ${card(featured, "featured")}
+  <div class="b-topics"><span>Popular:</span>${config.popularTopics.map((t) => `<button type="button" data-topic="${esc(t)}">${esc(t)}</button>`).join("")}</div>
+  <p class="b-hero-note">I earn a commission if you sign up for HighLevel through links in these guides. <a href="/disclosure/">How that works</a></p>
+</header>
+
+<section class="wrap b-lib" aria-labelledby="library-title">
+  <h2 id="library-title" class="sr-only">All guides</h2>
+  <div class="b-bar">
+    <label class="b-sort">
+      <span class="sr-only">Sort guides</span>
+      <select data-sort>
+        <option value="order">Suggested order</option>
+        <option value="newest">Newest</option>
+        <option value="shortest">Quickest read</option>
+      </select>
+      <svg viewBox="0 0 12 12" width="12" height="12" aria-hidden="true" focusable="false"><path d="M3 4.500l3 3 3-3" stroke="currentColor" stroke-width="1.500" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </label>
+    <div class="b-tabs" role="group" aria-label="Filter by category">
+      <button type="button" aria-pressed="true" data-filter="">All guides</button>
+      ${cats.map((c) => `<button type="button" aria-pressed="false" data-filter="${esc(c)}">${esc(c)}</button>`).join("\n      ")}
+    </div>
+    <button type="button" class="b-filters-btn" aria-expanded="false" aria-controls="b-filters" data-filters-toggle>
+      <svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true" focusable="false"><path d="M2 4h12M4.500 8h7M7 12h2" stroke="currentColor" stroke-width="1.600" stroke-linecap="round"/></svg>
+      Filters<span class="b-filters-dot" data-filters-dot hidden></span>
+    </button>
   </div>
-  <div class="b-list-head">
-    <h3 class="b-sub-title">All guides</h3>
-    <p class="b-count" data-count aria-live="polite"></p>
+  <div class="b-filters" id="b-filters" hidden>
+    <p class="b-filters-label">Where are you with HighLevel?</p>
+    <div class="b-chips" role="group" aria-label="Filter by stage">
+      <button type="button" aria-pressed="true" data-stage-filter="">Any stage</button>
+      ${stages.map((st) => `<button type="button" aria-pressed="false" data-stage-filter="${esc(st)}">${esc(st)} <span>${count((a) => a.stage === st)}</span></button>`).join("\n      ")}
+    </div>
   </div>
-  <div class="b-grid" data-grid>
+  <p class="b-count" data-count aria-live="polite"></p>
+  <div class="b-shots" data-grid>
     ${articles.map((a) => card(a)).join("\n")}
   </div>
   <div class="b-empty" data-empty hidden>
-    <p><strong>No guides match that search.</strong> Try a broader word such as "pricing", "setup" or "automation".</p>
+    <p><strong>No guides match that.</strong> Try a broader word such as "pricing", "setup" or "automation".</p>
     <button type="button" class="btn btn-ghost" data-reset>Clear search and filters</button>
   </div>
 </section>
@@ -416,7 +458,7 @@ ${sources}
 </article>
 <section class="wrap b-related" aria-labelledby="related-${a.slug}">
   <h2 id="related-${a.slug}" class="b-section-title">Keep reading</h2>
-  <div class="b-grid">
+  <div class="b-shots">
     ${related.map((r) => card(r)).join("\n")}
   </div>
 </section>`;

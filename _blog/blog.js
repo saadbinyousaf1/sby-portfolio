@@ -99,14 +99,26 @@
     var form = document.querySelector("[data-library]");
     if (!form) return;
     var input = form.querySelector("[data-search-input]");
-    var filters = Array.prototype.slice.call(form.querySelectorAll("[data-filter]"));
-    var cards = Array.prototype.slice.call(document.querySelectorAll("[data-grid] [data-card]"));
-    var featured = document.querySelector("[data-featured]");
+    var grid = document.querySelector("[data-grid]");
+    var tabs = Array.prototype.slice.call(document.querySelectorAll("[data-filter]"));
+    var stageBtns = Array.prototype.slice.call(document.querySelectorAll("[data-stage-filter]"));
+    var topics = Array.prototype.slice.call(document.querySelectorAll("[data-topic]"));
+    var cards = Array.prototype.slice.call(grid.querySelectorAll("[data-card]"));
+    var sort = document.querySelector("[data-sort]");
+    var toggle = document.querySelector("[data-filters-toggle]");
+    var panel = document.getElementById("b-filters");
+    var dot = document.querySelector("[data-filters-dot]");
     var empty = document.querySelector("[data-empty]");
     var count = document.querySelector("[data-count]");
     var reset = document.querySelector("[data-reset]");
-    var category = "";
+    var state = { category: "", stage: "" };
     var timer;
+
+    var press = function (list, attr, value) {
+      list.forEach(function (b) {
+        b.setAttribute("aria-pressed", String(b.getAttribute(attr) === value));
+      });
+    };
 
     var apply = function (announce) {
       var terms = input.value.toLowerCase().trim().split(/\s+/).filter(Boolean);
@@ -114,19 +126,23 @@
       cards.forEach(function (card) {
         var hay = card.getAttribute("data-search");
         var match =
-          (!category || card.getAttribute("data-category") === category) &&
+          (!state.category || card.getAttribute("data-category") === state.category) &&
+          (!state.stage || card.getAttribute("data-stage") === state.stage) &&
           terms.every(function (t) {
             return hay.indexOf(t) !== -1;
           });
         card.hidden = !match;
         if (match) shown += 1;
       });
-      var active = terms.length > 0 || category !== "";
-      if (featured) featured.hidden = active;
+      var active = terms.length > 0 || state.category !== "" || state.stage !== "";
       empty.hidden = shown !== 0;
       count.textContent = active
-        ? shown + (shown === 1 ? " guide matches" : " guides match")
+        ? "Showing " + shown + " of " + cards.length + (cards.length === 1 ? " guide" : " guides")
         : cards.length + (cards.length === 1 ? " guide" : " guides");
+      topics.forEach(function (b) {
+        b.setAttribute("aria-pressed", String(input.value.trim().toLowerCase() === b.getAttribute("data-topic").toLowerCase()));
+      });
+      if (dot) dot.hidden = !state.stage;
       if (announce && terms.length) {
         clearTimeout(timer);
         timer = setTimeout(function () {
@@ -135,10 +151,15 @@
       }
     };
 
-    var setCategory = function (value) {
-      category = value;
-      filters.forEach(function (b) {
-        b.setAttribute("aria-pressed", String(b.getAttribute("data-filter") === value));
+    var order = function () {
+      var mode = sort.value;
+      var sorted = cards.slice().sort(function (a, b) {
+        if (mode === "newest") return b.getAttribute("data-published").localeCompare(a.getAttribute("data-published"));
+        if (mode === "shortest") return Number(a.getAttribute("data-minutes")) - Number(b.getAttribute("data-minutes"));
+        return Number(a.getAttribute("data-order")) - Number(b.getAttribute("data-order"));
+      });
+      sorted.forEach(function (c) {
+        grid.appendChild(c);
       });
     };
 
@@ -148,16 +169,46 @@
     input.addEventListener("input", function () {
       apply(true);
     });
-    filters.forEach(function (b) {
+    tabs.forEach(function (b) {
       b.addEventListener("click", function () {
-        setCategory(b.getAttribute("data-filter"));
+        state.category = b.getAttribute("data-filter");
+        press(tabs, "data-filter", state.category);
         apply(false);
-        if (category) BLOG.track("filter", { category: category });
+        if (state.category) BLOG.track("filter", { category: state.category });
       });
+    });
+    stageBtns.forEach(function (b) {
+      b.addEventListener("click", function () {
+        state.stage = b.getAttribute("data-stage-filter");
+        press(stageBtns, "data-stage-filter", state.stage);
+        apply(false);
+        if (state.stage) BLOG.track("filter", { stage: state.stage });
+      });
+    });
+    topics.forEach(function (b) {
+      b.addEventListener("click", function () {
+        var t = b.getAttribute("data-topic");
+        input.value = input.value.trim().toLowerCase() === t.toLowerCase() ? "" : t;
+        apply(false);
+        BLOG.track("topic", { topic: t });
+        document.querySelector(".b-bar").scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+      });
+    });
+    sort.addEventListener("change", function () {
+      order();
+      BLOG.track("sort", { mode: sort.value });
+    });
+    toggle.addEventListener("click", function () {
+      var open = panel.hidden;
+      panel.hidden = !open;
+      toggle.setAttribute("aria-expanded", String(open));
     });
     reset.addEventListener("click", function () {
       input.value = "";
-      setCategory("");
+      state.category = "";
+      state.stage = "";
+      press(tabs, "data-filter", "");
+      press(stageBtns, "data-stage-filter", "");
       apply(false);
       input.focus();
     });
