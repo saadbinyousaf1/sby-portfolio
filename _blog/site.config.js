@@ -12,7 +12,7 @@ module.exports = {
   },
 
   // © https://saadbinyousaf.dev/ © //
-  factsChecked: "2026-11-13",
+  factsChecked: "2026-11-14",
 
   // © https://saadbinyousaf.dev/ © //
   links: {
@@ -67,6 +67,20 @@ module.exports = {
         "HighLevel's Founder page lists everything in the $497 plan, including which perks are live today and which are still marked as coming soon.",
       button: "See what the Founder plan includes"
     },
+    aitrial: {
+      link: "default",
+      title: "Try the AI tools on your own leads",
+      body:
+        "The quickest way to judge HighLevel's AI is to point it at your own business for a week. The standard trial runs 14 days. AI usage, texts and calls are billed from your wallet even during a trial, so start small.",
+      button: "Start a 14-day HighLevel trial"
+    },
+    maps: {
+      link: "upgrade",
+      title: "Already on HighLevel and can't see it yet?",
+      body:
+        "Some of the newest features are tied to agency access or the Founder plan. HighLevel's in-app upgrade page shows what's available for the account you already have.",
+      button: "View upgrade options for your account"
+    },
     upgrade: {
       link: "upgrade",
       title: "Already have a HighLevel account?",
@@ -108,7 +122,7 @@ module.exports = {
   stages: ["Exploring", "Choosing a plan", "Setting up", "Growing"],
 
   // © https://saadbinyousaf.dev/ © //
-  popularTopics: ["Pricing", "Free trial", "Sub-accounts", "Workflows", "A2P 10DLC", "Email setup"],
+  popularTopics: ["Pricing", "Free trial", "Ask AI", "Voice AI", "Workflow Maps", "AI video", "A2P 10DLC"],
 
   // © https://saadbinyousaf.dev/ © //
   categories: [
@@ -116,6 +130,8 @@ module.exports = {
     "Tutorials",
     "Automations",
     "Pricing",
+    "AI",
+    "What's New",
     "Agency Growth",
     "Comparisons"
   ],

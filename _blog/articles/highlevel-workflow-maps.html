@@ -1,0 +1,106 @@
+<!--
+{
+  "slug": "highlevel-workflow-maps",
+  "order": 4,
+  "title": "HighLevel Workflow Maps: See Every Automation in One Map",
+  "shortTitle": "Workflow Maps explained",
+  "seoTitle": "HighLevel Workflow Maps (2026): How the New Automation Map Works",
+  "description": "HighLevel's new Workflow Maps draws a live map of every workflow and what it touches. What it shows, who gets it, and five jobs it makes easier.",
+  "teaser": "A live map of every workflow, tag, form and calendar in an account, and how they connect.",
+  "category": "What's New",
+  "stage": "Growing",
+  "stat": "5 practical uses",
+  "thumb": "map",
+  "theme": "teal",
+  "thumbData": {
+    "workflows": [
+      { "l": "New lead" },
+      { "l": "Booking", "hot": true },
+      { "l": "Reminders", "err": true },
+      { "l": "Review request" }
+    ],
+    "assets": [
+      { "l": "Form" },
+      { "l": "Tag: booked" },
+      { "l": "Calendar" }
+    ]
+  },
+  "published": "2026-11-14",
+  "updated": "2026-11-14",
+  "keywords": ["workflow maps", "workflow map", "automation mind map", "mind map", "automations map", "workflow canvas", "contact journey", "workflow errors", "cleanup", "levelup 2026", "visual workflows", "2d 3d", "founder plan", "workflows"],
+  "faq": [
+    { "q": "What is Workflow Maps in HighLevel?", "a": "Workflow Maps is a visual interface that shows a sub-account's workflows, folders and connected assets such as tags, forms, calendars and pipelines, with the links between them. HighLevel generates it from your existing workflows, so there is nothing to draw or maintain." },
+    { "q": "Where do I find Workflow Maps?", "a": "Go to Automation, then Workflows, then Workflow Maps. You can also open Maps from inside a workflow's builder." },
+    { "q": "Is Workflow Maps available on every plan?", "a": "Not at launch. HighLevel's changelog says launch access is limited to agency users and agency admins, and its LevelUp 2026 post lists Workflow Maps under the Founder plan. Check your own account to see whether it has been enabled." },
+    { "q": "Can I edit workflows from the map?", "a": "The map is for seeing, tracing and troubleshooting. To change a step you open the workflow in the normal builder, which the map links to." },
+    { "q": "Does each sub-account have its own map?", "a": "Yes. HighLevel says each sub-account has its own map." }
+  ],
+  "next": [
+    { "slug": "gohighlevel-setup-guide", "reason": "Build the first workflow the map will show" },
+    { "slug": "highlevel-ai-video-generation", "reason": "The other headline release: AI video in workflows and agents" }
+  ],
+  "sources": [
+    { "label": "Changelog: The all new Workflow Maps", "url": "https://ideas.gohighlevel.com/changelog/introducing-the-all-new-workflow-maps-see-how-your-automations-connect" },
+    { "label": "Changelog: Find and troubleshoot workflow errors", "url": "https://ideas.gohighlevel.com/changelog/workflow-maps-find-and-troubleshoot-workflow-errors" },
+    { "label": "Changelog: View linked workflows in the Workflow Canvas", "url": "https://ideas.gohighlevel.com/changelog/workflow-maps-view-linked-workflows-together-in-the-workflow-canvas" },
+    { "label": "Changelog: Guided onboarding and Resources", "url": "https://ideas.gohighlevel.com/changelog/workflow-maps-get-started-with-guided-onboarding-and-resources" },
+    { "label": "LevelUp Day 2026 feature post", "url": "https://www.gohighlevel.com/post/levelup-day-2026-the-next-evolution-of-highlevel-features-and-enhancements" }
+  ]
+}
+-->
+<h2 id="the-short-version">The short version</h2>
+<p>Workflow Maps is a new view inside HighLevel's Automation area. It reads every workflow in a sub-account and draws them as a map: workflows grouped in their folders, with the tags, forms, calendars, pipelines and custom fields they use arranged around them and joined by lines.</p>
+<p>People describe it as a mind map for automations, and that's a fair picture. The difference from a diagram you'd draw yourself is that HighLevel builds it from the real workflows, so it can't go out of date.</p>
+<p>It was introduced around HighLevel's LevelUp event on 27 October 2026.</p>
+
+<h2 id="the-problem-it-solves">The problem it solves</h2>
+<p>A HighLevel account rarely has one workflow. After a few months it has twenty or forty, and they depend on each other in ways nobody wrote down. A form starts one workflow. That workflow adds a tag. The tag starts a second workflow, which moves a pipeline stage, which starts a third.</p>
+<p>Until now the only way to understand a chain like that was to open each workflow in turn and keep the picture in your head. That's slow in your own account and painful in a client's account you've just inherited. It's also how accounts break: someone renames a tag or deletes a form without knowing three workflows were waiting on it.</p>
+
+<h2 id="what-the-map-shows">What the map shows</h2>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Part</th><th>What it does</th></tr></thead>
+<tbody>
+<tr><th>Account overview</th><td>Every workflow, grouped by folder, with connected assets around it.</td></tr>
+<tr><th>Search and filters</th><td>Find a workflow, asset, trigger or action by name, or narrow the map to the part you're investigating.</td></tr>
+<tr><th>2D and 3D views</th><td>Pan, zoom and fit to screen in either view. You pick one on your first visit and can switch.</td></tr>
+<tr><th>Details panel</th><td>Click a workflow to see its status, enrolments and connected assets. Click an asset to see every workflow that uses it.</td></tr>
+<tr><th>Contact journeys</th><td>Find a contact and follow their path across workflows, with a timeline showing where they finished, are waiting or hit an error. HighLevel's LevelUp post says this covers the last 60 days. Labelled a preview.</td></tr>
+<tr><th>Error view</th><td>Workflows with errors in recent runs get a badge. Open one to see the failed executions and the step that failed.</td></tr>
+<tr><th>Workflow Canvas</th><td>Shows one workflow together with the workflows it hands off to, as a connected sequence.</td></tr>
+<tr><th>Cleanup</th><td>Flags workflows still carrying default names, workflows with no recent enrolments, and empty folders.</td></tr>
+<tr><th>AI assistant</th><td>Ask questions about your automations in plain language from the map.</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2 id="where-to-find-it">Where to find it and who gets it</h2>
+<p>Open <strong>Automation &gt; Workflows &gt; Workflow Maps</strong>. You can also open <strong>Maps</strong> from inside a workflow's builder. A first-visit introduction explains the controls, and a Help button on the map opens walkthroughs.</p>
+<div class="callout warn"><strong>Check your access before you plan around it</strong>HighLevel's two official sources describe access differently. The changelog says launch access is limited to agency users and agency admins. The LevelUp 2026 post lists Workflow Maps under the Founder plan. If you can't see it in your account, that is the likely reason, and access may widen over time.</div>
+
+<h2 id="five-jobs-it-makes-easier">Five jobs it makes easier</h2>
+<h3><span class="step-num">1.</span>Taking over an account you didn't build</h3>
+<p>Open the map before you open a single workflow. In a couple of minutes you can see how many workflows exist, which folders matter, and which forms and tags sit at the centre of everything.</p>
+<h3><span class="step-num">2.</span>Checking what depends on something before you change it</h3>
+<p>About to rename a tag, replace a form or retire a calendar? Click the asset on the map. The panel lists every workflow that uses it, so you know what to update first.</p>
+<h3><span class="step-num">3.</span>Answering "why did this customer get that message?"</h3>
+<p>Search for the contact and open their journey. The timeline shows which workflows they entered and what happened in each. This used to mean checking execution logs workflow by workflow.</p>
+<h3><span class="step-num">4.</span>Catching failures before a client does</h3>
+<p>Use the errors view as a weekly check. A failed step can mean a lead never got a reply. The map gathers recent failures across the whole sub-account, grouped into published and draft workflows, and you can mark them as read once reviewed.</p>
+<h3><span class="step-num">5.</span>Tidying up</h3>
+<p>Run Cleanup. Workflows still called "New Workflow", workflows nobody has entered in a long time and empty folders are the clutter that makes accounts hard to hand over.</p>
+
+<h2 id="what-it-doesnt-do">What it doesn't do</h2>
+<ul>
+<li><strong>It isn't a builder.</strong> You still edit steps in the normal workflow builder. The map opens it for you.</li>
+<li><strong>It works one sub-account at a time.</strong> There is no agency-wide map across all clients.</li>
+<li><strong>Parts are still marked preview.</strong> Asset usage and contact journeys carry that label in the announcement, so expect changes.</li>
+<li><strong>It won't fix bad structure.</strong> The map makes a tangled account visible. Untangling it is still your job.</li>
+</ul>
+
+<h2 id="is-it-a-reason-to-upgrade">Is it a reason to upgrade?</h2>
+<p>For a single business with five workflows, no. You can hold five workflows in your head.</p>
+<p>For an agency maintaining dozens of client accounts, it is one of the more useful things HighLevel has shipped for day-to-day operations. The value is in time saved on audits and in changes that don't break something downstream. If you're already weighing the Founder plan for SaaS Mode or rebilling, this adds to the case. On its own it is a thin reason to pay $200 a month more. The <a href="/blog/gohighlevel-pricing-guide/#founder-497-a-month">pricing guide</a> covers what else that plan includes.</p>
+{{cta:maps}}
+<p>If you haven't built your first workflow yet, start with the <a href="/blog/gohighlevel-setup-guide/#step-11-build-your-first-workflow">setup guide</a>. The map becomes useful once there is something to map.</p>

@@ -1,0 +1,120 @@
+<!--
+{
+  "slug": "highlevel-ai-video-generation",
+  "order": 5,
+  "title": "HighLevel AI Video Generation: Workflows and AI Agents That Make Videos",
+  "shortTitle": "AI video generation in HighLevel",
+  "seoTitle": "HighLevel AI Video Generation (2026): Workflow Action, AI Agents and Costs",
+  "description": "HighLevel can now generate videos inside workflows and through AI agents. The three ways to do it, the limits, what it costs per second and where it's worth using.",
+  "teaser": "Three ways HighLevel now makes videos: a workflow action, Managed Agents and Creator Studio.",
+  "category": "What's New",
+  "stage": "Growing",
+  "stat": "3 ways to generate",
+  "thumb": "video",
+  "theme": "violet",
+  "thumbData": {
+    "length": "0:08",
+    "caption": "Welcome, Maya",
+    "scenes": ["Title card", "Scene 1", "Scene 2", "End screen"]
+  },
+  "published": "2026-11-14",
+  "updated": "2026-11-14",
+  "keywords": ["ai video", "ai video generation", "video generation", "veo 3.1", "ai agents generate videos", "managed agents video", "multi-shot film", "creator studio", "personalized video", "workflow action", "agent studio", "brand board", "reels", "shorts"],
+  "faq": [
+    { "q": "Can HighLevel AI agents generate videos?", "a": "Yes. Managed Agents in Agent Studio can generate eight-second 16:9 videos, and a November 2026 changelog entry adds multi-shot films of up to 60 seconds with title cards, captions and end screens. Separately, a workflow action called AI Video Generation creates 4, 6 or 8 second clips." },
+    { "q": "Which AI model does HighLevel use for video?", "a": "HighLevel's help article says the AI Video Generation workflow action uses Google's Veo 3.1 models, with a Quality option and a Fast option." },
+    { "q": "How much does AI video cost in HighLevel?", "a": "It is billed by usage. HighLevel's AI pricing article lists Agent Studio video at $0.15 per second for Veo3 Fast and $0.40 per second for Veo3. The workflow action is a premium action billed per execution, including test runs, and its cost varies with model, resolution, duration and audio." },
+    { "q": "Can the videos be personalised for each contact?", "a": "Yes. The workflow action accepts contact fields and other custom values in the prompt, and reference images can come from a custom value URL." },
+    { "q": "Are the generated video links private?", "a": "No. HighLevel says generated video URLs are public, so anyone with the link can view the video. Keep sensitive details out of the prompt." }
+  ],
+  "next": [
+    { "slug": "managed-agents-agent-studio", "reason": "How Managed Agents work and what a run costs" },
+    { "slug": "highlevel-workflow-maps", "reason": "The other headline release: a map of every automation" }
+  ],
+  "sources": [
+    { "label": "Workflow Action: AI Video Generation (help centre)", "url": "https://help.gohighlevel.com/support/solutions/articles/155000009513-workflow-action-ai-video-generation" },
+    { "label": "How to Setup and Use Managed Agents in Agent Studio", "url": "https://help.gohighlevel.com/support/solutions/articles/155000007931-how-to-setup-and-use-managed-agents-in-agent-studio" },
+    { "label": "HighLevel changelog (Multi-Shot Film Generation)", "url": "https://ideas.gohighlevel.com/changelog" },
+    { "label": "AI Product Pricing (help centre)", "url": "https://help.gohighlevel.com/support/solutions/articles/155000006652-ai-product-pricing-update-ai-employee-unlimited-plans-at-97-month" },
+    { "label": "LevelUp Day 2026 feature post", "url": "https://www.gohighlevel.com/post/levelup-day-2026-the-next-evolution-of-highlevel-features-and-enhancements" }
+  ]
+}
+-->
+<h2 id="what-changed">What changed</h2>
+<p>HighLevel can now create video, not just send it. There are three separate routes, and they suit different jobs.</p>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Route</th><th>What you get</th><th>Best for</th></tr></thead>
+<tbody>
+<tr><th>AI Video Generation workflow action</th><td>A 4, 6 or 8 second clip made automatically when a workflow runs</td><td>Personalised clips triggered by an event</td></tr>
+<tr><th>Managed Agents</th><td>Eight-second videos on request, and multi-shot films of up to 60 seconds</td><td>Branded promos, Reels and intros you ask for in chat</td></tr>
+<tr><th>Creator Studio</th><td>Videos, images, ads and flyers from a prompt, with an editor</td><td>Hands-on design work. In Labs beta</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2 id="route-1-the-workflow-action">Route 1: the AI Video Generation workflow action</h2>
+<p>This is a new action in the workflow builder. When a contact reaches it, HighLevel generates a short video using Google's Veo 3.1 models, saves it to the Media Library and hands the link to the next step.</p>
+<h3>What you can control</h3>
+<ul>
+<li><strong>Model:</strong> Veo 3.1 Quality for more polish, or Veo 3.1 Fast for speed.</li>
+<li><strong>Resolution:</strong> Standard (720p) or High (1080p).</li>
+<li><strong>Shape:</strong> landscape (1920 × 1080) or portrait (1080 × 1920).</li>
+<li><strong>Length:</strong> 4, 6 or 8 seconds.</li>
+<li><strong>Audio:</strong> off by default. Turning it on adds AI-generated music or ambience and raises the cost.</li>
+<li><strong>Prompt:</strong> up to 5,000 characters, with contact fields and other custom values allowed. An "Enhance prompt" button expands a short idea, and there are templates for product mockups, social posts, promo flyers and lifestyle shots.</li>
+<li><strong>Reference images:</strong> up to three JPEG or PNG files of up to 20 MB each, from your computer, the Media Library or a URL.</li>
+</ul>
+<h3>Set it up</h3>
+<ol>
+<li>Go to <strong>Automation &gt; Workflows</strong> and open or create a workflow.</li>
+<li>Click <strong>+</strong> and choose <strong>AI Video Generation</strong> under AI Actions.</li>
+<li>Pick the model and resolution.</li>
+<li>Write the prompt, or start from a template.</li>
+<li>Add reference images if you want a consistent look.</li>
+<li>Open Additional Settings for size, duration and audio.</li>
+<li>Save the action.</li>
+<li>Add a later step, such as Send Email or Send SMS, open the custom value picker and choose <strong>Previous steps &gt; AI Video Generation &gt; Video URL</strong>.</li>
+</ol>
+<div class="callout warn"><strong>Three things that catch people out</strong>Test runs create real videos and are charged. Adding any reference image locks the length to 8 seconds. And generated links are public, so anyone with the URL can watch the video.</div>
+
+<h2 id="route-2-managed-agents">Route 2: Managed Agents that make videos</h2>
+<p>Managed Agents are AI agents you set up by describing the job in plain language. With media capabilities switched on, an agent can generate and edit images, generate audio and create eight-second 16:9 videos saved to Media Storage.</p>
+<p>A changelog entry in November 2026 goes further with Multi-Shot Film Generation. According to HighLevel, a Managed Agent can now plan scenes, generate the clips and assemble a short film of up to 60 seconds, with branded title cards, captions and an end screen. Connecting the agent to a Brand Board keeps the look consistent, and finished videos are delivered back to the conversation or to the automation run that asked for them.</p>
+<p>To try it, go to <strong>AI Agents &gt; Agent Studio &gt; Managed Agents</strong>, open or create an agent, enable media under <strong>Capabilities</strong>, and ask for a video in the chat. The <a href="/blog/managed-agents-agent-studio/">Managed Agents guide</a> covers setup in full.</p>
+
+<h2 id="route-3-creator-studio">Route 3: Creator Studio</h2>
+<p>Creator Studio is an AI design area that generates social posts, ads, flyers, images and videos from a text prompt, with a drag-and-drop editor for adjustments. HighLevel's LevelUp post describes it as a beta that you activate in Labs. Use it when a person will review and tweak the result, and use the two routes above when the video should be produced without anyone opening an editor.</p>
+
+<h2 id="what-it-costs">What it costs</h2>
+<p>All of this is billed by usage from your wallet, on top of your plan.</p>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Item</th><th>Published rate</th><th class="num">8-second clip</th></tr></thead>
+<tbody>
+<tr><th>Agent Studio video, Veo3 Fast</th><td>$0.15 per second</td><td class="num">$1.20</td></tr>
+<tr><th>Agent Studio video, Veo3</th><td>$0.40 per second</td><td class="num">$3.20</td></tr>
+<tr><th>Workflow action</th><td>Premium action. Varies by model, resolution, length and audio</td><td class="num">Shown in-app</td></tr>
+</tbody>
+</table>
+</div>
+<p class="table-note">Per-second rates are from HighLevel's AI Product Pricing article, checked {{checked}}. The workflow action's help article doesn't list its own rates.</p>
+<p>The arithmetic matters once you automate. A welcome video for every new lead at around $1.20 each is $120 for 100 leads. That can be worth it for a high-value service. For a low-priced offer with heavy lead volume it probably isn't.</p>
+
+<h2 id="where-its-worth-using">Where it's worth using</h2>
+<ul>
+<li><strong>A short branded welcome</strong> after a high-value form submission, using the contact's first name in the prompt.</li>
+<li><strong>Social content</strong> such as Reels and Shorts, produced by a Managed Agent on a schedule and reviewed before posting.</li>
+<li><strong>Promotional clips</strong> for an offer or event, with your Brand Board applied.</li>
+<li><strong>A business introduction</strong> video for a landing page.</li>
+</ul>
+
+<h2 id="honest-limits">Honest limits</h2>
+<ul>
+<li><strong>Clips are short.</strong> Eight seconds per generation, or up to 60 seconds for an assembled film. This is not a tool for explainer videos or testimonials.</li>
+<li><strong>Quality varies with the prompt.</strong> Generated video can get details wrong, especially text, hands and logos. Watch every video before a customer does, at least until you trust a prompt.</li>
+<li><strong>It isn't a real person.</strong> Don't present a generated presenter as a member of your team or a customer. Label AI-made content where your audience would expect it.</li>
+<li><strong>Costs scale with volume.</strong> Put a filter in front of the action so only the leads worth the spend trigger it.</li>
+</ul>
+<p>My suggestion: start with one workflow and one prompt, generate ten videos by hand, and look at them properly before you let it run unattended.</p>
+{{cta:aitrial}}

@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- © https://saadbinyousaf.dev/ © -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>HighLevel AI Video Generation (2026): Workflow Action, AI Agents and Costs</title>
+<meta name="description" content="HighLevel can now generate videos inside workflows and through AI agents. The three ways to do it, the limits, what it costs per second and where it's worth using.">
+<link rel="canonical" href="https://saadbinyousaf.dev/blog/highlevel-ai-video-generation/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Saad Bin Yousaf — HighLevel guides">
+<meta property="og:title" content="HighLevel AI Video Generation: Workflows and AI Agents That Make Videos">
+<meta property="og:description" content="HighLevel can now generate videos inside workflows and through AI agents. The three ways to do it, the limits, what it costs per second and where it's worth using.">
+<meta property="og:url" content="https://saadbinyousaf.dev/blog/highlevel-ai-video-generation/">
+<meta property="og:image" content="https://saadbinyousaf.dev/blog/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#07080a">
+<meta name="google-adsense-account" content="ca-pub-6774293162106493">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2307080a'/%3E%3Ctext x='50%25' y='56%25' text-anchor='middle' dominant-baseline='middle' font-family='Arial' font-weight='700' font-size='34' fill='%23aac86b'%3ES%3C/text%3E%3C/svg%3E">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6774293162106493" crossorigin="anonymous"></script>
+<link rel="preload" href="/assets/fonts/satoshi-500.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/satoshi-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/tools/assets/tools.css?v=88838c2a">
+<link rel="stylesheet" href="/css/footer.css?v=88838c2a">
+<link rel="stylesheet" href="/blog/assets/blog.css?v=88838c2a">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"HighLevel AI Video Generation: Workflows and AI Agents That Make Videos","description":"HighLevel can now generate videos inside workflows and through AI agents. The three ways to do it, the limits, what it costs per second and where it's worth using.","datePublished":"2026-11-14","dateModified":"2026-11-14","articleSection":"What's New","keywords":"ai video, ai video generation, video generation, veo 3.1, ai agents generate videos, managed agents video, multi-shot film, creator studio, personalized video, workflow action, agent studio, brand board, reels, shorts","wordCount":1191,"mainEntityOfPage":"https://saadbinyousaf.dev/blog/highlevel-ai-video-generation/","image":"https://saadbinyousaf.dev/blog/assets/og.png","author":{"@type":"Person","name":"Saad Bin Yousaf","url":"https://saadbinyousaf.dev/","jobTitle":"HighLevel systems builder"},"publisher":{"@type":"Person","name":"Saad Bin Yousaf","url":"https://saadbinyousaf.dev/","jobTitle":"HighLevel systems builder"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://saadbinyousaf.dev/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://saadbinyousaf.dev/blog/"},{"@type":"ListItem","position":3,"name":"HighLevel AI Video Generation: Workflows and AI Agents That Make Videos","item":"https://saadbinyousaf.dev/blog/highlevel-ai-video-generation/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can HighLevel AI agents generate videos?","acceptedAnswer":{"@type":"Answer","text":"Yes. Managed Agents in Agent Studio can generate eight-second 16:9 videos, and a November 2026 changelog entry adds multi-shot films of up to 60 seconds with title cards, captions and end screens. Separately, a workflow action called AI Video Generation creates 4, 6 or 8 second clips."}},{"@type":"Question","name":"Which AI model does HighLevel use for video?","acceptedAnswer":{"@type":"Answer","text":"HighLevel's help article says the AI Video Generation workflow action uses Google's Veo 3.1 models, with a Quality option and a Fast option."}},{"@type":"Question","name":"How much does AI video cost in HighLevel?","acceptedAnswer":{"@type":"Answer","text":"It is billed by usage. HighLevel's AI pricing article lists Agent Studio video at $0.15 per second for Veo3 Fast and $0.40 per second for Veo3. The workflow action is a premium action billed per execution, including test runs, and its cost varies with model, resolution, duration and audio."}},{"@type":"Question","name":"Can the videos be personalised for each contact?","acceptedAnswer":{"@type":"Answer","text":"Yes. The workflow action accepts contact fields and other custom values in the prompt, and reference images can come from a custom value URL."}},{"@type":"Question","name":"Are the generated video links private?","acceptedAnswer":{"@type":"Answer","text":"No. HighLevel says generated video URLs are public, so anyone with the link can view the video. Keep sensitive details out of the prompt."}}]}</script>
+</head>
+<body class="b-page b-type-article">
+<a class="b-skip" href="#main">Skip to content</a>
+<div class="sh" id="nav">
+  <nav class="sh-bar" aria-label="Main">
+    <div class="sh-logoC">
+      <a href="/" class="sh-logo" aria-label="SBY.DEV home"><span class="sh-mark" aria-hidden="true">S</span><span class="sh-word">SBY<span>.DEV</span></span></a>
+      <button class="sh-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="shMenu"><i></i><i></i><i></i></button>
+    </div>
+    <div class="sh-links" id="shMenu">
+      <a class="sh-link" href="/#about">About</a>
+      <a class="sh-link" href="/#services">Services</a>
+      <a class="sh-link" href="/#portals">Portals</a>
+      <a class="sh-link" href="/#work">Work</a>
+      <a class="sh-link" href="/integrations/">Integrations</a>
+      <a class="sh-link" href="/tools/">Free tools</a>
+      <a class="sh-link" href="/blog/" aria-current="page">Guides</a>
+    </div>
+    <div class="sh-sec">
+      <a href="/#contact" class="sh-btn"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true" width="16" height="16"><rect x="1.75" y="3.25" width="12.5" height="9.5" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="m2.5 4.5 5.5 4 5.5-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Contact me</a>
+    </div>
+  </nav>
+</div>
+<div class="b-progress" aria-hidden="true"><span></span></div>
+<main id="main" data-route="/blog/highlevel-ai-video-generation/" data-type="article" data-slug="highlevel-ai-video-generation">
+<article class="wrap b-article">
+  <header class="b-article-head">
+    <div class="crumbs"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/blog/">Guides</a><span aria-hidden="true">/</span><span>What's New</span></div>
+    <h1 class="b-title">HighLevel AI Video Generation: Workflows and AI Agents That Make Videos</h1>
+    <p class="b-dek">HighLevel can now generate videos inside workflows and through AI agents. The three ways to do it, the limits, what it costs per second and where it's worth using.</p>
+    <p class="b-meta"><span>By <a href="/#about">Saad Bin Yousaf</a></span><span>5 min read</span><span>Published <time datetime="2026-11-14">14 November 2026</time></span><span>Facts checked 14 November 2026</span></p>
+    <p class="b-disclosure"><strong>Disclosure:</strong> I'm an independent HighLevel builder, not part of HighLevel. I earn a commission if you sign up through the links on this page. It doesn't change the price you pay, and it doesn't change what I write. <a href="/disclosure/">How this works</a></p>
+  </header>
+  <div class="b-article-grid">
+    <div class="b-article-main">
+      <details class="b-toc-mobile">
+        <summary>On this page</summary>
+        <ol>
+        <li><a href="#what-changed">What changed</a></li>
+        <li><a href="#route-1-the-workflow-action">Route 1: the AI Video Generation workflow action</a></li>
+        <li><a href="#route-2-managed-agents">Route 2: Managed Agents that make videos</a></li>
+        <li><a href="#route-3-creator-studio">Route 3: Creator Studio</a></li>
+        <li><a href="#what-it-costs">What it costs</a></li>
+        <li><a href="#where-its-worth-using">Where it's worth using</a></li>
+        <li><a href="#honest-limits">Honest limits</a></li>
+        <li><a href="#faq">Common questions</a></li>
+        <li><a href="#sources">Sources</a></li>
+        </ol>
+      </details>
+      <div class="b-prose">
+<h2 id="what-changed">What changed</h2>
+<p>HighLevel can now create video, not just send it. There are three separate routes, and they suit different jobs.</p>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Route</th><th>What you get</th><th>Best for</th></tr></thead>
+<tbody>
+<tr><th>AI Video Generation workflow action</th><td>A 4, 6 or 8 second clip made automatically when a workflow runs</td><td>Personalised clips triggered by an event</td></tr>
+<tr><th>Managed Agents</th><td>Eight-second videos on request, and multi-shot films of up to 60 seconds</td><td>Branded promos, Reels and intros you ask for in chat</td></tr>
+<tr><th>Creator Studio</th><td>Videos, images, ads and flyers from a prompt, with an editor</td><td>Hands-on design work. In Labs beta</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2 id="route-1-the-workflow-action">Route 1: the AI Video Generation workflow action</h2>
+<p>This is a new action in the workflow builder. When a contact reaches it, HighLevel generates a short video using Google's Veo 3.1 models, saves it to the Media Library and hands the link to the next step.</p>
+<h3>What you can control</h3>
+<ul>
+<li><strong>Model:</strong> Veo 3.1 Quality for more polish, or Veo 3.1 Fast for speed.</li>
+<li><strong>Resolution:</strong> Standard (720p) or High (1080p).</li>
+<li><strong>Shape:</strong> landscape (1920 × 1080) or portrait (1080 × 1920).</li>
+<li><strong>Length:</strong> 4, 6 or 8 seconds.</li>
+<li><strong>Audio:</strong> off by default. Turning it on adds AI-generated music or ambience and raises the cost.</li>
+<li><strong>Prompt:</strong> up to 5,000 characters, with contact fields and other custom values allowed. An "Enhance prompt" button expands a short idea, and there are templates for product mockups, social posts, promo flyers and lifestyle shots.</li>
+<li><strong>Reference images:</strong> up to three JPEG or PNG files of up to 20 MB each, from your computer, the Media Library or a URL.</li>
+</ul>
+<h3>Set it up</h3>
+<ol>
+<li>Go to <strong>Automation &gt; Workflows</strong> and open or create a workflow.</li>
+<li>Click <strong>+</strong> and choose <strong>AI Video Generation</strong> under AI Actions.</li>
+<li>Pick the model and resolution.</li>
+<li>Write the prompt, or start from a template.</li>
+<li>Add reference images if you want a consistent look.</li>
+<li>Open Additional Settings for size, duration and audio.</li>
+<li>Save the action.</li>
+<li>Add a later step, such as Send Email or Send SMS, open the custom value picker and choose <strong>Previous steps &gt; AI Video Generation &gt; Video URL</strong>.</li>
+</ol>
+<div class="callout warn"><strong>Three things that catch people out</strong>Test runs create real videos and are charged. Adding any reference image locks the length to 8 seconds. And generated links are public, so anyone with the URL can watch the video.</div>
+
+<h2 id="route-2-managed-agents">Route 2: Managed Agents that make videos</h2>
+<p>Managed Agents are AI agents you set up by describing the job in plain language. With media capabilities switched on, an agent can generate and edit images, generate audio and create eight-second 16:9 videos saved to Media Storage.</p>
+<p>A changelog entry in November 2026 goes further with Multi-Shot Film Generation. According to HighLevel, a Managed Agent can now plan scenes, generate the clips and assemble a short film of up to 60 seconds, with branded title cards, captions and an end screen. Connecting the agent to a Brand Board keeps the look consistent, and finished videos are delivered back to the conversation or to the automation run that asked for them.</p>
+<p>To try it, go to <strong>AI Agents &gt; Agent Studio &gt; Managed Agents</strong>, open or create an agent, enable media under <strong>Capabilities</strong>, and ask for a video in the chat. The <a href="/blog/managed-agents-agent-studio/">Managed Agents guide</a> covers setup in full.</p>
+
+<h2 id="route-3-creator-studio">Route 3: Creator Studio</h2>
+<p>Creator Studio is an AI design area that generates social posts, ads, flyers, images and videos from a text prompt, with a drag-and-drop editor for adjustments. HighLevel's LevelUp post describes it as a beta that you activate in Labs. Use it when a person will review and tweak the result, and use the two routes above when the video should be produced without anyone opening an editor.</p>
+
+<h2 id="what-it-costs">What it costs</h2>
+<p>All of this is billed by usage from your wallet, on top of your plan.</p>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Item</th><th>Published rate</th><th class="num">8-second clip</th></tr></thead>
+<tbody>
+<tr><th>Agent Studio video, Veo3 Fast</th><td>$0.15 per second</td><td class="num">$1.20</td></tr>
+<tr><th>Agent Studio video, Veo3</th><td>$0.40 per second</td><td class="num">$3.20</td></tr>
+<tr><th>Workflow action</th><td>Premium action. Varies by model, resolution, length and audio</td><td class="num">Shown in-app</td></tr>
+</tbody>
+</table>
+</div>
+<p class="table-note">Per-second rates are from HighLevel's AI Product Pricing article, checked 14 November 2026. The workflow action's help article doesn't list its own rates.</p>
+<p>The arithmetic matters once you automate. A welcome video for every new lead at around $1.20 each is $120 for 100 leads. That can be worth it for a high-value service. For a low-priced offer with heavy lead volume it probably isn't.</p>
+
+<h2 id="where-its-worth-using">Where it's worth using</h2>
+<ul>
+<li><strong>A short branded welcome</strong> after a high-value form submission, using the contact's first name in the prompt.</li>
+<li><strong>Social content</strong> such as Reels and Shorts, produced by a Managed Agent on a schedule and reviewed before posting.</li>
+<li><strong>Promotional clips</strong> for an offer or event, with your Brand Board applied.</li>
+<li><strong>A business introduction</strong> video for a landing page.</li>
+</ul>
+
+<h2 id="honest-limits">Honest limits</h2>
+<ul>
+<li><strong>Clips are short.</strong> Eight seconds per generation, or up to 60 seconds for an assembled film. This is not a tool for explainer videos or testimonials.</li>
+<li><strong>Quality varies with the prompt.</strong> Generated video can get details wrong, especially text, hands and logos. Watch every video before a customer does, at least until you trust a prompt.</li>
+<li><strong>It isn't a real person.</strong> Don't present a generated presenter as a member of your team or a customer. Label AI-made content where your audience would expect it.</li>
+<li><strong>Costs scale with volume.</strong> Put a filter in front of the action so only the leads worth the spend trigger it.</li>
+</ul>
+<p>My suggestion: start with one workflow and one prompt, generate ten videos by hand, and look at them properly before you let it run unattended.</p>
+<aside class="b-cta" aria-label="Try the AI tools on your own leads">
+  <div class="b-cta-text">
+    <p class="b-cta-title">Try the AI tools on your own leads</p>
+    <p>The quickest way to judge HighLevel's AI is to point it at your own business for a week. The standard trial runs 14 days. AI usage, texts and calls are billed from your wallet even during a trial, so start small.</p>
+  </div>
+  <div class="b-cta-action">
+    <a class="btn btn-solid" href="https://www.gohighlevel.com/?fp_ref=highlevelminds" target="_blank" rel="sponsored noopener" data-track="cta" data-link="default" data-cta="aitrial" data-placement="article:highlevel-ai-video-generation">Start a 14-day HighLevel trial</a>
+    <p class="b-cta-note">I earn a commission if you sign up through this link. It doesn't change the price you pay.</p>
+  </div>
+</aside>
+<section class="b-faq"><h2 id="faq">Common questions</h2><details><summary>Can HighLevel AI agents generate videos?</summary><p>Yes. Managed Agents in Agent Studio can generate eight-second 16:9 videos, and a November 2026 changelog entry adds multi-shot films of up to 60 seconds with title cards, captions and end screens. Separately, a workflow action called AI Video Generation creates 4, 6 or 8 second clips.</p></details><details><summary>Which AI model does HighLevel use for video?</summary><p>HighLevel's help article says the AI Video Generation workflow action uses Google's Veo 3.1 models, with a Quality option and a Fast option.</p></details><details><summary>How much does AI video cost in HighLevel?</summary><p>It is billed by usage. HighLevel's AI pricing article lists Agent Studio video at $0.15 per second for Veo3 Fast and $0.40 per second for Veo3. The workflow action is a premium action billed per execution, including test runs, and its cost varies with model, resolution, duration and audio.</p></details><details><summary>Can the videos be personalised for each contact?</summary><p>Yes. The workflow action accepts contact fields and other custom values in the prompt, and reference images can come from a custom value URL.</p></details><details><summary>Are the generated video links private?</summary><p>No. HighLevel says generated video URLs are public, so anyone with the link can view the video. Keep sensitive details out of the prompt.</p></details></section>
+<section class="b-sources"><h2 id="sources">Sources</h2><p>Facts in this guide were checked on 14 November 2026 against these pages. HighLevel changes prices, limits and menus often, so treat the official pages as the final word.</p><ul><li><a href="https://help.gohighlevel.com/support/solutions/articles/155000009513-workflow-action-ai-video-generation" target="_blank" rel="noopener">Workflow Action: AI Video Generation (help centre)</a></li><li><a href="https://help.gohighlevel.com/support/solutions/articles/155000007931-how-to-setup-and-use-managed-agents-in-agent-studio" target="_blank" rel="noopener">How to Setup and Use Managed Agents in Agent Studio</a></li><li><a href="https://ideas.gohighlevel.com/changelog" target="_blank" rel="noopener">HighLevel changelog (Multi-Shot Film Generation)</a></li><li><a href="https://help.gohighlevel.com/support/solutions/articles/155000006652-ai-product-pricing-update-ai-employee-unlimited-plans-at-97-month" target="_blank" rel="noopener">AI Product Pricing (help centre)</a></li><li><a href="https://www.gohighlevel.com/post/levelup-day-2026-the-next-evolution-of-highlevel-features-and-enhancements" target="_blank" rel="noopener">LevelUp Day 2026 feature post</a></li></ul></section>
+      </div>
+      <aside class="b-author" aria-label="About the author">
+        <span class="b-author-mark" aria-hidden="true">S</span>
+        <div>
+          <p class="b-author-name">Written by Saad Bin Yousaf</p>
+          <p>I build HighLevel systems for agencies and service businesses: CRM setups, white-labelled portals, automations and custom JavaScript. If you'd rather have your account set up for you, <a href="/#contact">get in touch</a>.</p>
+        </div>
+      </aside>
+      <section class="b-next" aria-labelledby="next-highlevel-ai-video-generation"><h2 id="next-highlevel-ai-video-generation" class="b-sub-title">Where to go next</h2><ul><li><a href="/blog/managed-agents-agent-studio/"><span>How Managed Agents work and what a run costs</span><b>Managed Agents and Agent Studio</b></a></li><li><a href="/blog/highlevel-workflow-maps/"><span>The other headline release: a map of every automation</span><b>Workflow Maps explained</b></a></li></ul></section>
+    </div>
+    <aside class="b-toc" aria-label="On this page">
+      <p class="b-toc-head">On this page</p>
+      <ol data-toc>
+        <li><a href="#what-changed">What changed</a></li>
+        <li><a href="#route-1-the-workflow-action">Route 1: the AI Video Generation workflow action</a></li>
+        <li><a href="#route-2-managed-agents">Route 2: Managed Agents that make videos</a></li>
+        <li><a href="#route-3-creator-studio">Route 3: Creator Studio</a></li>
+        <li><a href="#what-it-costs">What it costs</a></li>
+        <li><a href="#where-its-worth-using">Where it's worth using</a></li>
+        <li><a href="#honest-limits">Honest limits</a></li>
+        <li><a href="#faq">Common questions</a></li>
+        <li><a href="#sources">Sources</a></li>
+      </ol>
+    </aside>
+  </div>
+</article>
+<section class="wrap b-related" aria-labelledby="related-highlevel-ai-video-generation">
+  <h2 id="related-highlevel-ai-video-generation" class="b-section-title">Keep reading</h2>
+  <div class="b-shots">
+    <article class="b-shot" data-card data-category="What's New" data-stage="Growing" data-order="4" data-published="2026-11-14" data-minutes="5" data-search="highlevel workflow maps: see every automation in one map highlevel's new workflow maps draws a live map of every workflow and what it touches. what it shows, who gets it, and five jobs it makes easier. a live map of every workflow, tag, form and calendar in an account, and how they connect. what's new growing workflow maps workflow map automation mind map mind map automations map workflow canvas contact journey workflow errors cleanup levelup 2026 visual workflows 2d 3d founder plan workflows the short version the problem it solves what the map shows where to find it and who gets it five jobs it makes easier what it doesn't do is it a reason to upgrade? common questions sources">
+  <a class="b-shot-media" href="/blog/highlevel-workflow-maps/" aria-label="HighLevel Workflow Maps: See Every Automation in One Map">
+    <svg viewBox="0 0 400 300" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"><defs><radialGradient id="g-highlevel-workflow-maps" cx="0.500" cy="0.500" r="0.700"><stop offset="0" stop-color="#5fd4c8" stop-opacity=".14"/><stop offset="1" stop-color="#5fd4c8" stop-opacity="0"/></radialGradient></defs><rect width="400" height="300" fill="#0a1516"/><rect width="400" height="300" fill="url(#g-highlevel-workflow-maps)"/><path d="M82 81L200 145" stroke="#5fd4c8" stroke-opacity="0.55" stroke-width="1.500"/><path d="M200 145L318 81" stroke="#5fd4c8" stroke-opacity="0.55" stroke-width="1.500"/><path d="M200 145L318 213" stroke="#5fd4c8" stroke-opacity="0.55" stroke-width="1.500"/><path d="M72 163L82 81" stroke="#1f3b3e" stroke-opacity="1" stroke-width="1.500" stroke-dasharray="3 4"/><path d="M72 235L200 145" stroke="#1f3b3e" stroke-opacity="1" stroke-width="1.500" stroke-dasharray="3 4"/><path d="M192 239L200 145" stroke="#1f3b3e" stroke-opacity="1" stroke-width="1.500" stroke-dasharray="3 4"/><rect x="30" y="64" width="104" height="34" rx="9" fill="#0f1e20" stroke="#1f3b3e"/><text x="82" y="85.5" font-size="11.5" font-weight="600" fill="#e9ecf1" text-anchor="middle" font-family="Satoshi, system-ui, sans-serif">New lead</text><rect x="148" y="128" width="104" height="34" rx="9" fill="rgba(95,212,200,0.16)" stroke="#5fd4c8"/><text x="200" y="149.5" font-size="11.5" font-weight="600" fill="#e9ecf1" text-anchor="middle" font-family="Satoshi, system-ui, sans-serif">Booking</text><rect x="266" y="64" width="104" height="34" rx="9" fill="#0f1e20" stroke="#1f3b3e"/><text x="318" y="85.5" font-size="11.5" font-weight="600" fill="#e9ecf1" text-anchor="middle" font-family="Satoshi, system-ui, sans-serif">Reminders</text><circle cx="366" cy="66" r="9" fill="#ff7b7b"/><text x="366" y="70.5" font-size="12" font-weight="700" fill="#1a0606" text-anchor="middle" font-family="Satoshi, system-ui, sans-serif">!</text><rect x="266" y="196" width="104" height="34" rx="9" fill="#0f1e20" stroke="#1f3b3e"/><text x="318" y="217.5" font-size="11.5" font-weight="600" fill="#e9ecf1" text-anchor="middle" font-family="Satoshi, system-ui, sans-serif">Review request</text><rect x="30" y="150" width="84" height="26" rx="13" fill="#0a1516" stroke="#1f3b3e"/><text x="72" y="167" font-size="10.5" font-weight="500" fill="#5fd4c8" text-anchor="middle" font-family="Satoshi, system-ui, sans-serif">Form</text><rect x="30" y="222" width="84" height="26" rx="13" fill="#0a1516" stroke="#1f3b3e"/><text x="72" y="239" font-size="10.5" font-weight="500" fill="#5fd4c8" text-anchor="middle" font-family="Satoshi, system-ui, sans-serif">Tag: booked</text><rect x="150" y="226" width="84" height="26" rx="13" fill="#0a1516" stroke="#1f3b3e"/><text x="192" y="243" font-size="10.5" font-weight="500" fill="#5fd4c8" text-anchor="middle" font-family="Satoshi, system-ui, sans-serif">Calendar</text></svg>
+    <span class="b-shot-label">What's New</span>
+    <span class="b-shot-over" aria-hidden="true"><span class="b-shot-teaser">A live map of every workflow, tag, form and calendar in an account, and how they connect.</span><span class="b-shot-go">Read the guide</span></span>
+  </a>
+  <div class="b-shot-info">
+    <h3 class="b-shot-title"><a href="/blog/highlevel-workflow-maps/">HighLevel Workflow Maps: See Every Automation in One Map</a></h3>
+    <div class="b-shot-meta">
+      <span class="b-shot-by"><span class="b-ava" aria-hidden="true">S</span>Saad Bin Yousaf</span>
+      <span class="b-shot-stats"><span title="Reading time"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6.200" fill="none" stroke="currentColor" stroke-width="1.500"/><path d="M8 4.800V8l2.200 1.400" stroke="currentColor" stroke-width="1.500" fill="none" stroke-linecap="round"/></svg>5 min</span><span><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><path d="M5.500 4.500h8M5.500 8h8M5.500 11.500h8" stroke="currentColor" stroke-width="1.500" stroke-linecap="round"/><circle cx="2.600" cy="4.500" r="1" fill="currentColor"/><circle cx="2.600" cy="8" r="1" fill="currentColor"/><circle cx="2.600" cy="11.500" r="1" fill="currentColor"/></svg>5 practical uses</span></span>
+    </div>
+  </div>
+</article>
+<article class="b-shot" data-card data-category="What's New" data-stage="Exploring" data-order="14" data-published="2026-11-14" data-minutes="4" data-search="highlevel levelup 2026: the updates worth your attention highlevel announced a long list of features at levelup 2026. the ones that matter for most accounts, sorted by whether you can use them today. the levelup 2026 releases that matter, sorted by what's usable today, what's in labs and what's still private beta. what's new exploring levelup 2026 level up highlevel new features gohighlevel updates new features 2026 what's new workflow maps a/b testing creator studio meeting room industries field services custom navigation labs beta router loop how to read a highlevel release usable today switch on in labs private beta founder plan what i'd do this week common questions sources">
+  <a class="b-shot-media" href="/blog/highlevel-levelup-2026-updates/" aria-label="HighLevel LevelUp 2026: The Updates Worth Your Attention">
+    <svg viewBox="0 0 400 300" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"><defs><radialGradient id="g-highlevel-levelup-2026-updates" cx="0.500" cy="0.500" r="0.700"><stop offset="0" stop-color="#8fb4ff" stop-opacity=".14"/><stop offset="1" stop-color="#8fb4ff" stop-opacity="0"/></radialGradient></defs><rect width="400" height="300" fill="#0d1220"/><rect width="400" height="300" fill="url(#g-highlevel-levelup-2026-updates)"/><text x="28" y="76" font-size="15" font-weight="700" fill="#ffffff" text-anchor="start" font-family="Satoshi, system-ui, sans-serif">LevelUp 2026 highlights</text><rect x="28" y="94" width="166" height="46" rx="11" fill="rgba(143,180,255,0.16)" stroke="#8fb4ff"/><circle cx="44" cy="117" r="3.500" fill="#8fb4ff"/><text x="56" y="114" font-size="12" font-weight="600" fill="#e9ecf1" text-anchor="start" font-family="Satoshi, system-ui, sans-serif">Workflow Maps</text><text x="56" y="129" font-size="10.5" font-weight="500" fill="#9aa0ab" text-anchor="start" font-family="Satoshi, system-ui, sans-serif">Founder plan</text><rect x="206" y="94" width="166" height="46" rx="11" fill="#141b2e" stroke="#2a3552"/><circle cx="222" cy="117" r="3.500" fill="#8fb4ff"/><text x="234" y="114" font-size="12" font-weight="600" fill="#e9ecf1" text-anchor="start" font-family="Satoshi, system-ui, sans-serif">Workflow A/B tests</text><text x="234" y="129" font-size="10.5" font-weight="500" fill="#9aa0ab" text-anchor="start" font-family="Satoshi, system-ui, sans-serif">Up to 10 paths</text><rect x="28" y="152" width="166" height="46" rx="11" fill="#141b2e" stroke="#2a3552"/><circle cx="44" cy="175" r="3.500" fill="#8fb4ff"/><text x="56" y="172" font-size="12" font-weight="600" fill="#e9ecf1" text-anchor="start" font-family="Satoshi, system-ui, sans-serif">Creator Studio</text><text x="56" y="187" font-size="10.5" font-weight="500" fill="#9aa0ab" text-anchor="start" font-family="Satoshi, system-ui, sans-serif">Labs beta</text><rect x="206" y="152" width="166" height="46" rx="11" fill="#141b2e" stroke="#2a3552"/><circle cx="222" cy="175" r="3.500" fill="#8fb4ff"/><text x="234" y="172" font-size="12" font-weight="600" fill="#e9ecf1" text-anchor="start" font-family="Satoshi, system-ui, sans-serif">Meeting Room</text><text x="234" y="187" font-size="10.5" font-weight="500" fill="#9aa0ab" text-anchor="start" font-family="Satoshi, system-ui, sans-serif">Built-in video calls</text><rect x="28" y="210" width="166" height="46" rx="11" fill="#141b2e" stroke="#2a3552"/><circle cx="44" cy="233" r="3.500" fill="#8fb4ff"/><text x="56" y="230" font-size="12" font-weight="600" fill="#e9ecf1" text-anchor="start" font-family="Satoshi, system-ui, sans-serif">Ask AI upgrades</text><text x="56" y="245" font-size="10.5" font-weight="500" fill="#9aa0ab" text-anchor="start" font-family="Satoshi, system-ui, sans-serif">Docs, projects, SMS</text><rect x="206" y="210" width="166" height="46" rx="11" fill="#141b2e" stroke="#2a3552"/><circle cx="222" cy="233" r="3.500" fill="#8fb4ff"/><text x="234" y="230" font-size="12" font-weight="600" fill="#e9ecf1" text-anchor="start" font-family="Satoshi, system-ui, sans-serif">Industries</text><text x="234" y="245" font-size="10.5" font-weight="500" fill="#9aa0ab" text-anchor="start" font-family="Satoshi, system-ui, sans-serif">Private beta</text></svg>
+    <span class="b-shot-label">What's New</span>
+    <span class="b-shot-over" aria-hidden="true"><span class="b-shot-teaser">The LevelUp 2026 releases that matter, sorted by what's usable today, what's in Labs and what's still private beta.</span><span class="b-shot-go">Read the guide</span></span>
+  </a>
+  <div class="b-shot-info">
+    <h3 class="b-shot-title"><a href="/blog/highlevel-levelup-2026-updates/">HighLevel LevelUp 2026: The Updates Worth Your Attention</a></h3>
+    <div class="b-shot-meta">
+      <span class="b-shot-by"><span class="b-ava" aria-hidden="true">S</span>Saad Bin Yousaf</span>
+      <span class="b-shot-stats"><span title="Reading time"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6.200" fill="none" stroke="currentColor" stroke-width="1.500"/><path d="M8 4.800V8l2.200 1.400" stroke="currentColor" stroke-width="1.500" fill="none" stroke-linecap="round"/></svg>4 min</span><span><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><path d="M5.500 4.500h8M5.500 8h8M5.500 11.500h8" stroke="currentColor" stroke-width="1.500" stroke-linecap="round"/><circle cx="2.600" cy="4.500" r="1" fill="currentColor"/><circle cx="2.600" cy="8" r="1" fill="currentColor"/><circle cx="2.600" cy="11.500" r="1" fill="currentColor"/></svg>27 updates sorted</span></span>
+    </div>
+  </div>
+</article>
+<article class="b-shot" data-card data-category="Getting Started" data-stage="Exploring" data-order="1" data-published="2026-11-13" data-minutes="10" data-search="what is gohighlevel? a complete beginner's guide what highlevel does, who it's built for, how its tools fit together, what it costs and when a different tool is the better choice. what highlevel replaces, who it suits, and an honest list of reasons to pick something else. getting started exploring what is gohighlevel highlevel ghl crm beginner review features sub-accounts white label is gohighlevel worth it workflows automation pipelines calendars agencies the short answer who highlevel is built for the main tools, and what each one does how the pieces work together one lead, start to finish what it costs, briefly where highlevel is strong where it falls short when highlevel may not be the right choice should you try it? sources">
+  <a class="b-shot-media" href="/blog/what-is-gohighlevel/" aria-label="What Is GoHighLevel? A Complete Beginner's Guide">
+    <svg viewBox="0 0 400 300" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"><rect width="400" height="300" fill="#0d1220"/><path d="M0 0H400V300H0z" fill="url(#g-hub)" opacity=".9"/><defs><radialGradient id="g-hub" cx="0.500" cy="0.500" r="0.700"><stop offset="0" stop-color="#8fb4ff" stop-opacity=".14"/><stop offset="1" stop-color="#8fb4ff" stop-opacity="0"/></radialGradient></defs><path d="M74 80L200 150" stroke="#2a3552" stroke-width="1.500" stroke-dasharray="3 4"/><path d="M326 80L200 150" stroke="#2a3552" stroke-width="1.500" stroke-dasharray="3 4"/><path d="M62 150L200 150" stroke="#2a3552" stroke-width="1.500" stroke-dasharray="3 4"/><path d="M338 150L200 150" stroke="#2a3552" stroke-width="1.500" stroke-dasharray="3 4"/><path d="M74 226L200 150" stroke="#2a3552" stroke-width="1.500" stroke-dasharray="3 4"/><path d="M326 226L200 150" stroke="#2a3552" stroke-width="1.500" stroke-dasharray="3 4"/><rect x="26" y="60" width="96" height="40" rx="10" fill="#141b2e" stroke="#2a3552"/><circle cx="46" cy="77" r="4" fill="#8fb4ff"/><path d="M39 88a7 6 0 0 1 14 0z" fill="#8fb4ff"/><text x="64" y="85" font-size="12.500" font-weight="600" fill="#e8ebf2" font-family="Satoshi, system-ui, sans-serif">Contacts</text><rect x="278" y="60" width="96" height="40" rx="10" fill="#141b2e" stroke="#2a3552"/><path d="M290 73h16a2 2 0 0 1 2 2v9a2 2 0 0 1 -2 2h-9l-5 4v-4h-2a2 2 0 0 1 -2 -2v-9a2 2 0 0 1 2 -2z" fill="#8fb4ff"/><text x="316" y="85" font-size="12.500" font-weight="600" fill="#e8ebf2" font-family="Satoshi, system-ui, sans-serif">Inbox</text><rect x="14" y="130" width="96" height="40" rx="10" fill="#141b2e" stroke="#2a3552"/><rect x="26" y="143" width="16" height="15" rx="3" fill="none" stroke="#8fb4ff" stroke-width="2"/><path d="M26 148h16" stroke="#8fb4ff" stroke-width="2"/><rect x="30" y="151" width="3" height="3" fill="#8fb4ff"/><text x="52" y="155" font-size="12.500" font-weight="600" fill="#e8ebf2" font-family="Satoshi, system-ui, sans-serif">Calendars</text><rect x="290" y="130" width="96" height="40" rx="10" fill="#141b2e" stroke="#2a3552"/><circle cx="304" cy="150" r="3" fill="#8fb4ff"/><circle cx="316" cy="144" r="3" fill="#8fb4ff"/><circle cx="316" cy="156" r="3" fill="#8fb4ff"/><path d="M306 149L314 145M306 151L314 155" stroke="#8fb4ff" stroke-width="1.600"/><text x="328" y="155" font-size="12.500" font-weight="600" fill="#e8ebf2" font-family="Satoshi, system-ui, sans-serif">Workflows</text><rect x="26" y="206" width="96" height="40" rx="10" fill="#141b2e" stroke="#2a3552"/><path d="M37 219h18l-7 8v7l-4 2v-9z" fill="#8fb4ff"/><text x="64" y="231" font-size="12.500" font-weight="600" fill="#e8ebf2" font-family="Satoshi, system-ui, sans-serif">Funnels</text><rect x="278" y="206" width="96" height="40" rx="10" fill="#141b2e" stroke="#2a3552"/><path d="M298 217l2.700 5.600 6.100 .9 -4.400 4.300 1 6.100 -5.400 -2.900 -5.400 2.900 1 -6.100 -4.400 -4.300 6.100 -.9z" fill="#8fb4ff"/><text x="316" y="231" font-size="12.500" font-weight="600" fill="#e8ebf2" font-family="Satoshi, system-ui, sans-serif">Reviews</text><rect x="136" y="120" width="128" height="60" rx="16" fill="rgba(143,180,255,0.16)" stroke="#8fb4ff" stroke-width="1.500"/><text x="200" y="147" text-anchor="middle" font-size="16" font-weight="700" fill="#ffffff" font-family="Satoshi, system-ui, sans-serif">One login</text><text x="200" y="165" text-anchor="middle" font-size="11" fill="#8fb4ff" font-family="Satoshi, system-ui, sans-serif">all tools connected</text></svg>
+    <span class="b-shot-label">Getting Started</span>
+    <span class="b-shot-over" aria-hidden="true"><span class="b-shot-teaser">What HighLevel replaces, who it suits, and an honest list of reasons to pick something else.</span><span class="b-shot-go">Read the guide</span></span>
+  </a>
+  <div class="b-shot-info">
+    <h3 class="b-shot-title"><a href="/blog/what-is-gohighlevel/">What Is GoHighLevel? A Complete Beginner's Guide</a></h3>
+    <div class="b-shot-meta">
+      <span class="b-shot-by"><span class="b-ava" aria-hidden="true">S</span>Saad Bin Yousaf</span>
+      <span class="b-shot-stats"><span title="Reading time"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6.200" fill="none" stroke="currentColor" stroke-width="1.500"/><path d="M8 4.800V8l2.200 1.400" stroke="currentColor" stroke-width="1.500" fill="none" stroke-linecap="round"/></svg>10 min</span><span><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><path d="M5.500 4.500h8M5.500 8h8M5.500 11.500h8" stroke="currentColor" stroke-width="1.500" stroke-linecap="round"/><circle cx="2.600" cy="4.500" r="1" fill="currentColor"/><circle cx="2.600" cy="8" r="1" fill="currentColor"/><circle cx="2.600" cy="11.500" r="1" fill="currentColor"/></svg>11 tools explained</span></span>
+    </div>
+  </div>
+</article>
+  </div>
+</section>
+</main>
+<footer class="ft">
+  <div class="ft-inner ft-top">
+    <div class="ft-brand">
+      <a href="/" class="ft-logo" aria-label="SBY.DEV home"><span class="ft-mark" aria-hidden="true">S</span><span class="ft-word">SBY<span>.DEV</span></span></a>
+      <p class="ft-tag">HighLevel systems, automations and custom builds that turn traffic into revenue for agencies and their clients.</p>
+      <span class="ft-status"><i></i> Available for new projects</span>
+      <a class="ft-mail" href="mailto:saadbinyousaf.dev@gmail.com"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>Email me</a>
+    </div>
+    <nav class="ft-cols" aria-label="Footer">
+      <div class="ft-col">
+        <h3>Portfolio</h3>
+        <ul>
+          <li><a href="/#about">About</a></li>
+          <li><a href="/#services">Services</a></li>
+          <li><a href="/#portals">Login portals</a></li>
+          <li><a href="/#work">Websites &amp; funnels</a></li>
+          <li><a href="/#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h3>Free tools</h3>
+        <ul>
+          <li><a href="/tools/ghl-logo-generator/">Logo CSS Generator</a></li>
+          <li><a href="/tools/sms-segment-calculator/">SMS Segment Calculator</a></li>
+          <li><a href="/tools/a2p-10dlc-generator/">A2P 10DLC Kit</a></li>
+          <li><a href="/tools/merge-fields/">Merge Field Previewer</a></li>
+          <li><a href="/tools/">All tools</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h3>Resources</h3>
+        <ul>
+          <li><a href="/blog/">HighLevel guides</a></li>
+          <li><a href="/integrations/">Integrations</a></li>
+          <li><a href="/tools/utm-builder/">UTM Link Builder</a></li>
+          <li><a href="/tools/review-link-generator/">Review Link Generator</a></li>
+          <li><a href="/privacy.html">Privacy</a></li>
+          <li><a href="/disclosure/">Affiliate disclosure</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h3>HighLevel</h3>
+        <ul>
+          <li><a class="ft-hl" href="https://founder.gohighlevel.com/?fp_ref=highlevelminds" target="_blank" rel="sponsored noopener">Upgrade Your&nbsp;HighLevel&#8288;<span class="ft-ext" aria-hidden="true">↗</span></a></li>
+          <li><a class="ft-hl" href="https://www.gohighlevel.com/highlevel-bootcamp?fp_ref=highlevelminds" target="_blank" rel="sponsored noopener">Start 30-day free&nbsp;trial&#8288;<span class="ft-ext" aria-hidden="true">↗</span></a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <div class="ft-bottom">
+    <div class="ft-inner">
+      <div class="ft-bar">
+        <div class="ft-legal"><span>© <span data-year>2026</span> Saad Bin Yousaf</span><a href="/privacy.html">Privacy</a><span>Built in Karachi</span></div>
+        <a class="ft-top-link" href="#">Back to top <span aria-hidden="true">↑</span></a>
+      </div>
+      <p class="ft-note">Independent tools and guides by Saad Bin Yousaf. Not affiliated with, endorsed by, or sponsored by HighLevel Inc. HighLevel and GoHighLevel are trademarks of their respective owner. HighLevel signup links in this footer and in the guides are affiliate links: I earn a commission if you sign up through them. Tool output is guidance, not legal advice — always review it for your business.</p>
+    </div>
+  </div>
+</footer>
+<div class="b-gs" data-widget>
+  <button class="b-gs-tab" type="button" aria-expanded="false" aria-controls="b-gs-panel">
+    <svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true" focusable="false"><path d="M10 2.500v15M2.500 10h15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    <span>Get started</span>
+  </button>
+  <section id="b-gs-panel" class="b-gs-panel" role="dialog" aria-labelledby="b-gs-title" hidden>
+    <div class="b-gs-head">
+      <h2 id="b-gs-title">Ready to try HighLevel?</h2>
+      <button class="b-gs-close" type="button" aria-label="Close">
+        <svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true" focusable="false"><path d="M5 5l10 10M15 5L5 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+    <p class="b-gs-intro">Pick the door that matches where you are. Each one opens HighLevel's own site in a new tab.</p>
+    <div class="b-gs-options">
+      <a class="b-gs-option" href="https://www.gohighlevel.com/highlevel-bootcamp?fp_ref=highlevelminds" target="_blank" rel="sponsored noopener" data-track="cta" data-link="bootcamp" data-cta="bootcamp" data-placement="widget" data-track="widget-choice">
+        <span class="b-gs-option-title">I'm new and want a guided start</span>
+        <span class="b-gs-option-body">30-day trial with a live one-hour setup Bootcamp</span>
+      </a>
+      <a class="b-gs-option" href="https://www.gohighlevel.com/pricing?fp_ref=highlevelminds" target="_blank" rel="sponsored noopener" data-track="cta" data-link="pricing" data-cta="pricing" data-placement="widget" data-track="widget-choice">
+        <span class="b-gs-option-title">I'm comparing plans</span>
+        <span class="b-gs-option-body">Current Starter, Unlimited and Founder pricing</span>
+      </a>
+      <a class="b-gs-option" href="https://app.gohighlevel.com/offers/affiliate-upgrade?fp_ref=highlevelminds" target="_blank" rel="sponsored noopener" data-track="cta" data-link="upgrade" data-cta="upgrade" data-placement="widget" data-track="widget-choice">
+        <span class="b-gs-option-title">I already have an account</span>
+        <span class="b-gs-option-body">Upgrade options for existing accounts</span>
+      </a>
+    </div>
+    <a class="b-gs-secondary" href="/blog/gohighlevel-pricing-guide/" data-track="widget-secondary">Not sure yet? Read the pricing guide first</a>
+    <p class="b-gs-note">I earn a commission if you sign up through these links. It doesn't change the price you pay.</p>
+  </section>
+</div>
+<script src="/tools/assets/tools.js?v=88838c2a"></script>
+<script src="/js/ads.js?v=88838c2a"></script>
+<script src="/blog/assets/blog.js?v=88838c2a"></script>
+</body>
+</html>

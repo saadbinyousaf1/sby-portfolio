@@ -87,11 +87,99 @@ function withHeadingIds(html) {
 const THEMES = {
   hub: { bg: "#0d1220", panel: "#141b2e", line: "#2a3552", hi: "#8fb4ff", soft: "rgba(143,180,255,0.16)" },
   plans: { bg: "#0e140b", panel: "#151d11", line: "#2c3a22", hi: "#aac86b", soft: "rgba(170,200,107,0.16)" },
-  setup: { bg: "#17120a", panel: "#1f180e", line: "#3d3020", hi: "#f0b35a", soft: "rgba(240,179,90,0.16)" }
+  setup: { bg: "#17120a", panel: "#1f180e", line: "#3d3020", hi: "#f0b35a", soft: "rgba(240,179,90,0.16)" },
+  violet: { bg: "#120f1f", panel: "#1a162c", line: "#342c55", hi: "#b79cff", soft: "rgba(183,156,255,0.16)" },
+  teal: { bg: "#0a1516", panel: "#0f1e20", line: "#1f3b3e", hi: "#5fd4c8", soft: "rgba(95,212,200,0.16)" },
+  rose: { bg: "#1a0e12", panel: "#24141a", line: "#47262f", hi: "#ff8fa6", soft: "rgba(255,143,166,0.16)" }
 };
+THEMES.blue = THEMES.hub;
+THEMES.lime = THEMES.plans;
+THEMES.amber = THEMES.setup;
 
 // © https://saadbinyousaf.dev/ © //
-function thumbnail(kind) {
+function thumbnail(a) {
+  const d = a.thumbData;
+  if (!d) return thumbLegacy(a.thumb);
+  const t = THEMES[a.theme] || THEMES.plans;
+  const id = `g-${a.slug}`;
+  const font = `font-family="Satoshi, system-ui, sans-serif"`;
+  const T = (x, y, txt, o = {}) =>
+    `<text x="${x}" y="${y}" font-size="${o.size || 12.500}" font-weight="${o.weight || 500}" fill="${o.fill || "#e9ecf1"}" text-anchor="${o.anchor || "start"}" ${font}>${esc(txt)}</text>`;
+  const open = `<svg viewBox="0 0 400 300" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"><defs><radialGradient id="${id}" cx="0.500" cy="0.500" r="0.700"><stop offset="0" stop-color="${t.hi}" stop-opacity=".14"/><stop offset="1" stop-color="${t.hi}" stop-opacity="0"/></radialGradient></defs><rect width="400" height="300" fill="${t.bg}"/><rect width="400" height="300" fill="url(#${id})"/>`;
+  let inner = "";
+  if (a.thumb === "map") {
+    const wf = d.workflows.map((w, i) => ({ ...w, ...[{ x: 30, y: 64 }, { x: 148, y: 128 }, { x: 266, y: 64 }, { x: 266, y: 196 }][i] }));
+    const as = d.assets.map((w, i) => ({ ...w, ...[{ x: 30, y: 150 }, { x: 30, y: 222 }, { x: 150, y: 226 }][i] }));
+    const c = (n, w, h) => [n.x + w / 2, n.y + h / 2];
+    const line = (p, q, dash) => `<path d="M${p[0]} ${p[1]}L${q[0]} ${q[1]}" stroke="${dash ? t.line : t.hi}" stroke-opacity="${dash ? 1 : 0.55}" stroke-width="1.500"${dash ? ' stroke-dasharray="3 4"' : ""}/>`;
+    inner += line(c(wf[0], 104, 34), c(wf[1], 104, 34)) + line(c(wf[1], 104, 34), c(wf[2], 104, 34)) + line(c(wf[1], 104, 34), c(wf[3], 104, 34));
+    inner += line(c(as[0], 84, 26), c(wf[0], 104, 34), 1) + line(c(as[1], 84, 26), c(wf[1], 104, 34), 1) + line(c(as[2], 84, 26), c(wf[1], 104, 34), 1);
+    inner += wf.map((w) => `<rect x="${w.x}" y="${w.y}" width="104" height="34" rx="9" fill="${w.hot ? t.soft : t.panel}" stroke="${w.hot ? t.hi : t.line}"/>${T(w.x + 52, w.y + 21.500, w.l, { size: 11.500, weight: 600, anchor: "middle" })}${w.err ? `<circle cx="${w.x + 100}" cy="${w.y + 2}" r="9" fill="#ff7b7b"/>${T(w.x + 100, w.y + 6.500, "!", { size: 12, weight: 700, fill: "#1a0606", anchor: "middle" })}` : ""}`).join("");
+    inner += as.map((w) => `<rect x="${w.x}" y="${w.y}" width="84" height="26" rx="13" fill="${t.bg}" stroke="${t.line}"/>${T(w.x + 42, w.y + 17, w.l, { size: 10.500, fill: t.hi, anchor: "middle" })}`).join("");
+  } else if (a.thumb === "video") {
+    inner += `<rect x="50" y="52" width="300" height="168" rx="14" fill="${t.panel}" stroke="${t.line}"/><circle cx="200" cy="128" r="27" fill="${t.soft}" stroke="${t.hi}" stroke-width="1.500"/><path d="M192 115l22 13-22 13z" fill="${t.hi}"/>`;
+    inner += `<rect x="290" y="64" width="48" height="22" rx="11" fill="${t.bg}" stroke="${t.line}"/>${T(314, 79, d.length, { size: 11, weight: 600, anchor: "middle" })}`;
+    inner += `<rect x="110" y="186" width="180" height="20" rx="6" fill="${t.bg}" opacity=".85"/>${T(200, 200, d.caption, { size: 11, anchor: "middle" })}`;
+    const w = (300 - (d.scenes.length - 1) * 7) / d.scenes.length;
+    inner += d.scenes.map((sc, i) => `<rect x="${50 + i * (w + 7)}" y="236" width="${w}" height="26" rx="7" fill="${i === 1 ? t.soft : t.panel}" stroke="${i === 1 ? t.hi : t.line}"/>${T(50 + i * (w + 7) + w / 2, 253, sc, { size: 10.500, anchor: "middle", fill: i === 1 ? t.hi : "#c9cdd6" })}`).join("");
+  } else if (a.thumb === "chat") {
+    let y = 58;
+    inner += d.bubbles
+      .map((b) => {
+        const h = b.lines.length * 17 + 15;
+        const w = Math.max(...b.lines.map((l) => l.length)) * 6.400 + 26;
+        const x = b.side === "r" ? 368 - w : 32;
+        const out = `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="12" fill="${b.side === "r" ? t.soft : t.panel}" stroke="${b.side === "r" ? t.hi : t.line}"/>${b.lines.map((l, i) => T(x + 13, y + 22 + i * 17, l, { size: 12, fill: b.side === "r" ? "#ffffff" : "#d9dde6" })).join("")}`;
+        y += h + 10;
+        return out;
+      })
+      .join("");
+  } else if (a.thumb === "voice") {
+    const bars = [14, 26, 40, 22, 52, 34, 18, 44, 28, 12];
+    inner += bars.map((h, i) => `<rect x="${44 + i * 11}" y="${116 - h / 2}" width="5" height="${h}" rx="2.500" fill="${t.hi}" opacity="${0.35 + (i % 3) * 0.2}"/><rect x="${250 + i * 11}" y="${116 - bars[9 - i] / 2}" width="5" height="${bars[9 - i]}" rx="2.500" fill="${t.hi}" opacity="${0.35 + (i % 3) * 0.2}"/>`).join("");
+    inner += `<circle cx="200" cy="116" r="36" fill="${t.soft}" stroke="${t.hi}" stroke-width="1.500"/><path d="M188 102c-2 0-4 2-4 4 0 14 12 26 26 26 2 0 4-2 4-4v-5l-8-3-3 4c-4-2-7-5-9-9l4-3-3-8z" fill="${t.hi}"/>`;
+    const cw = 108;
+    const sx = 200 - (d.chips.length * cw + (d.chips.length - 1) * 8) / 2;
+    inner += d.chips.map((c, i) => `<rect x="${sx + i * (cw + 8)}" y="182" width="${cw}" height="30" rx="15" fill="${t.panel}" stroke="${t.line}"/>${T(sx + i * (cw + 8) + cw / 2, 201.500, c, { size: 11, anchor: "middle" })}`).join("");
+    inner += T(200, 248, d.caption, { size: 12, fill: t.hi, anchor: "middle", weight: 600 });
+  } else if (a.thumb === "cards") {
+    inner += T(28, 76, d.title, { size: 15, weight: 700, fill: "#ffffff" });
+    inner += d.tiles
+      .map((tile, i) => {
+        const x = i % 2 ? 206 : 28;
+        const y = 94 + Math.floor(i / 2) * 58;
+        return `<rect x="${x}" y="${y}" width="166" height="46" rx="11" fill="${tile.hot ? t.soft : t.panel}" stroke="${tile.hot ? t.hi : t.line}"/><circle cx="${x + 16}" cy="${y + 23}" r="3.500" fill="${t.hi}"/>${T(x + 28, y + (tile.sub ? 20 : 27.500), tile.l, { size: 12, weight: 600 })}${tile.sub ? T(x + 28, y + 35, tile.sub, { size: 10.500, fill: "#9aa0ab" }) : ""}`;
+      })
+      .join("");
+  } else if (a.thumb === "plans") {
+    const n = d.plans.length;
+    const w = (356 - (n - 1) * 14) / n;
+    inner += d.plans
+      .map((p, i) => {
+        const x = 22 + i * (w + 14);
+        const cx = x + w / 2;
+        const y = p.hot ? 50 : 64;
+        const h = p.hot ? 204 : 178;
+        const top = y + (p.hot ? 32 : 26);
+        return `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="14" fill="${p.hot ? t.soft : t.panel}" stroke="${p.hot ? t.hi : t.line}" stroke-width="${p.hot ? 1.500 : 1}"/>${T(cx, top, p.name, { size: 12, weight: 600, fill: p.hot ? t.hi : "#a9afba", anchor: "middle" })}${T(cx, top + 40, p.price, { size: n > 2 ? 29 : 34, weight: 700, fill: "#ffffff", anchor: "middle" })}${T(cx, top + 57, p.sub, { size: 10.500, fill: "#8d939e", anchor: "middle" })}<path d="M${x + 16} ${top + 72}h${w - 32}" stroke="${t.line}"/>${[p.a, p.b].map((f, k) => `<circle cx="${x + 18}" cy="${top + 91 + k * 22}" r="3" fill="${t.hi}"/>${T(x + 27, top + 95 + k * 22, f, { size: 10.500, fill: "#dfe3ea" })}`).join("")}`;
+      })
+      .join("");
+    if (d.note) inner += T(200, 282, d.note, { size: 11.500, fill: "#8d939e", anchor: "middle" });
+  } else {
+    const done = d.rows.filter((r) => r[1]).length;
+    inner += `<rect x="40" y="48" width="320" height="236" rx="16" fill="${t.panel}" stroke="${t.line}"/><circle cx="60" cy="66" r="4" fill="${t.line}"/><circle cx="74" cy="66" r="4" fill="${t.line}"/><circle cx="88" cy="66" r="4" fill="${t.line}"/>${T(340, 70, d.title, { size: 11, fill: "#9aa0ab", anchor: "end" })}<path d="M40 82h320" stroke="${t.line}"/>${T(60, 104, `${done} of ${d.rows.length} done`, { size: 11, weight: 600, fill: t.hi })}<rect x="150" y="98" width="190" height="6" rx="3" fill="${t.bg}"/><rect x="150" y="98" width="${(190 * done) / d.rows.length}" height="6" rx="3" fill="${t.hi}"/>`;
+    inner += d.rows
+      .map(([label, ok], i) => {
+        const y = 128 + i * 25;
+        return `<circle cx="70" cy="${y}" r="8" fill="${ok ? t.hi : "none"}" stroke="${ok ? t.hi : "#6b7280"}" stroke-width="1.500"/>${ok ? `<path d="M66.500 ${y}l2.500 2.600 4.500 -5.200" stroke="${t.bg}" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>` : ""}${T(88, y + 4, label, { size: 12.500, weight: ok ? 500 : 600, fill: ok ? "#aab0bb" : "#ffffff" })}`;
+      })
+      .join("");
+  }
+  return `${open}${inner}</svg>`;
+}
+
+// © https://saadbinyousaf.dev/ © //
+function thumbLegacy(kind) {
   const t = THEMES[kind] || THEMES.plans;
   const font = `font-family="Satoshi, system-ui, sans-serif"`;
   const open = `<svg viewBox="0 0 400 300" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"><rect width="400" height="300" fill="${t.bg}"/><path d="M0 0H400V300H0z" fill="url(#g-${kind})" opacity=".9"/><defs><radialGradient id="g-${kind}" cx="0.500" cy="0.500" r="0.700"><stop offset="0" stop-color="${t.hi}" stop-opacity=".14"/><stop offset="1" stop-color="${t.hi}" stop-opacity="0"/></radialGradient></defs>`;
@@ -187,7 +275,7 @@ function card(a) {
   const search = esc([a.title, a.description, a.teaser, a.category, a.stage, ...(a.keywords || []), ...a.toc.map((t) => t.text)].join(" ").toLowerCase());
   return `<article class="b-shot" data-card data-category="${esc(a.category)}" data-stage="${esc(a.stage || "")}" data-order="${a.order || 99}" data-published="${a.published}" data-minutes="${a.minutes}" data-search="${search}">
   <a class="b-shot-media" href="${a.url}" aria-label="${esc(a.title)}">
-    ${thumbnail(a.thumb)}
+    ${thumbnail(a)}
     <span class="b-shot-label">${esc(a.category)}</span>
     <span class="b-shot-over" aria-hidden="true"><span class="b-shot-teaser">${esc(a.teaser || a.description)}</span><span class="b-shot-go">Read the guide</span></span>
   </a>

@@ -1,0 +1,129 @@
+<!--
+{
+  "slug": "missed-call-text-back",
+  "order": 12,
+  "title": "Missed Call Text Back in GoHighLevel: Setup, Wording and Fixes",
+  "shortTitle": "Missed call text back",
+  "seoTitle": "GoHighLevel Missed Call Text Back (2026): Setup, Message Templates and Fixes",
+  "description": "Turn missed calls into text conversations in HighLevel. Where the setting is, what to write, how to stop duplicate texts, and what to check when it doesn't send.",
+  "teaser": "Text every caller you couldn't answer, automatically. The setting, five message templates and the fixes when it won't send.",
+  "category": "Automations",
+  "stage": "Setting up",
+  "stat": "5 message templates",
+  "thumb": "chat",
+  "theme": "rose",
+  "thumbData": {
+    "bubbles": [
+      { "side": "l", "lines": ["Missed call, 2:14 pm"] },
+      { "side": "r", "lines": ["Sorry we missed you! This is", "Apex Plumbing. How can we help?"] },
+      { "side": "l", "lines": ["Kitchen tap is leaking"] },
+      { "side": "r", "lines": ["We can come tomorrow. Book here:"] }
+    ]
+  },
+  "published": "2026-11-14",
+  "updated": "2026-11-14",
+  "keywords": ["missed call text back", "mctb", "missed call", "text back", "missed call automation", "missed call sms", "call timeout", "voicemail", "duplicate texts", "missed call workflow", "a2p", "workflows", "automation", "phone"],
+  "faq": [
+    { "q": "Where is Missed Call Text Back in GoHighLevel?", "a": "In the sub-account, go to Settings, then Phone System, then the Voice tab. Open Voicemail & Missed Call Text Back and select Missed Call Text Back." },
+    { "q": "Why isn't my missed call text sending?", "a": "The usual causes are that the feature is switched off, the number isn't eligible to send SMS because A2P 10DLC registration or toll-free verification isn't complete, or the contact has opted out or has Do Not Disturb set." },
+    { "q": "Does it text someone every time they call?", "a": "Yes. HighLevel says every missed call triggers a text, so repeated calls in a short period each send one. Use the workflow recipe with a wait step or tags to prevent duplicates." },
+    { "q": "Does Missed Call Text Back cost extra?", "a": "The feature is included. Each text is charged at normal SMS rates and counts toward your messaging usage." },
+    { "q": "Which number does the text come from?", "a": "HighLevel tries the number the customer called first, then a number you've messaged that contact from before, then your default outbound number, then another eligible number in the location." }
+  ],
+  "next": [
+    { "slug": "voice-ai-setup", "reason": "Go a step further and have AI answer the call" },
+    { "slug": "conversation-ai-setup", "reason": "Let a bot handle the replies to your text" }
+  ],
+  "sources": [
+    { "label": "Where and How to Configure the Missed Call Text Back Feature", "url": "https://help.gohighlevel.com/support/solutions/articles/48001239140-where-and-how-to-configure-the-missed-call" },
+    { "label": "LC Phone Pricing & Billing Guide", "url": "https://help.gohighlevel.com/support/solutions/articles/48001223556-lc-phone-pricing-billing-guide" },
+    { "label": "What is A2P 10DLC: Brand and Campaign Registration", "url": "https://help.gohighlevel.com/support/solutions/articles/155000002380-us-phone-number-registrations" }
+  ]
+}
+-->
+<h2 id="what-it-does">What it does</h2>
+<p>When someone calls your HighLevel number and nobody answers within your ring timeout, HighLevel sends that caller a text automatically. Answered calls never trigger it.</p>
+<p>It is the simplest useful automation on the platform. A caller who would have hung up and tried a competitor gets a message from you seconds later, and the conversation carries on by text. It takes about ten minutes to set up.</p>
+
+<h2 id="before-you-start">Before you start</h2>
+<ul class="checklist">
+<li>A phone number in the sub-account that customers actually call</li>
+<li>That number is eligible to send SMS: A2P 10DLC registration for a US local number, or verification for a toll-free number</li>
+<li>Someone who will read and answer the replies</li>
+</ul>
+<p>Registration is the step people skip. Without an eligible number, no text is sent. The <a href="/blog/gohighlevel-setup-guide/#step-6-phone-number-and-text-registration">setup guide</a> explains how to register.</p>
+
+<h2 id="turn-it-on">Turn it on</h2>
+<ol>
+<li>In the sub-account, click <strong>Settings</strong>.</li>
+<li>Click <strong>Phone System</strong>, then the <strong>Voice</strong> tab.</li>
+<li>Open <strong>Voicemail &amp; Missed Call Text Back</strong> and select <strong>Missed Call Text Back</strong>.</li>
+<li>Tick <strong>Enable Missed Call Text Back</strong> and click <strong>Customize</strong>.</li>
+<li>Write your message in the <strong>Enter message</strong> field.</li>
+<li>Pick a number in the test field to preview it.</li>
+<li>Click <strong>Save</strong>.</li>
+</ol>
+
+<h2 id="set-the-ring-timeout">Set the ring timeout</h2>
+<p>The <strong>incoming call timeout</strong> slider decides how long the phone rings before the call counts as missed. HighLevel recommends 10 to 20 seconds.</p>
+<ul>
+<li>Too long, and the caller has given up before your text arrives.</li>
+<li>Too short, and you cut off calls your team would have answered.</li>
+</ul>
+<p>Fifteen seconds is a sensible start. You can also upload a custom voicemail greeting in the same place.</p>
+
+<h2 id="what-to-write">What to write</h2>
+<p>Three rules. Say who you are, because the caller may have rung several businesses. Ask a question, because a question gets a reply. Keep it under 160 characters so it's one text segment.</p>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Business</th><th>Message</th></tr></thead>
+<tbody>
+<tr><th>General</th><td>Hi, this is [Business]. Sorry we missed your call. How can we help?</td></tr>
+<tr><th>Home services</th><td>Sorry we missed you! This is [Business]. What do you need help with? Reply here and we'll get you booked in.</td></tr>
+<tr><th>Clinic</th><td>Thanks for calling [Clinic]. We're with a patient. Would you like to book, change or ask about an appointment?</td></tr>
+<tr><th>With a booking link</th><td>Hi, it's [Business]. We couldn't get to the phone. You can book a time here: [link] or reply with a question.</td></tr>
+<tr><th>After hours</th><td>Thanks for calling [Business]. We're closed until 8am. Tell us what you need and we'll reply first thing.</td></tr>
+</tbody>
+</table>
+</div>
+<p>You can insert custom values such as the contact's first name, but they only fill in if HighLevel already knows the caller. For a brand-new number the field is empty, so don't open with "Hi {{contact.first_name}}".</p>
+
+<h2 id="stop-duplicate-texts">Stop duplicate texts</h2>
+<p>By default every missed call sends a text. Someone who rings three times in two minutes gets three identical messages.</p>
+<p>HighLevel's fix is to use the <strong>Missed Call Text Back workflow recipe</strong> in Automation in place of the basic toggle, and customise it:</p>
+<ul>
+<li>Add a <strong>Wait</strong> step of about 20 minutes so a second call inside that window doesn't send again.</li>
+<li>Or use tags such as "1st call" and "2nd call" to send a different message, or none, on repeat calls.</li>
+</ul>
+<div class="callout warn"><strong>Use one method, not both</strong>If you build the workflow version, switch off the toggle in Phone System settings. Running both sends two texts for every missed call.</div>
+
+<h2 id="handle-the-replies">Handle the replies</h2>
+<p>The text only starts the conversation. Decide what happens next.</p>
+<ul>
+<li><strong>A person answers.</strong> Turn on mobile app notifications for whoever covers the inbox.</li>
+<li><strong>A workflow helps.</strong> Trigger on "Customer replied" to notify the team and create an opportunity in your pipeline.</li>
+<li><strong>A bot answers.</strong> <a href="/blog/conversation-ai-setup/">Conversation AI</a> can take the reply, answer questions and offer a booking slot.</li>
+</ul>
+
+<h2 id="when-it-doesnt-send">When it doesn't send</h2>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Check</th><th>Why</th></tr></thead>
+<tbody>
+<tr><th>Is the feature enabled and saved?</th><td>If it's off in Phone System settings, nothing sends</td></tr>
+<tr><th>Is the number SMS-eligible?</th><td>Unregistered local numbers and unverified toll-free numbers can't send. Number pools and call tracking numbers are the most likely to cause trouble</td></tr>
+<tr><th>Has the contact opted out?</th><td>Do Not Disturb and communication preferences are respected</td></tr>
+<tr><th>Did the call actually count as missed?</th><td>If it was answered, forwarded and picked up, or the timeout is very long, no text is triggered</td></tr>
+<tr><th>Look at the contact's conversation</th><td>A failed attempt is logged there with the reason</td></tr>
+</tbody>
+</table>
+</div>
+<p>The text may also come from a different number than the one called. HighLevel tries the called number first, then one you've used with that contact before, then your default outbound number.</p>
+
+<h2 id="what-it-costs">What it costs</h2>
+<p>The feature itself is included in every plan. Each text is billed at the normal SMS rate, about a cent per segment in the US once carrier fees are added. Fifty missed calls a month costs well under a dollar in texts.</p>
+
+<h2 id="a-note-on-consent">A note on consent</h2>
+<p>A single reply to someone who just called you is generally treated differently from marketing, but rules vary by country and this isn't legal advice. Keep the message about their call, don't add promotions, and honour STOP. Don't add missed callers to a marketing list unless they agree.</p>
+<p>Want the phone answered instead of texted back? A <a href="/blog/voice-ai-setup/">Voice AI agent</a> can pick up the calls you miss.</p>
+{{cta:trial}}

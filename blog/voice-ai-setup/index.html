@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- © https://saadbinyousaf.dev/ © -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>HighLevel Voice AI Setup (2026): AI Receptionist Step-by-Step</title>
+<meta name="description" content="Set up a HighLevel Voice AI agent that answers calls, books appointments and transfers to a person. Prompt, actions, testing, deployment and per-minute cost.">
+<link rel="canonical" href="https://saadbinyousaf.dev/blog/voice-ai-setup/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Saad Bin Yousaf — HighLevel guides">
+<meta property="og:title" content="HighLevel Voice AI Setup: Build an AI Receptionist That Answers Your Calls">
+<meta property="og:description" content="Set up a HighLevel Voice AI agent that answers calls, books appointments and transfers to a person. Prompt, actions, testing, deployment and per-minute cost.">
+<meta property="og:url" content="https://saadbinyousaf.dev/blog/voice-ai-setup/">
+<meta property="og:image" content="https://saadbinyousaf.dev/blog/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#07080a">
+<meta name="google-adsense-account" content="ca-pub-6774293162106493">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2307080a'/%3E%3Ctext x='50%25' y='56%25' text-anchor='middle' dominant-baseline='middle' font-family='Arial' font-weight='700' font-size='34' fill='%23aac86b'%3ES%3C/text%3E%3C/svg%3E">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6774293162106493" crossorigin="anonymous"></script>
+<link rel="preload" href="/assets/fonts/satoshi-500.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/satoshi-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/tools/assets/tools.css?v=88838c2a">
+<link rel="stylesheet" href="/css/footer.css?v=88838c2a">
+<link rel="stylesheet" href="/blog/assets/blog.css?v=88838c2a">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"HighLevel Voice AI Setup: Build an AI Receptionist That Answers Your Calls","description":"Set up a HighLevel Voice AI agent that answers calls, books appointments and transfers to a person. Prompt, actions, testing, deployment and per-minute cost.","datePublished":"2026-11-14","dateModified":"2026-11-14","articleSection":"AI","keywords":"voice ai, voice ai setup, ai receptionist, ai phone agent, ai voice agent, inbound calls, outbound calls, call transfer, book appointments, after hours, voice ai cost, per minute, ai agents, phone","wordCount":1198,"mainEntityOfPage":"https://saadbinyousaf.dev/blog/voice-ai-setup/","image":"https://saadbinyousaf.dev/blog/assets/og.png","author":{"@type":"Person","name":"Saad Bin Yousaf","url":"https://saadbinyousaf.dev/","jobTitle":"HighLevel systems builder"},"publisher":{"@type":"Person","name":"Saad Bin Yousaf","url":"https://saadbinyousaf.dev/","jobTitle":"HighLevel systems builder"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://saadbinyousaf.dev/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://saadbinyousaf.dev/blog/"},{"@type":"ListItem","position":3,"name":"HighLevel Voice AI Setup: Build an AI Receptionist That Answers Your Calls","item":"https://saadbinyousaf.dev/blog/voice-ai-setup/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What can a HighLevel Voice AI agent do?","acceptedAnswer":{"@type":"Answer","text":"It can answer calls, respond to common questions, collect caller details, update the contact record, book appointments, send an SMS, trigger a workflow, call a custom webhook and transfer the caller to a person or another agent."}},{"@type":"Question","name":"Can Voice AI make outbound calls?","acceptedAnswer":{"@type":"Answer","text":"Yes, but HighLevel says outbound calling requires approval and compliance setup first, including an AI disclosure and a verbal opt-out for speech-to-speech agents."}},{"@type":"Question","name":"How much does Voice AI cost per minute?","acceptedAnswer":{"@type":"Answer","text":"On pay-per-use, about $0.06 per minute with the cheapest voices (Voice Engine $0.045 plus text-to-speech $0.015), before language-model tokens and phone charges. The AI Employee Unlimited plan at $97 per sub-account covers unlimited Voice AI under fair use, but phone charges still apply."}},{"@type":"Question","name":"Do I need a HighLevel phone number?","acceptedAnswer":{"@type":"Answer","text":"You need an eligible number: LC Phone, Twilio or a Number Pool. You can buy one from the agent's Deploy tab."}},{"@type":"Question","name":"Can I test without calling a real number?","acceptedAnswer":{"@type":"Answer","text":"Yes. The Web Call test runs in your browser without a phone number, although call transfer doesn't run in that mode. Use a Phone Call test for the full path."}}]}</script>
+</head>
+<body class="b-page b-type-article">
+<a class="b-skip" href="#main">Skip to content</a>
+<div class="sh" id="nav">
+  <nav class="sh-bar" aria-label="Main">
+    <div class="sh-logoC">
+      <a href="/" class="sh-logo" aria-label="SBY.DEV home"><span class="sh-mark" aria-hidden="true">S</span><span class="sh-word">SBY<span>.DEV</span></span></a>
+      <button class="sh-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="shMenu"><i></i><i></i><i></i></button>
+    </div>
+    <div class="sh-links" id="shMenu">
+      <a class="sh-link" href="/#about">About</a>
+      <a class="sh-link" href="/#services">Services</a>
+      <a class="sh-link" href="/#portals">Portals</a>
+      <a class="sh-link" href="/#work">Work</a>
+      <a class="sh-link" href="/integrations/">Integrations</a>
+      <a class="sh-link" href="/tools/">Free tools</a>
+      <a class="sh-link" href="/blog/" aria-current="page">Guides</a>
+    </div>
+    <div class="sh-sec">
+      <a href="/#contact" class="sh-btn"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true" width="16" height="16"><rect x="1.75" y="3.25" width="12.5" height="9.5" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="m2.5 4.5 5.5 4 5.5-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Contact me</a>
+    </div>
+  </nav>
+</div>
+<div class="b-progress" aria-hidden="true"><span></span></div>
+<main id="main" data-route="/blog/voice-ai-setup/" data-type="article" data-slug="voice-ai-setup">
+<article class="wrap b-article">
+  <header class="b-article-head">
+    <div class="crumbs"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/blog/">Guides</a><span aria-hidden="true">/</span><span>AI</span></div>
+    <h1 class="b-title">HighLevel Voice AI Setup: Build an AI Receptionist That Answers Your Calls</h1>
+    <p class="b-dek">Set up a HighLevel Voice AI agent that answers calls, books appointments and transfers to a person. Prompt, actions, testing, deployment and per-minute cost.</p>
+    <p class="b-meta"><span>By <a href="/#about">Saad Bin Yousaf</a></span><span>5 min read</span><span>Published <time datetime="2026-11-14">14 November 2026</time></span><span>Facts checked 14 November 2026</span></p>
+    <p class="b-disclosure"><strong>Disclosure:</strong> I'm an independent HighLevel builder, not part of HighLevel. I earn a commission if you sign up through the links on this page. It doesn't change the price you pay, and it doesn't change what I write. <a href="/disclosure/">How this works</a></p>
+  </header>
+  <div class="b-article-grid">
+    <div class="b-article-main">
+      <details class="b-toc-mobile">
+        <summary>On this page</summary>
+        <ol>
+        <li><a href="#what-voice-ai-is">What Voice AI is</a></li>
+        <li><a href="#before-you-start">Before you start</a></li>
+        <li><a href="#step-1-create-the-agent">1. Create the agent</a></li>
+        <li><a href="#step-2-write-the-prompt">2. Write the prompt</a></li>
+        <li><a href="#step-3-add-knowledge">3. Add a knowledge base</a></li>
+        <li><a href="#step-4-add-actions">4. Add only the actions it needs</a></li>
+        <li><a href="#step-5-test">5. Test in two ways</a></li>
+        <li><a href="#step-6-deploy">6. Deploy it</a></li>
+        <li><a href="#step-7-review">7. Review the first week</a></li>
+        <li><a href="#what-it-costs">What it costs</a></li>
+        <li><a href="#rules-and-good-manners">Rules and good manners</a></li>
+        <li><a href="#faq">Common questions</a></li>
+        <li><a href="#sources">Sources</a></li>
+        </ol>
+      </details>
+      <div class="b-prose">
+<h2 id="what-voice-ai-is">What Voice AI is</h2>
+<p>Voice AI is a phone agent inside HighLevel. A caller rings your number, the agent answers in a natural voice, and it holds a conversation. It can answer common questions, take the caller's details, book an appointment on your calendar and pass the call to a person.</p>
+<p>The strongest use is the call nobody would have answered: after hours, during a job, when the line is busy. A caller who reaches an agent that books them in is worth more than a voicemail.</p>
+
+<h2 id="before-you-start">Before you start</h2>
+<ul class="checklist">
+<li>The "View &amp; Manage Voice AI Agents" permission in the right sub-account</li>
+<li>An eligible phone number: LC Phone, Twilio or a Number Pool</li>
+<li>One clear job for the agent, written in a sentence</li>
+<li>Approved business information: hours, address, services, prices you're willing to quote</li>
+<li>A calendar to book into and a number to transfer to</li>
+</ul>
+
+<h2 id="step-1-create-the-agent"><span class="step-num">1.</span>Create the agent</h2>
+<p>Go to <strong>AI Agents &gt; Voice AI</strong>, open the Agent List and click <strong>+ Create Agent</strong>. You can install a prebuilt agent from the Marketplace, create a custom agent in the full-screen builder, or draw one in the Flow Based Builder. Choose the custom agent for a first build.</p>
+<p>Set the name, voice, model, language and time zone. Write the inbound welcome message, and choose who speaks first and how long the agent pauses before speaking.</p>
+
+<h2 id="step-2-write-the-prompt"><span class="step-num">2.</span>Write the prompt</h2>
+<p>HighLevel's guidance is to define the agent's role, what it collects, what it may and may not discuss, when each action runs, when to transfer and how calls end. Tell it not to guess. A structure that works:</p>
+<div class="callout"><strong>Prompt outline</strong>You are the phone assistant for [Business], a [type of business] in [area]. Your job is to find out what the caller needs and book a [type of appointment]. Collect their name, phone number and a one-line description of the job. Answer questions only from the knowledge base. If you don't know, say so and offer to have someone call back. Never quote a final price or give [regulated] advice. Transfer to a team member if the caller is upset, has an emergency, or asks for a person. End by confirming what happens next.</div>
+<p>Agent prompts are capped at 15,000 tokens, so put long reference material in the knowledge base, not the prompt.</p>
+
+<h2 id="step-3-add-knowledge"><span class="step-num">3.</span>Add a knowledge base</h2>
+<p>Attach a knowledge base with approved sources and tell the agent when to search it. A Voice AI agent supports one knowledge base, so put everything it needs in one place. Short, direct FAQ entries work best, because the answer will be spoken aloud.</p>
+
+<h2 id="step-4-add-actions"><span class="step-num">4.</span>Add only the actions it needs</h2>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Action</th><th>Use it for</th></tr></thead>
+<tbody>
+<tr><th>Appointment booking</th><td>Booking straight onto a calendar during the call</td></tr>
+<tr><th>Call transfer</th><td>Passing the caller to a person</td></tr>
+<tr><th>Agent transfer</th><td>Passing the caller to another AI agent</td></tr>
+<tr><th>Send SMS</th><td>Texting a booking link or confirmation</td></tr>
+<tr><th>Update contact field</th><td>Saving what the caller said to the CRM</td></tr>
+<tr><th>Trigger workflow</th><td>Starting follow-up automation</td></tr>
+<tr><th>Custom webhook</th><td>Sending data to another system</td></tr>
+</tbody>
+</table>
+</div>
+<p>Each extra action is another thing the agent might do at the wrong moment. Start with booking, transfer and one SMS. After-call actions run without interrupting the caller.</p>
+
+<h2 id="step-5-test"><span class="step-num">5.</span>Test in two ways</h2>
+<ul>
+<li><strong>Web Call</strong> tests in your browser with no phone number. Transfers don't run here.</li>
+<li><strong>Phone Call</strong> tests the real telephone path, including transfers.</li>
+</ul>
+<p>Cover the cases that go wrong in real life:</p>
+<ul class="checklist">
+<li>A normal booking request</li>
+<li>A question the knowledge base answers, and one it doesn't</li>
+<li>An unclear, rambling request</li>
+<li>Talking over the agent</li>
+<li>Long silence</li>
+<li>"Can I speak to someone?"</li>
+<li>How the call ends</li>
+</ul>
+<p>Review the transcript, recording, summary and action results after each call. Change one setting at a time and test again.</p>
+
+<h2 id="step-6-deploy"><span class="step-num">6.</span>Deploy it</h2>
+<p>In the <strong>Deploy</strong> tab, assign a phone number or Number Pool. Then make two choices.</p>
+<ul>
+<li><strong>Call routing:</strong> Answer Calls Directly, or Use as Backup. Backup means your team's phones ring first and the agent picks up if nobody does.</li>
+<li><strong>Working hours:</strong> All Hours, or a Custom Schedule. A schedule can run past midnight.</li>
+</ul>
+<p>For most businesses the right first setup is <strong>Use as Backup</strong> or an after-hours schedule. Customers who reach a person when one is available, and a capable agent when one isn't, get the best of both.</p>
+<p>Check your number's inbound call flow, forwarding, timeout and voicemail settings too. HighLevel notes these can stop the agent from answering.</p>
+
+<h2 id="step-7-review"><span class="step-num">7.</span>Review the first week</h2>
+<p>Listen to real calls. Look for questions it couldn't answer, transfers that should or shouldn't have happened, and bookings with missing details. HighLevel's LevelUp 2026 release added agent health monitoring that proposes prompt fixes for you to review, and draft testing with version rollback in Labs.</p>
+
+<h2 id="what-it-costs">What it costs</h2>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Component</th><th>Pay-per-use rate</th></tr></thead>
+<tbody>
+<tr><th>Voice Engine</th><td>$0.045 per minute</td></tr>
+<tr><th>Text-to-speech voice</th><td>$0.015 to $0.17 per minute, depending on the voice</td></tr>
+<tr><th>Language model</th><td>By tokens</td></tr>
+<tr><th>Phone system</th><td>Normal per-minute call charges, always extra</td></tr>
+</tbody>
+</table>
+</div>
+<p>HighLevel's example: a 10-minute call with OpenAI text-to-speech is $0.60 before tokens and phone charges. The <a href="/blog/highlevel-ai-employee-pricing/">AI pricing guide</a> shows when the $97 Unlimited plan becomes the cheaper option.</p>
+
+<h2 id="rules-and-good-manners">Rules and good manners</h2>
+<ul>
+<li><strong>Say it's an AI.</strong> Open with something like "You've reached the virtual assistant for…". For outbound speech-to-speech agents, HighLevel requires an AI disclosure and a verbal opt-out to be configured.</li>
+<li><strong>Outbound calling needs approval</strong> and compliance setup first. Automated calls are regulated in many countries, so get advice before calling leads with AI.</li>
+<li><strong>Call recording laws vary.</strong> Some places require telling the caller. Add it to the greeting if you record.</li>
+<li><strong>Always offer a human.</strong> An agent that refuses to transfer loses the customer.</li>
+</ul>
+<aside class="b-cta" aria-label="Try the AI tools on your own leads">
+  <div class="b-cta-text">
+    <p class="b-cta-title">Try the AI tools on your own leads</p>
+    <p>The quickest way to judge HighLevel's AI is to point it at your own business for a week. The standard trial runs 14 days. AI usage, texts and calls are billed from your wallet even during a trial, so start small.</p>
+  </div>
+  <div class="b-cta-action">
+    <a class="btn btn-solid" href="https://www.gohighlevel.com/?fp_ref=highlevelminds" target="_blank" rel="sponsored noopener" data-track="cta" data-link="default" data-cta="aitrial" data-placement="article:voice-ai-setup">Start a 14-day HighLevel trial</a>
+    <p class="b-cta-note">I earn a commission if you sign up through this link. It doesn't change the price you pay.</p>
+  </div>
+</aside>
+<section class="b-faq"><h2 id="faq">Common questions</h2><details><summary>What can a HighLevel Voice AI agent do?</summary><p>It can answer calls, respond to common questions, collect caller details, update the contact record, book appointments, send an SMS, trigger a workflow, call a custom webhook and transfer the caller to a person or another agent.</p></details><details><summary>Can Voice AI make outbound calls?</summary><p>Yes, but HighLevel says outbound calling requires approval and compliance setup first, including an AI disclosure and a verbal opt-out for speech-to-speech agents.</p></details><details><summary>How much does Voice AI cost per minute?</summary><p>On pay-per-use, about $0.06 per minute with the cheapest voices (Voice Engine $0.045 plus text-to-speech $0.015), before language-model tokens and phone charges. The AI Employee Unlimited plan at $97 per sub-account covers unlimited Voice AI under fair use, but phone charges still apply.</p></details><details><summary>Do I need a HighLevel phone number?</summary><p>You need an eligible number: LC Phone, Twilio or a Number Pool. You can buy one from the agent's Deploy tab.</p></details><details><summary>Can I test without calling a real number?</summary><p>Yes. The Web Call test runs in your browser without a phone number, although call transfer doesn't run in that mode. Use a Phone Call test for the full path.</p></details></section>
+<section class="b-sources"><h2 id="sources">Sources</h2><p>Facts in this guide were checked on 14 November 2026 against these pages. HighLevel changes prices, limits and menus often, so treat the official pages as the final word.</p><ul><li><a href="https://help.gohighlevel.com/support/solutions/articles/155000004107-creating-voice-ai-agents" target="_blank" rel="noopener">How to Create Voice AI Agents (help centre)</a></li><li><a href="https://help.gohighlevel.com/support/solutions/articles/155000006652-ai-product-pricing-update-ai-employee-unlimited-plans-at-97-month" target="_blank" rel="noopener">AI Product Pricing (help centre)</a></li><li><a href="https://www.gohighlevel.com/post/levelup-day-2026-the-next-evolution-of-highlevel-features-and-enhancements" target="_blank" rel="noopener">LevelUp Day 2026 feature post</a></li></ul></section>
+      </div>
+      <aside class="b-author" aria-label="About the author">
+        <span class="b-author-mark" aria-hidden="true">S</span>
+        <div>
+          <p class="b-author-name">Written by Saad Bin Yousaf</p>
+          <p>I build HighLevel systems for agencies and service businesses: CRM setups, white-labelled portals, automations and custom JavaScript. If you'd rather have your account set up for you, <a href="/#contact">get in touch</a>.</p>
+        </div>
+      </aside>
+      <section class="b-next" aria-labelledby="next-voice-ai-setup"><h2 id="next-voice-ai-setup" class="b-sub-title">Where to go next</h2><ul><li><a href="/blog/missed-call-text-back/"><span>The simpler, cheaper safety net for missed calls</span><b>Missed call text back</b></a></li><li><a href="/blog/highlevel-ai-employee-pricing/"><span>Work out your per-minute cost before launch</span><b>HighLevel AI pricing</b></a></li></ul></section>
+    </div>
+    <aside class="b-toc" aria-label="On this page">
+      <p class="b-toc-head">On this page</p>
+      <ol data-toc>
+        <li><a href="#what-voice-ai-is">What Voice AI is</a></li>
+        <li><a href="#before-you-start">Before you start</a></li>
+        <li><a href="#step-1-create-the-agent">1. Create the agent</a></li>
+        <li><a href="#step-2-write-the-prompt">2. Write the prompt</a></li>
+        <li><a href="#step-3-add-knowledge">3. Add a knowledge base</a></li>
+        <li><a href="#step-4-add-actions">4. Add only the actions it needs</a></li>
+        <li><a href="#step-5-test">5. Test in two ways</a></li>
+        <li><a href="#step-6-deploy">6. Deploy it</a></li>
+        <li><a href="#step-7-review">7. Review the first week</a></li>
+        <li><a href="#what-it-costs">What it costs</a></li>
+        <li><a href="#rules-and-good-manners">Rules and good manners</a></li>
+        <li><a href="#faq">Common questions</a></li>
+        <li><a href="#sources">Sources</a></li>
+      </ol>
+    </aside>
+  </div>
+</article>
+<section class="wrap b-related" aria-labelledby="related-voice-ai-setup">
+  <h2 id="related-voice-ai-setup" class="b-section-title">Keep reading</h2>
+  <div class="b-shots">
+    <article class="b-shot" data-card data-category="AI" data-stage="Exploring" data-order="7" data-published="2026-11-14" data-minutes="5" data-search="highlevel ai explained: every ai tool and what it's for a plain map of highlevel's ai: which tool talks to customers, which helps you work, which are free, which are paid, and where a small business should start. which ai tool does what, which are free, which cost money, and the order to try them in. ai exploring highlevel ai gohighlevel ai ai employee ai suite ask ai conversation ai voice ai reviews ai content ai agent studio managed agents creator studio ai studio workflow ai ai agents chatbot ai receptionist why it's confusing ai that talks to your customers ai that helps you work ai that runs work on its own free or paid at a glance where to start what ai in highlevel won't do common questions sources">
+  <a class="b-shot-media" href="/blog/highlevel-ai-tools-explained/" aria-label="HighLevel AI Explained: Every AI Tool and What It's For">
+    <svg viewBox="0 0 400 300" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"><defs><radialGradient id="g-highlevel-ai-tools-explained" cx="0.500" cy="0.500" r="0.700"><stop offset="0" stop-color="#b79cff" stop-opacity=".14"/><stop offset="1" stop-color="#b79cff" stop-opacity="0"/></radialGradient></defs><rect width="400" height="300" fill="#120f1f"/><rect width="400" height="300" fill="url(#g-highlevel-ai-tools-explained)"/><text x="28" y="76" font-size="15" font-weight="700" fill="#ffffff" text-anchor="start" font-family="Satoshi, system-ui, sans-serif">HighLevel AI at a glance</text><rect x="28" y="94" width="166" height="46" rx="11" fill="#1a162c" stroke="#342c55"/><circle cx="44" cy="117" r="3.500" fill="#b79cff"/><text x="56" y="114" font-size="12" font-weight="600" fill="#e9ecf1" text-anchor="start" font-family="Satoshi, system-ui, sans-serif">Conversation AI</text><text x="56" y="129" font-size="10.5" font-weight="500" fill="#9aa0ab" text-anchor="start" font-family="Satoshi, system-ui, sans-serif">Replies to messages</text><rect x="206" y="94" width="166" height="46" rx="11" fill="rgba(183,156,255,0.16)" stroke="#b79cff"/><circle cx="222" cy="117" r="3.500" fill="#b79cff"/><text x="234" y="114" font-size="12" font-weight="600" fill="#e9ecf1" text-anchor="start" font-family="Satoshi, system-ui, sans-serif">Voice AI</text><text x="234" y="129" font-size="10.5" font-weight="500" fill="#9aa0ab" text-anchor="start" font-family="Satoshi, system-ui, sans-serif">Answers calls</text><rect x="28" y="152" width="166" height="46" rx="11" fill="#1a162c" stroke="#342c55"/><circle cx="44" cy="175" r="3.500" fill="#b79cff"/><text x="56" y="172" font-size="12" font-weight="600" fill="#e9ecf1" text-anchor="start" font-family="Satoshi, system-ui, sans-serif">Ask AI</text><text x="56" y="187" font-size="10.5" font-weight="500" fill="#9aa0ab" text-anchor="start" font-family="Satoshi, system-ui, sans-serif">Helps you work</text><rect x="206" y="152" width="166" height="46" rx="11" fill="#1a162c" stroke="#342c55"/><circle cx="222" cy="175" r="3.500" fill="#b79cff"/><text x="234" y="172" font-size="12" font-weight="600" fill="#e9ecf1" text-anchor="start" font-family="Satoshi, system-ui, sans-serif">Managed Agents</text><text x="234" y="187" font-size="10.5" font-weight="500" fill="#9aa0ab" text-anchor="start" font-family="Satoshi, system-ui, sans-serif">Runs tasks</text><rect x="28" y="210" width="166" height="46" rx="11" fill="#1a162c" stroke="#342c55"/><circle cx="44" cy="233" r="3.500" fill="#b79cff"/><text x="56" y="230" font-size="12" font-weight="600" fill="#e9ecf1" text-anchor="start" font-family="Satoshi, system-ui, sans-serif">Reviews AI</text><text x="56" y="245" font-size="10.5" font-weight="500" fill="#9aa0ab" text-anchor="start" font-family="Satoshi, system-ui, sans-serif">Drafts replies</text><rect x="206" y="210" width="166" height="46" rx="11" fill="#1a162c" stroke="#342c55"/><circle cx="222" cy="233" r="3.500" fill="#b79cff"/><text x="234" y="230" font-size="12" font-weight="600" fill="#e9ecf1" text-anchor="start" font-family="Satoshi, system-ui, sans-serif">Content AI</text><text x="234" y="245" font-size="10.5" font-weight="500" fill="#9aa0ab" text-anchor="start" font-family="Satoshi, system-ui, sans-serif">Writes copy</text></svg>
+    <span class="b-shot-label">AI</span>
+    <span class="b-shot-over" aria-hidden="true"><span class="b-shot-teaser">Which AI tool does what, which are free, which cost money, and the order to try them in.</span><span class="b-shot-go">Read the guide</span></span>
+  </a>
+  <div class="b-shot-info">
+    <h3 class="b-shot-title"><a href="/blog/highlevel-ai-tools-explained/">HighLevel AI Explained: Every AI Tool and What It's For</a></h3>
+    <div class="b-shot-meta">
+      <span class="b-shot-by"><span class="b-ava" aria-hidden="true">S</span>Saad Bin Yousaf</span>
+      <span class="b-shot-stats"><span title="Reading time"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6.200" fill="none" stroke="currentColor" stroke-width="1.500"/><path d="M8 4.800V8l2.200 1.400" stroke="currentColor" stroke-width="1.500" fill="none" stroke-linecap="round"/></svg>5 min</span><span><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><path d="M5.500 4.500h8M5.500 8h8M5.500 11.500h8" stroke="currentColor" stroke-width="1.500" stroke-linecap="round"/><circle cx="2.600" cy="4.500" r="1" fill="currentColor"/><circle cx="2.600" cy="8" r="1" fill="currentColor"/><circle cx="2.600" cy="11.500" r="1" fill="currentColor"/></svg>10 AI tools mapped</span></span>
+    </div>
+  </div>
+</article>
+<article class="b-shot" data-card data-category="AI" data-stage="Setting up" data-order="9" data-published="2026-11-14" data-minutes="5" data-search="highlevel ask ai: what it can do and how to use it well ask ai is highlevel's built-in assistant that can act inside your account. what it can and can't do, who pays for it, and prompts that get useful results. highlevel's built-in assistant that takes real actions in your account. what works, what doesn't, and prompts to copy. ai setting up ask ai ask ai assistant highlevel ai assistant copilot ai suite brand voice prompts bulk actions ask ai pricing ask ai limits ai chat mobile what ask ai is where to open it what it can do what it can't do yet who can use it, and who pays set up brand voice first twelve prompts to copy using it safely common questions sources">
+  <a class="b-shot-media" href="/blog/highlevel-ask-ai-guide/" aria-label="HighLevel Ask AI: What It Can Do and How to Use It Well">
+    <svg viewBox="0 0 400 300" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"><defs><radialGradient id="g-highlevel-ask-ai-guide" cx="0.500" cy="0.500" r="0.700"><stop offset="0" stop-color="#8fb4ff" stop-opacity=".14"/><stop offset="1" stop-color="#8fb4ff" stop-opacity="0"/></radialGradient></defs><rect width="400" height="300" fill="#0d1220"/><rect width="400" height="300" fill="url(#g-highlevel-ask-ai-guide)"/><rect x="188.39999999999998" y="58" width="179.60000000000002" height="49" rx="12" fill="rgba(143,180,255,0.16)" stroke="#8fb4ff"/><text x="201.39999999999998" y="80" font-size="12" font-weight="500" fill="#ffffff" text-anchor="start" font-family="Satoshi, system-ui, sans-serif">Tag everyone who booked</text><text x="201.39999999999998" y="97" font-size="12" font-weight="500" fill="#ffffff" text-anchor="start" font-family="Satoshi, system-ui, sans-serif">last week as 'follow-up'</text><rect x="32" y="117" width="179.60000000000002" height="49" rx="12" fill="#141b2e" stroke="#2a3552"/><text x="45" y="139" font-size="12" font-weight="500" fill="#d9dde6" text-anchor="start" font-family="Satoshi, system-ui, sans-serif">Found 23 contacts.</text><text x="45" y="156" font-size="12" font-weight="500" fill="#d9dde6" text-anchor="start" font-family="Satoshi, system-ui, sans-serif">Apply the tag to all 23?</text><rect x="258.8" y="176" width="109.2" height="32" rx="12" fill="rgba(143,180,255,0.16)" stroke="#8fb4ff"/><text x="271.8" y="198" font-size="12" font-weight="500" fill="#ffffff" text-anchor="start" font-family="Satoshi, system-ui, sans-serif">Yes, go ahead</text><rect x="32" y="218" width="186" height="32" rx="12" fill="#141b2e" stroke="#2a3552"/><text x="45" y="240" font-size="12" font-weight="500" fill="#d9dde6" text-anchor="start" font-family="Satoshi, system-ui, sans-serif">Done. 23 contacts tagged.</text></svg>
+    <span class="b-shot-label">AI</span>
+    <span class="b-shot-over" aria-hidden="true"><span class="b-shot-teaser">HighLevel's built-in assistant that takes real actions in your account. What works, what doesn't, and prompts to copy.</span><span class="b-shot-go">Read the guide</span></span>
+  </a>
+  <div class="b-shot-info">
+    <h3 class="b-shot-title"><a href="/blog/highlevel-ask-ai-guide/">HighLevel Ask AI: What It Can Do and How to Use It Well</a></h3>
+    <div class="b-shot-meta">
+      <span class="b-shot-by"><span class="b-ava" aria-hidden="true">S</span>Saad Bin Yousaf</span>
+      <span class="b-shot-stats"><span title="Reading time"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6.200" fill="none" stroke="currentColor" stroke-width="1.500"/><path d="M8 4.800V8l2.200 1.400" stroke="currentColor" stroke-width="1.500" fill="none" stroke-linecap="round"/></svg>5 min</span><span><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><path d="M5.500 4.500h8M5.500 8h8M5.500 11.500h8" stroke="currentColor" stroke-width="1.500" stroke-linecap="round"/><circle cx="2.600" cy="4.500" r="1" fill="currentColor"/><circle cx="2.600" cy="8" r="1" fill="currentColor"/><circle cx="2.600" cy="11.500" r="1" fill="currentColor"/></svg>12 prompts to copy</span></span>
+    </div>
+  </div>
+</article>
+<article class="b-shot" data-card data-category="AI" data-stage="Setting up" data-order="10" data-published="2026-11-14" data-minutes="5" data-search="how to set up highlevel conversation ai without embarrassing yourself set up a highlevel conversation ai bot that answers questions and books appointments: knowledge base, goals, suggestive vs auto-pilot, testing and costs. build a chat bot that answers questions and books appointments, then test it properly before it talks to customers. ai setting up conversation ai conversation ai setup chatbot ai chatbot bot suggestive mode auto-pilot autopilot knowledge base bot goals appointment booking bot ai sms web chat whatsapp bot instagram dm bot ai agents what conversation ai does before you start 1. choose how to build 2. set its identity and voice 3. teach it your business 4. give it goals 5. set the guardrails 6. test it like a difficult customer 7. go live in suggestive mode 8. move to auto-pilot, one channel at a time what it costs common mistakes common questions sources">
+  <a class="b-shot-media" href="/blog/conversation-ai-setup/" aria-label="How to Set Up HighLevel Conversation AI Without Embarrassing Yourself">
+    <svg viewBox="0 0 400 300" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"><defs><radialGradient id="g-conversation-ai-setup" cx="0.500" cy="0.500" r="0.700"><stop offset="0" stop-color="#aac86b" stop-opacity=".14"/><stop offset="1" stop-color="#aac86b" stop-opacity="0"/></radialGradient></defs><rect width="400" height="300" fill="#0e140b"/><rect width="400" height="300" fill="url(#g-conversation-ai-setup)"/><rect x="32" y="58" width="198.8" height="32" rx="12" fill="#151d11" stroke="#2c3a22"/><text x="45" y="80" font-size="12" font-weight="500" fill="#d9dde6" text-anchor="start" font-family="Satoshi, system-ui, sans-serif">Do you have Saturday slots?</text><rect x="162.79999999999998" y="100" width="205.20000000000002" height="49" rx="12" fill="rgba(170,200,107,0.16)" stroke="#aac86b"/><text x="175.79999999999998" y="122" font-size="12" font-weight="500" fill="#ffffff" text-anchor="start" font-family="Satoshi, system-ui, sans-serif">Yes. 10:00 or 2:30 are free.</text><text x="175.79999999999998" y="139" font-size="12" font-weight="500" fill="#ffffff" text-anchor="start" font-family="Satoshi, system-ui, sans-serif">Which suits you?</text><rect x="32" y="159" width="102.80000000000001" height="32" rx="12" fill="#151d11" stroke="#2c3a22"/><text x="45" y="181" font-size="12" font-weight="500" fill="#d9dde6" text-anchor="start" font-family="Satoshi, system-ui, sans-serif">10:00 please</text><rect x="175.6" y="201" width="192.4" height="32" rx="12" fill="rgba(170,200,107,0.16)" stroke="#aac86b"/><text x="188.6" y="223" font-size="12" font-weight="500" fill="#ffffff" text-anchor="start" font-family="Satoshi, system-ui, sans-serif">Booked for Saturday 10:00.</text></svg>
+    <span class="b-shot-label">AI</span>
+    <span class="b-shot-over" aria-hidden="true"><span class="b-shot-teaser">Build a chat bot that answers questions and books appointments, then test it properly before it talks to customers.</span><span class="b-shot-go">Read the guide</span></span>
+  </a>
+  <div class="b-shot-info">
+    <h3 class="b-shot-title"><a href="/blog/conversation-ai-setup/">How to Set Up HighLevel Conversation AI Without Embarrassing Yourself</a></h3>
+    <div class="b-shot-meta">
+      <span class="b-shot-by"><span class="b-ava" aria-hidden="true">S</span>Saad Bin Yousaf</span>
+      <span class="b-shot-stats"><span title="Reading time"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6.200" fill="none" stroke="currentColor" stroke-width="1.500"/><path d="M8 4.800V8l2.200 1.400" stroke="currentColor" stroke-width="1.500" fill="none" stroke-linecap="round"/></svg>5 min</span><span><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><path d="M5.500 4.500h8M5.500 8h8M5.500 11.500h8" stroke="currentColor" stroke-width="1.500" stroke-linecap="round"/><circle cx="2.600" cy="4.500" r="1" fill="currentColor"/><circle cx="2.600" cy="8" r="1" fill="currentColor"/><circle cx="2.600" cy="11.500" r="1" fill="currentColor"/></svg>8 steps</span></span>
+    </div>
+  </div>
+</article>
+  </div>
+</section>
+</main>
+<footer class="ft">
+  <div class="ft-inner ft-top">
+    <div class="ft-brand">
+      <a href="/" class="ft-logo" aria-label="SBY.DEV home"><span class="ft-mark" aria-hidden="true">S</span><span class="ft-word">SBY<span>.DEV</span></span></a>
+      <p class="ft-tag">HighLevel systems, automations and custom builds that turn traffic into revenue for agencies and their clients.</p>
+      <span class="ft-status"><i></i> Available for new projects</span>
+      <a class="ft-mail" href="mailto:saadbinyousaf.dev@gmail.com"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>Email me</a>
+    </div>
+    <nav class="ft-cols" aria-label="Footer">
+      <div class="ft-col">
+        <h3>Portfolio</h3>
+        <ul>
+          <li><a href="/#about">About</a></li>
+          <li><a href="/#services">Services</a></li>
+          <li><a href="/#portals">Login portals</a></li>
+          <li><a href="/#work">Websites &amp; funnels</a></li>
+          <li><a href="/#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h3>Free tools</h3>
+        <ul>
+          <li><a href="/tools/ghl-logo-generator/">Logo CSS Generator</a></li>
+          <li><a href="/tools/sms-segment-calculator/">SMS Segment Calculator</a></li>
+          <li><a href="/tools/a2p-10dlc-generator/">A2P 10DLC Kit</a></li>
+          <li><a href="/tools/merge-fields/">Merge Field Previewer</a></li>
+          <li><a href="/tools/">All tools</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h3>Resources</h3>
+        <ul>
+          <li><a href="/blog/">HighLevel guides</a></li>
+          <li><a href="/integrations/">Integrations</a></li>
+          <li><a href="/tools/utm-builder/">UTM Link Builder</a></li>
+          <li><a href="/tools/review-link-generator/">Review Link Generator</a></li>
+          <li><a href="/privacy.html">Privacy</a></li>
+          <li><a href="/disclosure/">Affiliate disclosure</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h3>HighLevel</h3>
+        <ul>
+          <li><a class="ft-hl" href="https://founder.gohighlevel.com/?fp_ref=highlevelminds" target="_blank" rel="sponsored noopener">Upgrade Your&nbsp;HighLevel&#8288;<span class="ft-ext" aria-hidden="true">↗</span></a></li>
+          <li><a class="ft-hl" href="https://www.gohighlevel.com/highlevel-bootcamp?fp_ref=highlevelminds" target="_blank" rel="sponsored noopener">Start 30-day free&nbsp;trial&#8288;<span class="ft-ext" aria-hidden="true">↗</span></a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <div class="ft-bottom">
+    <div class="ft-inner">
+      <div class="ft-bar">
+        <div class="ft-legal"><span>© <span data-year>2026</span> Saad Bin Yousaf</span><a href="/privacy.html">Privacy</a><span>Built in Karachi</span></div>
+        <a class="ft-top-link" href="#">Back to top <span aria-hidden="true">↑</span></a>
+      </div>
+      <p class="ft-note">Independent tools and guides by Saad Bin Yousaf. Not affiliated with, endorsed by, or sponsored by HighLevel Inc. HighLevel and GoHighLevel are trademarks of their respective owner. HighLevel signup links in this footer and in the guides are affiliate links: I earn a commission if you sign up through them. Tool output is guidance, not legal advice — always review it for your business.</p>
+    </div>
+  </div>
+</footer>
+<div class="b-gs" data-widget>
+  <button class="b-gs-tab" type="button" aria-expanded="false" aria-controls="b-gs-panel">
+    <svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true" focusable="false"><path d="M10 2.500v15M2.500 10h15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    <span>Get started</span>
+  </button>
+  <section id="b-gs-panel" class="b-gs-panel" role="dialog" aria-labelledby="b-gs-title" hidden>
+    <div class="b-gs-head">
+      <h2 id="b-gs-title">Ready to try HighLevel?</h2>
+      <button class="b-gs-close" type="button" aria-label="Close">
+        <svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true" focusable="false"><path d="M5 5l10 10M15 5L5 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+    <p class="b-gs-intro">Pick the door that matches where you are. Each one opens HighLevel's own site in a new tab.</p>
+    <div class="b-gs-options">
+      <a class="b-gs-option" href="https://www.gohighlevel.com/highlevel-bootcamp?fp_ref=highlevelminds" target="_blank" rel="sponsored noopener" data-track="cta" data-link="bootcamp" data-cta="bootcamp" data-placement="widget" data-track="widget-choice">
+        <span class="b-gs-option-title">I'm new and want a guided start</span>
+        <span class="b-gs-option-body">30-day trial with a live one-hour setup Bootcamp</span>
+      </a>
+      <a class="b-gs-option" href="https://www.gohighlevel.com/pricing?fp_ref=highlevelminds" target="_blank" rel="sponsored noopener" data-track="cta" data-link="pricing" data-cta="pricing" data-placement="widget" data-track="widget-choice">
+        <span class="b-gs-option-title">I'm comparing plans</span>
+        <span class="b-gs-option-body">Current Starter, Unlimited and Founder pricing</span>
+      </a>
+      <a class="b-gs-option" href="https://app.gohighlevel.com/offers/affiliate-upgrade?fp_ref=highlevelminds" target="_blank" rel="sponsored noopener" data-track="cta" data-link="upgrade" data-cta="upgrade" data-placement="widget" data-track="widget-choice">
+        <span class="b-gs-option-title">I already have an account</span>
+        <span class="b-gs-option-body">Upgrade options for existing accounts</span>
+      </a>
+    </div>
+    <a class="b-gs-secondary" href="/blog/gohighlevel-pricing-guide/" data-track="widget-secondary">Not sure yet? Read the pricing guide first</a>
+    <p class="b-gs-note">I earn a commission if you sign up through these links. It doesn't change the price you pay.</p>
+  </section>
+</div>
+<script src="/tools/assets/tools.js?v=88838c2a"></script>
+<script src="/js/ads.js?v=88838c2a"></script>
+<script src="/blog/assets/blog.js?v=88838c2a"></script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!--
+{
+  "slug": "managed-agents-agent-studio",
+  "order": 13,
+  "title": "HighLevel Managed Agents and Agent Studio: A Plain-English Guide",
+  "shortTitle": "Managed Agents and Agent Studio",
+  "seoTitle": "HighLevel Managed Agents & Agent Studio (2026): What They Are and How to Start",
+  "description": "Managed Agents are AI workers you build by describing the job. How they differ from flow agents, workflows and Conversation AI, how to create one, and what runs cost.",
+  "teaser": "AI workers you create by describing the job. When to use one, how to build your first, and what a run costs.",
+  "category": "AI",
+  "stage": "Growing",
+  "stat": "7 capabilities",
+  "thumb": "cards",
+  "theme": "rose",
+  "thumbData": {
+    "title": "Describe the job. It does the rest.",
+    "tiles": [
+      { "l": "Triggers", "sub": "Form, tag, schedule" },
+      { "l": "Knowledge", "sub": "Your documents", "hot": true },
+      { "l": "CRM actions", "sub": "Update, create, tag" },
+      { "l": "Media", "sub": "Image, audio, video" },
+      { "l": "Computer", "sub": "Browser tasks" },
+      { "l": "Subagents", "sub": "Parallel work" }
+    ]
+  },
+  "published": "2026-11-14",
+  "updated": "2026-11-14",
+  "keywords": ["managed agents", "agent studio", "super agents", "ai agents", "flow agents", "ai agent builder", "subagents", "n8n", "mcp", "connectors", "agent runs", "ai automation", "custom ai agent", "ai suite"],
+  "faq": [
+    { "q": "What are Managed Agents in HighLevel?", "a": "Managed Agents are AI agents you create by describing what you need in plain language, without building a flowchart. They live in Agent Studio and follow a draft, test and publish lifecycle. They were previously called Super Agents." },
+    { "q": "What is the difference between Managed Agents and Flow Agents?", "a": "Managed Agents are built from conversational instructions. Flow Agents are built by hand on a visual canvas of nodes. Both live in Agent Studio." },
+    { "q": "How are Managed Agents billed?", "a": "By runs. AI Employee Growth includes 100 runs a month and Unlimited includes 1,000. On pay-per-use, runs are billed by model and token use. HighLevel provides 30 free test runs a month in the Test section." },
+    { "q": "Can a Managed Agent act outside HighLevel?", "a": "Yes. HighLevel says Managed Agents can reach external apps through connectors and a growing MCP catalogue, and can be triggered by inbound webhooks." }
+  ],
+  "next": [
+    { "slug": "highlevel-ai-video-generation", "reason": "Use an agent to generate videos" },
+    { "slug": "highlevel-ai-tools-explained", "reason": "See where agents sit among the other AI tools" }
+  ],
+  "sources": [
+    { "label": "How to Setup and Use Managed Agents in Agent Studio", "url": "https://help.gohighlevel.com/support/solutions/articles/155000007931-how-to-setup-and-use-managed-agents-in-agent-studio" },
+    { "label": "Managed Agents, Conversation AI & Ask AI: What's the Difference?", "url": "https://help.gohighlevel.com/support/solutions/articles/155000008362" },
+    { "label": "How to Create and Manage Subagents in Agent Studio", "url": "https://help.gohighlevel.com/support/solutions/articles/155000009358" },
+    { "label": "Overview of Agent Studio", "url": "https://help.gohighlevel.com/support/solutions/articles/155000006058-overview-of-agent-studio" },
+    { "label": "AI Product Pricing (help centre)", "url": "https://help.gohighlevel.com/support/solutions/articles/155000006652-ai-product-pricing-update-ai-employee-unlimited-plans-at-97-month" },
+    { "label": "LevelUp Day 2026 feature post", "url": "https://www.gohighlevel.com/post/levelup-day-2026-the-next-evolution-of-highlevel-features-and-enhancements" }
+  ]
+}
+-->
+<h2 id="what-a-managed-agent-is">What a Managed Agent is</h2>
+<p>A Managed Agent is an AI worker you create by describing a job in ordinary language. You don't draw a flowchart. You write something like "When a new lead fills in the quote form, look them up, summarise what they need, add a note to the contact and create a task for the sales team", and HighLevel drafts an agent that does it.</p>
+<p>They live in <strong>Agent Studio</strong>, which is HighLevel's home for custom AI agents. Until recently they were called Super Agents.</p>
+
+<h2 id="which-tool-for-which-job">Which tool for which job</h2>
+<div class="table-wrap">
+<table>
+<thead><tr><th>You want to…</th><th>Use</th></tr></thead>
+<tbody>
+<tr><th>Send the same follow-up steps to every lead</th><td>A normal workflow. Cheaper and predictable</td></tr>
+<tr><th>Reply to customers' messages and book appointments</th><td>Conversation AI</td></tr>
+<tr><th>Get help doing something yourself, right now</th><td>Ask AI</td></tr>
+<tr><th>Have AI handle a multi-step task that needs judgement, on a trigger</th><td>A Managed Agent</td></tr>
+<tr><th>Control every branch of an AI process by hand</th><td>A Flow Agent in Agent Studio</td></tr>
+</tbody>
+</table>
+</div>
+<p>The honest rule: if a workflow can do it, use a workflow. Reach for an agent when the task needs reading, deciding or writing that a fixed set of steps can't handle.</p>
+
+<h2 id="what-agents-can-do">What agents can do</h2>
+<ul>
+<li><strong>Start on triggers.</strong> Tag changed, form submitted, chat, Facebook lead form, survey submitted, plus schedule, appointment, contact and opportunity events. They can also be started from outside HighLevel by an inbound webhook.</li>
+<li><strong>Use your knowledge.</strong> Ground answers in your documents, pages, tables and crawled web content.</li>
+<li><strong>Act in the CRM.</strong> Update contacts, trigger workflows, and create tasks, notes and appointments, within the permissions that already exist.</li>
+<li><strong>Make media.</strong> Generate and edit images, generate audio and create videos. See the <a href="/blog/highlevel-ai-video-generation/">AI video guide</a>.</li>
+<li><strong>Use a computer.</strong> Each agent can get its own isolated environment for browsing and file tasks, with credentials stored in HighLevel Keychain and approval controls for sensitive actions.</li>
+<li><strong>Delegate.</strong> A main agent can hand focused tasks to subagents that work in parallel and report back.</li>
+<li><strong>Reach other apps.</strong> Through connectors and MCP servers.</li>
+</ul>
+<p>HighLevel's LevelUp 2026 release also added memory of preferences and learned procedures, waits and scheduled follow-ups, and a beta importer that turns an n8n workflow export into a managed agent.</p>
+
+<h2 id="build-your-first-agent">Build your first agent</h2>
+<ol>
+<li>In a sub-account, go to <strong>AI Agents &gt; Agent Studio &gt; Managed Agents</strong>.</li>
+<li>Click <strong>+ Create Agent</strong>. Describe the goal, the channels, which knowledge bases to use and which CRM actions are allowed. Or pick a prebuilt use case.</li>
+<li>Review the draft. Refine it by chatting: "Don't create a task if the contact already has an open opportunity."</li>
+<li>Add the trigger that should start it.</li>
+<li>Enable media or computer capabilities under <strong>Capabilities</strong> only if the job needs them.</li>
+<li>Test in the testing panel with realistic examples.</li>
+<li>Change the status from <strong>Draft</strong> to <strong>Published</strong>.</li>
+<li>Watch the Activity tab and Agent Logs for the first few days.</li>
+</ol>
+
+<h2 id="a-good-first-project">A good first project</h2>
+<p>Pick something low-risk where a mistake is easy to spot and costs little. A lead summary agent is ideal:</p>
+<div class="callout"><strong>Example instruction</strong>When the Quote Request form is submitted, read the answers. Write a three-line summary of what the lead wants and how urgent it sounds. Add it as a note on the contact. If the budget answer is over $5,000, add the tag high-value and create a task for the account owner due today. Never message the contact.</div>
+<p>It reads, judges and writes, which a plain workflow can't do well, and "never message the contact" keeps a bad run invisible to customers.</p>
+
+<h2 id="what-it-costs">What it costs</h2>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Plan for the sub-account</th><th>Managed Agent runs</th></tr></thead>
+<tbody>
+<tr><th>Pay-per-use</th><td>Billed by model and token use per run</td></tr>
+<tr><th>AI Employee Growth, $50</th><td>100 runs a month</td></tr>
+<tr><th>AI Employee Unlimited, $97</th><td>1,000 runs a month</td></tr>
+<tr><th>Testing</th><td>30 free test runs a month</td></tr>
+</tbody>
+</table>
+</div>
+<p>A long chat test counts as more than one run: HighLevel sets a 400,000-token limit per test session. Flow Agents are different. They are pay-per-use on every plan with no allowance. Full figures are in the <a href="/blog/highlevel-ai-employee-pricing/">AI pricing guide</a>.</p>
+
+<h2 id="keep-it-under-control">Keep it under control</h2>
+<ul>
+<li><strong>Give narrow permissions.</strong> Allow only the actions the job needs. An agent that can send messages can send wrong ones.</li>
+<li><strong>Put a filter on the trigger.</strong> An agent that runs on every tag change burns runs fast.</li>
+<li><strong>Keep people in the loop for anything customer-facing</strong> until you've read enough logs to trust it.</li>
+<li><strong>Read the logs.</strong> Agents fail quietly. The Activity tab shows what each run did.</li>
+<li><strong>Know its limit.</strong> The Computer capability currently works in chat and manual runs, not on triggers.</li>
+</ul>
+{{cta:aitrial}}
