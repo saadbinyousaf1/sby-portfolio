@@ -19,10 +19,11 @@
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6774293162106493" crossorigin="anonymous"></script>
 <link rel="preload" href="/assets/fonts/satoshi-500.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/satoshi-700.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/tools/assets/tools.css?v=20261113g">
+<link rel="stylesheet" href="/tools/assets/tools.css?v=20261113j">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "SMS Segment Calculator", "url": "https://saadbinyousaf.dev/tools/sms-segment-calculator/", "description": "Free SMS segment calculator. Count GSM-7 and Unicode characters, find emojis and smart quotes that double your cost, and estimate HighLevel LC Phone campaign spend.", "applicationCategory": "BusinessApplication", "operatingSystem": "Any (web browser)", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "author": {"@type": "Person", "name": "Saad Bin Yousaf", "url": "https://saadbinyousaf.dev/"}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://saadbinyousaf.dev/"}, {"@type": "ListItem", "position": 2, "name": "Free tools", "item": "https://saadbinyousaf.dev/tools/"}, {"@type": "ListItem", "position": 3, "name": "SMS Segment Calculator", "item": "https://saadbinyousaf.dev/tools/sms-segment-calculator/"}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How many characters are in one SMS segment?", "acceptedAnswer": {"@type": "Answer", "text": "160 characters if every character is in the GSM-7 set, or 70 if the message contains any Unicode character such as an emoji or curly quote. When a message is longer than that, each part holds 153 GSM-7 characters or 67 Unicode characters."}}, {"@type": "Question", "name": "Do emojis really double the cost of a text?", "acceptedAnswer": {"@type": "Answer", "text": "Often more than double. One emoji switches the whole message to Unicode, which drops the limit from 160 to 70 characters. A 150-character text that was one segment becomes three segments, so it costs three times as much."}}, {"@type": "Question", "name": "Why does a long message split at 153 characters instead of 160?", "acceptedAnswer": {"@type": "Answer", "text": "Each part of a multi-part message carries a small header that tells the phone how to put the pieces back together. That header uses the space of 7 GSM-7 characters, leaving 153 for your text in each part."}}, {"@type": "Question", "name": "Does HighLevel charge per message or per segment?", "acceptedAnswer": {"@type": "Answer", "text": "Outbound SMS is billed per segment by HighLevel's phone system and by Twilio. Check the messaging rates shown in your account's billing or phone settings, and enter that per-segment rate in the calculator to estimate a campaign."}}, {"@type": "Question", "name": "Do line breaks and spaces count as characters?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. A space is one character and a line break is one character in GSM-7. They are free to use for readability, but they still count toward the 160."}}, {"@type": "Question", "name": "Are picture messages (MMS) billed by segment?", "acceptedAnswer": {"@type": "Answer", "text": "No. MMS messages, the ones with an image or GIF attached, are billed per message at a separate, higher MMS rate. This calculator is for plain text SMS."}}, {"@type": "Question", "name": "Is the message I type saved or sent anywhere?", "acceptedAnswer": {"@type": "Answer", "text": "No. The calculation runs entirely in your browser. Your last message and settings are remembered only in your own browser's local storage so they are still there when you come back."}}]}</script>
+<link rel="stylesheet" href="/css/footer.css?v=20261113j">
 </head>
 <body>
 <div class="sh" id="nav">
@@ -271,20 +272,65 @@
 </a></div>
   </section>
 </main>
-<footer class="t-footer">
-  <span class="copy">© <span data-year>2026</span> Saad Bin Yousaf — Contractor Automations</span>
-  <nav aria-label="Footer">
-    <a href="/tools/">Free tools</a>
-    <a href="/">Portfolio</a>
-    <a href="/privacy.html">Privacy</a>
-    <a href="mailto:saadbinyousaf.dev@gmail.com">Contact</a>
-    <a href="https://founder.gohighlevel.com/?fp_ref=highlevelminds" target="_blank" rel="sponsored noopener">Upgrade Your HighLevel</a>
-    <a href="https://www.gohighlevel.com/highlevel-bootcamp?fp_ref=highlevelminds" target="_blank" rel="sponsored noopener">Start 30-day free trial</a>
-  </nav>
-  <p class="disclaimer">Independent tools built by Saad Bin Yousaf. Not affiliated with, endorsed by, or sponsored by HighLevel Inc. HighLevel and GoHighLevel are trademarks of their respective owner. HighLevel signup links in this footer are affiliate links. Tool output is guidance, not legal advice — always review it for your business.</p>
+<footer class="ft">
+  <div class="ft-inner ft-top">
+    <div class="ft-brand">
+      <a href="/" class="ft-logo" aria-label="SBY.DEV home"><span class="ft-mark" aria-hidden="true">S</span><span class="ft-word">SBY<span>.DEV</span></span></a>
+      <p class="ft-tag">HighLevel systems, automations and custom builds that turn traffic into revenue for agencies and their clients.</p>
+      <span class="ft-status"><i></i> Available for new projects</span>
+      <a class="ft-mail" href="mailto:saadbinyousaf.dev@gmail.com"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>Email me</a>
+    </div>
+    <nav class="ft-cols" aria-label="Footer">
+      <div class="ft-col">
+        <h3>Portfolio</h3>
+        <ul>
+          <li><a href="/#about">About</a></li>
+          <li><a href="/#services">Services</a></li>
+          <li><a href="/#portals">Login portals</a></li>
+          <li><a href="/#work">Websites &amp; funnels</a></li>
+          <li><a href="/#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h3>Free tools</h3>
+        <ul>
+          <li><a href="/tools/ghl-logo-generator/">Logo CSS Generator</a></li>
+          <li><a href="/tools/sms-segment-calculator/">SMS Segment Calculator</a></li>
+          <li><a href="/tools/a2p-10dlc-generator/">A2P 10DLC Kit</a></li>
+          <li><a href="/tools/merge-fields/">Merge Field Previewer</a></li>
+          <li><a href="/tools/">All tools</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h3>Resources</h3>
+        <ul>
+          <li><a href="/integrations/">Integrations</a></li>
+          <li><a href="/tools/utm-builder/">UTM Link Builder</a></li>
+          <li><a href="/tools/review-link-generator/">Review Link Generator</a></li>
+          <li><a href="/privacy.html">Privacy</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h3>HighLevel</h3>
+        <ul>
+          <li><a class="ft-hl" href="https://founder.gohighlevel.com/?fp_ref=highlevelminds" target="_blank" rel="sponsored noopener">Upgrade Your&nbsp;HighLevel&#8288;<span class="ft-ext" aria-hidden="true">↗</span></a></li>
+          <li><a class="ft-hl" href="https://www.gohighlevel.com/highlevel-bootcamp?fp_ref=highlevelminds" target="_blank" rel="sponsored noopener">Start 30-day free&nbsp;trial&#8288;<span class="ft-ext" aria-hidden="true">↗</span></a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <div class="ft-bottom">
+    <div class="ft-inner">
+      <div class="ft-bar">
+        <div class="ft-legal"><span>© <span data-year>2026</span> Saad Bin Yousaf</span><a href="/privacy.html">Privacy</a><span>Built in Karachi</span></div>
+        <a class="ft-top-link" href="#">Back to top <span aria-hidden="true">↑</span></a>
+      </div>
+      <p class="ft-note">Independent tools built by Saad Bin Yousaf. Not affiliated with, endorsed by, or sponsored by HighLevel Inc. HighLevel and GoHighLevel are trademarks of their respective owner. HighLevel signup links in this footer are affiliate links. Tool output is guidance, not legal advice — always review it for your business.</p>
+    </div>
+  </div>
 </footer>
-<script src="/tools/assets/tools.js?v=20261113g"></script>
-<script src="/tools/sms-segment-calculator/app.js?v=20261113g"></script>
-<script src="/js/ads.js?v=20261113g"></script>
+<script src="/tools/assets/tools.js?v=20261113j"></script>
+<script src="/tools/sms-segment-calculator/app.js?v=20261113j"></script>
+<script src="/js/ads.js?v=20261113j"></script>
 </body>
 </html>
