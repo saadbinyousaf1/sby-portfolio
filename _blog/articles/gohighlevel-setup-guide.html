@@ -1,0 +1,202 @@
+<!--
+{
+  "slug": "gohighlevel-setup-guide",
+  "order": 3,
+  "title": "How to Set Up GoHighLevel: A Step-by-Step Beginner's Guide",
+  "shortTitle": "How to set up GoHighLevel",
+  "seoTitle": "How to Set Up GoHighLevel: Step-by-Step Beginner's Guide (2026)",
+  "description": "Configure a new HighLevel account in the order that avoids rework: business settings, domains, email and text sending, a pipeline, a calendar, a form and your first workflow.",
+  "category": "Tutorials",
+  "visual": "checklist",
+  "published": "2026-11-13",
+  "updated": "2026-11-13",
+  "keywords": ["gohighlevel setup", "how to set up gohighlevel", "tutorial", "sub-account", "domain", "dns", "a2p 10dlc", "dedicated sending domain", "spf dkim dmarc", "pipeline", "calendar", "form", "workflow", "automation", "onboarding", "checklist"],
+  "next": [
+    { "slug": "gohighlevel-pricing-guide", "reason": "Check you're on the right plan and know what usage will cost" },
+    { "slug": "what-is-gohighlevel", "reason": "Step back and see how all the tools fit together" }
+  ],
+  "sources": [
+    { "label": "HighLevel help centre", "url": "https://help.gohighlevel.com/" },
+    { "label": "Dedicated Email Sending Domains: Overview & Setup", "url": "https://help.gohighlevel.com/support/solutions/articles/48001226115-dedicated-email-sending-domains-overview-setup" },
+    { "label": "Email Sending Guide: Best Practices & Warm Up", "url": "https://help.gohighlevel.com/support/solutions/articles/155000001021-email-sending-guide-email-best-practices-email-warm-up" },
+    { "label": "What is A2P 10DLC: Brand and Campaign Registration", "url": "https://help.gohighlevel.com/support/solutions/articles/155000002380-us-phone-number-registrations" },
+    { "label": "LC Phone Pricing & Billing Guide", "url": "https://help.gohighlevel.com/support/solutions/articles/48001223556-lc-phone-pricing-billing-guide" },
+    { "label": "HighLevel Bootcamp page", "url": "https://www.gohighlevel.com/highlevel-bootcamp" }
+  ]
+}
+-->
+<h2 id="before-you-start">Before you start</h2>
+<p>A new HighLevel account is empty, and it lets you build things in any order. That freedom causes most beginner trouble: people build a funnel first, then find their emails land in spam and their texts are blocked because the unglamorous sending setup was never done.</p>
+<p>This guide follows the order that avoids rework. The steps with waiting periods, domain verification and US text registration, come early so approval can run in the background while you build everything else. Plan on two to three hours of your own time, spread over a few days.</p>
+<p>Have these ready:</p>
+<ul class="checklist">
+<li>Login details for wherever your domain's DNS is managed (GoDaddy, Cloudflare, Namecheap and so on)</li>
+<li>Your legal business name, address and phone number, exactly as registered</li>
+<li>Your tax ID (an EIN in the US) if you plan to text US phone numbers</li>
+<li>A live website with a privacy policy and terms page</li>
+<li>Your logo, and a list of the stages a lead passes through before becoming a customer</li>
+<li>A spreadsheet of existing contacts, if you have one, and proof they agreed to hear from you</li>
+</ul>
+<div class="callout"><strong>Menus move</strong>HighLevel updates its interface often, and it has been rolling out a redesigned navigation. The paths below were correct when this guide was checked. If a label has moved, the search box at the top of the app finds settings by name.</div>
+<p>If you don't have an account yet, HighLevel's live Bootcamp covers several of the same first steps with a coach on screen.</p>
+{{cta:bootcamp}}
+
+<h2 id="step-1-create-your-account"><span class="step-num">1.</span>Create your account and pick a plan</h2>
+<p>Signup asks for your business details, a plan and a payment card. Choose Starter unless you already manage more than three client businesses. You can upgrade from inside the app later, and the <a href="/blog/gohighlevel-pricing-guide/#which-plan-fits-you">pricing guide</a> explains when that is worth doing.</p>
+<p>Two things to do in the first five minutes:</p>
+<ul>
+<li>Put the trial end date in your calendar. Billing starts automatically when the trial ends.</li>
+<li>Turn on two-factor authentication for your login. This account will hold customer data and a payment wallet.</li>
+</ul>
+
+<h2 id="step-2-agency-view-and-sub-accounts"><span class="step-num">2.</span>Understand agency view and create a sub-account</h2>
+<p>You land in the agency view. It manages billing, team members and the list of sub-accounts. You do not build CRM, calendars or automations here.</p>
+<p>Open <strong>Sub-Accounts</strong> and create one for your business. HighLevel offers industry templates called snapshots at this point. A snapshot preloads pipelines, workflows and pages. For a first account, start blank or with a very simple one. A large snapshot fills the account with automations you don't yet understand, and some of them will send messages.</p>
+<p>Then use the account switcher to enter the sub-account. Everything from here on happens inside it.</p>
+<p>If you are an agency, create one sub-account for your own business first and treat it as your practice ground. Create client sub-accounts only after you have been through this whole guide once.</p>
+
+<h2 id="step-3-business-settings"><span class="step-num">3.</span>Fill in business settings</h2>
+<p>Go to <strong>Settings &gt; Business Profile</strong> and complete every field: business name, legal name, address, phone, website, logo and time zone.</p>
+<p>These fields do real work. The time zone controls when scheduled messages send and how calendar slots display. The address is inserted into the footer of marketing emails, which US anti-spam law requires. The legal name and address are checked against official records during text registration, and a mismatch is a common reason for rejection.</p>
+<p>While you are in Settings, open <strong>My Staff</strong> and add anyone who will answer leads, with the narrowest role that lets them do their job.</p>
+
+<h2 id="step-4-connect-your-domain"><span class="step-num">4.</span>Connect your domain</h2>
+<p>Pages you build in HighLevel are published on a domain you connect. Until you connect one, they sit on a long preview address that looks untrustworthy to visitors.</p>
+<ol>
+<li>Decide where HighLevel pages will live. If your main website is hosted elsewhere, use a subdomain such as <code>go.yourbusiness.com</code>. If HighLevel will host the whole site, use the root domain and <code>www</code>.</li>
+<li>In <strong>Settings &gt; Domains</strong>, choose to add a domain and enter it.</li>
+<li>HighLevel shows the DNS record to create, usually a CNAME for a subdomain or an A record for a root domain. Add it at your DNS provider exactly as shown.</li>
+<li>Return to HighLevel and verify. DNS changes can take from a few minutes to a day to spread. An SSL certificate is issued automatically once the record is found.</li>
+</ol>
+<p>If your domain is on Cloudflare, set the new record to "DNS only" while HighLevel verifies it.</p>
+
+<h2 id="step-5-set-up-email-sending"><span class="step-num">5.</span>Set up email sending</h2>
+<p>By default, HighLevel sends email through its built-in service, LC Email, from a shared domain. That is fine for a test message and poor for real campaigns. Gmail, Yahoo and Outlook expect bulk senders to send from a domain they have authenticated themselves.</p>
+<h3>Add a dedicated sending domain</h3>
+<ol>
+<li>Go to <strong>Settings &gt; Email Services</strong> and open the dedicated domain section.</li>
+<li>Enter a subdomain used for nothing else, such as <code>mail.yourbusiness.com</code>. HighLevel's documentation recommends a unique subdomain so that marketing email is kept apart from your everyday business mailbox.</li>
+<li>HighLevel lists DNS records to add. These set up SPF and DKIM, which prove the email really comes from you, plus records for tracking and replies. Copy each one to your DNS provider.</li>
+<li>Click verify. Wait until every record shows as verified.</li>
+</ol>
+<h3>Add a DMARC record</h3>
+<p>DMARC tells inbox providers what to do with mail that fails those checks. If your root domain has no DMARC record, add a basic one at your DNS provider as a TXT record named <code>_dmarc</code>, starting with a monitoring-only policy:</p>
+<p><code>v=DMARC1; p=none; rua=mailto:you@yourbusiness.com</code></p>
+<h3>Match your From address</h3>
+<p>Your From address must be on the same root domain as the sending domain. If the sending domain is <code>mail.yourbusiness.com</code>, then <code>hello@yourbusiness.com</code> works and an address on a different domain does not. Avoid sending from a free Gmail or Yahoo address.</p>
+<h3>Start gently</h3>
+<p>A new sending domain has no reputation. Send to small batches of your most engaged contacts first and increase volume over a few weeks. HighLevel's email sending guide describes a warm-up schedule. Every marketing email also needs a working unsubscribe link, which HighLevel's templates include, and your physical address.</p>
+
+<h2 id="step-6-phone-number-and-text-registration"><span class="step-num">6.</span>Get a phone number and register for texting</h2>
+<p>In <strong>Settings &gt; Phone Numbers</strong>, buy a number. A local number costs $1.15 a month at the time of writing. Choose your own area code if local customers will see it.</p>
+<h3>If you will text people in the US</h3>
+<p>US mobile carriers require any business sending texts from a standard ten-digit number to register who they are and what they send. The scheme is called A2P 10DLC. Unregistered messages are filtered or blocked, so skipping this step leaves you unable to text customers.</p>
+<ol>
+<li>In <strong>Settings &gt; Phone Numbers</strong>, open the <strong>Trust Center</strong> and start registration.</li>
+<li><strong>Register your brand.</strong> Enter your legal business name, tax ID and address exactly as they appear on official records. HighLevel's documentation says a tax ID is required for the Low Volume Standard and Standard options.</li>
+<li><strong>Register your campaign.</strong> Describe what you will send, provide sample messages, and explain how people opt in. Be specific and truthful. "Appointment reminders and follow-up to customers who request a quote through the form on our website" is the kind of description reviewers look for.</li>
+<li>Pay the fee and wait. HighLevel's guide lists a one-time fee of about $22.50 for a low-volume registration and a monthly campaign fee from $1.50. Reviews usually take a few business days.</li>
+</ol>
+<p>Registrations are rejected most often for three reasons: the business name doesn't match tax records, the website has no privacy policy, or the opt-in description doesn't match what the form on the site actually says. Fix those before you submit.</p>
+<p>HighLevel's documentation also suggests toll-free number verification as a route that often lets you start sending sooner while a local-number registration is reviewed.</p>
+<div class="callout warn"><strong>Consent comes first</strong>Registration doesn't give you permission to text anyone. In the US, marketing texts require the recipient's prior written consent, and every message must offer a way to opt out. Other countries have their own rules. This guide isn't legal advice, so check the requirements where your customers live.</div>
+<p>If you only operate outside the US, the registration above doesn't apply, but number availability and sender rules vary by country. Check HighLevel's help centre for yours.</p>
+
+<h2 id="step-7-shape-your-crm"><span class="step-num">7.</span>Shape your CRM and import contacts</h2>
+<p>Before importing anyone, decide what you need to know about a contact that HighLevel doesn't store by default.</p>
+<ul>
+<li><strong>Custom fields</strong> hold structured answers, such as "Service needed", "Budget" or "Property type". Create them in <strong>Settings &gt; Custom Fields</strong>. Add only the fields you will actually filter or personalise by.</li>
+<li><strong>Tags</strong> are quick labels such as <code>newsletter</code> or <code>past-customer</code>. Agree on a naming style now. Lowercase with hyphens is a sensible convention.</li>
+</ul>
+<p>To import, go to <strong>Contacts</strong>, choose import, upload a CSV and map each column to a field. Three rules keep imports clean:</p>
+<ul>
+<li>Include country codes on phone numbers, or set the default country during import.</li>
+<li>Add a tag that records where the list came from and when, for example <code>import-2026-11-old-crm</code>.</li>
+<li>Import only people who agreed to hear from you. Uploading a bought list damages your sending reputation and can break the law.</li>
+</ul>
+<p>Import five rows first, check them, then import the rest.</p>
+
+<h2 id="step-8-build-your-first-pipeline"><span class="step-num">8.</span>Build your first pipeline</h2>
+<p>A pipeline is the list of stages a deal moves through. Go to <strong>Opportunities &gt; Pipelines</strong> and create one.</p>
+<p>Name each stage after something that has happened. Avoid stages named after a feeling. "Contacted" and "Appointment booked" are facts anyone on the team can verify. "Warm" and "Interested" mean something different to each person. A workable first pipeline for a service business:</p>
+<ol>
+<li>New lead</li>
+<li>Contacted</li>
+<li>Appointment booked</li>
+<li>Quote sent</li>
+<li>Won</li>
+</ol>
+<p>Lost deals are handled by marking an opportunity's status as lost, so you don't need a stage for them. Start with one pipeline. Add a second only when you have a truly different sales process.</p>
+
+<h2 id="step-9-create-a-booking-calendar"><span class="step-num">9.</span>Create a booking calendar</h2>
+<p>Go to <strong>Calendars &gt; Calendar Settings</strong> and create a calendar. For one person taking bookings, the simple or personal booking type is enough. For a team sharing bookings, use round robin.</p>
+<p>The settings that matter most:</p>
+<ul>
+<li><strong>Availability.</strong> Set the real hours you will take appointments.</li>
+<li><strong>Duration and buffer.</strong> Add buffer time between meetings so they can't be booked back to back.</li>
+<li><strong>Minimum notice.</strong> Stop people booking a slot that starts in ten minutes.</li>
+<li><strong>Calendar sync.</strong> Connect your Google or Outlook calendar under your profile's integrations and switch on conflict checking, so personal events block booking slots.</li>
+<li><strong>Confirmation.</strong> Decide whether bookings are confirmed automatically or need approval.</li>
+</ul>
+<p>Open the booking link in a private browser window and book a test appointment to see what a customer sees.</p>
+
+<h2 id="step-10-build-a-lead-capture-form"><span class="step-num">10.</span>Build a lead capture form</h2>
+<p>Go to <strong>Sites &gt; Forms</strong> and build a form with the fewest fields you can live with: name, email, phone and one question that helps you qualify the lead. Each extra field reduces the number of people who finish.</p>
+<p>Add consent wording. If you will text leads, include an unticked checkbox with clear language, for example: "I agree to receive text messages from [Business name] about my enquiry. Message and data rates may apply. Reply STOP to opt out." Link to your privacy policy beside it. This wording should match what you described in your text registration.</p>
+<p>Set what happens after submission, either a thank-you message or a redirect to your booking calendar, then place the form on a page. You can embed it on an existing website with the code HighLevel provides, or build a landing page under <strong>Sites &gt; Funnels</strong> on the domain you connected in step 4.</p>
+
+<h2 id="step-11-build-your-first-workflow"><span class="step-num">11.</span>Build your first workflow</h2>
+<p>Go to <strong>Automation &gt; Workflows</strong>, create a workflow and start from scratch. Build one automation that covers the most valuable moment in your business, a new enquiry, before you build anything else.</p>
+<figure class="flow">
+<ol>
+<li><b>Trigger: Form submitted</b><span>Filter it to the form you built in step 10.</span></li>
+<li><b>Create or update opportunity</b><span>Pipeline: your new pipeline. Stage: New lead.</span></li>
+<li><b>Send SMS</b><span>"Hi {{contact.first_name}}, thanks for your enquiry. You can pick a time for a call here: [booking link]." Send only if the consent box was ticked.</span></li>
+<li><b>Send email</b><span>The same message with more detail, from the address you authenticated in step 5.</span></li>
+<li><b>Internal notification</b><span>Alert the person responsible by app notification or email.</span></li>
+<li><b>Wait 1 day, then check</b><span>If no appointment exists, send one reminder. If the contact has replied, stop.</span></li>
+</ol>
+<figcaption>A first workflow. In the workflow's settings, turn on the option to stop when the contact responds, so a person takes over the conversation.</figcaption>
+</figure>
+<p>Then build a second, very short workflow: trigger <strong>Appointment status: booked</strong>, action <strong>update opportunity</strong> to "Appointment booked". Appointment reminders can be added to this workflow or switched on in the calendar's notification settings. Use one method only, or customers receive duplicates.</p>
+<p>Workflows start as drafts. Nothing runs until you set the workflow to <strong>Publish</strong> and save.</p>
+
+<h2 id="step-12-test-end-to-end"><span class="step-num">12.</span>Test everything end to end</h2>
+<p>Test as a customer would, using a personal email address and mobile number that aren't already contacts in the account.</p>
+<ul class="checklist">
+<li>The page loads on your own domain with a padlock in the address bar</li>
+<li>Submitting the form creates a contact with every field filled in correctly</li>
+<li>An opportunity appears in "New lead"</li>
+<li>The text arrives within a minute or two, from your number</li>
+<li>The email arrives in the inbox, not spam, and shows your From name and address</li>
+<li>You received the internal notification</li>
+<li>Replying to the text shows up in Conversations and stops the workflow</li>
+<li>Booking through the link creates the appointment and moves the opportunity</li>
+<li>The appointment appears in your Google or Outlook calendar</li>
+<li>Replying STOP marks the contact as opted out of texts</li>
+<li>The unsubscribe link in the email works</li>
+</ul>
+<p>If a step fails, open the workflow's execution logs. They show, contact by contact, which action ran and why one was skipped. To check email authentication, open the test email in Gmail, choose "Show original" and confirm SPF, DKIM and DMARC all say pass.</p>
+
+<h2 id="common-mistakes">Common mistakes</h2>
+<ul>
+<li><strong>Building in the agency view.</strong> If you can't find Contacts or Workflows, you are probably not inside a sub-account.</li>
+<li><strong>Launching before sending is set up.</strong> Campaigns sent from an unauthenticated domain or an unregistered number mostly don't arrive, and early failures hurt your reputation with inbox providers.</li>
+<li><strong>Loading a large snapshot on day one.</strong> You inherit dozens of workflows you didn't write. Learn with one you built.</li>
+<li><strong>Forgetting to publish.</strong> A draft workflow looks finished and does nothing.</li>
+<li><strong>Sending reminders twice.</strong> Calendar notifications and a reminder workflow both active means duplicate messages.</li>
+<li><strong>Importing without consent.</strong> Old or purchased lists generate complaints, and complaints get numbers and domains blocked.</li>
+<li><strong>Ignoring the wallet.</strong> Set a sensible auto-recharge amount and check usage weekly in the first month so costs don't surprise you. The <a href="/blog/gohighlevel-pricing-guide/#usage-charges">pricing guide lists every usage rate</a>.</li>
+<li><strong>Too many stages, tags and fields.</strong> Structure nobody maintains becomes noise. Add it when a real need appears.</li>
+</ul>
+
+<h2 id="what-to-do-next">What to do next</h2>
+<p>With one working loop in place, improve it before you add more. Good second projects, in rough order of payoff:</p>
+<ol>
+<li><strong>Missed-call text back.</strong> A workflow that texts anyone whose call you couldn't answer.</li>
+<li><strong>Review requests.</strong> A message asking for a review a few days after an opportunity is marked won.</li>
+<li><strong>A long-term nurture sequence</strong> for leads who didn't book.</li>
+<li><strong>The mobile app</strong> for everyone who answers leads, with notifications on.</li>
+<li><strong>A monthly review</strong> of pipeline numbers: how many leads came in, how many were contacted within an hour, how many booked.</li>
+</ol>
+<p>If you are still deciding whether the platform suits your business at all, the <a href="/blog/what-is-gohighlevel/">beginner's guide</a> covers its strengths and limits. If you manage several businesses and are close to Starter's three sub-account limit, read <a href="/blog/gohighlevel-pricing-guide/#already-on-highlevel">when an upgrade is worth it</a>.</p>
